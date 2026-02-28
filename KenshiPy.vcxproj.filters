@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)src\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(ProjectDir)src\KenshiPy_wraps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KenshiPy_Plugin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\KenshiPy_Plugin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dllmain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ArtifactItemData_stub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CharMovement_guarded.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="interfaces\Bounty.i" />
+    <None Include="interfaces\BountyManager.i" />
+    <None Include="interfaces\Building.i" />
+    <None Include="interfaces\Character.i" />
+    <None Include="interfaces\CharacterAnimal.i" />
+    <None Include="interfaces\CharacterHuman.i" />
+    <None Include="interfaces\CharMovement.i" />
+    <None Include="interfaces\CharStats.i" />
+    <None Include="interfaces\CombatClass.i" />
+    <None Include="interfaces\CombatTechniqueData.i" />
+    <None Include="interfaces\Damages.i" />
+    <None Include="interfaces\Debug.i" />
+    <None Include="interfaces\Dialogue.i" />
+    <None Include="interfaces\Enums.i" />
+    <None Include="interfaces\Faction.i" />
+    <None Include="interfaces\FactionLeader.i" />
+    <None Include="interfaces\FactionRelations.i" />
+    <None Include="interfaces\FactionUniqueSquadManager.i" />
+    <None Include="interfaces\FactionWarMgr.i" />
+    <None Include="interfaces\FitnessSelector.i" />
+    <None Include="interfaces\Functions.i" />
+    <None Include="interfaces\GameData.i" />
+    <None Include="interfaces\GameDataManager.i" />
+    <None Include="interfaces\GameLauncher.i" />
+    <None Include="interfaces\GameSaveState.i" />
+    <None Include="interfaces\GameWorld.i" />
+    <None Include="interfaces\Gear.i" />
+    <None Include="interfaces\GlobalConstants.i" />
+    <None Include="interfaces\Globals.i" />
+    <None Include="interfaces\InputHandler.i" />
+    <None Include="interfaces\InstanceID.i" />
+    <None Include="interfaces\Inventory.i" />
+    <None Include="interfaces\Item.i" />
+    <None Include="interfaces\Kenshi.i" />
+    <None Include="interfaces\Logger.i" />
+    <None Include="interfaces\MedicalSystem.i" />
+    <None Include="interfaces\ModInfo.i" />
+    <None Include="interfaces\OptionsHolder.i" />
+    <None Include="interfaces\PhysicsActual.i" />
+    <None Include="interfaces\PhysicsCollection.i" />
+    <None Include="interfaces\PlayerInterface.i" />
+    <None Include="interfaces\RaceData.i" />
+    <None Include="interfaces\ResourceLoader.i" />
+    <None Include="interfaces\RootObject.i" />
+    <None Include="interfaces\RootObjectBase.i" />
+    <None Include="interfaces\RootObjectFactory.i" />
+    <None Include="interfaces\SaveFileSystem.i" />
+    <None Include="interfaces\SaveInfo.i" />
+    <None Include="interfaces\SaveManager.i" />
+    <None Include="interfaces\SensoryData.i" />
+    <None Include="interfaces\TagsClass.i" />
+    <None Include="interfaces\Tasks.i" />
+    <None Include="interfaces\ThreadClass.i" />
+    <None Include="interfaces\Titlescreen.i" />
+    <None Include="interfaces\Town.i" />
+    <None Include="interfaces\TradeCulture.i" />
+    <None Include="interfaces\WorldEventStateQuery.i" />
+    <None Include="interfaces\KenshiPy.i" />
+    <None Include="src\KenshiPy.py" />
+  </ItemGroup>
+</Project>

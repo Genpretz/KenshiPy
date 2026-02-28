@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a89e6ea7-a3e2-4469-a215-a6d48ddd9933}</ProjectGuid>
+    <RootNamespace>KenshiPy</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <IncludePath>C:\Users\trist\Documents\GitHub\KenshiPy\extern\KenshiLib\Include;C:\Users\trist\Documents\GitHub\KenshiPy\extern\KenshiLib\Include\kenshi;C:\Users\trist\Documents\GitHub\KenshiPy\extern\KenshiLib\Include\core;C:\Users\trist\Documents\GitHub\KenshiPy\extern\KenshiLib\Include\kenshi\util;$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(BOOST_INCLUDE_PATH);$(PYTHON34_INSTALL_DIR)include;$(RAPIDJSON_INCLUDE_PATH);$(ProjectDir)extern\KenshiLib\Include;$(ProjectDir)extern\minhook\multihook\include;$(ProjectDir)extern\KenshiLib\Include\ogre;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>python34.lib;KenshiLib.lib;OgreMain_x64.lib;boost_system-vc100-mt-gd-1_60.lib;boost_thread-vc100-mt-gd-1_60.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BOOST_INCLUDE_PATH)\stage\lib;$(PYTHON34_INSTALL_DIR)libs;$(ProjectDir)extern\KenshiLib\Binaries\Release;$(SolutionDir)extern\KenshiLib\Libraries\ogre;$(SolutionDir)extern\KenshiLib\Libraries\mygui;$(SolutionDir)KenshiPy\KenshiLib\Libraries\ogre;$(SolutionDir)extern\minhook\multihook\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PreBuildEvent>
+      <Command>"D:\Dev\SWIG\swigwin-3.0.12\swig.exe" -v -c++ -python -threads -I"$(SolutionDir)interfaces" -I"$(SolutionDir)extern\KenshiLib\Include" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi" -I"$(SolutionDir)extern\KenshiLib\Include\core" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi\util" -outdir "$(SolutionDir)src" -o "$(SolutionDir)src\KenshiPy_wraps.cpp" "$(SolutionDir)interfaces\KenshiPy.i"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="$(ProjectDir)src\dllmain.cpp" />
+    <ClCompile Include="$(ProjectDir)src\KenshiPy_wraps.cpp" />
+    <ClCompile Include="src\KenshiPy_Plugin.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\ArtifactItemData_stub.h" />
+    <ClInclude Include="include\CharMovement_guarded.h" />
+    <ClInclude Include="include\dllmain.h" />
+    <ClInclude Include="include\KenshiPy_Plugin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="interfaces\Bounty.i" />
+    <None Include="interfaces\BountyManager.i" />
+    <None Include="interfaces\Building.i" />
+    <None Include="interfaces\Character.i" />
+    <None Include="interfaces\CharacterAnimal.i" />
+    <None Include="interfaces\CharacterHuman.i" />
+    <None Include="interfaces\CharMovement.i" />
+    <None Include="interfaces\CharStats.i" />
+    <None Include="interfaces\CombatClass.i" />
+    <None Include="interfaces\CombatTechniqueData.i" />
+    <None Include="interfaces\Damages.i" />
+    <None Include="interfaces\Debug.i" />
+    <None Include="interfaces\Dialogue.i" />
+    <None Include="interfaces\Enums.i" />
+    <None Include="interfaces\Faction.i" />
+    <None Include="interfaces\FactionLeader.i" />
+    <None Include="interfaces\FactionRelations.i" />
+    <None Include="interfaces\FactionUniqueSquadManager.i" />
+    <None Include="interfaces\FactionWarMgr.i" />
+    <None Include="interfaces\FitnessSelector.i" />
+    <None Include="interfaces\Functions.i" />
+    <None Include="interfaces\GameData.i" />
+    <None Include="interfaces\GameDataManager.i" />
+    <None Include="interfaces\GameLauncher.i" />
+    <None Include="interfaces\GameSaveState.i" />
+    <None Include="interfaces\GameWorld.i" />
+    <None Include="interfaces\Gear.i" />
+    <None Include="interfaces\GlobalConstants.i" />
+    <None Include="interfaces\Globals.i" />
+    <None Include="interfaces\InputHandler.i" />
+    <None Include="interfaces\InstanceID.i" />
+    <None Include="interfaces\Inventory.i" />
+    <None Include="interfaces\Item.i" />
+    <None Include="interfaces\Kenshi.i" />
+    <None Include="interfaces\KenshiPy.i" />
+    <None Include="interfaces\Logger.i" />
+    <None Include="interfaces\MedicalSystem.i" />
+    <None Include="interfaces\ModInfo.i" />
+    <None Include="interfaces\OptionsHolder.i" />
+    <None Include="interfaces\PhysicsActual.i" />
+    <None Include="interfaces\PhysicsCollection.i" />
+    <None Include="interfaces\PlayerInterface.i" />
+    <None Include="interfaces\RaceData.i" />
+    <None Include="interfaces\ResourceLoader.i" />
+    <None Include="interfaces\RootObject.i" />
+    <None Include="interfaces\RootObjectBase.i" />
+    <None Include="interfaces\RootObjectFactory.i" />
+    <None Include="interfaces\SaveFileSystem.i" />
+    <None Include="interfaces\SaveInfo.i" />
+    <None Include="interfaces\SaveManager.i" />
+    <None Include="interfaces\SensoryData.i" />
+    <None Include="interfaces\TagsClass.i" />
+    <None Include="interfaces\Tasks.i" />
+    <None Include="interfaces\ThreadClass.i" />
+    <None Include="interfaces\Titlescreen.i" />
+    <None Include="interfaces\Town.i" />
+    <None Include="interfaces\TradeCulture.i" />
+    <None Include="interfaces\WorldEventStateQuery.i" />
+    <None Include="src\KenshiPy.py" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

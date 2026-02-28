@@ -39,3 +39,11 @@
 
 # debug information files
 *.dwo
+/.vs/KenshiPy
+/bin/Release
+/extern/KenshiLib
+/extern/minhook-multihook/include
+/extern/rapidjson
+/obj/Release
+*.user
+*.sln
