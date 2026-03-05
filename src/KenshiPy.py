@@ -2231,6 +2231,107 @@ NX_SF_CLOTH_TWOWAY = _KenshiPy.NX_SF_CLOTH_TWOWAY
 NX_SF_SOFTBODY_DRAIN = _KenshiPy.NX_SF_SOFTBODY_DRAIN
 NX_SF_SOFTBODY_DISABLE_COLLISION = _KenshiPy.NX_SF_SOFTBODY_DISABLE_COLLISION
 NX_SF_SOFTBODY_TWOWAY = _KenshiPy.NX_SF_SOFTBODY_TWOWAY
+class hand(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, hand, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, hand, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _KenshiPy.new_hand(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_setmethods__["type"] = _KenshiPy.hand_type_set
+    __swig_getmethods__["type"] = _KenshiPy.hand_type_get
+    if _newclass:
+        type = _swig_property(_KenshiPy.hand_type_get, _KenshiPy.hand_type_set)
+    __swig_setmethods__["container"] = _KenshiPy.hand_container_set
+    __swig_getmethods__["container"] = _KenshiPy.hand_container_get
+    if _newclass:
+        container = _swig_property(_KenshiPy.hand_container_get, _KenshiPy.hand_container_set)
+    __swig_setmethods__["containerSerial"] = _KenshiPy.hand_containerSerial_set
+    __swig_getmethods__["containerSerial"] = _KenshiPy.hand_containerSerial_get
+    if _newclass:
+        containerSerial = _swig_property(_KenshiPy.hand_containerSerial_get, _KenshiPy.hand_containerSerial_set)
+    __swig_setmethods__["index"] = _KenshiPy.hand_index_set
+    __swig_getmethods__["index"] = _KenshiPy.hand_index_get
+    if _newclass:
+        index = _swig_property(_KenshiPy.hand_index_get, _KenshiPy.hand_index_set)
+    __swig_setmethods__["serial"] = _KenshiPy.hand_serial_set
+    __swig_getmethods__["serial"] = _KenshiPy.hand_serial_get
+    if _newclass:
+        serial = _swig_property(_KenshiPy.hand_serial_get, _KenshiPy.hand_serial_set)
+
+    def toString(self):
+        return _KenshiPy.hand_toString(self)
+
+    def fromString(self, str):
+        return _KenshiPy.hand_fromString(self, str)
+
+    def __eq__(self, *args):
+        return _KenshiPy.hand___eq__(self, *args)
+
+    def __ne__(self, *args):
+        return _KenshiPy.hand___ne__(self, *args)
+
+    def __nonzero__(self):
+        return _KenshiPy.hand___bool__(self)
+    __bool__ = __nonzero__
+
+
+
+    def getCharacter(self):
+        return _KenshiPy.hand_getCharacter(self)
+
+    def getPlatoon(self):
+        return _KenshiPy.hand_getPlatoon(self)
+
+    def getActivePlatoon(self):
+        return _KenshiPy.hand_getActivePlatoon(self)
+
+    def getBuilding(self):
+        return _KenshiPy.hand_getBuilding(self)
+
+    def getItem(self):
+        return _KenshiPy.hand_getItem(self)
+
+    def getRootObject(self):
+        return _KenshiPy.hand_getRootObject(self)
+
+    def getRootObjectBase(self):
+        return _KenshiPy.hand_getRootObjectBase(self)
+
+    def getTown(self):
+        return _KenshiPy.hand_getTown(self)
+
+    def debugWhatHappenedToMe(self):
+        return _KenshiPy.hand_debugWhatHappenedToMe(self)
+
+    def __lt__(self, h):
+        return _KenshiPy.hand___lt__(self, h)
+
+    def setNull(self):
+        return _KenshiPy.hand_setNull(self)
+
+    def isNull(self):
+        return _KenshiPy.hand_isNull(self)
+
+    def isValid(self):
+        return _KenshiPy.hand_isValid(self)
+
+    def canCastToRootObject(self):
+        return _KenshiPy.hand_canCastToRootObject(self)
+
+    def squadMatch(self, h):
+        return _KenshiPy.hand_squadMatch(self, h)
+    __swig_destroy__ = _KenshiPy.delete_hand
+    __del__ = lambda self: None
+hand_swigregister = _KenshiPy.hand_swigregister
+hand_swigregister(hand)
+
 class RootObjectBase(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, RootObjectBase, name, value)
@@ -3316,6 +3417,18 @@ class TownBase(RootObject):
     def _NV_findAllBuildings(self, finder):
         return _KenshiPy.TownBase__NV_findAllBuildings(self, finder)
 
+    def findAllBuildingsOfType(self, func, me):
+        return _KenshiPy.TownBase_findAllBuildingsOfType(self, func, me)
+
+    def _NV_findAllBuildingsOfType(self, func, me):
+        return _KenshiPy.TownBase__NV_findAllBuildingsOfType(self, func, me)
+
+    def findAllBuildingsWithFunction(self, func, me):
+        return _KenshiPy.TownBase_findAllBuildingsWithFunction(self, func, me)
+
+    def _NV_findAllBuildingsWithFunction(self, func, me):
+        return _KenshiPy.TownBase__NV_findAllBuildingsWithFunction(self, func, me)
+
     def allBuildingsDoorsOpen(self):
         return _KenshiPy.TownBase_allBuildingsDoorsOpen(self)
 
@@ -3635,6 +3748,10 @@ class TownBase(RootObject):
     __swig_getmethods__["defaultResident"] = _KenshiPy.TownBase_defaultResident_get
     if _newclass:
         defaultResident = _swig_property(_KenshiPy.TownBase_defaultResident_get, _KenshiPy.TownBase_defaultResident_set)
+    __swig_setmethods__["delayedItemLoading"] = _KenshiPy.TownBase_delayedItemLoading_set
+    __swig_getmethods__["delayedItemLoading"] = _KenshiPy.TownBase_delayedItemLoading_get
+    if _newclass:
+        delayedItemLoading = _swig_property(_KenshiPy.TownBase_delayedItemLoading_get, _KenshiPy.TownBase_delayedItemLoading_set)
 TownBase_swigregister = _KenshiPy.TownBase_swigregister
 TownBase_swigregister(TownBase)
 
@@ -3645,6 +3762,7 @@ TownBase_delayedSpawningChecks = _KenshiPy.TownBase_delayedSpawningChecks
 def TownBase_clearDelayedItemLoadingMessages():
     return _KenshiPy.TownBase_clearDelayedItemLoadingMessages()
 TownBase_clearDelayedItemLoadingMessages = _KenshiPy.TownBase_clearDelayedItemLoadingMessages
+cvar = _KenshiPy.cvar
 
 class Town(TownBase):
     __swig_setmethods__ = {}
@@ -3994,9 +4112,6 @@ class Town(TownBase):
     def getPlayerTownTypeEnum(self):
         return _KenshiPy.Town_getPlayerTownTypeEnum(self)
 
-    def facilitesWeHaveHere(self):
-        return _KenshiPy.Town_facilitesWeHaveHere(self)
-
     def deActivationCheck(self):
         return _KenshiPy.Town_deActivationCheck(self)
 
@@ -4061,10 +4176,6 @@ class Town(TownBase):
     __swig_getmethods__["batteryChargeMax_Stat"] = _KenshiPy.Town_batteryChargeMax_Stat_get
     if _newclass:
         batteryChargeMax_Stat = _swig_property(_KenshiPy.Town_batteryChargeMax_Stat_get, _KenshiPy.Town_batteryChargeMax_Stat_set)
-    __swig_setmethods__["_facilitesWeHaveHere"] = _KenshiPy.Town__facilitesWeHaveHere_set
-    __swig_getmethods__["_facilitesWeHaveHere"] = _KenshiPy.Town__facilitesWeHaveHere_get
-    if _newclass:
-        _facilitesWeHaveHere = _swig_property(_KenshiPy.Town__facilitesWeHaveHere_get, _KenshiPy.Town__facilitesWeHaveHere_set)
 
     def _initialiseResidentData(self, residentSourceData):
         return _KenshiPy.Town__initialiseResidentData(self, residentSourceData)
@@ -14471,10 +14582,6 @@ class SeenSomeone(_object):
     __swig_getmethods__["FOVScore"] = _KenshiPy.SeenSomeone_FOVScore_get
     if _newclass:
         FOVScore = _swig_property(_KenshiPy.SeenSomeone_FOVScore_get, _KenshiPy.SeenSomeone_FOVScore_set)
-    __swig_setmethods__["type"] = _KenshiPy.SeenSomeone_type_set
-    __swig_getmethods__["type"] = _KenshiPy.SeenSomeone_type_get
-    if _newclass:
-        type = _swig_property(_KenshiPy.SeenSomeone_type_get, _KenshiPy.SeenSomeone_type_set)
 
     def lastSeenInSeconds(self):
         return _KenshiPy.SeenSomeone_lastSeenInSeconds(self)
@@ -15359,6 +15466,14 @@ def ResourceLoader_SetMeshData(entity, data):
 ResourceLoader_SetMeshData = _KenshiPy.ResourceLoader_SetMeshData
 
 
+def showErrorMessage():
+    return _KenshiPy.showErrorMessage()
+showErrorMessage = _KenshiPy.showErrorMessage
+
+def modMedicalSkill(skill, equipment, frameTIME):
+    return _KenshiPy.modMedicalSkill(skill, equipment, frameTIME)
+modMedicalSkill = _KenshiPy.modMedicalSkill
+
 def getGameWorld():
     return _KenshiPy.getGameWorld()
 getGameWorld = _KenshiPy.getGameWorld
@@ -15374,14 +15489,6 @@ getInputHandler = _KenshiPy.getInputHandler
 def getOptionsHolder():
     return _KenshiPy.getOptionsHolder()
 getOptionsHolder = _KenshiPy.getOptionsHolder
-
-def showErrorMessage():
-    return _KenshiPy.showErrorMessage()
-showErrorMessage = _KenshiPy.showErrorMessage
-
-def modMedicalSkill(skill, equipment, frameTIME):
-    return _KenshiPy.modMedicalSkill(skill, equipment, frameTIME)
-modMedicalSkill = _KenshiPy.modMedicalSkill
 class BaseLayout(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, BaseLayout, name, value)

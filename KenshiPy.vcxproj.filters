@@ -15,27 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(ProjectDir)src\dllmain.cpp">
+    <ClCompile Include="src\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="$(ProjectDir)src\KenshiPy_wraps.cpp">
+    <ClCompile Include="src\KenshiPy_wraps.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\KenshiPy_Plugin.cpp">
+    <ClCompile Include="src\KenshiPy_Runtime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\KenshiOgrePlugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\KenshiPy_Plugin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\dllmain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\ArtifactItemData_stub.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\CharMovement_guarded.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\KenshiPy_Runtime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\KenshiOgrePlugin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -90,7 +93,6 @@
     <None Include="interfaces\SaveInfo.i" />
     <None Include="interfaces\SaveManager.i" />
     <None Include="interfaces\SensoryData.i" />
-    <None Include="interfaces\TagsClass.i" />
     <None Include="interfaces\Tasks.i" />
     <None Include="interfaces\ThreadClass.i" />
     <None Include="interfaces\Titlescreen.i" />
@@ -99,5 +101,7 @@
     <None Include="interfaces\WorldEventStateQuery.i" />
     <None Include="interfaces\KenshiPy.i" />
     <None Include="src\KenshiPy.py" />
+    <None Include="interfaces\TagsClass.i" />
+    <None Include="interfaces\lektor.i" />
   </ItemGroup>
 </Project>

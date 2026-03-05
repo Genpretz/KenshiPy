@@ -5,14 +5,15 @@
 
 %include "std_string.i"
 
+%import "TagsClass.h"
+
 // ArtifactItemData is only forward-declared in Town.h - full type unavailable
 %ignore TownBase::artifacts;
 %ignore TownBase::addArtifactItem;
-// Static member not exported from KenshiLib.lib
-%ignore TownBase::delayedItemLoading;
-%ignore TownBase::findAllBuildingsOfType;
-%ignore TownBase::_NV_findAllBuildingsOfType;
-%ignore TownBase::findAllBuildingsWithFunction;
-%ignore TownBase::_NV_findAllBuildingsWithFunction;
+
+
+// TagsClass<BuildingDesignation> - not wrappable (template, no copy constructor/operator=)
+%ignore Town::facilitesWeHaveHere;
+%ignore Town::_facilitesWeHaveHere;
 
 %include "Town.h"

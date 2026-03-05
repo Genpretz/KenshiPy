@@ -8,6 +8,7 @@
 
 %{
 //#include "ArtifactItemData_stub.h"
+#include "hand.h"
 #include "Bounty.h"
 #include "BountyManager.h"
 #include "Building.h"
@@ -96,6 +97,7 @@
 %include "PhysicsActual.i"
 
 // World / town
+%include "hand.i"
 %include "RootObjectBase.i"
 %include "RootObject.i"
 %include "RootObjectFactory.i"

@@ -47,3 +47,5 @@
 /obj/Release
 *.user
 *.sln
+/src/old
+/include/old
