@@ -1,5 +1,5 @@
 %{
-#include "TagsClass.h"
+#include "util/TagsClass.h"
 %}
 
 // TagsClass is a template; cannot be wrapped uninstantiated.

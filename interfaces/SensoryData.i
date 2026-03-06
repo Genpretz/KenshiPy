@@ -4,7 +4,7 @@
 
 %include "std_string.i"
 
-%import "TagsClass.h"
+%import "util/TagsClass.h"
 
 %ignore SeenSomeone::lastSeenTime;
 %ignore SeenSomeone::lastPosition;

@@ -5,7 +5,7 @@
 
 %include "std_string.i"
 
-%import "TagsClass.h"
+%import "util/TagsClass.h"
 
 // ArtifactItemData is only forward-declared in Town.h - full type unavailable
 %ignore TownBase::artifacts;

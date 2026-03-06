@@ -1,5 +1,5 @@
 %{
-#include "lektor.h"
+#include "kenshi/util/lektor.h"
 %}
 
 // SWIG sees only this simplified declaration - no Ogre base class,

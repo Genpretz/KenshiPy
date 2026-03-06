@@ -1,5 +1,5 @@
 %{
-#include "hand.h"
+#include "util/hand.h"
 %}
 
 %include "std_string.i"
@@ -34,4 +34,4 @@
 %ignore hand::_NV_operator_equal(const hand& a) const;
 %ignore hand::_NV_operator_notequal(const hand& a) const;
 
-%include "hand.h"
+%include "util/hand.h"
