@@ -110,6 +110,7 @@
     <ClInclude Include="include\KenshiOgrePlugin.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="interfaces\util\Array2d.i" />
     <None Include="interfaces\Bounty.i" />
     <None Include="interfaces\BountyManager.i" />
     <None Include="interfaces\Building.i" />
@@ -139,13 +140,14 @@
     <None Include="interfaces\Gear.i" />
     <None Include="interfaces\GlobalConstants.i" />
     <None Include="interfaces\Globals.i" />
+    <None Include="interfaces\util\hand.i" />
     <None Include="interfaces\InputHandler.i" />
     <None Include="interfaces\InstanceID.i" />
     <None Include="interfaces\Inventory.i" />
     <None Include="interfaces\Item.i" />
     <None Include="interfaces\Kenshi.i" />
     <None Include="interfaces\KenshiPy.i" />
-    <None Include="interfaces\lektor.i" />
+    <None Include="interfaces\util\lektor.i" />
     <None Include="interfaces\Logger.i" />
     <None Include="interfaces\MedicalSystem.i" />
     <None Include="interfaces\ModInfo.i" />
@@ -162,12 +164,16 @@
     <None Include="interfaces\SaveInfo.i" />
     <None Include="interfaces\SaveManager.i" />
     <None Include="interfaces\SensoryData.i" />
-    <None Include="interfaces\TagsClass.i" />
+    <None Include="interfaces\util\iVector2.i" />
+    <None Include="interfaces\util\PerfTimer.i" />
+    <None Include="interfaces\util\StringPair.i" />
+    <None Include="interfaces\util\TagsClass.i" />
     <None Include="interfaces\Tasks.i" />
     <None Include="interfaces\ThreadClass.i" />
     <None Include="interfaces\Titlescreen.i" />
     <None Include="interfaces\Town.i" />
     <None Include="interfaces\TradeCulture.i" />
+    <None Include="interfaces\util\UtilityT.i" />
     <None Include="interfaces\WorldEventStateQuery.i" />
     <None Include="src\KenshiPy.py" />
   </ItemGroup>
