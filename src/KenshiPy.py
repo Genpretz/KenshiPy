@@ -122,6 +122,10 @@ FAIL = _KenshiPy.FAIL
 def AddHook(target, detour, original):
     return _KenshiPy.AddHook(target, detour, original)
 AddHook = _KenshiPy.AddHook
+
+def AddHookByAddress(target, detour, original):
+    return _KenshiPy.AddHookByAddress(target, detour, original)
+AddHookByAddress = _KenshiPy.AddHookByAddress
 class BinaryVersion(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, BinaryVersion, name, value)
@@ -168,6 +172,933 @@ BinaryVersion_swigregister(BinaryVersion)
 def GetKenshiVersion():
     return _KenshiPy.GetKenshiVersion()
 GetKenshiVersion = _KenshiPy.GetKenshiVersion
+class hand(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, hand, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, hand, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _KenshiPy.new_hand(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self, *args):
+        return _KenshiPy.hand__CONSTRUCTOR(self, *args)
+    __swig_setmethods__["type"] = _KenshiPy.hand_type_set
+    __swig_getmethods__["type"] = _KenshiPy.hand_type_get
+    if _newclass:
+        type = _swig_property(_KenshiPy.hand_type_get, _KenshiPy.hand_type_set)
+    __swig_setmethods__["container"] = _KenshiPy.hand_container_set
+    __swig_getmethods__["container"] = _KenshiPy.hand_container_get
+    if _newclass:
+        container = _swig_property(_KenshiPy.hand_container_get, _KenshiPy.hand_container_set)
+    __swig_setmethods__["containerSerial"] = _KenshiPy.hand_containerSerial_set
+    __swig_getmethods__["containerSerial"] = _KenshiPy.hand_containerSerial_get
+    if _newclass:
+        containerSerial = _swig_property(_KenshiPy.hand_containerSerial_get, _KenshiPy.hand_containerSerial_set)
+    __swig_setmethods__["index"] = _KenshiPy.hand_index_set
+    __swig_getmethods__["index"] = _KenshiPy.hand_index_get
+    if _newclass:
+        index = _swig_property(_KenshiPy.hand_index_get, _KenshiPy.hand_index_set)
+    __swig_setmethods__["serial"] = _KenshiPy.hand_serial_set
+    __swig_getmethods__["serial"] = _KenshiPy.hand_serial_get
+    if _newclass:
+        serial = _swig_property(_KenshiPy.hand_serial_get, _KenshiPy.hand_serial_set)
+
+    def toString(self):
+        return _KenshiPy.hand_toString(self)
+
+    def fromString(self, str):
+        return _KenshiPy.hand_fromString(self, str)
+
+    def __eq__(self, *args):
+        return _KenshiPy.hand___eq__(self, *args)
+
+    def _NV_operator_equal(self, *args):
+        return _KenshiPy.hand__NV_operator_equal(self, *args)
+
+    def __ne__(self, *args):
+        return _KenshiPy.hand___ne__(self, *args)
+
+    def _NV_operator_notequal(self, a):
+        return _KenshiPy.hand__NV_operator_notequal(self, a)
+
+    def __nonzero__(self):
+        return _KenshiPy.hand___nonzero__(self)
+    __bool__ = __nonzero__
+
+
+
+    def getCharacter(self):
+        return _KenshiPy.hand_getCharacter(self)
+
+    def getPlatoon(self):
+        return _KenshiPy.hand_getPlatoon(self)
+
+    def getActivePlatoon(self):
+        return _KenshiPy.hand_getActivePlatoon(self)
+
+    def getBuilding(self):
+        return _KenshiPy.hand_getBuilding(self)
+
+    def getItem(self):
+        return _KenshiPy.hand_getItem(self)
+
+    def getRootObject(self):
+        return _KenshiPy.hand_getRootObject(self)
+
+    def getRootObjectBase(self):
+        return _KenshiPy.hand_getRootObjectBase(self)
+
+    def getTown(self):
+        return _KenshiPy.hand_getTown(self)
+
+    def debugWhatHappenedToMe(self):
+        return _KenshiPy.hand_debugWhatHappenedToMe(self)
+
+    def __lt__(self, h):
+        return _KenshiPy.hand___lt__(self, h)
+
+    def setNull(self):
+        return _KenshiPy.hand_setNull(self)
+
+    def isNull(self):
+        return _KenshiPy.hand_isNull(self)
+
+    def isValid(self):
+        return _KenshiPy.hand_isValid(self)
+
+    def canCastToRootObject(self):
+        return _KenshiPy.hand_canCastToRootObject(self)
+
+    def squadMatch(self, h):
+        return _KenshiPy.hand_squadMatch(self, h)
+    __swig_destroy__ = _KenshiPy.delete_hand
+    __del__ = lambda self: None
+hand_swigregister = _KenshiPy.hand_swigregister
+hand_swigregister(hand)
+
+class iVector2(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, iVector2, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, iVector2, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _KenshiPy.new_iVector2(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self, *args):
+        return _KenshiPy.iVector2__CONSTRUCTOR(self, *args)
+    __swig_setmethods__["x"] = _KenshiPy.iVector2_x_set
+    __swig_getmethods__["x"] = _KenshiPy.iVector2_x_get
+    if _newclass:
+        x = _swig_property(_KenshiPy.iVector2_x_get, _KenshiPy.iVector2_x_set)
+    __swig_setmethods__["y"] = _KenshiPy.iVector2_y_set
+    __swig_getmethods__["y"] = _KenshiPy.iVector2_y_get
+    if _newclass:
+        y = _swig_property(_KenshiPy.iVector2_y_get, _KenshiPy.iVector2_y_set)
+
+    def __eq__(self, a):
+        return _KenshiPy.iVector2___eq__(self, a)
+
+    def __ne__(self, a):
+        return _KenshiPy.iVector2___ne__(self, a)
+
+    def getLinearValue(self):
+        return _KenshiPy.iVector2_getLinearValue(self)
+
+    def __lt__(self, rhs):
+        return _KenshiPy.iVector2___lt__(self, rhs)
+
+    def getAsString(self):
+        return _KenshiPy.iVector2_getAsString(self)
+
+    def __add__(self, other):
+        return _KenshiPy.iVector2___add__(self, other)
+    __swig_destroy__ = _KenshiPy.delete_iVector2
+    __del__ = lambda self: None
+iVector2_swigregister = _KenshiPy.iVector2_swigregister
+iVector2_swigregister(iVector2)
+
+class lektor_ModInfoPtr(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, lektor_ModInfoPtr, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, lektor_ModInfoPtr, name)
+    __repr__ = _swig_repr
+
+    def size(self):
+        return _KenshiPy.lektor_ModInfoPtr_size(self)
+
+    def capacity(self):
+        return _KenshiPy.lektor_ModInfoPtr_capacity(self)
+
+    def valid(self):
+        return _KenshiPy.lektor_ModInfoPtr_valid(self)
+
+    def clear(self):
+        return _KenshiPy.lektor_ModInfoPtr_clear(self)
+
+    def __getitem__(self, index):
+        return _KenshiPy.lektor_ModInfoPtr___getitem__(self, index)
+
+    def __init__(self):
+        this = _KenshiPy.new_lektor_ModInfoPtr()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _KenshiPy.delete_lektor_ModInfoPtr
+    __del__ = lambda self: None
+lektor_ModInfoPtr_swigregister = _KenshiPy.lektor_ModInfoPtr_swigregister
+lektor_ModInfoPtr_swigregister(lektor_ModInfoPtr)
+
+class lektor_CharacterPtr(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, lektor_CharacterPtr, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, lektor_CharacterPtr, name)
+    __repr__ = _swig_repr
+
+    def size(self):
+        return _KenshiPy.lektor_CharacterPtr_size(self)
+
+    def capacity(self):
+        return _KenshiPy.lektor_CharacterPtr_capacity(self)
+
+    def valid(self):
+        return _KenshiPy.lektor_CharacterPtr_valid(self)
+
+    def clear(self):
+        return _KenshiPy.lektor_CharacterPtr_clear(self)
+
+    def __getitem__(self, index):
+        return _KenshiPy.lektor_CharacterPtr___getitem__(self, index)
+
+    def __init__(self):
+        this = _KenshiPy.new_lektor_CharacterPtr()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _KenshiPy.delete_lektor_CharacterPtr
+    __del__ = lambda self: None
+lektor_CharacterPtr_swigregister = _KenshiPy.lektor_CharacterPtr_swigregister
+lektor_CharacterPtr_swigregister(lektor_CharacterPtr)
+
+class lektor_RootObjectPtr(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, lektor_RootObjectPtr, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, lektor_RootObjectPtr, name)
+    __repr__ = _swig_repr
+
+    def size(self):
+        return _KenshiPy.lektor_RootObjectPtr_size(self)
+
+    def capacity(self):
+        return _KenshiPy.lektor_RootObjectPtr_capacity(self)
+
+    def valid(self):
+        return _KenshiPy.lektor_RootObjectPtr_valid(self)
+
+    def clear(self):
+        return _KenshiPy.lektor_RootObjectPtr_clear(self)
+
+    def __getitem__(self, index):
+        return _KenshiPy.lektor_RootObjectPtr___getitem__(self, index)
+
+    def __init__(self):
+        this = _KenshiPy.new_lektor_RootObjectPtr()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _KenshiPy.delete_lektor_RootObjectPtr
+    __del__ = lambda self: None
+lektor_RootObjectPtr_swigregister = _KenshiPy.lektor_RootObjectPtr_swigregister
+lektor_RootObjectPtr_swigregister(lektor_RootObjectPtr)
+
+class StringPair(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, StringPair, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, StringPair, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _KenshiPy.new_StringPair(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self, *args):
+        return _KenshiPy.StringPair__CONSTRUCTOR(self, *args)
+    __swig_destroy__ = _KenshiPy.delete_StringPair
+    __del__ = lambda self: None
+
+    def _DESTRUCTOR(self):
+        return _KenshiPy.StringPair__DESTRUCTOR(self)
+    __swig_setmethods__["s1"] = _KenshiPy.StringPair_s1_set
+    __swig_getmethods__["s1"] = _KenshiPy.StringPair_s1_get
+    if _newclass:
+        s1 = _swig_property(_KenshiPy.StringPair_s1_get, _KenshiPy.StringPair_s1_set)
+    __swig_setmethods__["s2"] = _KenshiPy.StringPair_s2_set
+    __swig_getmethods__["s2"] = _KenshiPy.StringPair_s2_get
+    if _newclass:
+        s2 = _swig_property(_KenshiPy.StringPair_s2_get, _KenshiPy.StringPair_s2_set)
+    __swig_setmethods__["val1"] = _KenshiPy.StringPair_val1_set
+    __swig_getmethods__["val1"] = _KenshiPy.StringPair_val1_get
+    if _newclass:
+        val1 = _swig_property(_KenshiPy.StringPair_val1_get, _KenshiPy.StringPair_val1_set)
+
+    def _NV_operator_assign(self, a):
+        return _KenshiPy.StringPair__NV_operator_assign(self, a)
+StringPair_swigregister = _KenshiPy.StringPair_swigregister
+StringPair_swigregister(StringPair)
+
+class rendHit(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, rendHit, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, rendHit, name)
+    __repr__ = _swig_repr
+
+    def __init__(self):
+        this = _KenshiPy.new_rendHit()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self):
+        return _KenshiPy.rendHit__CONSTRUCTOR(self)
+    __swig_setmethods__["data"] = _KenshiPy.rendHit_data_set
+    __swig_getmethods__["data"] = _KenshiPy.rendHit_data_get
+    if _newclass:
+        data = _swig_property(_KenshiPy.rendHit_data_get, _KenshiPy.rendHit_data_set)
+    __swig_setmethods__["hit"] = _KenshiPy.rendHit_hit_set
+    __swig_getmethods__["hit"] = _KenshiPy.rendHit_hit_get
+    if _newclass:
+        hit = _swig_property(_KenshiPy.rendHit_hit_get, _KenshiPy.rendHit_hit_set)
+    __swig_destroy__ = _KenshiPy.delete_rendHit
+    __del__ = lambda self: None
+rendHit_swigregister = _KenshiPy.rendHit_swigregister
+rendHit_swigregister(rendHit)
+
+class TimerClass(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TimerClass, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, TimerClass, name)
+    __repr__ = _swig_repr
+
+    def __init__(self):
+        this = _KenshiPy.new_TimerClass()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self):
+        return _KenshiPy.TimerClass__CONSTRUCTOR(self)
+    __swig_setmethods__["freq"] = _KenshiPy.TimerClass_freq_set
+    __swig_getmethods__["freq"] = _KenshiPy.TimerClass_freq_get
+    if _newclass:
+        freq = _swig_property(_KenshiPy.TimerClass_freq_get, _KenshiPy.TimerClass_freq_set)
+    __swig_setmethods__["ctr1"] = _KenshiPy.TimerClass_ctr1_set
+    __swig_getmethods__["ctr1"] = _KenshiPy.TimerClass_ctr1_get
+    if _newclass:
+        ctr1 = _swig_property(_KenshiPy.TimerClass_ctr1_get, _KenshiPy.TimerClass_ctr1_set)
+    __swig_setmethods__["ctr2"] = _KenshiPy.TimerClass_ctr2_set
+    __swig_getmethods__["ctr2"] = _KenshiPy.TimerClass_ctr2_get
+    if _newclass:
+        ctr2 = _swig_property(_KenshiPy.TimerClass_ctr2_get, _KenshiPy.TimerClass_ctr2_set)
+    __swig_destroy__ = _KenshiPy.delete_TimerClass
+    __del__ = lambda self: None
+TimerClass_swigregister = _KenshiPy.TimerClass_swigregister
+TimerClass_swigregister(TimerClass)
+
+class UtilityT(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UtilityT, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, UtilityT, name)
+    __repr__ = _swig_repr
+
+    def __init__(self):
+        this = _KenshiPy.new_UtilityT()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self):
+        return _KenshiPy.UtilityT__CONSTRUCTOR(self)
+    __swig_setmethods__["cachedViewMatrix"] = _KenshiPy.UtilityT_cachedViewMatrix_set
+    __swig_getmethods__["cachedViewMatrix"] = _KenshiPy.UtilityT_cachedViewMatrix_get
+    if _newclass:
+        cachedViewMatrix = _swig_property(_KenshiPy.UtilityT_cachedViewMatrix_get, _KenshiPy.UtilityT_cachedViewMatrix_set)
+    if _newclass:
+        getMouseRay = staticmethod(_KenshiPy.UtilityT_getMouseRay)
+    else:
+        getMouseRay = _KenshiPy.UtilityT_getMouseRay
+    if _newclass:
+        mouseTrace = staticmethod(_KenshiPy.UtilityT_mouseTrace)
+    else:
+        mouseTrace = _KenshiPy.UtilityT_mouseTrace
+    if _newclass:
+        rayTrace = staticmethod(_KenshiPy.UtilityT_rayTrace)
+    else:
+        rayTrace = _KenshiPy.UtilityT_rayTrace
+    if _newclass:
+        ceilingTrace = staticmethod(_KenshiPy.UtilityT_ceilingTrace)
+    else:
+        ceilingTrace = _KenshiPy.UtilityT_ceilingTrace
+    if _newclass:
+        traceNoActors = staticmethod(_KenshiPy.UtilityT_traceNoActors)
+    else:
+        traceNoActors = _KenshiPy.UtilityT_traceNoActors
+    if _newclass:
+        trace = staticmethod(_KenshiPy.UtilityT_trace)
+    else:
+        trace = _KenshiPy.UtilityT_trace
+    if _newclass:
+        traceFloorHeight = staticmethod(_KenshiPy.UtilityT_traceFloorHeight)
+    else:
+        traceFloorHeight = _KenshiPy.UtilityT_traceFloorHeight
+    if _newclass:
+        _trace_TEST = staticmethod(_KenshiPy.UtilityT__trace_TEST)
+    else:
+        _trace_TEST = _KenshiPy.UtilityT__trace_TEST
+    if _newclass:
+        tracePosOnly = staticmethod(_KenshiPy.UtilityT_tracePosOnly)
+    else:
+        tracePosOnly = _KenshiPy.UtilityT_tracePosOnly
+    if _newclass:
+        sphereTrace = staticmethod(_KenshiPy.UtilityT_sphereTrace)
+    else:
+        sphereTrace = _KenshiPy.UtilityT_sphereTrace
+    if _newclass:
+        boxTrace = staticmethod(_KenshiPy.UtilityT_boxTrace)
+    else:
+        boxTrace = _KenshiPy.UtilityT_boxTrace
+    if _newclass:
+        mouseTraceAll = staticmethod(_KenshiPy.UtilityT_mouseTraceAll)
+    else:
+        mouseTraceAll = _KenshiPy.UtilityT_mouseTraceAll
+    if _newclass:
+        traceAll = staticmethod(_KenshiPy.UtilityT_traceAll)
+    else:
+        traceAll = _KenshiPy.UtilityT_traceAll
+    if _newclass:
+        getTerrainHeight = staticmethod(_KenshiPy.UtilityT_getTerrainHeight)
+    else:
+        getTerrainHeight = _KenshiPy.UtilityT_getTerrainHeight
+    if _newclass:
+        getTerrainWithWaterHeight = staticmethod(_KenshiPy.UtilityT_getTerrainWithWaterHeight)
+    else:
+        getTerrainWithWaterHeight = _KenshiPy.UtilityT_getTerrainWithWaterHeight
+    if _newclass:
+        getTerrainWithWaterHeightFromRenderer = staticmethod(_KenshiPy.UtilityT_getTerrainWithWaterHeightFromRenderer)
+    else:
+        getTerrainWithWaterHeightFromRenderer = _KenshiPy.UtilityT_getTerrainWithWaterHeightFromRenderer
+    if _newclass:
+        getPositionInWater = staticmethod(_KenshiPy.UtilityT_getPositionInWater)
+    else:
+        getPositionInWater = _KenshiPy.UtilityT_getPositionInWater
+    if _newclass:
+        getFloorHeight = staticmethod(_KenshiPy.UtilityT_getFloorHeight)
+    else:
+        getFloorHeight = _KenshiPy.UtilityT_getFloorHeight
+    if _newclass:
+        getBuildingGroundFloorHeight = staticmethod(_KenshiPy.UtilityT_getBuildingGroundFloorHeight)
+    else:
+        getBuildingGroundFloorHeight = _KenshiPy.UtilityT_getBuildingGroundFloorHeight
+    if _newclass:
+        isIndoors = staticmethod(_KenshiPy.UtilityT_isIndoors)
+    else:
+        isIndoors = _KenshiPy.UtilityT_isIndoors
+    if _newclass:
+        isIndoorsFast = staticmethod(_KenshiPy.UtilityT_isIndoorsFast)
+    else:
+        isIndoorsFast = _KenshiPy.UtilityT_isIndoorsFast
+    if _newclass:
+        isIndoors_forWaypoint = staticmethod(_KenshiPy.UtilityT_isIndoors_forWaypoint)
+    else:
+        isIndoors_forWaypoint = _KenshiPy.UtilityT_isIndoors_forWaypoint
+    if _newclass:
+        cascadeSetStatic = staticmethod(_KenshiPy.UtilityT_cascadeSetStatic)
+    else:
+        cascadeSetStatic = _KenshiPy.UtilityT_cascadeSetStatic
+
+    def perlinNoise_2D(self, x, y, zoom, dropPoint):
+        return _KenshiPy.UtilityT_perlinNoise_2D(self, x, y, zoom, dropPoint)
+    if _newclass:
+        getFloorNumber = staticmethod(_KenshiPy.UtilityT_getFloorNumber)
+    else:
+        getFloorNumber = _KenshiPy.UtilityT_getFloorNumber
+
+    def getTerrainHeightFastWithNormal(self, x, z, normal, map):
+        return _KenshiPy.UtilityT_getTerrainHeightFastWithNormal(self, x, z, normal, map)
+    if _newclass:
+        getTerrainHeightFast = staticmethod(_KenshiPy.UtilityT_getTerrainHeightFast)
+    else:
+        getTerrainHeightFast = _KenshiPy.UtilityT_getTerrainHeightFast
+
+    def getTerrainSlopeFast(self, x, z, map):
+        return _KenshiPy.UtilityT_getTerrainSlopeFast(self, x, z, map)
+    if _newclass:
+        random = staticmethod(_KenshiPy.UtilityT_random)
+    else:
+        random = _KenshiPy.UtilityT_random
+    if _newclass:
+        randomBool = staticmethod(_KenshiPy.UtilityT_randomBool)
+    else:
+        randomBool = _KenshiPy.UtilityT_randomBool
+    if _newclass:
+        randomInt = staticmethod(_KenshiPy.UtilityT_randomInt)
+    else:
+        randomInt = _KenshiPy.UtilityT_randomInt
+    if _newclass:
+        seed = staticmethod(_KenshiPy.UtilityT_seed)
+    else:
+        seed = _KenshiPy.UtilityT_seed
+    if _newclass:
+        round = staticmethod(_KenshiPy.UtilityT_round)
+    else:
+        round = _KenshiPy.UtilityT_round
+    if _newclass:
+        nlerp = staticmethod(_KenshiPy.UtilityT_nlerp)
+    else:
+        nlerp = _KenshiPy.UtilityT_nlerp
+    if _newclass:
+        getNextPow2 = staticmethod(_KenshiPy.UtilityT_getNextPow2)
+    else:
+        getNextPow2 = _KenshiPy.UtilityT_getNextPow2
+    if _newclass:
+        quatSetDirection = staticmethod(_KenshiPy.UtilityT_quatSetDirection)
+    else:
+        quatSetDirection = _KenshiPy.UtilityT_quatSetDirection
+    if _newclass:
+        getSubMapSector = staticmethod(_KenshiPy.UtilityT_getSubMapSector)
+    else:
+        getSubMapSector = _KenshiPy.UtilityT_getSubMapSector
+    if _newclass:
+        getSubMapSectorBounds = staticmethod(_KenshiPy.UtilityT_getSubMapSectorBounds)
+    else:
+        getSubMapSectorBounds = _KenshiPy.UtilityT_getSubMapSectorBounds
+    if _newclass:
+        getResourceFilePath = staticmethod(_KenshiPy.UtilityT_getResourceFilePath)
+    else:
+        getResourceFilePath = _KenshiPy.UtilityT_getResourceFilePath
+    if _newclass:
+        removePathFromString = staticmethod(_KenshiPy.UtilityT_removePathFromString)
+    else:
+        removePathFromString = _KenshiPy.UtilityT_removePathFromString
+    if _newclass:
+        removeFilenameFromPath = staticmethod(_KenshiPy.UtilityT_removeFilenameFromPath)
+    else:
+        removeFilenameFromPath = _KenshiPy.UtilityT_removeFilenameFromPath
+    if _newclass:
+        removeFileExtensionFromString = staticmethod(_KenshiPy.UtilityT_removeFileExtensionFromString)
+    else:
+        removeFileExtensionFromString = _KenshiPy.UtilityT_removeFileExtensionFromString
+    if _newclass:
+        getFileExtensionFromString = staticmethod(_KenshiPy.UtilityT_getFileExtensionFromString)
+    else:
+        getFileExtensionFromString = _KenshiPy.UtilityT_getFileExtensionFromString
+    if _newclass:
+        removeInvalidFileNameChars = staticmethod(_KenshiPy.UtilityT_removeInvalidFileNameChars)
+    else:
+        removeInvalidFileNameChars = _KenshiPy.UtilityT_removeInvalidFileNameChars
+    if _newclass:
+        compareStringsCaseInsenstive = staticmethod(_KenshiPy.UtilityT_compareStringsCaseInsenstive)
+    else:
+        compareStringsCaseInsenstive = _KenshiPy.UtilityT_compareStringsCaseInsenstive
+    __swig_setmethods__["timer"] = _KenshiPy.UtilityT_timer_set
+    __swig_getmethods__["timer"] = _KenshiPy.UtilityT_timer_get
+    if _newclass:
+        timer = _swig_property(_KenshiPy.UtilityT_timer_get, _KenshiPy.UtilityT_timer_set)
+
+    def profilesClear(self):
+        return _KenshiPy.UtilityT_profilesClear(self)
+
+    def profilesPrint(self):
+        return _KenshiPy.UtilityT_profilesPrint(self)
+
+    def profileGet(self, name):
+        return _KenshiPy.UtilityT_profileGet(self, name)
+    if _newclass:
+        getTerrainHeightFromRenderer = staticmethod(_KenshiPy.UtilityT_getTerrainHeightFromRenderer)
+    else:
+        getTerrainHeightFromRenderer = _KenshiPy.UtilityT_getTerrainHeightFromRenderer
+    if _newclass:
+        getApproxTerrainHeightFromRenderer = staticmethod(_KenshiPy.UtilityT_getApproxTerrainHeightFromRenderer)
+    else:
+        getApproxTerrainHeightFromRenderer = _KenshiPy.UtilityT_getApproxTerrainHeightFromRenderer
+
+    def worldToScreenRel(self, pos, x, y):
+        return _KenshiPy.UtilityT_worldToScreenRel(self, pos, x, y)
+
+    def worldToScreenPX(self, pos, x, y):
+        return _KenshiPy.UtilityT_worldToScreenPX(self, pos, x, y)
+
+    def worldToScreenWithRadius(self, pos, rad, x, y, cx, cy):
+        return _KenshiPy.UtilityT_worldToScreenWithRadius(self, pos, rad, x, y, cx, cy)
+
+    def placeOrientedMarker(self, pos, rot, attach):
+        return _KenshiPy.UtilityT_placeOrientedMarker(self, pos, rot, attach)
+
+    def placeMarker(self, *args):
+        return _KenshiPy.UtilityT_placeMarker(self, *args)
+
+    def debugBox(self, shape):
+        return _KenshiPy.UtilityT_debugBox(self, shape)
+
+    def placeBox(self, pos, attach):
+        return _KenshiPy.UtilityT_placeBox(self, pos, attach)
+
+    def placeArrow(self, pos, dir, key, len, scale, colour):
+        return _KenshiPy.UtilityT_placeArrow(self, pos, dir, key, len, scale, colour)
+
+    def placeArrowTo(self, arg2, to, key, size, colour):
+        return _KenshiPy.UtilityT_placeArrowTo(self, arg2, to, key, size, colour)
+
+    def placeArrowBT(self, pos, dir, key, len, scale, colour):
+        return _KenshiPy.UtilityT_placeArrowBT(self, pos, dir, key, len, scale, colour)
+
+    def removeArrow(self, key):
+        return _KenshiPy.UtilityT_removeArrow(self, key)
+
+    def placeSphere(self, pos, key, radius, colour):
+        return _KenshiPy.UtilityT_placeSphere(self, pos, key, radius, colour)
+
+    def placeAxis(self, pos, q):
+        return _KenshiPy.UtilityT_placeAxis(self, pos, q)
+
+    def ogreTrace(self, origin, dir, group):
+        return _KenshiPy.UtilityT_ogreTrace(self, origin, dir, group)
+
+    def getDebugMaterial(self, colour, xray):
+        return _KenshiPy.UtilityT_getDebugMaterial(self, colour, xray)
+
+    def flushMarkerQueue(self):
+        return _KenshiPy.UtilityT_flushMarkerQueue(self)
+
+    def removeMarkers(self):
+        return _KenshiPy.UtilityT_removeMarkers(self)
+
+    def folderExists(self, folder):
+        return _KenshiPy.UtilityT_folderExists(self, folder)
+
+    def fileExists(self, file):
+        return _KenshiPy.UtilityT_fileExists(self, file)
+
+    def fileExistsASCII(self, file):
+        return _KenshiPy.UtilityT_fileExistsASCII(self, file)
+
+    def createFile(self, path, content):
+        return _KenshiPy.UtilityT_createFile(self, path, content)
+
+    def writeFile(self, path, content, append):
+        return _KenshiPy.UtilityT_writeFile(self, path, content, append)
+
+    def readFile(self, path, content):
+        return _KenshiPy.UtilityT_readFile(self, path, content)
+
+    def isFile(self, _path):
+        return _KenshiPy.UtilityT_isFile(self, _path)
+
+    def isDirectory(self, _path):
+        return _KenshiPy.UtilityT_isDirectory(self, _path)
+    if _newclass:
+        makeSureGameFolderExists = staticmethod(_KenshiPy.UtilityT_makeSureGameFolderExists)
+    else:
+        makeSureGameFolderExists = _KenshiPy.UtilityT_makeSureGameFolderExists
+    if _newclass:
+        makeSureFolderExists = staticmethod(_KenshiPy.UtilityT_makeSureFolderExists)
+    else:
+        makeSureFolderExists = _KenshiPy.UtilityT_makeSureFolderExists
+    if _newclass:
+        getFullPath = staticmethod(_KenshiPy.UtilityT_getFullPath)
+    else:
+        getFullPath = _KenshiPy.UtilityT_getFullPath
+    if _newclass:
+        getRelativePath = staticmethod(_KenshiPy.UtilityT_getRelativePath)
+    else:
+        getRelativePath = _KenshiPy.UtilityT_getRelativePath
+
+    def getFilesInDir(self, out, dir, type):
+        return _KenshiPy.UtilityT_getFilesInDir(self, out, dir, type)
+
+    def getFilesInGameDir(self, out, dir, type):
+        return _KenshiPy.UtilityT_getFilesInGameDir(self, out, dir, type)
+
+    def getDirsInDir(self, out, dir):
+        return _KenshiPy.UtilityT_getDirsInDir(self, out, dir)
+
+    def getCurrentDir(self):
+        return _KenshiPy.UtilityT_getCurrentDir(self)
+
+    def setCurrentDir(self, dir):
+        return _KenshiPy.UtilityT_setCurrentDir(self, dir)
+
+    def deleteFilesInFolder(self, dir, filter, recursive):
+        return _KenshiPy.UtilityT_deleteFilesInFolder(self, dir, filter, recursive)
+
+    def deleteFolder(self, dir):
+        return _KenshiPy.UtilityT_deleteFolder(self, dir)
+
+    def deleteFile(self, dir):
+        return _KenshiPy.UtilityT_deleteFile(self, dir)
+
+    def moveFile(self, arg2, to):
+        return _KenshiPy.UtilityT_moveFile(self, arg2, to)
+
+    def copyFile(self, arg2, to):
+        return _KenshiPy.UtilityT_copyFile(self, arg2, to)
+
+    def copyFilesInFolder(self, arg2, to, filter):
+        return _KenshiPy.UtilityT_copyFilesInFolder(self, arg2, to, filter)
+    if _newclass:
+        positionIsInFrontOfMe = staticmethod(_KenshiPy.UtilityT_positionIsInFrontOfMe)
+    else:
+        positionIsInFrontOfMe = _KenshiPy.UtilityT_positionIsInFrontOfMe
+    if _newclass:
+        pointInPlane = staticmethod(_KenshiPy.UtilityT_pointInPlane)
+    else:
+        pointInPlane = _KenshiPy.UtilityT_pointInPlane
+    if _newclass:
+        colorToGUIString = staticmethod(_KenshiPy.UtilityT_colorToGUIString)
+    else:
+        colorToGUIString = _KenshiPy.UtilityT_colorToGUIString
+
+    def roundToNearest(self, input, roundTo):
+        return _KenshiPy.UtilityT_roundToNearest(self, input, roundTo)
+    __swig_setmethods__["marker"] = _KenshiPy.UtilityT_marker_set
+    __swig_getmethods__["marker"] = _KenshiPy.UtilityT_marker_get
+    if _newclass:
+        marker = _swig_property(_KenshiPy.UtilityT_marker_get, _KenshiPy.UtilityT_marker_set)
+    __swig_destroy__ = _KenshiPy.delete_UtilityT
+    __del__ = lambda self: None
+UtilityT_swigregister = _KenshiPy.UtilityT_swigregister
+UtilityT_swigregister(UtilityT)
+
+def UtilityT_getMouseRay():
+    return _KenshiPy.UtilityT_getMouseRay()
+UtilityT_getMouseRay = _KenshiPy.UtilityT_getMouseRay
+
+def UtilityT_mouseTrace(hit, mouse, group):
+    return _KenshiPy.UtilityT_mouseTrace(hit, mouse, group)
+UtilityT_mouseTrace = _KenshiPy.UtilityT_mouseTrace
+
+def UtilityT_rayTrace(hit, ray, group):
+    return _KenshiPy.UtilityT_rayTrace(hit, ray, group)
+UtilityT_rayTrace = _KenshiPy.UtilityT_rayTrace
+
+def UtilityT_ceilingTrace(pos, groups, abortValue):
+    return _KenshiPy.UtilityT_ceilingTrace(pos, groups, abortValue)
+UtilityT_ceilingTrace = _KenshiPy.UtilityT_ceilingTrace
+
+def UtilityT_traceNoActors(hit, origin, dir, group):
+    return _KenshiPy.UtilityT_traceNoActors(hit, origin, dir, group)
+UtilityT_traceNoActors = _KenshiPy.UtilityT_traceNoActors
+
+def UtilityT_trace(hit, origin, dir, group):
+    return _KenshiPy.UtilityT_trace(hit, origin, dir, group)
+UtilityT_trace = _KenshiPy.UtilityT_trace
+
+def UtilityT_traceFloorHeight(hit, origin, floorNum):
+    return _KenshiPy.UtilityT_traceFloorHeight(hit, origin, floorNum)
+UtilityT_traceFloorHeight = _KenshiPy.UtilityT_traceFloorHeight
+
+def UtilityT__trace_TEST(hit, origin, dir, group):
+    return _KenshiPy.UtilityT__trace_TEST(hit, origin, dir, group)
+UtilityT__trace_TEST = _KenshiPy.UtilityT__trace_TEST
+
+def UtilityT_tracePosOnly(origin, dir, groups):
+    return _KenshiPy.UtilityT_tracePosOnly(origin, dir, groups)
+UtilityT_tracePosOnly = _KenshiPy.UtilityT_tracePosOnly
+
+def UtilityT_sphereTrace(hit, origin, motion, radius, group, staticOnly):
+    return _KenshiPy.UtilityT_sphereTrace(hit, origin, motion, radius, group, staticOnly)
+UtilityT_sphereTrace = _KenshiPy.UtilityT_sphereTrace
+
+def UtilityT_boxTrace(hit, origin, motion, boxExtents, group, staticOnly):
+    return _KenshiPy.UtilityT_boxTrace(hit, origin, motion, boxExtents, group, staticOnly)
+UtilityT_boxTrace = _KenshiPy.UtilityT_boxTrace
+
+def UtilityT_mouseTraceAll(result, group):
+    return _KenshiPy.UtilityT_mouseTraceAll(result, group)
+UtilityT_mouseTraceAll = _KenshiPy.UtilityT_mouseTraceAll
+
+def UtilityT_traceAll(result, origin, dir, group):
+    return _KenshiPy.UtilityT_traceAll(result, origin, dir, group)
+UtilityT_traceAll = _KenshiPy.UtilityT_traceAll
+
+def UtilityT_getTerrainHeight(x, z):
+    return _KenshiPy.UtilityT_getTerrainHeight(x, z)
+UtilityT_getTerrainHeight = _KenshiPy.UtilityT_getTerrainHeight
+
+def UtilityT_getTerrainWithWaterHeight(x, z):
+    return _KenshiPy.UtilityT_getTerrainWithWaterHeight(x, z)
+UtilityT_getTerrainWithWaterHeight = _KenshiPy.UtilityT_getTerrainWithWaterHeight
+
+def UtilityT_getTerrainWithWaterHeightFromRenderer(pos):
+    return _KenshiPy.UtilityT_getTerrainWithWaterHeightFromRenderer(pos)
+UtilityT_getTerrainWithWaterHeightFromRenderer = _KenshiPy.UtilityT_getTerrainWithWaterHeightFromRenderer
+
+def UtilityT_getPositionInWater(x, z):
+    return _KenshiPy.UtilityT_getPositionInWater(x, z)
+UtilityT_getPositionInWater = _KenshiPy.UtilityT_getPositionInWater
+
+def UtilityT_getFloorHeight(*args):
+    return _KenshiPy.UtilityT_getFloorHeight(*args)
+UtilityT_getFloorHeight = _KenshiPy.UtilityT_getFloorHeight
+
+def UtilityT_getBuildingGroundFloorHeight(origin, withTerrain):
+    return _KenshiPy.UtilityT_getBuildingGroundFloorHeight(origin, withTerrain)
+UtilityT_getBuildingGroundFloorHeight = _KenshiPy.UtilityT_getBuildingGroundFloorHeight
+
+def UtilityT_isIndoors(point):
+    return _KenshiPy.UtilityT_isIndoors(point)
+UtilityT_isIndoors = _KenshiPy.UtilityT_isIndoors
+
+def UtilityT_isIndoorsFast(point):
+    return _KenshiPy.UtilityT_isIndoorsFast(point)
+UtilityT_isIndoorsFast = _KenshiPy.UtilityT_isIndoorsFast
+
+def UtilityT_isIndoors_forWaypoint(point):
+    return _KenshiPy.UtilityT_isIndoors_forWaypoint(point)
+UtilityT_isIndoors_forWaypoint = _KenshiPy.UtilityT_isIndoors_forWaypoint
+
+def UtilityT_cascadeSetStatic(node, bStatic):
+    return _KenshiPy.UtilityT_cascadeSetStatic(node, bStatic)
+UtilityT_cascadeSetStatic = _KenshiPy.UtilityT_cascadeSetStatic
+
+def UtilityT_getFloorNumber(*args):
+    return _KenshiPy.UtilityT_getFloorNumber(*args)
+UtilityT_getFloorNumber = _KenshiPy.UtilityT_getFloorNumber
+
+def UtilityT_getTerrainHeightFast(x, z, map):
+    return _KenshiPy.UtilityT_getTerrainHeightFast(x, z, map)
+UtilityT_getTerrainHeightFast = _KenshiPy.UtilityT_getTerrainHeightFast
+
+def UtilityT_random(*args):
+    return _KenshiPy.UtilityT_random(*args)
+UtilityT_random = _KenshiPy.UtilityT_random
+
+def UtilityT_randomBool():
+    return _KenshiPy.UtilityT_randomBool()
+UtilityT_randomBool = _KenshiPy.UtilityT_randomBool
+
+def UtilityT_randomInt(lo, hi):
+    return _KenshiPy.UtilityT_randomInt(lo, hi)
+UtilityT_randomInt = _KenshiPy.UtilityT_randomInt
+
+def UtilityT_seed(*args):
+    return _KenshiPy.UtilityT_seed(*args)
+UtilityT_seed = _KenshiPy.UtilityT_seed
+
+def UtilityT_round(value):
+    return _KenshiPy.UtilityT_round(value)
+UtilityT_round = _KenshiPy.UtilityT_round
+
+def UtilityT_nlerp(a, b, t):
+    return _KenshiPy.UtilityT_nlerp(a, b, t)
+UtilityT_nlerp = _KenshiPy.UtilityT_nlerp
+
+def UtilityT_getNextPow2(value):
+    return _KenshiPy.UtilityT_getNextPow2(value)
+UtilityT_getNextPow2 = _KenshiPy.UtilityT_getNextPow2
+
+def UtilityT_quatSetDirection(q, targetDir, facing):
+    return _KenshiPy.UtilityT_quatSetDirection(q, targetDir, facing)
+UtilityT_quatSetDirection = _KenshiPy.UtilityT_quatSetDirection
+
+def UtilityT_getSubMapSector(X, Z):
+    return _KenshiPy.UtilityT_getSubMapSector(X, Z)
+UtilityT_getSubMapSector = _KenshiPy.UtilityT_getSubMapSector
+
+def UtilityT_getSubMapSectorBounds(sector):
+    return _KenshiPy.UtilityT_getSubMapSectorBounds(sector)
+UtilityT_getSubMapSectorBounds = _KenshiPy.UtilityT_getSubMapSectorBounds
+
+def UtilityT_getResourceFilePath(filename, filepath):
+    return _KenshiPy.UtilityT_getResourceFilePath(filename, filepath)
+UtilityT_getResourceFilePath = _KenshiPy.UtilityT_getResourceFilePath
+
+def UtilityT_removePathFromString(s):
+    return _KenshiPy.UtilityT_removePathFromString(s)
+UtilityT_removePathFromString = _KenshiPy.UtilityT_removePathFromString
+
+def UtilityT_removeFilenameFromPath(s):
+    return _KenshiPy.UtilityT_removeFilenameFromPath(s)
+UtilityT_removeFilenameFromPath = _KenshiPy.UtilityT_removeFilenameFromPath
+
+def UtilityT_removeFileExtensionFromString(s):
+    return _KenshiPy.UtilityT_removeFileExtensionFromString(s)
+UtilityT_removeFileExtensionFromString = _KenshiPy.UtilityT_removeFileExtensionFromString
+
+def UtilityT_getFileExtensionFromString(s):
+    return _KenshiPy.UtilityT_getFileExtensionFromString(s)
+UtilityT_getFileExtensionFromString = _KenshiPy.UtilityT_getFileExtensionFromString
+
+def UtilityT_removeInvalidFileNameChars(str):
+    return _KenshiPy.UtilityT_removeInvalidFileNameChars(str)
+UtilityT_removeInvalidFileNameChars = _KenshiPy.UtilityT_removeInvalidFileNameChars
+
+def UtilityT_compareStringsCaseInsenstive(a, b):
+    return _KenshiPy.UtilityT_compareStringsCaseInsenstive(a, b)
+UtilityT_compareStringsCaseInsenstive = _KenshiPy.UtilityT_compareStringsCaseInsenstive
+
+def UtilityT_getTerrainHeightFromRenderer(pos, useCollisionForLowLod, minLod):
+    return _KenshiPy.UtilityT_getTerrainHeightFromRenderer(pos, useCollisionForLowLod, minLod)
+UtilityT_getTerrainHeightFromRenderer = _KenshiPy.UtilityT_getTerrainHeightFromRenderer
+
+def UtilityT_getApproxTerrainHeightFromRenderer(pos, normal):
+    return _KenshiPy.UtilityT_getApproxTerrainHeightFromRenderer(pos, normal)
+UtilityT_getApproxTerrainHeightFromRenderer = _KenshiPy.UtilityT_getApproxTerrainHeightFromRenderer
+
+def UtilityT_makeSureGameFolderExists(relativefolder):
+    return _KenshiPy.UtilityT_makeSureGameFolderExists(relativefolder)
+UtilityT_makeSureGameFolderExists = _KenshiPy.UtilityT_makeSureGameFolderExists
+
+def UtilityT_makeSureFolderExists(folder):
+    return _KenshiPy.UtilityT_makeSureFolderExists(folder)
+UtilityT_makeSureFolderExists = _KenshiPy.UtilityT_makeSureFolderExists
+
+def UtilityT_getFullPath(dir):
+    return _KenshiPy.UtilityT_getFullPath(dir)
+UtilityT_getFullPath = _KenshiPy.UtilityT_getFullPath
+
+def UtilityT_getRelativePath(pathA, pathB, relativePath):
+    return _KenshiPy.UtilityT_getRelativePath(pathA, pathB, relativePath)
+UtilityT_getRelativePath = _KenshiPy.UtilityT_getRelativePath
+
+def UtilityT_positionIsInFrontOfMe(facingDir, targetDir):
+    return _KenshiPy.UtilityT_positionIsInFrontOfMe(facingDir, targetDir)
+UtilityT_positionIsInFrontOfMe = _KenshiPy.UtilityT_positionIsInFrontOfMe
+
+def UtilityT_pointInPlane(norm, planepos, point):
+    return _KenshiPy.UtilityT_pointInPlane(norm, planepos, point)
+UtilityT_pointInPlane = _KenshiPy.UtilityT_pointInPlane
+
+def UtilityT_colorToGUIString(col):
+    return _KenshiPy.UtilityT_colorToGUIString(col)
+UtilityT_colorToGUIString = _KenshiPy.UtilityT_colorToGUIString
+
 CRIME_NONE = _KenshiPy.CRIME_NONE
 CRIME_ENSLAVING = _KenshiPy.CRIME_ENSLAVING
 CRIME_LOCKPICKING = _KenshiPy.CRIME_LOCKPICKING
@@ -214,6 +1145,10 @@ class Bounty(_object):
     __swig_getmethods__["bountyHasBeenClaimedOnce"] = _KenshiPy.Bounty_bountyHasBeenClaimedOnce_get
     if _newclass:
         bountyHasBeenClaimedOnce = _swig_property(_KenshiPy.Bounty_bountyHasBeenClaimedOnce_get, _KenshiPy.Bounty_bountyHasBeenClaimedOnce_set)
+    __swig_setmethods__["bountyAssignmentStartedTime"] = _KenshiPy.Bounty_bountyAssignmentStartedTime_set
+    __swig_getmethods__["bountyAssignmentStartedTime"] = _KenshiPy.Bounty_bountyAssignmentStartedTime_get
+    if _newclass:
+        bountyAssignmentStartedTime = _swig_property(_KenshiPy.Bounty_bountyAssignmentStartedTime_get, _KenshiPy.Bounty_bountyAssignmentStartedTime_set)
 
     def addCrime(self, what):
         return _KenshiPy.Bounty_addCrime(self, what)
@@ -2231,107 +3166,6 @@ NX_SF_CLOTH_TWOWAY = _KenshiPy.NX_SF_CLOTH_TWOWAY
 NX_SF_SOFTBODY_DRAIN = _KenshiPy.NX_SF_SOFTBODY_DRAIN
 NX_SF_SOFTBODY_DISABLE_COLLISION = _KenshiPy.NX_SF_SOFTBODY_DISABLE_COLLISION
 NX_SF_SOFTBODY_TWOWAY = _KenshiPy.NX_SF_SOFTBODY_TWOWAY
-class hand(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, hand, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, hand, name)
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        this = _KenshiPy.new_hand(*args)
-        try:
-            self.this.append(this)
-        except __builtin__.Exception:
-            self.this = this
-    __swig_setmethods__["type"] = _KenshiPy.hand_type_set
-    __swig_getmethods__["type"] = _KenshiPy.hand_type_get
-    if _newclass:
-        type = _swig_property(_KenshiPy.hand_type_get, _KenshiPy.hand_type_set)
-    __swig_setmethods__["container"] = _KenshiPy.hand_container_set
-    __swig_getmethods__["container"] = _KenshiPy.hand_container_get
-    if _newclass:
-        container = _swig_property(_KenshiPy.hand_container_get, _KenshiPy.hand_container_set)
-    __swig_setmethods__["containerSerial"] = _KenshiPy.hand_containerSerial_set
-    __swig_getmethods__["containerSerial"] = _KenshiPy.hand_containerSerial_get
-    if _newclass:
-        containerSerial = _swig_property(_KenshiPy.hand_containerSerial_get, _KenshiPy.hand_containerSerial_set)
-    __swig_setmethods__["index"] = _KenshiPy.hand_index_set
-    __swig_getmethods__["index"] = _KenshiPy.hand_index_get
-    if _newclass:
-        index = _swig_property(_KenshiPy.hand_index_get, _KenshiPy.hand_index_set)
-    __swig_setmethods__["serial"] = _KenshiPy.hand_serial_set
-    __swig_getmethods__["serial"] = _KenshiPy.hand_serial_get
-    if _newclass:
-        serial = _swig_property(_KenshiPy.hand_serial_get, _KenshiPy.hand_serial_set)
-
-    def toString(self):
-        return _KenshiPy.hand_toString(self)
-
-    def fromString(self, str):
-        return _KenshiPy.hand_fromString(self, str)
-
-    def __eq__(self, *args):
-        return _KenshiPy.hand___eq__(self, *args)
-
-    def __ne__(self, *args):
-        return _KenshiPy.hand___ne__(self, *args)
-
-    def __nonzero__(self):
-        return _KenshiPy.hand___bool__(self)
-    __bool__ = __nonzero__
-
-
-
-    def getCharacter(self):
-        return _KenshiPy.hand_getCharacter(self)
-
-    def getPlatoon(self):
-        return _KenshiPy.hand_getPlatoon(self)
-
-    def getActivePlatoon(self):
-        return _KenshiPy.hand_getActivePlatoon(self)
-
-    def getBuilding(self):
-        return _KenshiPy.hand_getBuilding(self)
-
-    def getItem(self):
-        return _KenshiPy.hand_getItem(self)
-
-    def getRootObject(self):
-        return _KenshiPy.hand_getRootObject(self)
-
-    def getRootObjectBase(self):
-        return _KenshiPy.hand_getRootObjectBase(self)
-
-    def getTown(self):
-        return _KenshiPy.hand_getTown(self)
-
-    def debugWhatHappenedToMe(self):
-        return _KenshiPy.hand_debugWhatHappenedToMe(self)
-
-    def __lt__(self, h):
-        return _KenshiPy.hand___lt__(self, h)
-
-    def setNull(self):
-        return _KenshiPy.hand_setNull(self)
-
-    def isNull(self):
-        return _KenshiPy.hand_isNull(self)
-
-    def isValid(self):
-        return _KenshiPy.hand_isValid(self)
-
-    def canCastToRootObject(self):
-        return _KenshiPy.hand_canCastToRootObject(self)
-
-    def squadMatch(self, h):
-        return _KenshiPy.hand_squadMatch(self, h)
-    __swig_destroy__ = _KenshiPy.delete_hand
-    __del__ = lambda self: None
-hand_swigregister = _KenshiPy.hand_swigregister
-hand_swigregister(hand)
-
 class RootObjectBase(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, RootObjectBase, name, value)
@@ -3748,10 +4582,6 @@ class TownBase(RootObject):
     __swig_getmethods__["defaultResident"] = _KenshiPy.TownBase_defaultResident_get
     if _newclass:
         defaultResident = _swig_property(_KenshiPy.TownBase_defaultResident_get, _KenshiPy.TownBase_defaultResident_set)
-    __swig_setmethods__["delayedItemLoading"] = _KenshiPy.TownBase_delayedItemLoading_set
-    __swig_getmethods__["delayedItemLoading"] = _KenshiPy.TownBase_delayedItemLoading_get
-    if _newclass:
-        delayedItemLoading = _swig_property(_KenshiPy.TownBase_delayedItemLoading_get, _KenshiPy.TownBase_delayedItemLoading_set)
 TownBase_swigregister = _KenshiPy.TownBase_swigregister
 TownBase_swigregister(TownBase)
 
@@ -3762,7 +4592,6 @@ TownBase_delayedSpawningChecks = _KenshiPy.TownBase_delayedSpawningChecks
 def TownBase_clearDelayedItemLoadingMessages():
     return _KenshiPy.TownBase_clearDelayedItemLoadingMessages()
 TownBase_clearDelayedItemLoadingMessages = _KenshiPy.TownBase_clearDelayedItemLoadingMessages
-cvar = _KenshiPy.cvar
 
 class Town(TownBase):
     __swig_setmethods__ = {}
@@ -4223,6 +5052,10 @@ class SimpleTimeStamper(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, SimpleTimeStamper, name)
     __repr__ = _swig_repr
+    __swig_setmethods__["timer"] = _KenshiPy.SimpleTimeStamper_timer_set
+    __swig_getmethods__["timer"] = _KenshiPy.SimpleTimeStamper_timer_get
+    if _newclass:
+        timer = _swig_property(_KenshiPy.SimpleTimeStamper_timer_get, _KenshiPy.SimpleTimeStamper_timer_set)
 
     def __init__(self):
         this = _KenshiPy.new_SimpleTimeStamper()
@@ -4253,6 +5086,10 @@ class GameWorld(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, GameWorld, name)
     __repr__ = _swig_repr
+    __swig_setmethods__["tempSpawnsDisableTimer"] = _KenshiPy.GameWorld_tempSpawnsDisableTimer_set
+    __swig_getmethods__["tempSpawnsDisableTimer"] = _KenshiPy.GameWorld_tempSpawnsDisableTimer_get
+    if _newclass:
+        tempSpawnsDisableTimer = _swig_property(_KenshiPy.GameWorld_tempSpawnsDisableTimer_get, _KenshiPy.GameWorld_tempSpawnsDisableTimer_set)
 
     def justLoadFactionRelations(self, datasrc):
         return _KenshiPy.GameWorld_justLoadFactionRelations(self, datasrc)
@@ -13590,6 +14427,30 @@ class InputHandler(_object):
     NONE_MASK = _KenshiPy.InputHandler_NONE_MASK
     GLOBAL = _KenshiPy.InputHandler_GLOBAL
     EDITOR = _KenshiPy.InputHandler_EDITOR
+    __swig_setmethods__["commands"] = _KenshiPy.InputHandler_commands_set
+    __swig_getmethods__["commands"] = _KenshiPy.InputHandler_commands_get
+    if _newclass:
+        commands = _swig_property(_KenshiPy.InputHandler_commands_get, _KenshiPy.InputHandler_commands_set)
+    __swig_setmethods__["map"] = _KenshiPy.InputHandler_map_set
+    __swig_getmethods__["map"] = _KenshiPy.InputHandler_map_get
+    if _newclass:
+        map = _swig_property(_KenshiPy.InputHandler_map_get, _KenshiPy.InputHandler_map_set)
+    __swig_setmethods__["editMap"] = _KenshiPy.InputHandler_editMap_set
+    __swig_getmethods__["editMap"] = _KenshiPy.InputHandler_editMap_get
+    if _newclass:
+        editMap = _swig_property(_KenshiPy.InputHandler_editMap_get, _KenshiPy.InputHandler_editMap_set)
+    __swig_setmethods__["events"] = _KenshiPy.InputHandler_events_set
+    __swig_getmethods__["events"] = _KenshiPy.InputHandler_events_get
+    if _newclass:
+        events = _swig_property(_KenshiPy.InputHandler_events_get, _KenshiPy.InputHandler_events_set)
+    __swig_setmethods__["keyboard"] = _KenshiPy.InputHandler_keyboard_set
+    __swig_getmethods__["keyboard"] = _KenshiPy.InputHandler_keyboard_get
+    if _newclass:
+        keyboard = _swig_property(_KenshiPy.InputHandler_keyboard_get, _KenshiPy.InputHandler_keyboard_set)
+    __swig_setmethods__["keyNameMap"] = _KenshiPy.InputHandler_keyNameMap_set
+    __swig_getmethods__["keyNameMap"] = _KenshiPy.InputHandler_keyNameMap_get
+    if _newclass:
+        keyNameMap = _swig_property(_KenshiPy.InputHandler_keyNameMap_get, _KenshiPy.InputHandler_keyNameMap_set)
 
     def getKeyUTF8(self, key):
         return _KenshiPy.InputHandler_getKeyUTF8(self, key)
@@ -14187,8 +15048,11 @@ class PlayerInterface(FactoryCallbackInterface):
     def getAnyPlayerCharacter(self):
         return _KenshiPy.PlayerInterface_getAnyPlayerCharacter(self)
 
-    def getAllPlayerCharacters(self, *args):
-        return _KenshiPy.PlayerInterface_getAllPlayerCharacters(self, *args)
+    def getAllPlayerCharacters_rootObjects(self, list):
+        return _KenshiPy.PlayerInterface_getAllPlayerCharacters_rootObjects(self, list)
+
+    def getAllPlayerCharacters(self):
+        return _KenshiPy.PlayerInterface_getAllPlayerCharacters(self)
 
     def isOrderValidForSelection(self, task):
         return _KenshiPy.PlayerInterface_isOrderValidForSelection(self, task)
@@ -14389,6 +15253,625 @@ class PlayerInterface(FactoryCallbackInterface):
         mRightDown = _swig_property(_KenshiPy.PlayerInterface_mRightDown_get, _KenshiPy.PlayerInterface_mRightDown_set)
 PlayerInterface_swigregister = _KenshiPy.PlayerInterface_swigregister
 PlayerInterface_swigregister(PlayerInterface)
+
+class MeshDataLookup(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MeshDataLookup, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MeshDataLookup, name)
+    __repr__ = _swig_repr
+    FRONT = _KenshiPy.MeshDataLookup_FRONT
+    BACK = _KenshiPy.MeshDataLookup_BACK
+    NUM_DIRS = _KenshiPy.MeshDataLookup_NUM_DIRS
+
+    def __init__(self, model):
+        this = _KenshiPy.new_MeshDataLookup(model)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self, model):
+        return _KenshiPy.MeshDataLookup__CONSTRUCTOR(self, model)
+    __swig_destroy__ = _KenshiPy.delete_MeshDataLookup
+    __del__ = lambda self: None
+
+    def _DESTRUCTOR(self):
+        return _KenshiPy.MeshDataLookup__DESTRUCTOR(self)
+    __swig_setmethods__["boneAssignments"] = _KenshiPy.MeshDataLookup_boneAssignments_set
+    __swig_getmethods__["boneAssignments"] = _KenshiPy.MeshDataLookup_boneAssignments_get
+    if _newclass:
+        boneAssignments = _swig_property(_KenshiPy.MeshDataLookup_boneAssignments_get, _KenshiPy.MeshDataLookup_boneAssignments_set)
+    __swig_setmethods__["vertCount"] = _KenshiPy.MeshDataLookup_vertCount_set
+    __swig_getmethods__["vertCount"] = _KenshiPy.MeshDataLookup_vertCount_get
+    if _newclass:
+        vertCount = _swig_property(_KenshiPy.MeshDataLookup_vertCount_get, _KenshiPy.MeshDataLookup_vertCount_set)
+    __swig_setmethods__["verts"] = _KenshiPy.MeshDataLookup_verts_set
+    __swig_getmethods__["verts"] = _KenshiPy.MeshDataLookup_verts_get
+    if _newclass:
+        verts = _swig_property(_KenshiPy.MeshDataLookup_verts_get, _KenshiPy.MeshDataLookup_verts_set)
+    __swig_setmethods__["uvs"] = _KenshiPy.MeshDataLookup_uvs_set
+    __swig_getmethods__["uvs"] = _KenshiPy.MeshDataLookup_uvs_get
+    if _newclass:
+        uvs = _swig_property(_KenshiPy.MeshDataLookup_uvs_get, _KenshiPy.MeshDataLookup_uvs_set)
+
+    def init(self, model):
+        return _KenshiPy.MeshDataLookup_init(self, model)
+MeshDataLookup_swigregister = _KenshiPy.MeshDataLookup_swigregister
+MeshDataLookup_swigregister(MeshDataLookup)
+
+class AppearanceBase(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AppearanceBase, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, AppearanceBase, name)
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    __swig_setmethods__["msgClearHarpoons"] = _KenshiPy.AppearanceBase_msgClearHarpoons_set
+    __swig_getmethods__["msgClearHarpoons"] = _KenshiPy.AppearanceBase_msgClearHarpoons_get
+    if _newclass:
+        msgClearHarpoons = _swig_property(_KenshiPy.AppearanceBase_msgClearHarpoons_get, _KenshiPy.AppearanceBase_msgClearHarpoons_set)
+    __swig_setmethods__["attachedEffects"] = _KenshiPy.AppearanceBase_attachedEffects_set
+    __swig_getmethods__["attachedEffects"] = _KenshiPy.AppearanceBase_attachedEffects_get
+    if _newclass:
+        attachedEffects = _swig_property(_KenshiPy.AppearanceBase_attachedEffects_get, _KenshiPy.AppearanceBase_attachedEffects_set)
+    __swig_setmethods__["attachedEffectsToRemove"] = _KenshiPy.AppearanceBase_attachedEffectsToRemove_set
+    __swig_getmethods__["attachedEffectsToRemove"] = _KenshiPy.AppearanceBase_attachedEffectsToRemove_get
+    if _newclass:
+        attachedEffectsToRemove = _swig_property(_KenshiPy.AppearanceBase_attachedEffectsToRemove_get, _KenshiPy.AppearanceBase_attachedEffectsToRemove_set)
+    __swig_setmethods__["woundsList"] = _KenshiPy.AppearanceBase_woundsList_set
+    __swig_getmethods__["woundsList"] = _KenshiPy.AppearanceBase_woundsList_get
+    if _newclass:
+        woundsList = _swig_property(_KenshiPy.AppearanceBase_woundsList_get, _KenshiPy.AppearanceBase_woundsList_set)
+
+    def _CONSTRUCTOR(self, animation, appearance, character, factionColorScheme):
+        return _KenshiPy.AppearanceBase__CONSTRUCTOR(self, animation, appearance, character, factionColorScheme)
+    __swig_destroy__ = _KenshiPy.delete_AppearanceBase
+    __del__ = lambda self: None
+
+    def _DESTRUCTOR(self):
+        return _KenshiPy.AppearanceBase__DESTRUCTOR(self)
+
+    def updateAnimationTransforms(self):
+        return _KenshiPy.AppearanceBase_updateAnimationTransforms(self)
+
+    def forceUpdateAnimationTransforms(self):
+        return _KenshiPy.AppearanceBase_forceUpdateAnimationTransforms(self)
+
+    def update(self):
+        return _KenshiPy.AppearanceBase_update(self)
+
+    def _NV_update(self):
+        return _KenshiPy.AppearanceBase__NV_update(self)
+
+    def periodicUpdate(self):
+        return _KenshiPy.AppearanceBase_periodicUpdate(self)
+
+    def _NV_periodicUpdate(self):
+        return _KenshiPy.AppearanceBase__NV_periodicUpdate(self)
+
+    def setAppearanceData(self, data):
+        return _KenshiPy.AppearanceBase_setAppearanceData(self, data)
+
+    def getAppearanceData(self):
+        return _KenshiPy.AppearanceBase_getAppearanceData(self)
+
+    def activate(self):
+        return _KenshiPy.AppearanceBase_activate(self)
+
+    def _NV_activate(self):
+        return _KenshiPy.AppearanceBase__NV_activate(self)
+
+    def deactivate(self):
+        return _KenshiPy.AppearanceBase_deactivate(self)
+
+    def _NV_deactivate(self):
+        return _KenshiPy.AppearanceBase__NV_deactivate(self)
+
+    def isFemale(self):
+        return _KenshiPy.AppearanceBase_isFemale(self)
+
+    def setGender(self, _female):
+        return _KenshiPy.AppearanceBase_setGender(self, _female)
+
+    def _NV_setGender(self, _female):
+        return _KenshiPy.AppearanceBase__NV_setGender(self, _female)
+
+    def getRace(self):
+        return _KenshiPy.AppearanceBase_getRace(self)
+
+    def chooseBodyMesh(self):
+        return _KenshiPy.AppearanceBase_chooseBodyMesh(self)
+
+    def addWound(self, wound):
+        return _KenshiPy.AppearanceBase_addWound(self, wound)
+
+    def removeWound(self, wound):
+        return _KenshiPy.AppearanceBase_removeWound(self, wound)
+
+    def attachItem(self, *args):
+        return _KenshiPy.AppearanceBase_attachItem(self, *args)
+
+    def attachHarpoon(self, harpoon, boneName, offsetPosition, offsetOrientation):
+        return _KenshiPy.AppearanceBase_attachHarpoon(self, harpoon, boneName, offsetPosition, offsetOrientation)
+
+    def attachEffect(self, data, boneName, offsetPosition, offsetOrientation, manual, baseEmission):
+        return _KenshiPy.AppearanceBase_attachEffect(self, data, boneName, offsetPosition, offsetOrientation, manual, baseEmission)
+
+    def getAttachedEntity(self, slot):
+        return _KenshiPy.AppearanceBase_getAttachedEntity(self, slot)
+
+    def detachItem(self, *args):
+        return _KenshiPy.AppearanceBase_detachItem(self, *args)
+
+    def detachHarpoon(self, h):
+        return _KenshiPy.AppearanceBase_detachHarpoon(self, h)
+
+    def detachAllHarpoonsT(self):
+        return _KenshiPy.AppearanceBase_detachAllHarpoonsT(self)
+
+    def _detachAllHarpoons(self):
+        return _KenshiPy.AppearanceBase__detachAllHarpoons(self)
+
+    def removeEffect(self, effect):
+        return _KenshiPy.AppearanceBase_removeEffect(self, effect)
+
+    def updateWetness(self, force):
+        return _KenshiPy.AppearanceBase_updateWetness(self, force)
+
+    def updateBloodyness(self):
+        return _KenshiPy.AppearanceBase_updateBloodyness(self)
+
+    def getAttachmentPosition(self, slot, pos, rot):
+        return _KenshiPy.AppearanceBase_getAttachmentPosition(self, slot, pos, rot)
+
+    def hasSlot(self, slot):
+        return _KenshiPy.AppearanceBase_hasSlot(self, slot)
+
+    def getNormalisedCharacterHeight(self):
+        return _KenshiPy.AppearanceBase_getNormalisedCharacterHeight(self)
+
+    def getCharacterHeight(self):
+        return _KenshiPy.AppearanceBase_getCharacterHeight(self)
+
+    def getAnimationSystem(self):
+        return _KenshiPy.AppearanceBase_getAnimationSystem(self)
+
+    def getSceneNode(self):
+        return _KenshiPy.AppearanceBase_getSceneNode(self)
+
+    def getSkeleton(self):
+        return _KenshiPy.AppearanceBase_getSkeleton(self)
+
+    def getBody(self):
+        return _KenshiPy.AppearanceBase_getBody(self)
+
+    def getBodyRadius(self):
+        return _KenshiPy.AppearanceBase_getBodyRadius(self)
+
+    def failedToLoad(self):
+        return _KenshiPy.AppearanceBase_failedToLoad(self)
+
+    def getBonePosition(self, boneName):
+        return _KenshiPy.AppearanceBase_getBonePosition(self, boneName)
+
+    def getBoneOrientation(self, boneName):
+        return _KenshiPy.AppearanceBase_getBoneOrientation(self, boneName)
+
+    def getVertexPosition(self, vertex):
+        return _KenshiPy.AppearanceBase_getVertexPosition(self, vertex)
+
+    def getVertexWorldPosition(self, boneName, vertex):
+        return _KenshiPy.AppearanceBase_getVertexWorldPosition(self, boneName, vertex)
+
+    def getRandomVertex(self, boneName, direction):
+        return _KenshiPy.AppearanceBase_getRandomVertex(self, boneName, direction)
+
+    def getRandomVertexPosition(self, boneName, direction):
+        return _KenshiPy.AppearanceBase_getRandomVertexPosition(self, boneName, direction)
+
+    def notifyDirty(self):
+        return _KenshiPy.AppearanceBase_notifyDirty(self)
+
+    def reload(self):
+        return _KenshiPy.AppearanceBase_reload(self)
+
+    def serialise(self, state):
+        return _KenshiPy.AppearanceBase_serialise(self, state)
+
+    def updateAppearance(self):
+        return _KenshiPy.AppearanceBase_updateAppearance(self)
+
+    def _NV_updateAppearance(self):
+        return _KenshiPy.AppearanceBase__NV_updateAppearance(self)
+
+    def updatePortrait(self):
+        return _KenshiPy.AppearanceBase_updatePortrait(self)
+
+    def updateMovementScale(self):
+        return _KenshiPy.AppearanceBase_updateMovementScale(self)
+
+    def switchLights(self, on):
+        return _KenshiPy.AppearanceBase_switchLights(self, on)
+
+    def hasLights(self):
+        return _KenshiPy.AppearanceBase_hasLights(self)
+
+    def getLights(self, list):
+        return _KenshiPy.AppearanceBase_getLights(self, list)
+
+    def attachItem_Hair(self, data, slot):
+        return _KenshiPy.AppearanceBase_attachItem_Hair(self, data, slot)
+
+    def shaveHead(self, on):
+        return _KenshiPy.AppearanceBase_shaveHead(self, on)
+
+    def isShaved(self):
+        return _KenshiPy.AppearanceBase_isShaved(self)
+
+    def setFlayed(self, on):
+        return _KenshiPy.AppearanceBase_setFlayed(self, on)
+
+    def _NV_setFlayed(self, on):
+        return _KenshiPy.AppearanceBase__NV_setFlayed(self, on)
+
+    def isFlayed(self):
+        return _KenshiPy.AppearanceBase_isFlayed(self)
+
+    def _NV_isFlayed(self):
+        return _KenshiPy.AppearanceBase__NV_isFlayed(self)
+
+    def isBarefoot(self):
+        return _KenshiPy.AppearanceBase_isBarefoot(self)
+
+    def _NV_isBarefoot(self):
+        return _KenshiPy.AppearanceBase__NV_isBarefoot(self)
+
+    def setVisible(self, value):
+        return _KenshiPy.AppearanceBase_setVisible(self, value)
+
+    def getVisible(self):
+        return _KenshiPy.AppearanceBase_getVisible(self)
+
+    def getAttachmentsLoaded(self):
+        return _KenshiPy.AppearanceBase_getAttachmentsLoaded(self)
+
+    def setAttachmentsVisible(self, visible):
+        return _KenshiPy.AppearanceBase_setAttachmentsVisible(self, visible)
+
+    def _NV_setAttachmentsVisible(self, visible):
+        return _KenshiPy.AppearanceBase__NV_setAttachmentsVisible(self, visible)
+
+    def createBody(self):
+        return _KenshiPy.AppearanceBase_createBody(self)
+
+    def buildBody(self, _a1, bodyData):
+        return _KenshiPy.AppearanceBase_buildBody(self, _a1, bodyData)
+
+    def buildAttachments(self):
+        return _KenshiPy.AppearanceBase_buildAttachments(self)
+
+    def createEntity(self, e):
+        return _KenshiPy.AppearanceBase_createEntity(self, e)
+
+    def createPhysicsAttachment(self, e):
+        return _KenshiPy.AppearanceBase_createPhysicsAttachment(self, e)
+
+    def createEntityCallback(self, resource, data):
+        return _KenshiPy.AppearanceBase_createEntityCallback(self, resource, data)
+
+    def attachEntity(self, e):
+        return _KenshiPy.AppearanceBase_attachEntity(self, e)
+
+    def getSlotPosition(self, slot, object):
+        return _KenshiPy.AppearanceBase_getSlotPosition(self, slot, object)
+
+    def setupItemMaterial(self, item):
+        return _KenshiPy.AppearanceBase_setupItemMaterial(self, item)
+
+    def setupHairMaterial(self, item):
+        return _KenshiPy.AppearanceBase_setupHairMaterial(self, item)
+
+    def setHairTexture(self, name, channel, alpha, colour, beard):
+        return _KenshiPy.AppearanceBase_setHairTexture(self, name, channel, alpha, colour, beard)
+
+    def setupCharacterEntityTexture(self, ent, textureLayers, colour):
+        return _KenshiPy.AppearanceBase_setupCharacterEntityTexture(self, ent, textureLayers, colour)
+
+    def createAttachedObject(self, item):
+        return _KenshiPy.AppearanceBase_createAttachedObject(self, item)
+
+    def affectsPortrait(self, item):
+        return _KenshiPy.AppearanceBase_affectsPortrait(self, item)
+
+    def updateOverlap(self):
+        return _KenshiPy.AppearanceBase_updateOverlap(self)
+
+    def updateCharaterTexture(self):
+        return _KenshiPy.AppearanceBase_updateCharaterTexture(self)
+    __swig_setmethods__["body"] = _KenshiPy.AppearanceBase_body_set
+    __swig_getmethods__["body"] = _KenshiPy.AppearanceBase_body_get
+    if _newclass:
+        body = _swig_property(_KenshiPy.AppearanceBase_body_get, _KenshiPy.AppearanceBase_body_set)
+    __swig_setmethods__["bodyLoader"] = _KenshiPy.AppearanceBase_bodyLoader_set
+    __swig_getmethods__["bodyLoader"] = _KenshiPy.AppearanceBase_bodyLoader_get
+    if _newclass:
+        bodyLoader = _swig_property(_KenshiPy.AppearanceBase_bodyLoader_get, _KenshiPy.AppearanceBase_bodyLoader_set)
+    __swig_setmethods__["isCreatingBody"] = _KenshiPy.AppearanceBase_isCreatingBody_set
+    __swig_getmethods__["isCreatingBody"] = _KenshiPy.AppearanceBase_isCreatingBody_get
+    if _newclass:
+        isCreatingBody = _swig_property(_KenshiPy.AppearanceBase_isCreatingBody_get, _KenshiPy.AppearanceBase_isCreatingBody_set)
+    __swig_setmethods__["bodyRadius"] = _KenshiPy.AppearanceBase_bodyRadius_set
+    __swig_getmethods__["bodyRadius"] = _KenshiPy.AppearanceBase_bodyRadius_get
+    if _newclass:
+        bodyRadius = _swig_property(_KenshiPy.AppearanceBase_bodyRadius_get, _KenshiPy.AppearanceBase_bodyRadius_set)
+    __swig_setmethods__["me"] = _KenshiPy.AppearanceBase_me_set
+    __swig_getmethods__["me"] = _KenshiPy.AppearanceBase_me_get
+    if _newclass:
+        me = _swig_property(_KenshiPy.AppearanceBase_me_get, _KenshiPy.AppearanceBase_me_set)
+    __swig_setmethods__["visible"] = _KenshiPy.AppearanceBase_visible_set
+    __swig_getmethods__["visible"] = _KenshiPy.AppearanceBase_visible_get
+    if _newclass:
+        visible = _swig_property(_KenshiPy.AppearanceBase_visible_get, _KenshiPy.AppearanceBase_visible_set)
+    __swig_setmethods__["bodyFilename"] = _KenshiPy.AppearanceBase_bodyFilename_set
+    __swig_getmethods__["bodyFilename"] = _KenshiPy.AppearanceBase_bodyFilename_get
+    if _newclass:
+        bodyFilename = _swig_property(_KenshiPy.AppearanceBase_bodyFilename_get, _KenshiPy.AppearanceBase_bodyFilename_set)
+    __swig_setmethods__["bodyMaterial"] = _KenshiPy.AppearanceBase_bodyMaterial_set
+    __swig_getmethods__["bodyMaterial"] = _KenshiPy.AppearanceBase_bodyMaterial_get
+    if _newclass:
+        bodyMaterial = _swig_property(_KenshiPy.AppearanceBase_bodyMaterial_get, _KenshiPy.AppearanceBase_bodyMaterial_set)
+    __swig_setmethods__["animation"] = _KenshiPy.AppearanceBase_animation_set
+    __swig_getmethods__["animation"] = _KenshiPy.AppearanceBase_animation_get
+    if _newclass:
+        animation = _swig_property(_KenshiPy.AppearanceBase_animation_get, _KenshiPy.AppearanceBase_animation_set)
+    __swig_setmethods__["female"] = _KenshiPy.AppearanceBase_female_set
+    __swig_getmethods__["female"] = _KenshiPy.AppearanceBase_female_get
+    if _newclass:
+        female = _swig_property(_KenshiPy.AppearanceBase_female_get, _KenshiPy.AppearanceBase_female_set)
+    __swig_setmethods__["updatedAttachments"] = _KenshiPy.AppearanceBase_updatedAttachments_set
+    __swig_getmethods__["updatedAttachments"] = _KenshiPy.AppearanceBase_updatedAttachments_get
+    if _newclass:
+        updatedAttachments = _swig_property(_KenshiPy.AppearanceBase_updatedAttachments_get, _KenshiPy.AppearanceBase_updatedAttachments_set)
+    __swig_setmethods__["updatedAppearanceData"] = _KenshiPy.AppearanceBase_updatedAppearanceData_set
+    __swig_getmethods__["updatedAppearanceData"] = _KenshiPy.AppearanceBase_updatedAppearanceData_get
+    if _newclass:
+        updatedAppearanceData = _swig_property(_KenshiPy.AppearanceBase_updatedAppearanceData_get, _KenshiPy.AppearanceBase_updatedAppearanceData_set)
+    __swig_setmethods__["updateBody"] = _KenshiPy.AppearanceBase_updateBody_set
+    __swig_getmethods__["updateBody"] = _KenshiPy.AppearanceBase_updateBody_get
+    if _newclass:
+        updateBody = _swig_property(_KenshiPy.AppearanceBase_updateBody_get, _KenshiPy.AppearanceBase_updateBody_set)
+    __swig_setmethods__["suid"] = _KenshiPy.AppearanceBase_suid_set
+    __swig_getmethods__["suid"] = _KenshiPy.AppearanceBase_suid_get
+    if _newclass:
+        suid = _swig_property(_KenshiPy.AppearanceBase_suid_get, _KenshiPy.AppearanceBase_suid_set)
+    __swig_setmethods__["appearanceData"] = _KenshiPy.AppearanceBase_appearanceData_set
+    __swig_getmethods__["appearanceData"] = _KenshiPy.AppearanceBase_appearanceData_get
+    if _newclass:
+        appearanceData = _swig_property(_KenshiPy.AppearanceBase_appearanceData_get, _KenshiPy.AppearanceBase_appearanceData_set)
+    __swig_setmethods__["raceData"] = _KenshiPy.AppearanceBase_raceData_set
+    __swig_getmethods__["raceData"] = _KenshiPy.AppearanceBase_raceData_get
+    if _newclass:
+        raceData = _swig_property(_KenshiPy.AppearanceBase_raceData_get, _KenshiPy.AppearanceBase_raceData_set)
+    __swig_setmethods__["factionColor"] = _KenshiPy.AppearanceBase_factionColor_set
+    __swig_getmethods__["factionColor"] = _KenshiPy.AppearanceBase_factionColor_get
+    if _newclass:
+        factionColor = _swig_property(_KenshiPy.AppearanceBase_factionColor_get, _KenshiPy.AppearanceBase_factionColor_set)
+    __swig_setmethods__["hairStyle"] = _KenshiPy.AppearanceBase_hairStyle_set
+    __swig_getmethods__["hairStyle"] = _KenshiPy.AppearanceBase_hairStyle_get
+    if _newclass:
+        hairStyle = _swig_property(_KenshiPy.AppearanceBase_hairStyle_get, _KenshiPy.AppearanceBase_hairStyle_set)
+    __swig_setmethods__["shaved"] = _KenshiPy.AppearanceBase_shaved_set
+    __swig_getmethods__["shaved"] = _KenshiPy.AppearanceBase_shaved_get
+    if _newclass:
+        shaved = _swig_property(_KenshiPy.AppearanceBase_shaved_get, _KenshiPy.AppearanceBase_shaved_set)
+    __swig_setmethods__["waterline"] = _KenshiPy.AppearanceBase_waterline_set
+    __swig_getmethods__["waterline"] = _KenshiPy.AppearanceBase_waterline_get
+    if _newclass:
+        waterline = _swig_property(_KenshiPy.AppearanceBase_waterline_get, _KenshiPy.AppearanceBase_waterline_set)
+    __swig_setmethods__["waterLineFadeTimer"] = _KenshiPy.AppearanceBase_waterLineFadeTimer_set
+    __swig_getmethods__["waterLineFadeTimer"] = _KenshiPy.AppearanceBase_waterLineFadeTimer_get
+    if _newclass:
+        waterLineFadeTimer = _swig_property(_KenshiPy.AppearanceBase_waterLineFadeTimer_get, _KenshiPy.AppearanceBase_waterLineFadeTimer_set)
+    __swig_setmethods__["barefoot"] = _KenshiPy.AppearanceBase_barefoot_set
+    __swig_getmethods__["barefoot"] = _KenshiPy.AppearanceBase_barefoot_get
+    if _newclass:
+        barefoot = _swig_property(_KenshiPy.AppearanceBase_barefoot_get, _KenshiPy.AppearanceBase_barefoot_set)
+    __swig_setmethods__["hideAttachments"] = _KenshiPy.AppearanceBase_hideAttachments_set
+    __swig_getmethods__["hideAttachments"] = _KenshiPy.AppearanceBase_hideAttachments_get
+    if _newclass:
+        hideAttachments = _swig_property(_KenshiPy.AppearanceBase_hideAttachments_get, _KenshiPy.AppearanceBase_hideAttachments_set)
+    __swig_setmethods__["characterHeight"] = _KenshiPy.AppearanceBase_characterHeight_set
+    __swig_getmethods__["characterHeight"] = _KenshiPy.AppearanceBase_characterHeight_get
+    if _newclass:
+        characterHeight = _swig_property(_KenshiPy.AppearanceBase_characterHeight_get, _KenshiPy.AppearanceBase_characterHeight_set)
+    __swig_setmethods__["characterHeightSpeedMultiplier"] = _KenshiPy.AppearanceBase_characterHeightSpeedMultiplier_set
+    __swig_getmethods__["characterHeightSpeedMultiplier"] = _KenshiPy.AppearanceBase_characterHeightSpeedMultiplier_get
+    if _newclass:
+        characterHeightSpeedMultiplier = _swig_property(_KenshiPy.AppearanceBase_characterHeightSpeedMultiplier_get, _KenshiPy.AppearanceBase_characterHeightSpeedMultiplier_set)
+    __swig_setmethods__["characterHeight_0to1"] = _KenshiPy.AppearanceBase_characterHeight_0to1_set
+    __swig_getmethods__["characterHeight_0to1"] = _KenshiPy.AppearanceBase_characterHeight_0to1_get
+    if _newclass:
+        characterHeight_0to1 = _swig_property(_KenshiPy.AppearanceBase_characterHeight_0to1_get, _KenshiPy.AppearanceBase_characterHeight_0to1_set)
+
+    def getCharacterHeightSpeedMultiplier(self):
+        return _KenshiPy.AppearanceBase_getCharacterHeightSpeedMultiplier(self)
+AppearanceBase_swigregister = _KenshiPy.AppearanceBase_swigregister
+AppearanceBase_swigregister(AppearanceBase)
+
+class AppearanceHuman(AppearanceBase):
+    __swig_setmethods__ = {}
+    for _s in [AppearanceBase]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AppearanceHuman, name, value)
+    __swig_getmethods__ = {}
+    for _s in [AppearanceBase]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, AppearanceHuman, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, animation, appearance, character, factionColorScheme):
+        this = _KenshiPy.new_AppearanceHuman(animation, appearance, character, factionColorScheme)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self, animation, appearance, character, factionColorScheme):
+        return _KenshiPy.AppearanceHuman__CONSTRUCTOR(self, animation, appearance, character, factionColorScheme)
+    __swig_destroy__ = _KenshiPy.delete_AppearanceHuman
+    __del__ = lambda self: None
+
+    def _DESTRUCTOR(self):
+        return _KenshiPy.AppearanceHuman__DESTRUCTOR(self)
+
+    def setGender(self, female):
+        return _KenshiPy.AppearanceHuman_setGender(self, female)
+
+    def _NV_setGender(self, female):
+        return _KenshiPy.AppearanceHuman__NV_setGender(self, female)
+
+    def periodicUpdate(self):
+        return _KenshiPy.AppearanceHuman_periodicUpdate(self)
+
+    def _NV_periodicUpdate(self):
+        return _KenshiPy.AppearanceHuman__NV_periodicUpdate(self)
+
+    def setAttachmentsVisible(self, visible):
+        return _KenshiPy.AppearanceHuman_setAttachmentsVisible(self, visible)
+
+    def _NV_setAttachmentsVisible(self, visible):
+        return _KenshiPy.AppearanceHuman__NV_setAttachmentsVisible(self, visible)
+
+    def setHiddenPartsEnabled(self, enabled):
+        return _KenshiPy.AppearanceHuman_setHiddenPartsEnabled(self, enabled)
+
+    def showFace(self, show):
+        return _KenshiPy.AppearanceHuman_showFace(self, show)
+
+    def setFlayed(self, f):
+        return _KenshiPy.AppearanceHuman_setFlayed(self, f)
+
+    def _NV_setFlayed(self, f):
+        return _KenshiPy.AppearanceHuman__NV_setFlayed(self, f)
+
+    def isFlayed(self):
+        return _KenshiPy.AppearanceHuman_isFlayed(self)
+
+    def _NV_isFlayed(self):
+        return _KenshiPy.AppearanceHuman__NV_isFlayed(self)
+
+    def updateProportions(self):
+        return _KenshiPy.AppearanceHuman_updateProportions(self)
+    __swig_setmethods__["robotLegScale"] = _KenshiPy.AppearanceHuman_robotLegScale_set
+    __swig_getmethods__["robotLegScale"] = _KenshiPy.AppearanceHuman_robotLegScale_get
+    if _newclass:
+        robotLegScale = _swig_property(_KenshiPy.AppearanceHuman_robotLegScale_get, _KenshiPy.AppearanceHuman_robotLegScale_set)
+
+    def createBody(self):
+        return _KenshiPy.AppearanceHuman_createBody(self)
+
+    def _NV_createBody(self):
+        return _KenshiPy.AppearanceHuman__NV_createBody(self)
+
+    def updateAppearance(self):
+        return _KenshiPy.AppearanceHuman_updateAppearance(self)
+
+    def _NV_updateAppearance(self):
+        return _KenshiPy.AppearanceHuman__NV_updateAppearance(self)
+
+    def updateHiddenParts(self):
+        return _KenshiPy.AppearanceHuman_updateHiddenParts(self)
+
+    def updatePysiqueFromStats(self):
+        return _KenshiPy.AppearanceHuman_updatePysiqueFromStats(self)
+
+    def updatePhysiqueMuscleMults(self):
+        return _KenshiPy.AppearanceHuman_updatePhysiqueMuscleMults(self)
+    __swig_setmethods__["lastPhysiqueStats"] = _KenshiPy.AppearanceHuman_lastPhysiqueStats_set
+    __swig_getmethods__["lastPhysiqueStats"] = _KenshiPy.AppearanceHuman_lastPhysiqueStats_get
+    if _newclass:
+        lastPhysiqueStats = _swig_property(_KenshiPy.AppearanceHuman_lastPhysiqueStats_get, _KenshiPy.AppearanceHuman_lastPhysiqueStats_set)
+    __swig_setmethods__["bulkMult"] = _KenshiPy.AppearanceHuman_bulkMult_set
+    __swig_getmethods__["bulkMult"] = _KenshiPy.AppearanceHuman_bulkMult_get
+    if _newclass:
+        bulkMult = _swig_property(_KenshiPy.AppearanceHuman_bulkMult_get, _KenshiPy.AppearanceHuman_bulkMult_set)
+    __swig_setmethods__["muscleMult"] = _KenshiPy.AppearanceHuman_muscleMult_set
+    __swig_getmethods__["muscleMult"] = _KenshiPy.AppearanceHuman_muscleMult_get
+    if _newclass:
+        muscleMult = _swig_property(_KenshiPy.AppearanceHuman_muscleMult_get, _KenshiPy.AppearanceHuman_muscleMult_set)
+    __swig_setmethods__["skinnyMult"] = _KenshiPy.AppearanceHuman_skinnyMult_set
+    __swig_getmethods__["skinnyMult"] = _KenshiPy.AppearanceHuman_skinnyMult_get
+    if _newclass:
+        skinnyMult = _swig_property(_KenshiPy.AppearanceHuman_skinnyMult_get, _KenshiPy.AppearanceHuman_skinnyMult_set)
+    __swig_setmethods__["flayed"] = _KenshiPy.AppearanceHuman_flayed_set
+    __swig_getmethods__["flayed"] = _KenshiPy.AppearanceHuman_flayed_get
+    if _newclass:
+        flayed = _swig_property(_KenshiPy.AppearanceHuman_flayed_get, _KenshiPy.AppearanceHuman_flayed_set)
+
+    def updateCharaterTexture(self):
+        return _KenshiPy.AppearanceHuman_updateCharaterTexture(self)
+
+    def _NV_updateCharaterTexture(self):
+        return _KenshiPy.AppearanceHuman__NV_updateCharaterTexture(self)
+
+    def setupCharacterEntityTexture(self, ent, textureLayers, colour):
+        return _KenshiPy.AppearanceHuman_setupCharacterEntityTexture(self, ent, textureLayers, colour)
+
+    def setPosture(self, posture, neck, shoulders):
+        return _KenshiPy.AppearanceHuman_setPosture(self, posture, neck, shoulders)
+    __swig_setmethods__["beard"] = _KenshiPy.AppearanceHuman_beard_set
+    __swig_getmethods__["beard"] = _KenshiPy.AppearanceHuman_beard_get
+    if _newclass:
+        beard = _swig_property(_KenshiPy.AppearanceHuman_beard_get, _KenshiPy.AppearanceHuman_beard_set)
+    __swig_setmethods__["hiddenPartsEnabled"] = _KenshiPy.AppearanceHuman_hiddenPartsEnabled_set
+    __swig_getmethods__["hiddenPartsEnabled"] = _KenshiPy.AppearanceHuman_hiddenPartsEnabled_get
+    if _newclass:
+        hiddenPartsEnabled = _swig_property(_KenshiPy.AppearanceHuman_hiddenPartsEnabled_get, _KenshiPy.AppearanceHuman_hiddenPartsEnabled_set)
+AppearanceHuman_swigregister = _KenshiPy.AppearanceHuman_swigregister
+AppearanceHuman_swigregister(AppearanceHuman)
+
+class AppearanceAnimal(AppearanceBase):
+    __swig_setmethods__ = {}
+    for _s in [AppearanceBase]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AppearanceAnimal, name, value)
+    __swig_getmethods__ = {}
+    for _s in [AppearanceBase]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, AppearanceAnimal, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, animation, appearance, character):
+        this = _KenshiPy.new_AppearanceAnimal(animation, appearance, character)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def _CONSTRUCTOR(self, animation, appearance, character):
+        return _KenshiPy.AppearanceAnimal__CONSTRUCTOR(self, animation, appearance, character)
+    __swig_destroy__ = _KenshiPy.delete_AppearanceAnimal
+    __del__ = lambda self: None
+
+    def _DESTRUCTOR(self):
+        return _KenshiPy.AppearanceAnimal__DESTRUCTOR(self)
+
+    def createBody(self):
+        return _KenshiPy.AppearanceAnimal_createBody(self)
+
+    def _NV_createBody(self):
+        return _KenshiPy.AppearanceAnimal__NV_createBody(self)
+
+    def updateCharaterTexture(self):
+        return _KenshiPy.AppearanceAnimal_updateCharaterTexture(self)
+
+    def _NV_updateCharaterTexture(self):
+        return _KenshiPy.AppearanceAnimal__NV_updateCharaterTexture(self)
+AppearanceAnimal_swigregister = _KenshiPy.AppearanceAnimal_swigregister
+AppearanceAnimal_swigregister(AppearanceAnimal)
 
 class RaceData(_object):
     __swig_setmethods__ = {}
@@ -15749,6 +17232,10 @@ def TitleScreen_getSingleton():
     return _KenshiPy.TitleScreen_getSingleton()
 TitleScreen_getSingleton = _KenshiPy.TitleScreen_getSingleton
 
+
+def RegisterKeyDownCallback(callable):
+    return _KenshiPy.RegisterKeyDownCallback(callable)
+RegisterKeyDownCallback = _KenshiPy.RegisterKeyDownCallback
 # This file is compatible with both classic and new-style classes.
 
 
