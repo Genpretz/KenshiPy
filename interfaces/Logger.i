@@ -1,7 +1,7 @@
 %{
-#include "Logger.h"
+#include "kenshi/Logger.h"
 %}
 
 %include "std_string.i"
 
-%include "Logger.h"
+%include "kenshi/Logger.h"

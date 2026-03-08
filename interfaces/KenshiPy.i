@@ -17,6 +17,8 @@
 
 #include "core/Functions.h"
 
+#include "kenshi/ModInfo.h"
+
 #include "kenshi/util/Array2d.h"
 #include "kenshi/util/hand.h"
 #include "kenshi/util/iVector2.h"
@@ -57,7 +59,7 @@
 #include "kenshi/Kenshi.h"
 #include "kenshi/Logger.h"
 #include "kenshi/MedicalSystem.h"
-#include "kenshi/ModInfo.h"
+//#include "kenshi/ModInfo.h"
 #include "kenshi/OptionsHolder.h"
 #include "kenshi/PhysicsActual.h"
 #include "kenshi/PhysicsCollection.h"
@@ -162,6 +164,9 @@
 %include "InputHandler.i"
 %include "PlayerInterface.i"
 
+%include "Platoon.i"
+%include "Appearance.i"
+
 // Race / sensory
 %include "RaceData.i"
 %include "SensoryData.i"
@@ -181,3 +186,14 @@
 
 //GUI
 %include "TitleScreen.i"
+
+// Python callbacks
+%{
+#include "KenshiPy_Runtime.h"
+%}
+void RegisterKeyDownCallback(PyObject* callable);
+
+//MyGUI
+%include "mygui/MyGUI.i"
+
+%include "ogre/Ogre.i"

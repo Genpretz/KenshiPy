@@ -1,5 +1,5 @@
 %{
-#include "Tasks.h"
+#include "kenshi/Tasks.h"
 %}
 
 // Tasks.h is currently empty (header placeholder).

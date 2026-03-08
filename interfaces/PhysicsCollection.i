@@ -1,5 +1,5 @@
 %{
-#include "PhysicsCollection.h"
+#include "kenshi/PhysicsCollection.h"
 %}
 
 %include "std_string.i"
@@ -11,4 +11,4 @@
 // WeatherRegion uses internal listener lists
 %ignore WeatherRegion;
 
-%include "PhysicsCollection.h"
+%include "kenshi/PhysicsCollection.h"

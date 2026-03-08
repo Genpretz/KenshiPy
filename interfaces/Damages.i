@@ -1,5 +1,5 @@
 %{
-#include "Damages.h"
+#include "kenshi\Damages.h"
 %}
 
 // Damages privately inherits Ogre::GeneralAllocatedObject which makes
@@ -11,4 +11,4 @@
 %ignore Damages::_DESTRUCTOR;
 %ignore CharStats::getTotalAttackDamageFor;
 
-%include "Damages.h"
+%include "kenshi\Damages.h"

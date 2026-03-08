@@ -1,13 +1,13 @@
 %{
 #include "CharMovement_guarded.h"
-#include "Character.h"
+#include "kenshi\Character.h"
 %}
 
 %include "std_string.i"
 %include "stdint.i"
 
 // CharMovement.h is already fully processed via CharMovement.i
-%import "CharMovement.h"
+%import "kenshi\CharMovement.h"
 
 // Suppress members using internal container/utility types
 %ignore Character::ragdollMessages;
@@ -37,4 +37,4 @@
 %ignore Character::WhoSeesMe;
 %ignore Character::whoSeesMeSneaking;
 
-%include "Character.h"
+%include "kenshi\Character.h"

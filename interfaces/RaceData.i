@@ -1,5 +1,5 @@
 %{
-#include "RaceData.h"
+#include "kenshi/RaceData.h"
 %}
 
 %include "std_string.i"
@@ -10,4 +10,4 @@
 %ignore RaceData::weatherImmunities;
 %ignore RaceData::bloodColour;
 
-%include "RaceData.h"
+%include "kenshi/RaceData.h"

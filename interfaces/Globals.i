@@ -1,14 +1,14 @@
 %{
-#include "Globals.h"
+#include "kenshi\Globals.h"
 %}
 
 // Globals.h only forward-declares these types.
 // Import the full definitions so SWIG returns proper wrapped objects
 // instead of opaque SwigPyObject pointers.
-%import "GameWorld.h"
-%import "GlobalConstants.h"
-%import "InputHandler.h"
-%import "OptionsHolder.h"
+%import "kenshi\GameWorld.h"
+%import "kenshi\GlobalConstants.h"
+%import "kenshi\InputHandler.h"
+%import "kenshi\OptionsHolder.h"
 
 // Free functions
 void  showErrorMessage();

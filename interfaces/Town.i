@@ -1,11 +1,11 @@
 %{
 #include "ArtifactItemData_stub.h"
-#include "Town.h"
+#include "kenshi/Town.h"
 %}
 
 %include "std_string.i"
 
-%import "util/TagsClass.h"
+%import "kenshi/util/TagsClass.h"
 
 // ArtifactItemData is only forward-declared in Town.h - full type unavailable
 %ignore TownBase::artifacts;
@@ -16,4 +16,4 @@
 %ignore Town::facilitesWeHaveHere;
 %ignore Town::_facilitesWeHaveHere;
 
-%include "Town.h"
+%include "kenshi/Town.h"

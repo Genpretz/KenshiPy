@@ -1,5 +1,5 @@
 %{
-#include "SaveInfo.h"
+#include "kenshi/SaveInfo.h"
 %}
 
 %include "std_string.i"
@@ -8,4 +8,4 @@
 %ignore SaveInfo::SaveInfo;
 %ignore SaveInfo::_CONSTRUCTOR;
 
-%include "SaveInfo.h"
+%include "kenshi/SaveInfo.h"

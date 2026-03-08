@@ -1,5 +1,5 @@
 %{
-#include "SaveFileSystem.h"
+#include "kenshi/SaveFileSystem.h"
 %}
 
 %include "std_string.i"
@@ -12,4 +12,4 @@
 %ignore SaveFileSystem::saveLog;
 %nocopyctor SaveFileSystem;
 
-%include "SaveFileSystem.h"
+%include "kenshi/SaveFileSystem.h"

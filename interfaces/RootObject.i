@@ -1,7 +1,7 @@
 %{
-#include "RootObject.h"
+#include "kenshi/RootObject.h"
 %}
 
 %include "std_string.i"
 
-%include "RootObject.h"
+%include "kenshi/RootObject.h"

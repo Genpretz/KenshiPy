@@ -1,5 +1,5 @@
 %{
-#include "Item.h"
+#include "kenshi/Item.h"
 %}
 
 %include "std_string.i"
@@ -8,4 +8,4 @@
 %ignore InventoryItemBase::inventoryPos;
 %ignore Item::stolenFrom;
 
-%include "Item.h"
+%include "kenshi/Item.h"

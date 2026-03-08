@@ -1,5 +1,5 @@
 %{
-#include "Dialogue.h"
+#include "kenshi/Dialogue.h"
 %}
 
 %include "std_string.i"

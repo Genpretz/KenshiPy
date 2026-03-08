@@ -1,7 +1,7 @@
 %{
-#include "FactionRelations.h"
+#include "kenshi\FactionRelations.h"
 %}
 
 %include "std_string.i"
 
-%include "FactionRelations.h"
+%include "kenshi\FactionRelations.h"

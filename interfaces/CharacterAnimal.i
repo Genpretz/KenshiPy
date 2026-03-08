@@ -1,5 +1,5 @@
 %{
-#include "CharacterAnimal.h"
+#include "kenshi\CharacterAnimal.h"
 %}
 
 %include "std_string.i"
@@ -8,4 +8,4 @@
 %ignore CharacterAnimal::itemInMouthTimeStamp;
 %ignore CharacterAnimal::audioTimeStamp;
 
-%include "CharacterAnimal.h"
+%include "kenshi\CharacterAnimal.h"

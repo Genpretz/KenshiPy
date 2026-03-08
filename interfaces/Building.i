@@ -1,5 +1,5 @@
 %{
-#include "Building.h"
+#include "kenshi\Building.h"
 %}
 
 %include "std_string.i"
@@ -49,4 +49,4 @@
 %ignore Building::positionMarker;
 %ignore Building::refreshGUIChangesFlag;
 
-%include "Building.h"
+%include "kenshi\Building.h"

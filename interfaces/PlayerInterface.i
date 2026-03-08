@@ -1,5 +1,5 @@
 %{
-#include "PlayerInterface.h"
+#include "kenshi/PlayerInterface.h"
 %}
 
 %include "std_string.i"
@@ -14,4 +14,10 @@
 %ignore ContextMenu::menuGUI;
 %ignore ContextMenu::menuGUI2;
 
-%include "PlayerInterface.h"
+// getAllPlayerCharacters has two overloads:
+//   void getAllPlayerCharacters(lektor<RootObject*>& list)   -- out-param, fills RootObject list
+//   const lektor<Character*>& getAllPlayerCharacters() const -- returns wrapped Character list
+// Python has no overloading, so rename the out-param version to a distinct name.
+%rename(getAllPlayerCharacters_rootObjects) PlayerInterface::getAllPlayerCharacters(lektor<RootObject*>&);
+
+%include "kenshi/PlayerInterface.h"

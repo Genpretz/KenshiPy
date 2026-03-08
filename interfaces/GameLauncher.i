@@ -1,5 +1,5 @@
 %{
-#include "GameLauncher.h"
+#include "kenshi/GameLauncher.h"
 %}
 
 %include "std_string.i"

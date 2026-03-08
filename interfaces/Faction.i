@@ -1,5 +1,5 @@
 %{
-#include "Faction.h"
+#include "kenshi\Faction.h"
 %}
 
 %include "std_string.i"
@@ -21,4 +21,4 @@
 %nocopyctor Faction;
 %nocopyctor FactionManager;
 
-%include "Faction.h"
+%include "kenshi\Faction.h"

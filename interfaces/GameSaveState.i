@@ -1,5 +1,5 @@
 %{
-#include "GameSaveState.h"
+#include "kenshi\GameSaveState.h"
 %}
 
 %include "std_string.i"
@@ -9,4 +9,4 @@
 %ignore GameSaveState::pos;
 %ignore GameSaveState::rot;
 
-%include "GameSaveState.h"
+%include "kenshi\GameSaveState.h"

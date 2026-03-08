@@ -1,10 +1,10 @@
 %{
-#include "SensoryData.h"
+#include "kenshi/SensoryData.h"
 %}
 
 %include "std_string.i"
 
-%import "util/TagsClass.h"
+%import "kenshi/util/TagsClass.h"
 
 %ignore SeenSomeone::lastSeenTime;
 %ignore SeenSomeone::lastPosition;
@@ -18,4 +18,4 @@
 
 %ignore TagsClass;
 
-%include "SensoryData.h"
+%include "kenshi/SensoryData.h"

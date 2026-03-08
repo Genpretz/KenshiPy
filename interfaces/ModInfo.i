@@ -1,7 +1,7 @@
 %{
-#include "ModInfo.h"
+#include "kenshi/ModInfo.h"
 %}
 
 %include "std_string.i"
 
-%include "ModInfo.h"
+%include "kenshi/ModInfo.h"

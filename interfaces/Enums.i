@@ -1,5 +1,5 @@
 %{
-#include "Enums.h"
+#include "kenshi/Enums.h"
 %}
 
-%include "Enums.h"
+%include "kenshi/Enums.h"

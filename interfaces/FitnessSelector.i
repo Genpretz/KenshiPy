@@ -1,5 +1,5 @@
 %{
-#include "FitnessSelector.h"
+#include "kenshi/FitnessSelector.h"
 %}
 
 // FitnessSelector is a template class; SWIG cannot instantiate it generically.
@@ -9,3 +9,5 @@
 
 // Example (uncomment and adapt as required):
 // %template(FitnessSelectorGameData) FitnessSelector<GameData*>;
+
+#include "kenshi/FitnessSelector.h"

@@ -1,5 +1,5 @@
 %{
-#include "TradeCulture.h"
+#include "kenshi/TradeCulture.h"
 %}
 
 %include "std_string.i"
@@ -12,4 +12,4 @@
 %ignore TradeCulture::getForbiddenItemsList;
 %ignore TradeCulture::getAllIllegalItems;
 
-%include "TradeCulture.h"
+%include "kenshi/TradeCulture.h"

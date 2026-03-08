@@ -1,5 +1,5 @@
 %{
-#include "MedicalSystem.h"
+#include "kenshi/MedicalSystem.h"
 %}
 
 %include "std_string.i"
@@ -10,4 +10,4 @@
 %ignore RobotLimbs::states;
 %ignore RobotLimbs::items;
 
-%include "MedicalSystem.h"
+%include "kenshi/MedicalSystem.h"

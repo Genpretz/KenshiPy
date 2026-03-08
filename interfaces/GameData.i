@@ -1,5 +1,5 @@
 %{
-#include "GameData.h"
+#include "kenshi\GameData.h"
 %}
 
 %include "std_string.i"
@@ -32,4 +32,4 @@
 %ignore GameDataReference::operator=;
 %ignore GameDataReference::getPtr;
 
-%include "GameData.h"
+%include "kenshi\GameData.h"

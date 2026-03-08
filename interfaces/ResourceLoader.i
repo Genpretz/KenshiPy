@@ -1,5 +1,5 @@
 %{
-#include "ResourceLoader.h"
+#include "kenshi/ResourceLoader.h"
 %}
 
 %include "std_string.i"
@@ -21,4 +21,4 @@
 %ignore ResourceLoader::EMPTY_CALLBACK;
 %ignore ResourceLoader::MeshLodStrategy;
 
-%include "ResourceLoader.h"
+%include "kenshi/ResourceLoader.h"

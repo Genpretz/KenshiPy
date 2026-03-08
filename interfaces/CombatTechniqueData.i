@@ -1,5 +1,5 @@
 %{
-#include "CombatTechniqueData.h"
+#include "kenshi\CombatTechniqueData.h"
 %}
 
 %include "std_string.i"
@@ -8,4 +8,4 @@
 %ignore CombatTechniqueData::events;
 %ignore CombatTechniqueData::impactPoints;
 
-%include "CombatTechniqueData.h"
+%include "kenshi\CombatTechniqueData.h"

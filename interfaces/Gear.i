@@ -1,7 +1,7 @@
 %{
-#include "Gear.h"
+#include "kenshi\Gear.h"
 %}
 
 %include "std_string.i"
 
-%include "Gear.h"
+%include "kenshi\Gear.h"

@@ -1,5 +1,5 @@
 %{
-#include "PhysicsActual.h"
+#include "kenshi/PhysicsActual.h"
 %}
 
 %include "std_string.i"
@@ -34,3 +34,5 @@ enum NxShapeFlag
     NX_SF_SOFTBODY_DISABLE_COLLISION = 0x80000,
     NX_SF_SOFTBODY_TWOWAY           = 0x100000
 };
+
+#include "kenshi/PhysicsActual.h"

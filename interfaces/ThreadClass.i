@@ -1,5 +1,5 @@
 %{
-#include "ThreadClass.h"
+#include "kenshi/ThreadClass.h"
 %}
 
 %include "std_string.i"
@@ -9,4 +9,4 @@
 %ignore ThreadClass::lockedWhileRunningMute;
 %nocopyctor ThreadClass;
 
-%include "ThreadClass.h"
+%include "kenshi/ThreadClass.h"

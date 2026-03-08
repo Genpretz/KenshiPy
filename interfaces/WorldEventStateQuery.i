@@ -1,5 +1,5 @@
 %{
-#include "WorldEventStateQuery.h"
+#include "kenshi/WorldEventStateQuery.h"
 %}
 
 %include "std_string.i"
@@ -12,4 +12,4 @@
 %ignore WorldEventStateQuery::isEnemyOf;
 %ignore WorldEventStateQueryList::statesList;
 
-%include "WorldEventStateQuery.h"
+%include "kenshi/WorldEventStateQuery.h"

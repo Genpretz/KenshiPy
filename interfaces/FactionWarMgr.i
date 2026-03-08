@@ -1,5 +1,5 @@
 %{
-#include "FactionWarMgr.h"
+#include "kenshi\FactionWarMgr.h"
 %}
 
 %include "std_string.i"
@@ -13,4 +13,4 @@
 %ignore FactionWarMgr::nextUpdateTime;
 %ignore FactionWarMgr::triggerCampaign;
 
-%include "FactionWarMgr.h"
+%include "kenshi\FactionWarMgr.h"

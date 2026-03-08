@@ -1,5 +1,5 @@
 %{
-#include "BountyManager.h"
+#include "kenshi\BountyManager.h"
 %}
 
 %include "std_string.i"
@@ -11,4 +11,4 @@
 %ignore BountyManager::accessPassExpirationTime;
 %ignore BountyManager::prisonSentenceBeganTime;
 
-%include "BountyManager.h"
+%include "kenshi\BountyManager.h"

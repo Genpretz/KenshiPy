@@ -1,5 +1,5 @@
 %{
-#include "Titlescreen.h"
+#include "kenshi/Titlescreen.h"
 %}
 
-%include "Titlescreen.h"
+%include "kenshi/Titlescreen.h"

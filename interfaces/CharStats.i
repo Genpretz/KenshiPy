@@ -1,5 +1,5 @@
 %{
-#include "CharStats.h"
+#include "kenshi\CharStats.h"
 %}
 
 %include "std_string.i"
@@ -13,4 +13,4 @@
 %ignore CharStats::attacks;
 %ignore CharStats::blocks;
 
-%include "CharStats.h"
+%include "kenshi\CharStats.h"

@@ -1,5 +1,5 @@
 %{
-#include "GlobalConstants.h"
+#include "kenshi\GlobalConstants.h"
 %}
 
-%include "GlobalConstants.h"
+%include "kenshi\GlobalConstants.h"
