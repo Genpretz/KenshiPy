@@ -10,16 +10,9 @@ The goal is to provide a Python scripting workflow to mod Kenshi and, hopefully,
 
 KenshiLib allows developers to write C++ DLLs that integrate directly with Kenshi’s runtime. KenshiPy follows the same architectural pattern:
 
-- Compiled as an **x64 DLL**
-- Loaded into Kenshi at runtime
+- Compiled and loaded into Kenshi at runtime
 - Embeds a **Python 3.4 interpreter**
 - Exposes KenshiLib APIs through **SWIG 3.0.12** bindings
-- Automatically loads Python scripts from:
-```
-   .\Kenshi\mods\<modname>\KenshiPy.json
-```
-
-Any Python script declared in KenshiPy.json is discovered and executed when the interpreter initializes.
 
 ---
 
@@ -28,7 +21,7 @@ Any Python script declared in KenshiPy.json is discovered and executed when the 
 This project intentionally targets the same legacy constraints as Kenshi/KenshiLib:
 
 - **MSVC 2010**
-- **x64 only**
+- **x64**
 - **Limited C++11 support**
 - **SWIG 3.0.12**
 - **KenshiLib 0.1.5**
@@ -36,30 +29,20 @@ This project intentionally targets the same legacy constraints as Kenshi/KenshiL
 
 These constraints are deliberate to maintain ABI compatibility with Kenshi’s runtime and KenshiLib.
 
----
-
-## Architecture
-
-### 1. Native Layer
-
-- KenshiPy is built as a DLL.
-- It links against KenshiLib.
-- It initializes an embedded Python interpreter.
-- It exposes wrapped C++ symbols through a generated `_KenshiPy` module.
-
-### 2. SWIG Binding Layer
-
-- SWIG generates:
-  - C++ wrapper glue code
-  - A Python extension module
-- Explicit template instantiations are used where required.
-- Only a curated subset of KenshiLib headers are included.
-
 ## Example Usage
 
-After installing KenshiPy, you can create a mod with the following structure:
+After installing KenshiPy, automatically loads Python scripts declared in:
 ```
-Kenshi/mods/MyMod/scripts/example.py
+   .\Kenshi\mods\<modname>\KenshiPy.json
+```
+```
+{
+    "Scripts": ["example.py"]
+}
+```
+
+```
+Kenshi/mods/<modname>/example.py
 ```
 
 ```python
