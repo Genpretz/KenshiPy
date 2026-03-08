@@ -41,7 +41,7 @@ static std::string GetKenshiDir()
 	return ".";
 }
 
-static void RunScript(const std::string& scriptPath)
+void RunScript(const std::string& scriptPath)
 {
 	std::ifstream file(scriptPath.c_str(), std::ios::binary | std::ios::ate);
 	if (!file.is_open())
@@ -125,6 +125,73 @@ static void RunScript(const std::string& scriptPath)
 	PyGILState_Release(gstate);
 }
 
+void RunString(const std::string& code)
+{
+	PyGILState_STATE gstate = PyGILState_Ensure();
+
+	PyObject* code_obj = Py_CompileString(code.c_str(), "<string>", Py_file_input);
+	if (!code_obj)
+	{
+		PyObject* ptype, * pvalue, * ptraceback;
+		PyErr_Fetch(&ptype, &pvalue, &ptraceback);
+		PyErr_NormalizeException(&ptype, &pvalue, &ptraceback);
+
+		std::string errorMsg = "KenshiPy: Compile error in RunString\n";
+		if (pvalue)
+		{
+			PyObject* pstr = PyObject_Str(pvalue);
+			if (pstr)
+			{
+				errorMsg += PyUnicode_AsUTF8(pstr);
+				Py_DECREF(pstr);
+			}
+		}
+
+		ErrorLog(errorMsg);
+		OutputDebugStringA(errorMsg.c_str());
+
+		Py_XDECREF(ptype);
+		Py_XDECREF(pvalue);
+		Py_XDECREF(ptraceback);
+		PyGILState_Release(gstate);
+		return;
+	}
+
+	PyObject* mainModule = PyImport_AddModule("__main__");
+	PyObject* globals = PyModule_GetDict(mainModule);
+	PyObject* result = PyEval_EvalCode(code_obj, globals, globals);
+
+	if (!result)
+	{
+		PyObject* ptype, * pvalue, * ptraceback;
+		PyErr_Fetch(&ptype, &pvalue, &ptraceback);
+		PyErr_NormalizeException(&ptype, &pvalue, &ptraceback);
+
+		std::string errorMsg = "KenshiPy: Runtime error in RunString\n";
+		if (pvalue)
+		{
+			PyObject* pstr = PyObject_Str(pvalue);
+			if (pstr)
+			{
+				errorMsg += PyUnicode_AsUTF8(pstr);
+				Py_DECREF(pstr);
+			}
+		}
+
+		ErrorLog(errorMsg);
+		OutputDebugStringA(errorMsg.c_str());
+
+		Py_XDECREF(ptype);
+		Py_XDECREF(pvalue);
+		Py_XDECREF(ptraceback);
+	}
+
+	Py_XDECREF(result);
+	Py_DECREF(code_obj);
+
+	PyGILState_Release(gstate);
+}
+
 // ----------------------------------------------------------------------------
 // Script loading - iterates active mods looking for KenshiPy.json
 // ----------------------------------------------------------------------------
@@ -145,8 +212,6 @@ static void LoadModScripts(lektor<ModInfo*>& mods)
 		{
 			ErrorLog("KenshiPy: Error parsing \"" + jsonPath + "\": "
 				+ rapidjson::GetParseError_En(dom.GetParseError()));
-			OutputDebugStringA(("KenshiPy: Error parsing \"" + jsonPath + "\": "
-				+ rapidjson::GetParseError_En(dom.GetParseError())).c_str());
 			continue;
 		}
 
@@ -162,7 +227,6 @@ static void LoadModScripts(lektor<ModInfo*>& mods)
 
 			std::string scriptPath = mods[i]->path + "\\" + itr->GetString();
 			DebugLog("KenshiPy: Loading " + mods[i]->name + " -> " + itr->GetString());
-			OutputDebugStringA(("KenshiPy: Loading " + mods[i]->name + " -> " + itr->GetString()).c_str());
 			RunScript(scriptPath);
 		}
 	}
@@ -187,7 +251,6 @@ void TryLoadMods()
 		return;
 
 	g_loaded = true;
-	OutputDebugStringA("KenshiPy: Active mods detected, loading scripts...");
 	DebugLog("KenshiPy: Loading active mod scripts...");
 	LoadModScripts(world->activeMods);
 }
@@ -223,7 +286,6 @@ static void InitPython()
 	// Release GIL - game threads will acquire it as needed via PyGILState_Ensure
 	PyEval_SaveThread();
 
-	OutputDebugStringA("KenshiPy: Python interpreter initialized.");
 	DebugLog("KenshiPy: Python interpreter initialized.");
 }
 
@@ -237,11 +299,46 @@ void ShutdownPython()
 // Plugin entry points
 // ----------------------------------------------------------------------------
 
-
-
 void Init()
 {
 	InitPython();
-	OutputDebugStringA("KenshiPy: Runtime initialized.");
 	DebugLog("KenshiPy: Runtime initialized.");
+}
+
+// ----------------------------------------------------------------------------
+// Key down callbacks
+// ----------------------------------------------------------------------------
+
+static std::vector<PyObject*> g_keyDownCallbacks;
+
+void RegisterKeyDownCallback(PyObject* callable)
+{
+	if (!callable || !PyCallable_Check(callable))
+	{
+		ErrorLog("KenshiPy: registerKeyDownCallback requires a callable");
+		return;
+	}
+	Py_INCREF(callable);
+	g_keyDownCallbacks.push_back(callable);
+}
+
+void CallKeyDownCallbacks(int keyCode)
+{
+	if (g_keyDownCallbacks.empty())
+		return;
+
+	PyGILState_STATE gstate = PyGILState_Ensure();
+
+	PyObject* pyKey = PyLong_FromLong(keyCode);
+	for (size_t i = 0; i < g_keyDownCallbacks.size(); ++i)
+	{
+		PyObject* result = PyObject_CallFunctionObjArgs(g_keyDownCallbacks[i], pyKey, NULL);
+		if (!result)
+			PyErr_Clear();
+		else
+			Py_DECREF(result);
+	}
+	Py_DECREF(pyKey);
+
+	PyGILState_Release(gstate);
 }
