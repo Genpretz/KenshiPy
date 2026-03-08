@@ -57,5 +57,5 @@ After installing KenshiPy, automatically loads Python scripts declared in:
 ```python
 import KenshiPy
 
-KenshiPy.Debug.DebugLog("Hello from Python")
+KenshiPy.DebugLog("Hello from Python")
 ```
