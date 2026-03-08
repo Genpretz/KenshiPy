@@ -1,7 +1,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-#include <Ogre.h>
+#include <ogre/Ogre.h>
 
 #include <boost/filesystem.hpp>
 
