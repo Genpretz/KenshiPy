@@ -35,14 +35,14 @@ After installing KenshiPy, automatically loads Python scripts declared in:
 ```
    .\Kenshi\mods\<modname>\KenshiPy.json
 ```
-```
+```json
 {
     "Scripts": ["example.py"]
 }
 ```
 
 ```
-Kenshi/mods/<modname>/example.py
+   .\Kenshi\mods\<modname>\example.py
 ```
 
 ```python
