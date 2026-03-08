@@ -1,6 +1,6 @@
 # KenshiPy
 
-KenshiPy is a native DLL extension for [Kenshi](https://store.steampowered.com/app/233860/Kenshi/) that embeds a Python runtime and exposes selected portions of KenshiLib to Python via SWIG-generated bindings.
+KenshiPy is a DLL extension for [Kenshi](https://store.steampowered.com/app/233860/Kenshi/) that embeds a Python runtime and exposes selected portions of KenshiLib to Python via SWIG-generated bindings.
 
 The goal is to provide a Python scripting workflow to mod Kenshi and, hopefully, lowering the barrier to entry for utilizing KenshiLib through rapid iteration and scripting.
 
@@ -28,6 +28,15 @@ This project intentionally targets the same legacy constraints as Kenshi/KenshiL
 - **Python 3.4**
 
 These constraints are deliberate to maintain ABI compatibility with Kenshi’s runtime and KenshiLib.
+
+## Installation
+
+1. Download the current release
+2. Extract and place /KenshiPython/ inside of Kenshi's root directory.
+3. Append to the end of Plugin_x64.cfg (which is located in Kenshi's root directory)
+```
+Plugin=KenshiPython\KenshiPy
+```
 
 ## Example Usage
 
