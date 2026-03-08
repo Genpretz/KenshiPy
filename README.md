@@ -40,7 +40,7 @@ Plugin=KenshiPython\KenshiPy
 
 ## Example Usage
 
-After installing KenshiPy, automatically loads Python scripts declared in:
+After installing KenshiPy, any active mods will automatically loads Python scripts declared in:
 ```
    .\Kenshi\mods\<modname>\KenshiPy.json
 ```
@@ -58,4 +58,13 @@ After installing KenshiPy, automatically loads Python scripts declared in:
 import KenshiPy
 
 KenshiPy.DebugLog("Hello from Python")
+```
+
+Using the ` key when in-game, opens a console that can also be used to run python, like so:
+```python
+import KenshiPy; KenshiPy,DebugLog("Hello from the in-game console");
+```
+or you can run any script available in Kenshi's root directory
+```python
+run("example.py")
 ```
