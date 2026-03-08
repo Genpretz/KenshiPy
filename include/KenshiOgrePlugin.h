@@ -1,8 +1,8 @@
 #pragma once
 
-#include <OgrePrerequisites.h>
-#include <Ogre.h>
-#include <OgrePlugin.h>
+#include <ogre/OgrePrerequisites.h>
+#include <ogre/Ogre.h>
+#include <ogre/OgrePlugin.h>
 
 using namespace Ogre;
 

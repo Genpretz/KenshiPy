@@ -1,19 +1,67 @@
 #define OGRE_PLATFORM == OGRE_PLATFORM_WIN32
 
+#include "Console.h"
 #include "KenshiOgrePlugin.h"
 #include "KenshiPy_Runtime.h"
 
 #include <core/Functions.h>
 #include <kenshi/TitleScreen.h>
+#include <kenshi/InputHandler.h>
+#include <kenshi/Globals.h>
+#include <ois/OISKeyboard.h>
 
+#include "mygui/MyGUI_Gui.h"
+#include "mygui/MyGUI_Widget.h"
 
 #include <Windows.h>
 
-void (*initialise_orig)(wraps::BaseLayout* thisptr, const std::string& _layout, MyGUI::Widget* _parent, bool _throw, bool _createFakeWidgets) = nullptr;
-void initialise_hook(wraps::BaseLayout* thisptr, const std::string& _layout, MyGUI::Widget* _parent, bool _throw, bool _createFakeWidgets)
+static bool g_consoleInitialized = false;
+
+static MyGUI::Widget* FindWidget(MyGUI::EnumeratorWidgetPtr enumerator, const std::string& name)
 {
-    initialise_orig(thisptr, _layout, _parent, _throw, _createFakeWidgets);
-    TryLoadMods();
+    while (enumerator.next())
+    {
+        MyGUI::Widget* w = enumerator.current();
+        const std::string& widgetName = w->getName();
+        if (widgetName == name)
+            return w;
+        size_t splitPos = widgetName.find('_');
+        if (splitPos != std::string::npos && widgetName.substr(splitPos + 1) == name)
+            return w;
+        if (w->getChildCount() > 0)
+        {
+            MyGUI::Widget* found = FindWidget(w->getEnumerator(), name);
+            if (found != NULL)
+                return found;
+        }
+    }
+    return NULL;
+}
+
+static void ConsoleInitFrameHandler(float timeDelta)
+{
+    MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
+    if (!gui)
+        return;
+
+    MyGUI::Widget* versionText = FindWidget(gui->getEnumerator(), "VersionText");
+    if (!versionText)
+        return;
+
+    // VersionText exists — GUI is ready
+    gui->eventFrameStart -= MyGUI::newDelegate(ConsoleInitFrameHandler);
+    g_consoleInitialized = true;
+    Console::Init();
+}
+
+static void (*InputHandler_keyDownEvent_orig)(InputHandler*, OIS::KeyCode) = NULL;
+static void InputHandler_keyDownEvent_hook(InputHandler* thisptr, OIS::KeyCode keyCode)
+{
+    if (InputHandler_keyDownEvent_orig)
+        InputHandler_keyDownEvent_orig(thisptr, keyCode);
+    if (keyCode == OIS::KC_GRAVE)
+        Console::Toggle();
+    CallKeyDownCallbacks((int)keyCode);
 }
 
 
@@ -22,6 +70,14 @@ TitleScreen* TitleScreen_hook(TitleScreen* thisptr)
 {
     TitleScreen* result = TitleScreen_orig(thisptr);
     TryLoadMods();
+
+    if (!g_consoleInitialized)
+    {
+        MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
+        if (gui)
+            gui->eventFrameStart += MyGUI::newDelegate(ConsoleInitFrameHandler);
+    }
+
     return result;
 }
 
@@ -42,7 +98,7 @@ void KenshiOgrePlugin::install()
     KenshiLib::InitRVAs();
     OutputDebugStringA("KenshiOgrePlugin::install called\n");
     KenshiLib::AddHook(KenshiLib::GetRealAddress(&TitleScreen::_CONSTRUCTOR), TitleScreen_hook, &TitleScreen_orig);
-    KenshiLib::AddHook(KenshiLib::GetRealAddress(&wraps::BaseLayout::initialise), initialise_hook, &initialise_orig);
+    KenshiLib::AddHook(KenshiLib::GetRealAddress(&InputHandler::keyDownEvent), InputHandler_keyDownEvent_hook, &InputHandler_keyDownEvent_orig);
 }
 //---------------------------------------------------------------------
 void KenshiOgrePlugin::initialise()
