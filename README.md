@@ -23,6 +23,7 @@ This project intentionally targets the same legacy constraints as Kenshi/KenshiL
 - **MSVC 2010**
 - **x64**
 - **Limited C++11 support**
+- **Boost 1.60.0**
 - **SWIG 3.0.12**
 - **KenshiLib 0.1.5**
 - **Python 3.4**
