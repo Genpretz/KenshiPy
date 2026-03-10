@@ -38,7 +38,6 @@ These constraints are deliberate to maintain ABI compatibility with Kenshi’s r
 ```
 Plugin=KenshiPython\KenshiPy
 ```
-4. boost-system-v100-mt-1.60.dll must be in the Kenshi root directory (I meant for this to be statically linked so I need to fix this requirement)
 
 ## Example Usage
 
