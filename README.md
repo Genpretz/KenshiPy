@@ -35,10 +35,10 @@ These constraints are deliberate to maintain ABI compatibility with Kenshi’s r
 1. Download the current release
 2. Extract and place /KenshiPython/ inside of Kenshi's root directory.
 3. Append to the end of Plugin_x64.cfg (which is located in Kenshi's root directory)
-4. boost-system-v100-mt-1.60.dll must be in the Kenshi root directory (I meant for this to be statically linked so I need to fix this requirement)
 ```
 Plugin=KenshiPython\KenshiPy
 ```
+4. boost-system-v100-mt-1.60.dll must be in the Kenshi root directory (I meant for this to be statically linked so I need to fix this requirement)
 
 ## Example Usage
 
