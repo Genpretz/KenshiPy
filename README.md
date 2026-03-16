@@ -25,7 +25,7 @@ This project intentionally targets the same legacy constraints as Kenshi/KenshiL
 - **Limited C++11 support**
 - **Boost 1.60.0**
 - **SWIG 3.0.12**
-- **KenshiLib 0.1.5**
+- **KenshiLib 0.1.6**
 - **Python 3.4**
 
 These constraints are deliberate to maintain ABI compatibility with Kenshi’s runtime and KenshiLib.
