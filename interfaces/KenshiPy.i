@@ -28,6 +28,7 @@
 #include "kenshi/util/TagsClass.h"
 #include "kenshi/util/UtilityT.h"
 
+#include "kenshi/Appearance.h"
 #include "kenshi/Bounty.h"
 #include "kenshi/BountyManager.h"
 #include "kenshi/Building.h"
@@ -39,6 +40,7 @@
 #include "kenshi/CombatTechniqueData.h"
 #include "kenshi/Damages.h"
 #include "kenshi/Dialogue.h"
+#include "kenshi/Enums.h"
 #include "kenshi/Faction.h"
 #include "kenshi/FactionLeader.h"
 #include "kenshi/FactionRelations.h"
@@ -74,9 +76,9 @@
 #include "kenshi/SaveManager.h"
 #include "kenshi/SensoryData.h"
 #include "kenshi/util/TagsClass.h"
-#include "kenshi/Tasks.h"
+#include "kenshi/Tasker.h"
 #include "kenshi/ThreadClass.h"
-#include "kenshi/TitleScreen.h"
+#include "kenshi/gui/TitleScreen.h"
 #include "kenshi/Town.h"
 #include "kenshi/TradeCulture.h"
 #include "kenshi/WorldEventStateQuery.h"
@@ -111,6 +113,7 @@
 %include "GlobalConstants.i"
 %include "OptionsHolder.i"
 %include "SaveInfo.i"
+%include "Enums.i"
 
 // Data layer
 %include "GameData.i"
@@ -158,7 +161,7 @@
 
 // Dialogue / tasks
 %include "Dialogue.i"
-%include "Tasks.i"
+%include "Tasker.i"
 
 // Player / input
 %include "InputHandler.i"
@@ -166,6 +169,7 @@
 
 %include "Platoon.i"
 %include "Appearance.i"
+%include "AppearanceManager.i"
 
 // Race / sensory
 %include "RaceData.i"
@@ -185,7 +189,7 @@
 %include "Globals.i"
 
 //GUI
-%include "TitleScreen.i"
+%include "gui/TitleScreen.i"
 
 // Python callbacks
 %{

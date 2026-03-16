@@ -16,4 +16,8 @@
 %ignore Town::facilitesWeHaveHere;
 %ignore Town::_facilitesWeHaveHere;
 
+//unexported symbols from headers
+%ignore TownBase::DelayedSpawnMsg;
+%ignore TownBase::delayedItemLoading;
+
 %include "kenshi/Town.h"
