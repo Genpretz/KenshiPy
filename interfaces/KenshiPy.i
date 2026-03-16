@@ -31,7 +31,7 @@
 #include "kenshi/Appearance.h"
 #include "kenshi/Bounty.h"
 #include "kenshi/BountyManager.h"
-#include "kenshi/Building.h"
+#include "kenshi/Building/Building.h"
 #include "kenshi/Character.h"
 #include "kenshi/CharacterAnimal.h"
 #include "kenshi/CharacterHuman.h"

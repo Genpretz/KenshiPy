@@ -1,5 +1,5 @@
 %{
-#include "kenshi/Building.h"
+#include "kenshi/Building/Building.h"
 %}
 
 %include "std_string.i"
@@ -51,4 +51,4 @@
 
 %ignore PreviewBuilding;
 
-%include "kenshi/Building.h"
+%include "kenshi/Building/Building.h"
