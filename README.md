@@ -61,7 +61,7 @@ import KenshiPy
 KenshiPy.DebugLog("Hello from Python")
 ```
 
-Using the ` key when in-game, opens a console that can also be used to run python, like so:
+Pressing ``Alt + ` `` when in-game, opens a console that can also be used to run python. This expects a single line so use semicolons for multiline input, like so:
 ```python
 import KenshiPy; KenshiPy,DebugLog("Hello from the in-game console");
 ```
