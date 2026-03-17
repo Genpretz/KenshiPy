@@ -13,7 +13,7 @@
 #include <kenshi/GameWorld.h>
 #include <kenshi/ModInfo.h>
 #include <kenshi/Globals.h>
-#include <kenshi/TitleScreen.h>
+#include <kenshi/gui/TitleScreen.h>
 
 #include <rapidjson/istreamwrapper.h>
 #include <rapidjson/document.h>
