@@ -13,6 +13,7 @@
 #include "mygui/MyGUI_Window.h"
 #include "mygui/MyGUI_EditBox.h"
 #include "mygui/MyGUI_ScrollView.h"
+#include "mygui/MyGUI_TextBox.h"
 #include "mygui/MyGUI_InputManager.h"
 
 #include <string>
@@ -22,7 +23,8 @@
 // ----------------------------------------------------------------------------
 
 static MyGUI::Window* g_consoleWindow = NULL;
-static MyGUI::EditBox* g_outputBox = NULL;
+static MyGUI::ScrollView* g_outputScrollView = NULL;
+static MyGUI::TextBox* g_outputBox = NULL;
 static MyGUI::EditBox* g_inputBox = NULL;
 
 // ----------------------------------------------------------------------------
@@ -237,17 +239,23 @@ void Console::Init()
 
     int outputH = clientH - inputH - pad * 3;
 
-    // Output area - multiline, static (read-only), word-wrap
-    g_outputBox = client->createWidget<MyGUI::EditBox>(
-        "Kenshi_GenericTextBoxFlat",
-        pad, pad,
-        clientW - pad * 2, outputH,
+    // Output area - ScrollView with TextBox child, matching RE_Kenshi debugLogScrollView pattern
+    g_outputScrollView = client->createWidget<MyGUI::ScrollView>(
+        "Kenshi_ScrollViewEmpty",
+        MyGUI::IntCoord(pad, pad, clientW - pad * 2, outputH),
+        MyGUI::Align::Stretch, "KenshiPyOutputScroll");
+
+    g_outputScrollView->setCanvasSize(
+        g_outputScrollView->getWidth() - 20,
+        g_outputScrollView->getHeight() - 20);
+
+    g_outputBox = g_outputScrollView->createWidget<MyGUI::TextBox>(
+        "Kenshi_GenericTextBox",
+        0, 0,
+        g_outputScrollView->getCanvasSize().width, g_outputScrollView->getCanvasSize().height,
         MyGUI::Align::Stretch, "KenshiPyOutput");
 
-    g_outputBox->setEditMultiLine(true);
-    g_outputBox->setEditWordWrap(true);
-    g_outputBox->setEditStatic(true);
-    g_outputBox->setTextAlign(MyGUI::Align::Left | MyGUI::Align::Top);
+    g_outputBox->setEnabled(false);
 
     // Input area - single line
     g_inputBox = client->createWidget<MyGUI::EditBox>(
@@ -282,11 +290,82 @@ void Console::Toggle()
 
 void Console::AppendOutput(const std::string& text)
 {
-    if (!g_outputBox)
+    // Mirror all console output to the Kenshi log regardless of GUI state
+    DebugLog("[Console] " + text);
+
+    if (!g_outputBox || !g_outputScrollView)
         return;
 
-    g_outputBox->setCaption(g_outputBox->getCaption() + MyGUI::UString(text));
+    // Word-wrap at 100 characters so long lines don't run off screen.
+    // Walks the incoming text inserting newlines at word boundaries where
+    // possible, falling back to a hard break if no word boundary is found.
+    const size_t WRAP = 100;
+    std::string wrapped;
+    wrapped.reserve(text.size());
+
+    size_t lineLen = 0;
+    size_t i = 0;
+    while (i < text.size())
+    {
+        char c = text[i];
+
+        if (c == '\n')
+        {
+            wrapped += c;
+            lineLen = 0;
+            ++i;
+            continue;
+        }
+
+        if (lineLen < WRAP)
+        {
+            wrapped += c;
+            ++lineLen;
+            ++i;
+            continue;
+        }
+
+        // At wrap column, find last space in the current line to break on
+        size_t lastSpace = wrapped.rfind(' ');
+        if (lastSpace != std::string::npos && lastSpace >= wrapped.size() - WRAP)
+        {
+            wrapped[lastSpace] = '\n';
+            lineLen = wrapped.size() - lastSpace - 1;
+        }
+        else
+        {
+            wrapped += '\n';
+            lineLen = 0;
+        }
+
+        wrapped += c;
+        ++lineLen;
+        ++i;
+    }
+
+    g_outputBox->setCaption(g_outputBox->getCaption() + MyGUI::UString(wrapped));
+
+    // Resize TextBox and canvas to fit content, then scroll to bottom
+    int logSize = g_outputBox->getTextSize().height;
+    int padding = g_outputBox->getTextRegion().top;
+    int finalHeight = logSize + padding;
+    int finalBottom = g_outputBox->getTop() + finalHeight;
+
+    // Never shrink below the visible view height
+    int viewHeight = g_outputScrollView->getViewCoord().height;
+    if (finalBottom < viewHeight)
+        finalBottom = viewHeight;
+
+    g_outputBox->setSize(g_outputBox->getWidth(), finalBottom);
+
+    if (g_outputScrollView->getCanvasSize().height < finalBottom)
+    {
+        g_outputScrollView->setCanvasSize(
+            g_outputScrollView->getCanvasSize().width, finalBottom);
+        g_outputScrollView->setVisibleHScroll(false);
+    }
 
     // Scroll to bottom
-    g_outputBox->setVScrollPosition(g_outputBox->getVScrollRange());
+    g_outputScrollView->setViewOffset(MyGUI::IntPoint(
+        0, -(finalBottom - g_outputScrollView->getViewCoord().height)));
 }
