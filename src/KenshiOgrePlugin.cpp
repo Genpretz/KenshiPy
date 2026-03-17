@@ -5,7 +5,7 @@
 #include "KenshiPy_Runtime.h"
 
 #include <core/Functions.h>
-#include <kenshi/TitleScreen.h>
+#include <kenshi/gui/TitleScreen.h>
 #include <kenshi/InputHandler.h>
 #include <kenshi/Globals.h>
 #include <ois/OISKeyboard.h>
@@ -59,7 +59,7 @@ static void InputHandler_keyDownEvent_hook(InputHandler* thisptr, OIS::KeyCode k
 {
     if (InputHandler_keyDownEvent_orig)
         InputHandler_keyDownEvent_orig(thisptr, keyCode);
-    if (keyCode == OIS::KC_GRAVE)
+    if (keyCode == OIS::KC_GRAVE && thisptr->alt)
         Console::Toggle();
     CallKeyDownCallbacks((int)keyCode);
 }
@@ -82,17 +82,17 @@ TitleScreen* TitleScreen_hook(TitleScreen* thisptr)
 }
 
 const String sPluginName = "KenshiPy";
-//---------------------------------------------------------------------
+
 KenshiOgrePlugin::KenshiOgrePlugin()
 {
     OutputDebugStringA("KenshiOgrePlugin::KenshiOgrePlugin called\n");
 }
-//---------------------------------------------------------------------
+
 const String& KenshiOgrePlugin::getName() const
 {
     return sPluginName;
 }
-//---------------------------------------------------------------------
+
 void KenshiOgrePlugin::install()
 {
     KenshiLib::InitRVAs();
@@ -100,19 +100,19 @@ void KenshiOgrePlugin::install()
     KenshiLib::AddHook(KenshiLib::GetRealAddress(&TitleScreen::_CONSTRUCTOR), TitleScreen_hook, &TitleScreen_orig);
     KenshiLib::AddHook(KenshiLib::GetRealAddress(&InputHandler::keyDownEvent), InputHandler_keyDownEvent_hook, &InputHandler_keyDownEvent_orig);
 }
-//---------------------------------------------------------------------
+
 void KenshiOgrePlugin::initialise()
 {
     Init();
     OutputDebugStringA("KenshiOgrePlugin::initialise called\n");
 }
-//---------------------------------------------------------------------
+
 void KenshiOgrePlugin::shutdown()
 {
     OutputDebugStringA("KenshiOgrePlugin::shutdown called\n");
-    //ShutdownPython();
+    ShutdownPython();
 }
-//---------------------------------------------------------------------
+
 void KenshiOgrePlugin::uninstall()
 {
     OutputDebugStringA("KenshiOgrePlugin::uninstall called\n");
