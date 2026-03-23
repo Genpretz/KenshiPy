@@ -259,7 +259,7 @@ void TryLoadMods()
 // Python interpreter lifetime
 // ----------------------------------------------------------------------------
 
-static void InitPython()
+void InitPython()
 {
 	// Register KenshiPy module before Py_Initialize so it is importable
 	PyImport_AppendInittab("_KenshiPy", PyInit__KenshiPy);
@@ -283,7 +283,7 @@ static void InitPython()
 	PyList_Insert(sysPath, 0, kenshiPath);
 	Py_DECREF(kenshiPath);
 
-	// Release GIL - game threads will acquire it as needed via PyGILState_Ensure
+	// Release GIL, game threads will acquire it as needed via PyGILState_Ensure
 	PyEval_SaveThread();
 
 	DebugLog("KenshiPy: Python interpreter initialized.");
@@ -293,16 +293,6 @@ void ShutdownPython()
 {
 	PyGILState_STATE gstate = PyGILState_Ensure();
 	Py_Finalize();
-}
-
-// ----------------------------------------------------------------------------
-// Plugin entry points
-// ----------------------------------------------------------------------------
-
-void Init()
-{
-	InitPython();
-	DebugLog("KenshiPy: Runtime initialized.");
 }
 
 // ----------------------------------------------------------------------------

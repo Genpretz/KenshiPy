@@ -1,9 +1,13 @@
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+
 #define OGRE_PLATFORM == OGRE_PLATFORM_WIN32
 
 #include "Console.h"
 #include "KenshiOgrePlugin.h"
 #include "KenshiPy_Runtime.h"
 
+#include <Debug.h>
 #include <core/Functions.h>
 #include <kenshi/gui/TitleScreen.h>
 #include <kenshi/InputHandler.h>
@@ -12,8 +16,6 @@
 
 #include "mygui/MyGUI_Gui.h"
 #include "mygui/MyGUI_Widget.h"
-
-#include <Windows.h>
 
 static bool g_consoleInitialized = false;
 
@@ -103,7 +105,7 @@ void KenshiOgrePlugin::install()
 
 void KenshiOgrePlugin::initialise()
 {
-    Init();
+    InitPython();
     OutputDebugStringA("KenshiOgrePlugin::initialise called\n");
 }
 
