@@ -48,7 +48,7 @@
     <IntDir>obj\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)include;$(ProjectDir)extern\KenshiLib\include;$(ProjectDir)extern\KenshiLib\include\ogre;$(MINHOOK_PATH)\include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
-    <LibraryPath>$(ProjectDir)extern\KenshiLib\Binaries;$(MINHOOK_PATH)\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)extern\KenshiLib\Binaries\Release;$(MINHOOK_PATH)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IntDir>obj\$(Configuration)\</IntDir>
@@ -78,7 +78,7 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>BOOST_ALL_STATIC_LINK;NDEBUG;_WINDOWS;_USRDLL;KENSHILIB_INTERNAL;KENSHILIB_STATIC;KENSHILIB_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BOOST_ALL_STATIC_LINK;NDEBUG;_WINDOWS;_USRDLL;KENSHILIB_INTERNAL;KENSHILIB_EXPORT;KENSHILIB_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(BOOST_INCLUDE_PATH);$(MINHOOK_PATH)\include;$(PYTHON34_INSTALL_DIR)include;$(ProjectDir)extern\rapidjson\include;$(ProjectDir)extern\KenshiLib\Include;$(ProjectDir)exterm\KenshiLib\Include\ogre;$(ProjectDir)extern\KenshiLib\Include\ois;$(ProjectDir)extern\KenshiLib\Include\ogre\Compositor;$(ProjectDir)extern\KenshiLib\Include\ogre\Animation;$(ProjectDir)extern\KenshiLib\Include\ogre\Hash;$(ProjectDir)extern\KenshiLib\Include\ogre\Math;$(ProjectDir)extern\KenshiLib\Include\ogre\MeshLodGenerator;$(ProjectDir)extern\KenshiLib\Include\ogre\Overlay;$(ProjectDir)extern\KenshiLib\Include\ogre\Plugins;$(ProjectDir)extern\KenshiLib\Include\ogre\RenderSystems;$(ProjectDir)extern\KenshiLib\Include\ogre\Threading;$(ProjectDir)extern\KenshiLib\Include\ogre\WIN32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
@@ -86,7 +86,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>python34.lib;OgreMain_x64.lib;MyGUIEngine_x64.lib;libboost_system-vc100-mt-s-1_60.lib;KenshiLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>python34.lib;OgreMain_x64.lib;MyGUIEngine_x64.lib;libboost_system-vc100-mt-s-1_60.lib;KenshiLib.lib;libMinHook.x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_INCLUDE_PATH)\stage\lib;$(PYTHON34_INSTALL_DIR)libs;$(ProjectDir)extern\KenshiLib\Binaries\$(Configuration);$(ProjectDir)extern\KenshiLib\Libraries\ogre;$(ProjectDir)extern\KenshiLib\Libraries\mygui;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;libcpmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -118,7 +118,7 @@
     <None Include="interfaces\mygui\MyGUI.i" />
     <None Include="interfaces\ogre\Ogre.i" />
     <None Include="interfaces\kenshi\Platoon.i" />
-    <None Include="interfaces\util\Array2d.i" />
+    <None Include="interfaces\kenshi\util\Array2d.i" />
     <None Include="interfaces\kenshi\Bounty.i" />
     <None Include="interfaces\kenshi\BountyManager.i" />
     <None Include="interfaces\kenshi\Building.i" />
@@ -139,7 +139,7 @@
     <None Include="interfaces\kenshi\FactionUniqueSquadManager.i" />
     <None Include="interfaces\kenshi\FactionWarMgr.i" />
     <None Include="interfaces\kenshi\FitnessSelector.i" />
-    <None Include="interfaces\Functions.i" />
+    <None Include="interfaces\core\Functions.i" />
     <None Include="interfaces\kenshi\GameData.i" />
     <None Include="interfaces\kenshi\GameDataManager.i" />
     <None Include="interfaces\kenshi\GameLauncher.i" />
@@ -148,14 +148,14 @@
     <None Include="interfaces\kenshi\Gear.i" />
     <None Include="interfaces\kenshi\GlobalConstants.i" />
     <None Include="interfaces\kenshi\Globals.i" />
-    <None Include="interfaces\util\hand.i" />
+    <None Include="interfaces\kenshi\util\hand.i" />
     <None Include="interfaces\kenshi\InputHandler.i" />
     <None Include="interfaces\kenshi\InstanceID.i" />
     <None Include="interfaces\kenshi\Inventory.i" />
     <None Include="interfaces\kenshi\Item.i" />
     <None Include="interfaces\kenshi\Kenshi.i" />
     <None Include="interfaces\KenshiPy.i" />
-    <None Include="interfaces\util\lektor.i" />
+    <None Include="interfaces\kenshi\util\lektor.i" />
     <None Include="interfaces\kenshi\Logger.i" />
     <None Include="interfaces\kenshi\MedicalSystem.i" />
     <None Include="interfaces\kenshi\ModInfo.i" />
@@ -172,16 +172,16 @@
     <None Include="interfaces\kenshi\SaveInfo.i" />
     <None Include="interfaces\kenshi\SaveManager.i" />
     <None Include="interfaces\kenshi\SensoryData.i" />
-    <None Include="interfaces\util\iVector2.i" />
-    <None Include="interfaces\util\PerfTimer.i" />
-    <None Include="interfaces\util\StringPair.i" />
-    <None Include="interfaces\util\TagsClass.i" />
+    <None Include="interfaces\kenshi\util\iVector2.i" />
+    <None Include="interfaces\kenshi\util\PerfTimer.i" />
+    <None Include="interfaces\kenshi\util\StringPair.i" />
+    <None Include="interfaces\kenshi\util\TagsClass.i" />
     <None Include="interfaces\kenshi\Tasker.i" />
     <None Include="interfaces\kenshi\ThreadClass.i" />
     <None Include="interfaces\kenshi\gui\Titlescreen.i" />
     <None Include="interfaces\kenshi\Town.i" />
     <None Include="interfaces\kenshi\TradeCulture.i" />
-    <None Include="interfaces\util\UtilityT.i" />
+    <None Include="interfaces\kenshi\util\UtilityT.i" />
     <None Include="interfaces\kenshi\WorldEventStateQuery.i" />
     <None Include="src\KenshiPy.py" />
     <None Include="src\KenshiPyHook.py" />
