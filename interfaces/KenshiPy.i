@@ -90,106 +90,106 @@
 
 // Core KenshiLib interfaces (pre-existing)
 %include "Debug.i"
-%include "Functions.i"
-%include "Kenshi.i"
+%include "core/Functions.i"
+%include "kenshi/Kenshi.i"
 
 //utilities
-%include "util/Array2d.i"
-%include "util/hand.i"
-%include "util/iVector2.i"
-%include "util/lektor.i"
-%include "util/PerfTimer.i"
-%include "util/StringPair.i"
-%include "util/TagsClass.i"
-%include "util/UtilityT.i"
+%include "kenshi/util/Array2d.i"
+%include "kenshi/util/hand.i"
+%include "kenshi/util/iVector2.i"
+%include "kenshi/util/lektor.i"
+%include "kenshi/util/PerfTimer.i"
+%include "kenshi/util/StringPair.i"
+%include "kenshi/util/TagsClass.i"
+%include "kenshi/util/UtilityT.i"
 
 // Game object interfaces
-%include "Bounty.i"
-%include "BountyManager.i"
-%include "Damages.i"
-%include "InstanceID.i"
-%include "Logger.i"
-%include "ThreadClass.i"
-%include "GlobalConstants.i"
-%include "OptionsHolder.i"
-%include "SaveInfo.i"
-%include "Enums.i"
+%include "kenshi/Bounty.i"
+%include "kenshi/BountyManager.i"
+%include "kenshi/Damages.i"
+%include "kenshi/InstanceID.i"
+%include "kenshi/Logger.i"
+%include "kenshi/ThreadClass.i"
+%include "kenshi/GlobalConstants.i"
+%include "kenshi/OptionsHolder.i"
+%include "kenshi/SaveInfo.i"
+%include "kenshi/Enums.i"
 
 // Data layer
-%include "GameData.i"
-%include "GameDataManager.i"
-%include "GameSaveState.i"
-%include "ModInfo.i"
+%include "kenshi/GameData.i"
+%include "kenshi/GameDataManager.i"
+%include "kenshi/GameSaveState.i"
+%include "kenshi/ModInfo.i"
 
 // Physics / rendering
-%include "PhysicsCollection.i"
-%include "PhysicsActual.i"
+%include "kenshi/PhysicsCollection.i"
+%include "kenshi/PhysicsActual.i"
 
 // World / town
-%include "RootObjectBase.i"
-%include "RootObject.i"
-%include "RootObjectFactory.i"
-%include "Town.i"
-%include "GameWorld.i"
+%include "kenshi/RootObjectBase.i"
+%include "kenshi/RootObject.i"
+%include "kenshi/RootObjectFactory.i"
+%include "kenshi/Town.i"
+%include "kenshi/GameWorld.i"
 
 // Faction system
-%include "TradeCulture.i"
-%include "FitnessSelector.i"
-%include "FactionLeader.i"
-%include "FactionRelations.i"
-%include "FactionUniqueSquadManager.i"
-%include "FactionWarMgr.i"
-%include "Faction.i"
+%include "kenshi/TradeCulture.i"
+%include "kenshi/FitnessSelector.i"
+%include "kenshi/FactionLeader.i"
+%include "kenshi/FactionRelations.i"
+%include "kenshi/FactionUniqueSquadManager.i"
+%include "kenshi/FactionWarMgr.i"
+%include "kenshi/Faction.i"
 
 // Character system
-%include "MedicalSystem.i"
-%include "CharStats.i"
-%include "CharMovement.i"
-%include "CombatTechniqueData.i"
-%include "CombatClass.i"
-%include "Character.i"
-%include "CharacterAnimal.i"
-%include "CharacterHuman.i"
+%include "kenshi/MedicalSystem.i"
+%include "kenshi/CharStats.i"
+%include "kenshi/CharMovement.i"
+%include "kenshi/CombatTechniqueData.i"
+%include "kenshi/CombatClass.i"
+%include "kenshi/Character.i"
+%include "kenshi/CharacterAnimal.i"
+%include "kenshi/CharacterHuman.i"
 
 // Items / inventory
-%include "Item.i"
-%include "Gear.i"
-%include "Inventory.i"
+%include "kenshi/Item.i"
+%include "kenshi/Gear.i"
+%include "kenshi/Inventory.i"
 
 // Building
-%include "Building.i"
+%include "kenshi/Building.i"
 
 // Dialogue / tasks
-%include "Dialogue.i"
-%include "Tasker.i"
+%include "kenshi/Dialogue.i"
+%include "kenshi/Tasker.i"
 
 // Player / input
-%include "InputHandler.i"
-%include "PlayerInterface.i"
+%include "kenshi/InputHandler.i"
+%include "kenshi/PlayerInterface.i"
 
-%include "Platoon.i"
-%include "Appearance.i"
-%include "AppearanceManager.i"
+%include "kenshi/Platoon.i"
+%include "kenshi/Appearance.i"
+%include "kenshi/AppearanceManager.i"
 
 // Race / sensory
-%include "RaceData.i"
-%include "SensoryData.i"
+%include "kenshi/RaceData.i"
+%include "kenshi/SensoryData.i"
 
 // Bounty / crime
-%include "WorldEventStateQuery.i"
+%include "kenshi/WorldEventStateQuery.i"
 
 // Save system
-%include "SaveFileSystem.i"
-%include "SaveManager.i"
+%include "kenshi/SaveFileSystem.i"
+%include "kenshi/SaveManager.i"
 
 // Resource loading
-%include "ResourceLoader.i"
+%include "kenshi/ResourceLoader.i"
 
 // Globals (dllimport accessors)
-%include "Globals.i"
+%include "kenshi/Globals.i"
 
 //GUI
-%include "gui/TitleScreen.i"
+%include "kenshi/gui/TitleScreen.i"
 
 // Python callbacks
 %{
