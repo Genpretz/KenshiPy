@@ -17621,6 +17621,13 @@ getInputHandler = _KenshiPy.getInputHandler
 def getOptionsHolder():
     return _KenshiPy.getOptionsHolder()
 getOptionsHolder = _KenshiPy.getOptionsHolder
+
+# Module-level aliases so you can use KenshiPy.ou directly
+ou = getGameWorld
+con = getGlobalConstants
+key = getInputHandler
+options = getOptionsHolder
+
 class GUIWindow(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, GUIWindow, name, value)
