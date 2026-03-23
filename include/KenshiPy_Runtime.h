@@ -3,7 +3,7 @@
 #include <string>
 #include <Python.h>
 
-void Init();
+void InitPython();
 void ShutdownPython();
 void TryLoadMods();
 
