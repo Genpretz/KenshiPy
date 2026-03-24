@@ -1,6 +1,6 @@
 import KenshiPy
 
-ou = KenshiPy.ou()
+ou = KenshiPy.ou
 if ou:
     ou.userPause(True)
 else:
