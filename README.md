@@ -14,7 +14,12 @@ KenshiLib allows developers to write C++ DLLs that integrate directly with Kensh
 - Embeds a **Python 3.4 interpreter**
 - Exposes KenshiLib APIs through **SWIG 3.0.12** bindings
 
----
+## How much of KenshiLib can be used from Python?
+
+It's safe to assume that basically all functions that use standard types (ints, floats, bools, etc) should be usable.
+- For example, calling functions like GameWorld::userPause(bool p) that don't return anything and use standard types should work.
+- The same should apply to similar member variables of standard types.
+- If they don't work, it more likely that I didn't include their headers properly or they initially didn't work and are stil being suppressed.
 
 ## Toolchain & Version Constraints
 
