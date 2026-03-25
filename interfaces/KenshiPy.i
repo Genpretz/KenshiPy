@@ -1,23 +1,12 @@
 %module KenshiPy
 
-// Tell SWIG to ignore __declspec and KLIB_EXPORT so it can parse the headers
-#define KLIB_EXPORT
-#define __declspec(x)
 #define SWIG_init    PyInit_KenshiPy
 #define SWIG_name    "KenshiPy"
 
 %{
-#include "ArtifactItemData_stub.h"
 #include "CharMovement_guarded.h"
 
 #include "Debug.h"
-//#include "Defines.h"
-//#include "stdafx.h"
-//#include "Release_Assert.h"
-
-#include "core/Functions.h"
-
-#include "kenshi/ModInfo.h"
 
 #include "kenshi/util/Array2d.h"
 #include "kenshi/util/hand.h"
@@ -27,6 +16,7 @@
 #include "kenshi/util/StringPair.h"
 #include "kenshi/util/TagsClass.h"
 #include "kenshi/util/UtilityT.h"
+
 
 #include "kenshi/Appearance.h"
 #include "kenshi/Bounty.h"
@@ -61,7 +51,7 @@
 #include "kenshi/Kenshi.h"
 #include "kenshi/Logger.h"
 #include "kenshi/MedicalSystem.h"
-//#include "kenshi/ModInfo.h"
+#include "kenshi/ModInfo.h"
 #include "kenshi/OptionsHolder.h"
 #include "kenshi/PhysicsActual.h"
 #include "kenshi/PhysicsCollection.h"
@@ -90,8 +80,8 @@
 
 // Core KenshiLib interfaces (pre-existing)
 %include "Debug.i"
-%include "core/Functions.i"
 %include "kenshi/Kenshi.i"
+%include "kenshi/GameWorld.i"
 
 //utilities
 %include "kenshi/util/Array2d.i"
@@ -103,7 +93,7 @@
 %include "kenshi/util/TagsClass.i"
 %include "kenshi/util/UtilityT.i"
 
-// Game object interfaces
+
 %include "kenshi/Bounty.i"
 %include "kenshi/BountyManager.i"
 %include "kenshi/Damages.i"
@@ -114,6 +104,9 @@
 %include "kenshi/OptionsHolder.i"
 %include "kenshi/SaveInfo.i"
 %include "kenshi/Enums.i"
+%include "kenshi/ResourceLoader.i"
+%include "kenshi/Globals.i"
+%include "kenshi/gui/TitleScreen.i"
 
 // Data layer
 %include "kenshi/GameData.i"
@@ -130,7 +123,7 @@
 %include "kenshi/RootObject.i"
 %include "kenshi/RootObjectFactory.i"
 %include "kenshi/Town.i"
-%include "kenshi/GameWorld.i"
+
 
 // Faction system
 %include "kenshi/TradeCulture.i"
@@ -182,22 +175,17 @@
 %include "kenshi/SaveFileSystem.i"
 %include "kenshi/SaveManager.i"
 
-// Resource loading
-%include "kenshi/ResourceLoader.i"
-
-// Globals (dllimport accessors)
-%include "kenshi/Globals.i"
-
-//GUI
-%include "kenshi/gui/TitleScreen.i"
-
-// Python callbacks
-%{
-#include "KenshiPy_Runtime.h"
-%}
-void RegisterKeyDownCallback(PyObject* callable);
-
 //MyGUI
 %include "mygui/MyGUI.i"
 
+//Ogre
 %include "ogre/Ogre.i"
+
+// Python callbacks
+%{
+#include "Callbacks.h"
+%}
+void RegisterKeyDownCallback(PyObject* callable);
+void RegisterFrameCallback(PyObject* callable);
+void UnregisterKeyDownCallback(PyObject* callable);
+void UnregisterFrameCallback(PyObject* callable);
