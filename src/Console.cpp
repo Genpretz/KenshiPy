@@ -58,11 +58,7 @@ static PyMethodDef g_redirectorMethods[] =
     { NULL,    NULL,             0,            NULL          }
 };
 
-// ----------------------------------------------------------------------------
-// run() builtin
-// Exposes RunScript() to Python as run('path/to/script.py')
-// ----------------------------------------------------------------------------
-
+// run() builtin - Exposes RunScript() to Python as run('path/to/script.py')
 static PyObject* Builtin_run(PyObject* /*self*/, PyObject* args)
 {
     const char* path = NULL;
@@ -73,13 +69,9 @@ static PyObject* Builtin_run(PyObject* /*self*/, PyObject* args)
     Py_RETURN_NONE;
 }
 
-static PyMethodDef g_builtinRunDef =
-{ "run", Builtin_run, METH_VARARGS, "run(path) - execute a Python script file" };
+static PyMethodDef g_builtinRunDef = { "run", Builtin_run, METH_VARARGS, "run(path) - execute a Python script file" };
 
-// ----------------------------------------------------------------------------
 // Input handler
-// ----------------------------------------------------------------------------
-
 static void OnInputAccept(MyGUI::EditBox* sender)
 {
     MyGUI::UString uinput = sender->getCaption();
@@ -162,9 +154,8 @@ static void OnConsoleWindowButton(MyGUI::Window* sender, const std::string& name
 
 void Console::Init()
 {
-    // ----------------------------------------------------------------
     // Register stdout/stderr redirector and run() into __main__
-    // ----------------------------------------------------------------
+
     PyGILState_STATE gstate = PyGILState_Ensure();
 
     PyObject* mainModule = PyImport_AddModule("__main__");
@@ -209,9 +200,7 @@ void Console::Init()
 
     PyGILState_Release(gstate);
 
-    // ----------------------------------------------------------------
     // Build the MyGUI window
-    // ----------------------------------------------------------------
     MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
     if (!gui)
     {
@@ -239,7 +228,7 @@ void Console::Init()
 
     int outputH = clientH - inputH - pad * 3;
 
-    // Output area - ScrollView with TextBox child, matching RE_Kenshi debugLogScrollView pattern
+    // Output area
     g_outputScrollView = client->createWidget<MyGUI::ScrollView>(
         "Kenshi_ScrollViewEmpty",
         MyGUI::IntCoord(pad, pad, clientW - pad * 2, outputH),
@@ -257,7 +246,7 @@ void Console::Init()
 
     g_outputBox->setEnabled(false);
 
-    // Input area - single line
+    // Input area
     g_inputBox = client->createWidget<MyGUI::EditBox>(
         "Kenshi_EditBox",
         pad, outputH + pad * 2,
