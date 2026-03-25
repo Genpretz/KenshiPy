@@ -4,6 +4,7 @@
 //Python 3.4
 #include <Python.h> 
 
+//KenshiPy
 #include "KenshiPy_Runtime.h"
 
 //KenshiLib
@@ -15,10 +16,12 @@
 #include <kenshi/Globals.h>
 #include <kenshi/gui/TitleScreen.h>
 
-#include <rapidjson/istreamwrapper.h>
+//RapidJSON
 #include <rapidjson/document.h>
+#include <rapidjson/istreamwrapper.h>
 #include <rapidjson/error/en.h>
 
+//Standard libs
 #include <string>
 #include <fstream>
 #include <vector>
@@ -81,7 +84,7 @@ void RunScript(const std::string& scriptPath)
 		}
 
 		ErrorLog(errorMsg);
-		OutputDebugStringA(errorMsg.c_str());
+		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -112,7 +115,7 @@ void RunScript(const std::string& scriptPath)
 		}
 
 		ErrorLog(errorMsg);
-		OutputDebugStringA(errorMsg.c_str());
+		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -148,7 +151,7 @@ void RunString(const std::string& code)
 		}
 
 		ErrorLog(errorMsg);
-		OutputDebugStringA(errorMsg.c_str());
+		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -179,7 +182,7 @@ void RunString(const std::string& code)
 		}
 
 		ErrorLog(errorMsg);
-		OutputDebugStringA(errorMsg.c_str());
+		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -243,16 +246,16 @@ void TryLoadMods()
 	if (g_loaded)
 		return;
 
-	GameWorld* world = ou;
-	if (!world)
+	// GameWorld* ou defined in Globals.h
+	if (ou->activeMods.size() == 0)
+	{
+		DebugLog("KenshiPy: No active mods. Skipping script loading.");
 		return;
-
-	if (world->activeMods.size() == 0)
-		return;
+	}
 
 	g_loaded = true;
 	DebugLog("KenshiPy: Loading active mod scripts...");
-	LoadModScripts(world->activeMods);
+	LoadModScripts(ou->activeMods);
 }
 
 // ----------------------------------------------------------------------------
@@ -293,42 +296,4 @@ void ShutdownPython()
 {
 	PyGILState_STATE gstate = PyGILState_Ensure();
 	Py_Finalize();
-}
-
-// ----------------------------------------------------------------------------
-// Key down callbacks
-// ----------------------------------------------------------------------------
-
-static std::vector<PyObject*> g_keyDownCallbacks;
-
-void RegisterKeyDownCallback(PyObject* callable)
-{
-	if (!callable || !PyCallable_Check(callable))
-	{
-		ErrorLog("KenshiPy: registerKeyDownCallback requires a callable");
-		return;
-	}
-	Py_INCREF(callable);
-	g_keyDownCallbacks.push_back(callable);
-}
-
-void CallKeyDownCallbacks(int keyCode)
-{
-	if (g_keyDownCallbacks.empty())
-		return;
-
-	PyGILState_STATE gstate = PyGILState_Ensure();
-
-	PyObject* pyKey = PyLong_FromLong(keyCode);
-	for (size_t i = 0; i < g_keyDownCallbacks.size(); ++i)
-	{
-		PyObject* result = PyObject_CallFunctionObjArgs(g_keyDownCallbacks[i], pyKey, NULL);
-		if (!result)
-			PyErr_Clear();
-		else
-			Py_DECREF(result);
-	}
-	Py_DECREF(pyKey);
-
-	PyGILState_Release(gstate);
 }
