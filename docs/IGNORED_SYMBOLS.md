@@ -148,7 +148,6 @@ Kenshi/KenshiLib symbols that cannot be safely or usefully wrapped.
 | `Character::audioData` | Internal audio engine pointer. |
 | `Character::audioObject` | Internal audio engine pointer. |
 | `Character::audioEmitter` | Internal audio engine pointer. |
-| `Character::medical` | `MedicalSystem` is fully ignored (see MedicalSystem.i); this member would produce a dangling reference. |
 | `Character::getBoneWorldPosition` | Returns Ogre Vector3 via internal bone/skeleton types. |
 | `Character::getPredictedPosition` | Returns Ogre Vector3 via internal navigation types. |
 | `Character::getAllAttackers` | Fills a `lektor` container; `lektor` output parameters not wrappable. |

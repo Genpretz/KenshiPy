@@ -10,10 +10,10 @@ These are the primary way to reach live game state from Python. Defined inline i
 
 | Function | Return Type | Description |
 |---|---|---|
-| `getGameWorld()` | `GameWorld*` | Returns the global game world instance (`ou`). |
-| `getGlobalConstants()` | `GlobalConstants*` | Returns the global constants object (`con`). |
-| `getInputHandler()` | `InputHandler*` | Returns the input handler (`key`). |
-| `getOptionsHolder()` | `OptionsHolder*` | Returns the options/settings object (`options`). |
+| `getGameWorld()` or `ou` | `GameWorld*` | Returns the global game world instance (`ou`). | 
+| `getGlobalConstants()` or `con` | `GlobalConstants*` | Returns the global constants object (`con`). |
+| `getInputHandler()` or `key` | `InputHandler*` | Returns the input handler (`key`). |
+| `getOptionsHolder()` or `options` | `OptionsHolder*` | Returns the options/settings object (`options`). |
 
 Two free functions are also declared in `Globals.i`:
 
@@ -62,25 +62,11 @@ Identifies which build/platform of Kenshi is running.
 |---|---|---|
 | `GetKenshiVersion` | `BinaryVersion GetKenshiVersion()` | Returns the detected version/platform of the running Kenshi binary. |
 
-### Functions (`Functions.h`) — `KenshiLib` namespace
-
-Hooking utilities. Not generally called from mod scripts directly.
-
-| Function | Description |
-|---|---|
-| `GetRealAddress(void*)` | Returns the resolved runtime address of a function pointer. |
-| `AddHook(void*, void*, void**)` | Installs a detour hook via multihook. Returns `HookStatus`. |
-
-#### Enum: `KenshiLib::HookStatus`
-`SUCCESS`, `FAIL`
-
----
-
 ## Game World
 
 ### `GameWorld` class
 
-The central game simulation object, retrieved via `getGameWorld()`.
+The central game simulation object, retrieved via `getGameWorld()` or `ou`.
 
 **Key data members (accessible as attributes):**
 
