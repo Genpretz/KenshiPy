@@ -28,20 +28,13 @@
 %ignore Character::activeEffects;
 %ignore Character::particleEffects;
 %ignore Character::inWhat;
-//%ignore Character::slaveOwner;
-//%ignore Character::carryingObject;
 %ignore Character::messageSubject;
-//%ignore Character::_destinationInsideBuilding;
 %ignore Character::msgCarryMode;
 %ignore Character::audioData;
 %ignore Character::audioObject;
 %ignore Character::audioEmitter;
-//%ignore Character::medical;
 
 // Suppress methods using Ogre/internal types
-//%ignore Character::getBoneWorldPosition;
-//%ignore Character::getPredictedPosition;
-//%ignore Character::getAllAttackers;
 %ignore Character::ragdollNavmeshPosition;
 
 // Suppress nested structs with complex types
