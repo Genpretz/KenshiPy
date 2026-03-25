@@ -1,5 +1,4 @@
 %{
-#include "ArtifactItemData_stub.h"
 #include "kenshi/Town.h"
 %}
 
