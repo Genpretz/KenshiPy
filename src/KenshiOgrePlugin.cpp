@@ -6,6 +6,7 @@
 #include "Console.h"
 #include "KenshiOgrePlugin.h"
 #include "KenshiPy_Runtime.h"
+#include "Callbacks.h"
 
 #include <Debug.h>
 #include <core/Functions.h>
