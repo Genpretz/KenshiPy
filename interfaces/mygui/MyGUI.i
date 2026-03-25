@@ -1,3 +1,6 @@
+//Not Currently Integrated into KenshiPy
+//Headers need to be %include'd and there's lots of macros and stuff that doesn't wrap well.
+
 %{
 #include "mygui/MyGUI.h"
 #include "mygui/MyGUI_ActionController.h"
@@ -177,3 +180,6 @@
 #include "mygui/Plugin.h"
 #include "mygui/StrangeButton.h"
 %}
+
+//%include "mygui/MyGUI.h"
+//%include "mygui/MyGUI_Widget.h"

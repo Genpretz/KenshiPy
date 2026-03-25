@@ -1,3 +1,6 @@
+//Not Currently Integrated into KenshiPy
+//Headers need to be %include'd and there's lots of macros and stuff that doesn't wrap well.
+
 %{
 #include "asm_math.h"
 #include "InputContext.h"
