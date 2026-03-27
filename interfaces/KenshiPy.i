@@ -15,6 +15,7 @@
 #include "kenshi/util/PerfTimer.h"
 #include "kenshi/util/StringPair.h"
 #include "kenshi/util/TagsClass.h"
+#include "kenshi/util/TimeOfDay.h"
 #include "kenshi/util/UtilityT.h"
 
 
@@ -90,6 +91,7 @@
 %include "kenshi/util/lektor.i"
 %include "kenshi/util/PerfTimer.i"
 %include "kenshi/util/StringPair.i"
+%include "kenshi/util/TimeOfDay.i"
 %include "kenshi/util/TagsClass.i"
 %include "kenshi/util/UtilityT.i"
 
@@ -176,7 +178,7 @@
 %include "kenshi/SaveManager.i"
 
 //MyGUI
-%include "mygui/MyGUI.i"
+//%include "mygui/MyGUI.i"
 
 //Ogre
 %include "ogre/Ogre.i"

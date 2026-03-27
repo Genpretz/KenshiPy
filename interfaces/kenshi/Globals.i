@@ -2,9 +2,13 @@
 #include "kenshi/Globals.h"
 %}
 
-// Globals.h only forward-declares these types.
-// Import the full definitions so SWIG returns proper wrapped objects
-// instead of opaque SwigPyObject pointers.
+// Tell SWIG to ignore these dllimport variables - they can't be wrapped directly
+%ignore ou;
+%ignore con;
+%ignore key;
+%ignore options;
+
+// Import the full definitions for the types
 %import "kenshi/GameWorld.h"
 %import "kenshi/GlobalConstants.h"
 %import "kenshi/InputHandler.h"
@@ -14,9 +18,7 @@
 void  showErrorMessage();
 float modMedicalSkill(float skill, Item* equipment, float frameTIME);
 
-// These are __declspec(dllimport) globals; expose as pointer accessors.
-// SWIG cannot wrap dllimport variables directly, so declare them as opaque
-// pointers and provide getter wrappers inline.
+// Provide accessor functions instead
 %inline %{
     GameWorld*       getGameWorld()       { return ou; }
     GlobalConstants* getGlobalConstants() { return con; }
@@ -24,9 +26,8 @@ float modMedicalSkill(float skill, Item* equipment, float frameTIME);
     OptionsHolder*   getOptionsHolder()   { return options; }
 %}
 
-// Expose these at module level with the original names
+// Expose at module level with original names
 %pythoncode %{
-# Module-level aliases so you can use KenshiPy.ou directly
 ou = getGameWorld
 con = getGlobalConstants
 key = getInputHandler
