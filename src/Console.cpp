@@ -1,41 +1,79 @@
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-
 #include "Console.h"
 #include "KenshiPy_Runtime.h"
 
-// Python 3.4
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+
+#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
+#include <string>
 #include <Debug.h>
 
-#include "mygui/MyGUI_Gui.h"
-#include "mygui/MyGUI_Window.h"
 #include "mygui/MyGUI_EditBox.h"
+#include "mygui/MyGUI_Gui.h"
+#include "mygui/MyGUI_InputManager.h"
 #include "mygui/MyGUI_ScrollView.h"
 #include "mygui/MyGUI_TextBox.h"
-#include "mygui/MyGUI_InputManager.h"
+#include "mygui/MyGUI_Window.h"
 
-#include <string>
+namespace Console
+{
+    bool g_consoleInitialized = false;
+}
 
-// ----------------------------------------------------------------------------
-// Statics
-// ----------------------------------------------------------------------------
+bool Console::IsInitialized()
+{
+    return g_consoleInitialized;
+}
 
-static MyGUI::Window* g_consoleWindow = NULL;
-static MyGUI::ScrollView* g_outputScrollView = NULL;
-static MyGUI::TextBox* g_outputBox = NULL;
-static MyGUI::EditBox* g_inputBox = NULL;
+static MyGUI::Widget* FindWidget(MyGUI::EnumeratorWidgetPtr enumerator, const std::string& name)
+{
+    while (enumerator.next())
+    {
+        MyGUI::Widget* w = enumerator.current();
+        const std::string& widgetName = w->getName();
+        if (widgetName == name)
+            return w;
 
-// ----------------------------------------------------------------------------
-// stdout/stderr redirector
-// Installed into sys.stdout/sys.stderr at Init() time so print() and errors
-// appear in the console output box rather than being silently discarded.
-// ----------------------------------------------------------------------------
+        size_t splitPos = widgetName.find('_');
+        if (splitPos != std::string::npos && widgetName.substr(splitPos + 1) == name)
+            return w;
+
+        if (w->getChildCount() > 0)
+        {
+            MyGUI::Widget* found = FindWidget(w->getEnumerator(), name);
+            if (found != nullptr)
+                return found;
+        }
+    }
+    return nullptr;
+}
+
+void Console::InitFrameHandler(float /*timeDelta*/)
+{
+    MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
+    if (!gui)
+        return;
+
+    MyGUI::Widget* versionText = FindWidget(gui->getEnumerator(), "VersionText");
+    if (!versionText)
+        return;
+
+    // GUI is ready, unregister frame handler and initialize console
+    gui->eventFrameStart -= MyGUI::newDelegate(Console::InitFrameHandler);
+    g_consoleInitialized = true;
+    Console::Init();
+}
+
+static MyGUI::Window* g_consoleWindow = nullptr;
+static MyGUI::ScrollView* g_outputScrollView = nullptr;
+static MyGUI::TextBox* g_outputBox = nullptr;
+static MyGUI::EditBox* g_inputBox = nullptr;
 
 static PyObject* Redirector_write(PyObject* /*self*/, PyObject* args)
 {
-    const char* text = NULL;
+    const char* text = nullptr;
     if (!PyArg_ParseTuple(args, "s", &text))
         Py_RETURN_NONE;
 
@@ -45,7 +83,6 @@ static PyObject* Redirector_write(PyObject* /*self*/, PyObject* args)
     Py_RETURN_NONE;
 }
 
-// flush() is a no-op but must exist so Python doesn't raise AttributeError
 static PyObject* Redirector_flush(PyObject* /*self*/, PyObject* /*args*/)
 {
     Py_RETURN_NONE;
@@ -54,24 +91,30 @@ static PyObject* Redirector_flush(PyObject* /*self*/, PyObject* /*args*/)
 static PyMethodDef g_redirectorMethods[] =
 {
     { "write", Redirector_write, METH_VARARGS, "write(text)" },
-    { "flush", Redirector_flush, METH_VARARGS, "flush()"    },
-    { NULL,    NULL,             0,            NULL          }
+    { "flush", Redirector_flush, METH_VARARGS, "flush()" },
+    { nullptr, nullptr, 0, nullptr }
 };
 
-// run() builtin - Exposes RunScript() to Python as run('path/to/script.py')
+// run() builtin for Python console
 static PyObject* Builtin_run(PyObject* /*self*/, PyObject* args)
 {
-    const char* path = NULL;
+    const char* path = nullptr;
     if (!PyArg_ParseTuple(args, "s", &path))
         Py_RETURN_NONE;
 
-    RunScript(std::string(path));
+    std::string scriptPath(path);
+    for (size_t i = 0; i < scriptPath.size(); ++i)
+    {
+        if (scriptPath[i] == '\\' || scriptPath[i] == '\t' || scriptPath[i] == '\n')
+            scriptPath[i] = '/';
+    }
+
+    RunScript(scriptPath);
     Py_RETURN_NONE;
 }
 
 static PyMethodDef g_builtinRunDef = { "run", Builtin_run, METH_VARARGS, "run(path) - execute a Python script file" };
 
-// Input handler
 static void OnInputAccept(MyGUI::EditBox* sender)
 {
     MyGUI::UString uinput = sender->getCaption();
@@ -80,7 +123,6 @@ static void OnInputAccept(MyGUI::EditBox* sender)
     if (uinput.empty())
         return;
 
-    // Echo the command
     Console::AppendOutput(">>> " + uinput + "\n");
 
     std::string input = uinput.asUTF8();
@@ -148,38 +190,26 @@ static void OnConsoleWindowButton(MyGUI::Window* sender, const std::string& name
         sender->setVisible(false);
 }
 
-// ----------------------------------------------------------------------------
-// Public API
-// ----------------------------------------------------------------------------
-
 void Console::Init()
 {
-    // Register stdout/stderr redirector and run() into __main__
-
+    // Redirect Python stdout/stderr
     PyGILState_STATE gstate = PyGILState_Ensure();
 
     PyObject* mainModule = PyImport_AddModule("__main__");
     PyObject* globals = PyModule_GetDict(mainModule);
 
-    // Build a simple module to hold the redirector methods
     PyObject* redirectorModule = PyModule_New("_console_redirector");
-
     PyMethodDef* writeDef = &g_redirectorMethods[0];
     PyMethodDef* flushDef = &g_redirectorMethods[1];
 
-    PyObject* writeFunc = PyCFunction_New(writeDef, NULL);
-    PyObject* flushFunc = PyCFunction_New(flushDef, NULL);
+    PyObject* writeFunc = PyCFunction_New(writeDef, nullptr);
+    PyObject* flushFunc = PyCFunction_New(flushDef, nullptr);
 
     if (writeFunc)
-    {
         PyModule_AddObject(redirectorModule, "write", writeFunc);
-    }
     if (flushFunc)
-    {
         PyModule_AddObject(redirectorModule, "flush", flushFunc);
-    }
 
-    // Replace sys.stdout and sys.stderr with our redirector
     PyObject* sysModule = PyImport_ImportModule("sys");
     if (sysModule)
     {
@@ -190,8 +220,7 @@ void Console::Init()
 
     Py_DECREF(redirectorModule);
 
-    // Register run() as a builtin in __main__
-    PyObject* runFunc = PyCFunction_New(&g_builtinRunDef, NULL);
+    PyObject* runFunc = PyCFunction_New(&g_builtinRunDef, nullptr);
     if (runFunc)
     {
         PyDict_SetItemString(globals, "run", runFunc);
@@ -200,7 +229,7 @@ void Console::Init()
 
     PyGILState_Release(gstate);
 
-    // Build the MyGUI window
+    // Build the MyGUI console window
     MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
     if (!gui)
     {
@@ -208,10 +237,7 @@ void Console::Init()
         return;
     }
 
-    const int W = 800;
-    const int H = 400;
-    const int inputH = 30;
-    const int pad = 4;
+    const int W = 800, H = 400, inputH = 30, pad = 4;
 
     g_consoleWindow = gui->createWidget<MyGUI::Window>(
         "Kenshi_WindowCX", 100, 100, W, H,
@@ -219,13 +245,11 @@ void Console::Init()
 
     g_consoleWindow->setCaption("KenshiPy Console");
     g_consoleWindow->setVisible(false);
-    g_consoleWindow->eventWindowButtonPressed +=
-        MyGUI::newDelegate(OnConsoleWindowButton);
+    g_consoleWindow->eventWindowButtonPressed += MyGUI::newDelegate(OnConsoleWindowButton);
 
     MyGUI::Widget* client = g_consoleWindow->getClientWidget();
     int clientW = client->getWidth();
     int clientH = client->getHeight();
-
     int outputH = clientH - inputH - pad * 3;
 
     // Output area
@@ -241,7 +265,8 @@ void Console::Init()
     g_outputBox = g_outputScrollView->createWidget<MyGUI::TextBox>(
         "Kenshi_GenericTextBox",
         0, 0,
-        g_outputScrollView->getCanvasSize().width, g_outputScrollView->getCanvasSize().height,
+        g_outputScrollView->getCanvasSize().width,
+        g_outputScrollView->getCanvasSize().height,
         MyGUI::Align::Stretch, "KenshiPyOutput");
 
     g_outputBox->setEnabled(false);
@@ -255,8 +280,7 @@ void Console::Init()
 
     g_inputBox->setEditMultiLine(false);
     g_inputBox->setEditWordWrap(false);
-    g_inputBox->eventEditSelectAccept +=
-        MyGUI::newDelegate(OnInputAccept);
+    g_inputBox->eventEditSelectAccept += MyGUI::newDelegate(OnInputAccept);
 
     DebugLog("Console::Init complete");
 }
@@ -269,7 +293,6 @@ void Console::Toggle()
     bool nowVisible = !g_consoleWindow->getVisible();
     g_consoleWindow->setVisible(nowVisible);
 
-    // Give focus to the input box when opening
     if (nowVisible && g_inputBox)
     {
         MyGUI::InputManager* input = MyGUI::InputManager::getInstancePtr();
@@ -277,10 +300,28 @@ void Console::Toggle()
     }
 }
 
+static void ConsoleLog(const std::string& text)
+{
+    size_t end = text.size();
+    while (end > 0 && (text[end - 1] == '\n' || text[end - 1] == '\r'))
+        --end;
+    if (end > 0)
+        DebugLog("[Console] " + text.substr(0, end));
+}
+
+static void ConsoleError(const std::string& text)
+{
+    size_t end = text.size();
+    while (end > 0 && (text[end - 1] == '\n' || text[end - 1] == '\r'))
+        --end;
+    if (end > 0)
+        ErrorLog("[Console] " + text.substr(0, end));
+}
+
 void Console::AppendOutput(const std::string& text)
 {
-    // Mirror all console output to the Kenshi log regardless of GUI state
-    DebugLog("[Console] " + text);
+    // Mirror all console output to the KenshiPy_log.txt
+    ConsoleLog(text);
 
     if (!g_outputBox || !g_outputScrollView)
         return;
@@ -314,7 +355,6 @@ void Console::AppendOutput(const std::string& text)
             continue;
         }
 
-        // At wrap column, find last space in the current line to break on
         size_t lastSpace = wrapped.rfind(' ');
         if (lastSpace != std::string::npos && lastSpace >= wrapped.size() - WRAP)
         {
@@ -332,15 +372,14 @@ void Console::AppendOutput(const std::string& text)
         ++i;
     }
 
+	// Append the wrapped text to the output box
     g_outputBox->setCaption(g_outputBox->getCaption() + MyGUI::UString(wrapped));
 
-    // Resize TextBox and canvas to fit content, then scroll to bottom
     int logSize = g_outputBox->getTextSize().height;
     int padding = g_outputBox->getTextRegion().top;
     int finalHeight = logSize + padding;
     int finalBottom = g_outputBox->getTop() + finalHeight;
 
-    // Never shrink below the visible view height
     int viewHeight = g_outputScrollView->getViewCoord().height;
     if (finalBottom < viewHeight)
         finalBottom = viewHeight;
@@ -354,7 +393,6 @@ void Console::AppendOutput(const std::string& text)
         g_outputScrollView->setVisibleHScroll(false);
     }
 
-    // Scroll to bottom
     g_outputScrollView->setViewOffset(MyGUI::IntPoint(
         0, -(finalBottom - g_outputScrollView->getViewCoord().height)));
 }
