@@ -1,23 +1,22 @@
-//Python 3.4
+#include "Callbacks.h"
+#include <Debug.h>
+
 #include <Python.h>
 
-//KenshiLib
-#include <Debug.h>
-#include <Ogre.h>
-
 #include <vector>
+
+#include <Ogre.h>
 
 // ----------------------------------------------------------------------------
 // Key down callbacks
 // ----------------------------------------------------------------------------
-
 static std::vector<PyObject*> g_keyDownCallbacks;
 
 void RegisterKeyDownCallback(PyObject* callable)
 {
 	if (!callable || !PyCallable_Check(callable))
 	{
-		ErrorLog("KenshiPy: registerKeyDownCallback requires a callable");
+		ErrorLog("registerKeyDownCallback requires a callable");
 		return;
 	}
 	Py_INCREF(callable);
@@ -82,7 +81,7 @@ void RegisterFrameCallback(PyObject* callable)
 {
 	if (!callable || !PyCallable_Check(callable))
 	{
-		ErrorLog("KenshiPy: registerFrameCallback requires a callable");
+		ErrorLog("registerFrameCallback requires a callable");
 		return;
 	}
 
