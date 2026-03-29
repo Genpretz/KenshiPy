@@ -6,12 +6,14 @@
 
 using namespace Ogre;
 
-class KenshiOgrePlugin : public Plugin
+class KenshiPy : public Plugin
 {
 public:
-    KenshiOgrePlugin();
+    KenshiPy();
 
     const String& getName() const;
+
+    const String& getVersion() const;
 
     void install();
 
