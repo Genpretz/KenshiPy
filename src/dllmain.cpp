@@ -1,14 +1,15 @@
+#include "KenshiOgrePlugin.h"
+#include "KenshiPy_Runtime.h"
+
 #define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
 #include <Windows.h>
 
 #include <ogre/Ogre.h>
 
 #include <boost/filesystem.hpp>
 
-#include "KenshiOgrePlugin.h"
-#include "KenshiPy_Runtime.h"
-
-KenshiOgrePlugin* KPyPlugin;
+KenshiPy* KPyPlugin;
 
 // ----------------------------------------------------------------------------
 // Ogre Plugin System Entry Points
@@ -16,7 +17,7 @@ KenshiOgrePlugin* KPyPlugin;
 
 extern "C" __declspec(dllexport) void dllStartPlugin(void)
 {
-    KPyPlugin = new KenshiOgrePlugin();
+    KPyPlugin = new KenshiPy();
     Ogre::Root::getSingleton().installPlugin(KPyPlugin);
 }
 
