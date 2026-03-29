@@ -44,4 +44,7 @@
 %ignore Character::WhoSeesMe;
 %ignore Character::whoSeesMeSneaking;
 
+// Suppress nested classes because swigt does not support them
+%ignore Character::AttachArrowManager;
+
 %include "kenshi\Character.h"
