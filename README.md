@@ -71,6 +71,11 @@ Pressing ``Alt + ` `` when in-game, opens a console that can also be used to run
 import KenshiPy; KenshiPy,DebugLog("Hello from the in-game console");
 ```
 or you can run any python scripts by using run(). It will check the Kenshi's root directory by default, but you can also just use the path to your script if stored elsewhere.
+Just make sure to either use double backslashes `\\` 
 ```python
-run("path\to\example.py")
+run("path\\to\\example.py")
+```
+or prefix the `"path\to\example.py"` with a `r` like so
+```python
+run(r"path\to\example.py")
 ```
