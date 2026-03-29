@@ -7,22 +7,17 @@ if ou:
 else:
     print("GameWorld object couldn't be found.")
 
-if ou.initialized():
+if ou.initialized:
     print("GameWorld initialized = True.")
 else:
     print("GameWorld initialized = False.")
 
-if ou.steamEnabled():
+if ou.steamEnabled:
     print("Steam platform = True.")
 else:
     print("Steam platform = False.")
 
-if ou.showPlayerAMessage("Hello from Python!", False):
-    print("Player message sent successfully.")
-else:
-    print("Failed to send player message.")
+ou.showPlayerAMessage("Hello from Python! Player message sent successfully.", False)
 
-if ou.setGameSpeed(1.5, False):
-    print("Game speed set successfully.")
-else:
-    print("Failed to set game speed.")
+ou.setGameSpeed(5.0, False)
+print("Game speed set to 5.0.")

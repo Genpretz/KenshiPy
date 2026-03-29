@@ -23,4 +23,6 @@ def on_key_down(key_code):
     if key_code == KC_V:
         _toggle_prone()
 
+# RegisterKeyDownCallback is not a part of KenshiLib's headers.
+# Instead it is one of a few methods added as an stand-in for KenshiLib's hooking functionality.
 KenshiPy.RegisterKeyDownCallback(on_key_down)
