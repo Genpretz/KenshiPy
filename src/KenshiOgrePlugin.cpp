@@ -4,6 +4,8 @@
 #include "Console.h"
 #include "Hooks.h"
 #include "KenshiPy_Runtime.h"
+#include "Logger.h"
+//#include <Debug.h>
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
@@ -12,7 +14,6 @@
 #include <ogre/Ogre.h>
 #include <ois/OISKeyboard.h>
 
-#include <Debug.h>
 #include <core/Functions.h>
 
 const String s_PluginName = "KenshiPy";
@@ -22,7 +23,7 @@ bool g_initializedKenshiLib = false;
 KenshiPy::KenshiPy()
 {
     String sPlugin = (s_PluginName + " " + s_PluginVersion);
-    DebugLog(sPlugin);
+    DebugLog1(sPlugin);
 }
 
 const String& KenshiPy::getName() const
@@ -37,19 +38,19 @@ const String& KenshiPy::getVersion() const
 
 void KenshiPy::install()
 {
-    DebugLog("KenshiPy::install called.");
-    DebugLog("Initializing KenshiLib...");
+    DebugLog1("KenshiPy::install called.");
+    DebugLog1("Initializing KenshiLib...");
 
     if (!KenshiLib::InitRVAs())
     {
-        DebugLog("Failed to initialize KenshiLib.");
+        DebugLog1("Failed to initialize KenshiLib.");
         return;
     }
 
     g_initializedKenshiLib = true;
-    DebugLog("KenshiLib initialized successfully.");
+    DebugLog1("KenshiLib initialized successfully.");
     
-    DebugLog("Attempting to install hooks...");
+    DebugLog1("Attempting to install hooks...");
 
     bool installedHooks = true;
 
@@ -63,7 +64,7 @@ void KenshiPy::install()
     }
     if (installedHooks)
     {
-        DebugLog("Hooks installed successfully.");
+        DebugLog1("Hooks installed successfully.");
     }
 }
 
@@ -71,19 +72,19 @@ void KenshiPy::initialise()
 {
     if (!g_initializedKenshiLib)
     {
-        DebugLog("KenshiPy::initialise called but KenshiLib was not initialized successfully. Skipping Python initialization.");
+        DebugLog1("KenshiPy::initialise called but KenshiLib was not initialized successfully. Skipping Python initialization.");
         return;
 	}
-    DebugLog("KenshiPy::initialise called. Beginning Python initialization...");
+    DebugLog1("KenshiPy::initialise called. Beginning Python initialization...");
     InitPython();
 }
 
 void KenshiPy::shutdown()
 {
-    DebugLog("KenshiPy::shutdown called.");
+    DebugLog1("KenshiPy::shutdown called.");
 }
 
 void KenshiPy::uninstall()
 {
-    DebugLog("KenshiPy::uninstall called.");
+    DebugLog1("KenshiPy::uninstall called.");
 }

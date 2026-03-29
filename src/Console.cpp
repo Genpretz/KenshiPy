@@ -1,5 +1,6 @@
 #include "Console.h"
 #include "KenshiPy_Runtime.h"
+#include "Logger.h"
 
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
@@ -8,7 +9,6 @@
 #include <Python.h>
 
 #include <string>
-#include <Debug.h>
 
 #include "mygui/MyGUI_EditBox.h"
 #include "mygui/MyGUI_Gui.h"
@@ -233,7 +233,7 @@ void Console::Init()
     MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
     if (!gui)
     {
-        ErrorLog("Console::Init - MyGUI not ready");
+        ErrorLog1("Console::Init - MyGUI not ready");
         return;
     }
 
@@ -282,7 +282,7 @@ void Console::Init()
     g_inputBox->setEditWordWrap(false);
     g_inputBox->eventEditSelectAccept += MyGUI::newDelegate(OnInputAccept);
 
-    DebugLog("Console::Init complete");
+    DebugLog1("Console::Init complete");
 }
 
 void Console::Toggle()
@@ -306,7 +306,7 @@ static void ConsoleLog(const std::string& text)
     while (end > 0 && (text[end - 1] == '\n' || text[end - 1] == '\r'))
         --end;
     if (end > 0)
-        DebugLog("[Console] " + text.substr(0, end));
+        DebugLog1(text.substr(0, end));
 }
 
 static void ConsoleError(const std::string& text)
@@ -315,7 +315,7 @@ static void ConsoleError(const std::string& text)
     while (end > 0 && (text[end - 1] == '\n' || text[end - 1] == '\r'))
         --end;
     if (end > 0)
-        ErrorLog("[Console] " + text.substr(0, end));
+        ErrorLog1(text.substr(0, end));
 }
 
 void Console::AppendOutput(const std::string& text)

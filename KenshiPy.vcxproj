@@ -92,10 +92,10 @@
       <IgnoreSpecificDefaultLibraries>libcmt.lib;libcpmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <PreBuildEvent>
-      <Command>$(SWIG_INSTALL_DIR)\swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)interfaces\kenshi" -I"$(SolutionDir)interfaces\mygui" -I"$(SolutionDir)interfaces\ogre" -I"$(SolutionDir)extern\KenshiLib\Include" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi" -I"$(SolutionDir)extern\KenshiLib\Include\core" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi\util" -outdir "$(SolutionDir)src" -o "$(SolutionDir)src\KenshiPy_wraps.cpp" "$(SolutionDir)interfaces\KenshiPy.i"</Command>
+      <Command>$(SWIG_INSTALL_DIR)\swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)interfaces\kenshi" -I"$(SolutionDir)interfaces\mygui" -I"$(SolutionDir)interfaces\ogre" -I"$(SolutionDir)extern\KenshiLib\Include" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi" -I"$(SolutionDir)extern\KenshiLib\Include\core" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi\util" -outdir "$(SolutionDir)bin\$(Configuration)\KenshiPython" -o "$(SolutionDir)src\KenshiPy_wraps.cpp" "$(SolutionDir)interfaces\KenshiPy.i"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)src\KenshiPy.py" "$(OutDir)" &amp;&amp; copy /Y "$(PYTHON34_INSTALL_DIR)python34.dll" "$(OutDir)" &amp;&amp; xcopy "$(SolutionDir)bin\$(Configuration)\KenshiPython\" "C:\Program Files (x86)\GOG Galaxy\Games\Kenshi\KenshiPython\" /E /I /Y</Command>
+      <Command>copy /Y "$(ProjectDir)bin\$(Configuration)\KenshiPython\KenshiPy.py" "$(OutDir)" &amp;&amp; copy /Y "$(PYTHON34_INSTALL_DIR)python34.dll" "$(OutDir)" &amp;&amp; xcopy "$(SolutionDir)bin\$(Configuration)\KenshiPython\" "$(KENSHI_INSTALL_PATH)\KenshiPython\" /E /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -106,8 +106,10 @@
     <ClCompile Include="src\KenshiPy_wraps.cpp" />
     <ClCompile Include="src\KenshiPy_Runtime.cpp" />
     <ClCompile Include="src\KenshiOgrePlugin.cpp" />
+    <ClCompile Include="src\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="extern\KenshiLib\Include\Debug.h" />
     <ClInclude Include="include\ArtifactItemData_stub.h" />
     <ClInclude Include="include\Callbacks.h" />
     <ClInclude Include="include\CharMovement_guarded.h" />
@@ -115,6 +117,7 @@
     <ClInclude Include="include\Hooks.h" />
     <ClInclude Include="include\KenshiPy_Runtime.h" />
     <ClInclude Include="include\KenshiOgrePlugin.h" />
+    <ClInclude Include="include\Logger.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="interfaces\kenshi\Appearance.i" />
@@ -188,7 +191,6 @@
     <None Include="interfaces\kenshi\TradeCulture.i" />
     <None Include="interfaces\kenshi\util\UtilityT.i" />
     <None Include="interfaces\kenshi\WorldEventStateQuery.i" />
-    <None Include="src\KenshiPy.py" />
     <None Include="src\KenshiPyHook.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

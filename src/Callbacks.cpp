@@ -1,5 +1,5 @@
 #include "Callbacks.h"
-#include <Debug.h>
+#include "Logger.h"
 
 #include <Python.h>
 
@@ -16,7 +16,7 @@ void RegisterKeyDownCallback(PyObject* callable)
 {
 	if (!callable || !PyCallable_Check(callable))
 	{
-		ErrorLog("registerKeyDownCallback requires a callable");
+		ErrorLog1("registerKeyDownCallback requires a callable");
 		return;
 	}
 	Py_INCREF(callable);
@@ -81,7 +81,7 @@ void RegisterFrameCallback(PyObject* callable)
 {
 	if (!callable || !PyCallable_Check(callable))
 	{
-		ErrorLog("registerFrameCallback requires a callable");
+		ErrorLog1("registerFrameCallback requires a callable");
 		return;
 	}
 

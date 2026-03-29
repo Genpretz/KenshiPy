@@ -3,8 +3,8 @@
 #include "Callbacks.h"
 #include "Console.h"
 #include "KenshiPy_Runtime.h"
+#include "Logger.h"
 
-#include <Debug.h>
 #include <core/Functions.h>
 #include <kenshi/gui/TitleScreen.h>
 #include <kenshi/InputHandler.h>
@@ -43,7 +43,7 @@ bool installInputHandlerHooks()
 {
     if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&InputHandler::keyDownEvent), InputHandler_keyDownEvent_hook, &InputHandler_keyDownEvent_orig))
     {
-        ErrorLog("Failed to hook InputHandler::keyDownEvent.");
+        ErrorLog1("Failed to hook InputHandler::keyDownEvent.");
         return false;
     }
     return true;
@@ -53,7 +53,7 @@ bool installTitlescreenHooks()
 {
     if (KenshiLib::SUCCESS != KenshiLib::AddHook(KenshiLib::GetRealAddress(&TitleScreen::_CONSTRUCTOR), TitleScreen_hook, &TitleScreen_orig))
     {
-        ErrorLog("Failed to hook Titlescreen::_CONSTRUCTOR.");
+        ErrorLog1("Failed to hook Titlescreen::_CONSTRUCTOR.");
         return false;
     }
 
