@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <Python.h>
 
 void InitPython();
 void ShutdownPython();

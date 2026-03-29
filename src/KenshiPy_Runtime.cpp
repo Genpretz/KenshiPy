@@ -1,37 +1,28 @@
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-
-//Python 3.4
-#include <Python.h> 
-
-//KenshiPy
 #include "KenshiPy_Runtime.h"
 
-//KenshiLib
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <Windows.h>
+
+#define PY_SSIZE_T_CLEAN
+#include <Python.h>
+
+#include <fstream>
+#include <string>
+#include <vector>
+
+#include <rapidjson/document.h>
+#include <rapidjson/error/en.h>
+#include <rapidjson/istreamwrapper.h>
+
 #include <Debug.h>
 #include <core/Functions.h>
-#include <kenshi/Kenshi.h>
 #include <kenshi/GameWorld.h>
-#include <kenshi/ModInfo.h>
 #include <kenshi/Globals.h>
-#include <kenshi/gui/TitleScreen.h>
-
-//RapidJSON
-#include <rapidjson/document.h>
-#include <rapidjson/istreamwrapper.h>
-#include <rapidjson/error/en.h>
-
-//Standard libs
-#include <string>
-#include <fstream>
-#include <vector>
+#include <kenshi/ModInfo.h>
 
 // Forward declaration of the KenshiPy SWIG module init function
 extern "C" PyMODINIT_FUNC PyInit__KenshiPy(void);
-
-// ----------------------------------------------------------------------------
-// Helpers
-// ----------------------------------------------------------------------------
 
 static std::string GetKenshiDir()
 {
@@ -49,7 +40,7 @@ void RunScript(const std::string& scriptPath)
 	std::ifstream file(scriptPath.c_str(), std::ios::binary | std::ios::ate);
 	if (!file.is_open())
 	{
-		ErrorLog("KenshiPy: Could not open script: " + scriptPath);
+		ErrorLog("Could not open script: " + scriptPath);
 		return;
 	}
 
@@ -59,7 +50,7 @@ void RunScript(const std::string& scriptPath)
 	std::vector<char> buffer(static_cast<size_t>(size) + 1, 0);
 	if (!file.read(buffer.data(), size))
 	{
-		ErrorLog("KenshiPy: Could not read script: " + scriptPath);
+		ErrorLog("Could not read script: " + scriptPath);
 		return;
 	}
 
@@ -72,7 +63,7 @@ void RunScript(const std::string& scriptPath)
 		PyErr_Fetch(&ptype, &pvalue, &ptraceback);
 		PyErr_NormalizeException(&ptype, &pvalue, &ptraceback);
 
-		std::string errorMsg = "KenshiPy: Compile error in: " + scriptPath + "\n";
+		std::string errorMsg = "Compile error in: " + scriptPath + "\n";
 		if (pvalue)
 		{
 			PyObject* pstr = PyObject_Str(pvalue);
@@ -139,7 +130,7 @@ void RunString(const std::string& code)
 		PyErr_Fetch(&ptype, &pvalue, &ptraceback);
 		PyErr_NormalizeException(&ptype, &pvalue, &ptraceback);
 
-		std::string errorMsg = "KenshiPy: Compile error in RunString\n";
+		std::string errorMsg = "Compile error in RunString\n";
 		if (pvalue)
 		{
 			PyObject* pstr = PyObject_Str(pvalue);
@@ -195,10 +186,6 @@ void RunString(const std::string& code)
 	PyGILState_Release(gstate);
 }
 
-// ----------------------------------------------------------------------------
-// Script loading - iterates active mods looking for KenshiPy.json
-// ----------------------------------------------------------------------------
-
 static void LoadModScripts(lektor<ModInfo*>& mods)
 {
 	for (int i = 0; i < mods.size(); ++i)
@@ -213,7 +200,7 @@ static void LoadModScripts(lektor<ModInfo*>& mods)
 		rapidjson::Document dom;
 		if (dom.ParseStream(isw).HasParseError())
 		{
-			ErrorLog("KenshiPy: Error parsing \"" + jsonPath + "\": "
+			ErrorLog("Error parsing \"" + jsonPath + "\": "
 				+ rapidjson::GetParseError_En(dom.GetParseError()));
 			continue;
 		}
@@ -229,15 +216,11 @@ static void LoadModScripts(lektor<ModInfo*>& mods)
 				continue;
 
 			std::string scriptPath = mods[i]->path + "\\" + itr->GetString();
-			DebugLog("KenshiPy: Loading " + mods[i]->name + " -> " + itr->GetString());
+			DebugLog("Loading " + mods[i]->name + " -> " + itr->GetString());
 			RunScript(scriptPath);
 		}
 	}
 }
-
-// ----------------------------------------------------------------------------
-// initModsList hook - fires after mod list is ready (preload equivalent)
-// ----------------------------------------------------------------------------
 
 static bool g_loaded = false;
 
@@ -246,21 +229,17 @@ void TryLoadMods()
 	if (g_loaded)
 		return;
 
-	// GameWorld* ou defined in Globals.h
+	// global variable GameWorld* ou is defined in Globals.h
 	if (ou->activeMods.size() == 0)
 	{
-		DebugLog("KenshiPy: No active mods. Skipping script loading.");
+		DebugLog("No active mods. Skipping script loading.");
 		return;
 	}
 
 	g_loaded = true;
-	DebugLog("KenshiPy: Loading active mod scripts...");
+	DebugLog("Loading active mod scripts...");
 	LoadModScripts(ou->activeMods);
 }
-
-// ----------------------------------------------------------------------------
-// Python interpreter lifetime
-// ----------------------------------------------------------------------------
 
 void InitPython()
 {
@@ -289,7 +268,7 @@ void InitPython()
 	// Release GIL, game threads will acquire it as needed via PyGILState_Ensure
 	PyEval_SaveThread();
 
-	DebugLog("KenshiPy: Python interpreter initialized.");
+	DebugLog("Python interpreter initialized.");
 }
 
 void ShutdownPython()
