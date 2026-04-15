@@ -49,6 +49,7 @@
     <IncludePath>$(ProjectDir)include;$(ProjectDir)extern\KenshiLib\include;$(ProjectDir)extern\KenshiLib\include\ogre;$(MINHOOK_PATH)\include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
     <LibraryPath>$(ProjectDir)extern\KenshiLib\Binaries\Release;$(MINHOOK_PATH)\lib;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IntDir>obj\$(Configuration)\</IntDir>
@@ -98,16 +99,20 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Callbacks.cpp" />
     <ClCompile Include="src\Console.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\Hooks.cpp" />
     <ClCompile Include="src\KenshiPy_wraps.cpp" />
     <ClCompile Include="src\KenshiPy_Runtime.cpp" />
     <ClCompile Include="src\KenshiOgrePlugin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ArtifactItemData_stub.h" />
+    <ClInclude Include="include\Callbacks.h" />
     <ClInclude Include="include\CharMovement_guarded.h" />
     <ClInclude Include="include\Console.h" />
+    <ClInclude Include="include\Hooks.h" />
     <ClInclude Include="include\KenshiPy_Runtime.h" />
     <ClInclude Include="include\KenshiOgrePlugin.h" />
   </ItemGroup>
