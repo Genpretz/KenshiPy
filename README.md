@@ -29,6 +29,7 @@ KenshiLib intentionally targets the same legacy constraints as Kenshi,
 - **x64**
 - **Limited C++11 support**
 - **Boost 1.60.0**
+
 and because of these contraints we are target the following:
 - **SWIG 3.0.12**
 - **Python 3.4**
