@@ -23,8 +23,8 @@ It's safe to assume that basically all functions that use standard types (ints, 
 
 ## Toolchain & Version Constraints
 
-- **KenshiLib 0.2.4**
 KenshiLib intentionally targets the same legacy constraints as Kenshi,
+- **KenshiLib 0.2.4**
 - **MSVC 2010**
 - **x64**
 - **Limited C++11 support**
