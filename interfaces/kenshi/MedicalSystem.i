@@ -8,6 +8,8 @@
 // Ignore nested classes
 %ignore MedicalSystem::HealthPartStatus;
 
+%ignore LimbsInventoryLayout::_NV_setupSections; // unresolved external symbol
+
 // Prefix AttackDirection enums to avoid collisions
 %rename(ATTACK_DIR_FRONT)  AttackDirection::FRONT;
 %rename(ATTACK_DIR_BACK)   AttackDirection::BACK;

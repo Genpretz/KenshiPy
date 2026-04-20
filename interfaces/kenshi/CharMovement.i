@@ -1,5 +1,5 @@
 %{
-#include "kenshi/CharMovement.h"
+#include "CharMovement_guarded.h"
 %}
 
 %include "std_string.i"
@@ -16,4 +16,4 @@
 %ignore SpeedGroup::direction;
 %nocopyctor CharMovement;
 
-%include "kenshi/CharMovement.h"
+%include "CharMovement_guarded.h"

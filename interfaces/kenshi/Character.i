@@ -47,4 +47,6 @@
 // Suppress nested classes because swigt does not support them
 %ignore Character::AttachArrowManager;
 
+%ignore CharacterInventoryLayout::_NV_setupSections; // unresolved external symbol
+
 %include "kenshi\Character.h"

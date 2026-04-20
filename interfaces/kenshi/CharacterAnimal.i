@@ -7,5 +7,6 @@
 
 %ignore CharacterAnimal::itemInMouthTimeStamp;
 %ignore CharacterAnimal::audioTimeStamp;
+%ignore AnimalInventoryLayout::_NV_setupSections; // unresolved external symbol
 
 %include "kenshi\CharacterAnimal.h"
