@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
@@ -18,12 +14,6 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v100</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -36,9 +26,6 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -48,31 +35,9 @@
     <IntDir>obj\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)include;$(ProjectDir)extern\KenshiLib\include;$(ProjectDir)extern\KenshiLib\include\ogre;$(MINHOOK_PATH)\include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
-    <LibraryPath>$(ProjectDir)extern\KenshiLib\Binaries\Release;$(MINHOOK_PATH)\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)extern\KenshiLib\Binaries\Release;$(MINHOOK_PATH)\lib;$(SolutionDir)x64\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>obj\$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)extern\KenshiLib\Include;$(ProjectDir)extern\KenshiLib\Include\kenshi;$(ProjectDir)extern\KenshiLib\Include\core;$(ProjectDir)extern\KenshiLib\Include\kenshi\util;$(ProjectDir)include;$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)bin\$(Configuration)\KenshiPython\</OutDir>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>BOOST_ALL_STATIC_LINK;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(BOOST_INCLUDE_PATH);$(PYTHON34_INSTALL_DIR)include;$(RAPIDJSON_INCLUDE_PATH);$(ProjectDir)extern\KenshiLib\Include;$(ProjectDir)extern\minhook\multihook\include;$(ProjectDir)extern\KenshiLib\Include\ogre;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(BOOST_INCLUDE_PATH)\stage\lib;$(PYTHON34_INSTALL_DIR)libs;$(ProjectDir)extern\KenshiLib\Binaries\Release;$(SolutionDir)extern\KenshiLib\Libraries\ogre;$(SolutionDir)extern\KenshiLib\Libraries\mygui;$(SolutionDir)KenshiPy\KenshiLib\Libraries\ogre;$(SolutionDir)extern\minhook\multihook\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>python34.lib;KenshiLib.lib;OgreMain_x64.lib;boost_system-vc100-mt-gd-1_60.lib;boost_thread-vc100-mt-gd-1_60.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -92,7 +57,7 @@
       <IgnoreSpecificDefaultLibraries>libcmt.lib;libcpmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <PreBuildEvent>
-      <Command>$(SWIG_INSTALL_DIR)\swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)interfaces\kenshi" -I"$(SolutionDir)interfaces\mygui" -I"$(SolutionDir)interfaces\ogre" -I"$(SolutionDir)extern\KenshiLib\Include" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi" -I"$(SolutionDir)extern\KenshiLib\Include\core" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi\util" -outdir "$(SolutionDir)bin\$(Configuration)\KenshiPython" -o "$(SolutionDir)src\KenshiPy_wraps.cpp" "$(SolutionDir)interfaces\KenshiPy.i"</Command>
+      <Command>$(SWIG_INSTALL_DIR)\swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)interfaces\kenshi" -I"$(SolutionDir)interfaces\mygui" -I"$(SolutionDir)interfaces\ogre" -I"$(SolutionDir)extern\KenshiLib\Include" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi" -I"$(SolutionDir)extern\KenshiLib\Include\core" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi\util" -outdir "$(OutDir)" -o "$(SolutionDir)src\KenshiPy_wraps.cpp" "$(SolutionDir)interfaces\KenshiPy.i"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y "$(ProjectDir)bin\$(Configuration)\KenshiPython\KenshiPy.py" "$(OutDir)" &amp;&amp; copy /Y "$(PYTHON34_INSTALL_DIR)python34.dll" "$(OutDir)" &amp;&amp; xcopy "$(SolutionDir)bin\$(Configuration)\KenshiPython\" "$(KENSHI_INSTALL_PATH)\KenshiPython\" /E /I /Y</Command>
