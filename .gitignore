@@ -49,3 +49,4 @@
 *.sln
 /src/old
 /include/old
+*.exp
