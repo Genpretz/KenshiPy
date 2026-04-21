@@ -79,68 +79,54 @@ static void LogImpl(LogLevel level, const char* fmt, va_list args)
     debugLog << finalBuffer << std::endl;
 }
 
-//----------------------------------------
-// Core printf-style API
-//----------------------------------------
-void DebugLog1(const char* fmt, ...)
+namespace Logger
 {
-    va_list args;
-    va_start(args, fmt);
-    LogImpl(LOG_DEBUG, fmt, args);
-    va_end(args);
+    //----------------------------------------
+    // Core printf-style API
+    //----------------------------------------
+    void DebugLog(const char* fmt, ...)
+    {
+        va_list args;
+        va_start(args, fmt);
+        LogImpl(LOG_DEBUG, fmt, args);
+        va_end(args);
+    }
+
+    void ErrorLog(const char* fmt, ...)
+    {
+        va_list args;
+        va_start(args, fmt);
+        LogImpl(LOG_ERROR, fmt, args);
+        va_end(args);
+    }
+
+    //void ConsoleLog(const char* fmt, ...)
+    //{
+    //    va_list args;
+    //    va_start(args, fmt);
+    //    LogImpl(LOG_CONSOLE, fmt, args);
+    //    va_end(args);
+    //}
+
+    //----------------------------------------
+    // NEW: std::string overloads
+    //----------------------------------------
+    void DebugLog(const std::string& msg)
+    {
+        DebugLog("%s", msg.c_str());
+    }
+
+    void ErrorLog(const std::string& msg)
+    {
+        ErrorLog("%s", msg.c_str());
+    }
+
+    //void ConsoleLog(const std::string& msg)
+    //{
+    //    ConsoleLog("%s", msg.c_str());
+    //}
+
 }
-
-void ErrorLog1(const char* fmt, ...)
-{
-    va_list args;
-    va_start(args, fmt);
-    LogImpl(LOG_ERROR, fmt, args);
-    va_end(args);
-}
-
-//void ConsoleLog(const char* fmt, ...)
-//{
-//    va_list args;
-//    va_start(args, fmt);
-//    LogImpl(LOG_CONSOLE, fmt, args);
-//    va_end(args);
-//}
-
-//----------------------------------------
-// NEW: std::string overloads
-//----------------------------------------
-void DebugLog1(const std::string& msg)
-{
-    DebugLog1("%s", msg.c_str());
-}
-
-void ErrorLog1(const std::string& msg)
-{
-    ErrorLog1("%s", msg.c_str());
-}
-
-//void ConsoleLog(const std::string& msg)
-//{
-//    ConsoleLog("%s", msg.c_str());
-//}
-
-//----------------------------------------
-// NEW: Ogre::String overloads
-//----------------------------------------
-//void DebugLog(const Ogre::String& msg)
-//{
-//    DebugLog("%s", msg.c_str());
-//}
-//
-//void ErrorLog(const Ogre::String& msg)
-//{
-//    ErrorLog("%s", msg.c_str());
-//}
-//
-//void ConsoleLog(const Ogre::String& msg)
-//{
-//    ConsoleLog("%s", msg.c_str());
-//}
 
 //----------------------------------------
 // Accessors
