@@ -4,3 +4,4 @@
 [submodule "extern/KenshiLib"]
 	path = extern/KenshiLib
 	url = https://github.com/Genpretz/KenshiLib/
+	branch = KenshiPy
