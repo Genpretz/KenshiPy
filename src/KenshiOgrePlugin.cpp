@@ -14,7 +14,7 @@
 #include <ogre/Ogre.h>
 #include <ois/OISKeyboard.h>
 
-#include <core/Functions.h>
+#include "core/Functions.h"
 
 const String s_PluginName = "KenshiPy";
 const String s_PluginVersion = "0.1.2-alpha";
@@ -23,7 +23,7 @@ bool g_initializedKenshiLib = false;
 KenshiPy::KenshiPy()
 {
     String sPlugin = (s_PluginName + " " + s_PluginVersion);
-    DebugLog1(sPlugin);
+    Logger::DebugLog(sPlugin);
 }
 
 const String& KenshiPy::getName() const
@@ -38,19 +38,19 @@ const String& KenshiPy::getVersion() const
 
 void KenshiPy::install()
 {
-    DebugLog1("KenshiPy::install called.");
-    DebugLog1("Initializing KenshiLib...");
+    Logger::DebugLog("KenshiPy::install called.");
+    Logger::DebugLog("Initializing KenshiLib...");
 
     if (!KenshiLib::InitRVAs())
     {
-        DebugLog1("Failed to initialize KenshiLib.");
+        Logger::ErrorLog("Failed to initialize KenshiLib.");
         return;
     }
 
     g_initializedKenshiLib = true;
-    DebugLog1("KenshiLib initialized successfully.");
+    Logger::DebugLog("KenshiLib initialized successfully.");
     
-    DebugLog1("Attempting to install hooks...");
+    Logger::DebugLog("Attempting to install hooks...");
 
     bool installedHooks = true;
 
@@ -64,27 +64,27 @@ void KenshiPy::install()
     }
     if (installedHooks)
     {
-        DebugLog1("Hooks installed successfully.");
+        Logger::DebugLog("Hooks installed successfully.");
     }
 }
 
 void KenshiPy::initialise()
 {
+    Logger::DebugLog("KenshiPy::initialise called.");
     if (!g_initializedKenshiLib)
     {
-        DebugLog1("KenshiPy::initialise called but KenshiLib was not initialized successfully. Skipping Python initialization.");
+        Logger::ErrorLog("KenshiLib was not initialized successfully. Skipping Python initialization.");
         return;
 	}
-    DebugLog1("KenshiPy::initialise called. Beginning Python initialization...");
     InitPython();
 }
 
 void KenshiPy::shutdown()
 {
-    DebugLog1("KenshiPy::shutdown called.");
+    Logger::DebugLog("KenshiPy::shutdown called.");
 }
 
 void KenshiPy::uninstall()
 {
-    DebugLog1("KenshiPy::uninstall called.");
+    Logger::DebugLog("KenshiPy::uninstall called.");
 }

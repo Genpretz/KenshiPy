@@ -40,7 +40,7 @@ void RunScript(const std::string& scriptPath)
 	std::ifstream file(scriptPath.c_str(), std::ios::binary | std::ios::ate);
 	if (!file.is_open())
 	{
-		ErrorLog1("Could not open script: " + scriptPath);
+		Logger::ErrorLog("Could not open script: " + scriptPath);
 		return;
 	}
 
@@ -50,7 +50,7 @@ void RunScript(const std::string& scriptPath)
 	std::vector<char> buffer(static_cast<size_t>(size) + 1, 0);
 	if (!file.read(buffer.data(), size))
 	{
-		ErrorLog1("Could not read script: " + scriptPath);
+		Logger::ErrorLog("Could not read script: " + scriptPath);
 		return;
 	}
 
@@ -74,7 +74,7 @@ void RunScript(const std::string& scriptPath)
 			}
 		}
 
-		ErrorLog1(errorMsg);
+		Logger::ErrorLog(errorMsg);
 		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
@@ -94,7 +94,7 @@ void RunScript(const std::string& scriptPath)
 		PyErr_Fetch(&ptype, &pvalue, &ptraceback);
 		PyErr_NormalizeException(&ptype, &pvalue, &ptraceback);
 
-		std::string errorMsg = "KenshiPy: Runtime error in: " + scriptPath + "\n";
+		std::string errorMsg = "Runtime error in: " + scriptPath + "\n";
 		if (pvalue)
 		{
 			PyObject* pstr = PyObject_Str(pvalue);
@@ -105,7 +105,7 @@ void RunScript(const std::string& scriptPath)
 			}
 		}
 
-		ErrorLog1(errorMsg);
+		Logger::ErrorLog(errorMsg);
 		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
@@ -141,7 +141,7 @@ void RunString(const std::string& code)
 			}
 		}
 
-		ErrorLog1(errorMsg);
+		Logger::ErrorLog(errorMsg);
 		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
@@ -161,7 +161,7 @@ void RunString(const std::string& code)
 		PyErr_Fetch(&ptype, &pvalue, &ptraceback);
 		PyErr_NormalizeException(&ptype, &pvalue, &ptraceback);
 
-		std::string errorMsg = "KenshiPy: Runtime error in RunString\n";
+		std::string errorMsg = "Runtime error in RunString\n";
 		if (pvalue)
 		{
 			PyObject* pstr = PyObject_Str(pvalue);
@@ -172,7 +172,7 @@ void RunString(const std::string& code)
 			}
 		}
 
-		ErrorLog1(errorMsg);
+		Logger::ErrorLog(errorMsg);
 		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
@@ -200,7 +200,7 @@ static void LoadModScripts(lektor<ModInfo*>& mods)
 		rapidjson::Document dom;
 		if (dom.ParseStream(isw).HasParseError())
 		{
-			ErrorLog1("Error parsing \"" + jsonPath + "\": "
+			Logger::ErrorLog("Error parsing \"" + jsonPath + "\": "
 				+ rapidjson::GetParseError_En(dom.GetParseError()));
 			continue;
 		}
@@ -216,7 +216,7 @@ static void LoadModScripts(lektor<ModInfo*>& mods)
 				continue;
 
 			std::string scriptPath = mods[i]->path + "\\" + itr->GetString();
-			DebugLog1("Loading " + mods[i]->name + " -> " + itr->GetString());
+			Logger::DebugLog("Loading " + mods[i]->name + " -> " + itr->GetString());
 			RunScript(scriptPath);
 		}
 	}
@@ -232,12 +232,12 @@ void TryLoadMods()
 	// global variable GameWorld* ou is defined in Globals.h
 	if (ou->activeMods.size() == 0)
 	{
-		DebugLog1("No active mods. Skipping script loading.");
+		Logger::DebugLog("No active mods. Skipping script loading.");
 		return;
 	}
 
 	g_loaded = true;
-	DebugLog1("Loading active mod scripts...");
+	Logger::DebugLog("Loading active mod scripts...");
 	LoadModScripts(ou->activeMods);
 }
 
@@ -268,7 +268,7 @@ void InitPython()
 	// Release GIL, game threads will acquire it as needed via PyGILState_Ensure
 	PyEval_SaveThread();
 
-	DebugLog1("Python interpreter initialized.");
+	Logger::DebugLog("Python interpreter initialized.");
 }
 
 void ShutdownPython()

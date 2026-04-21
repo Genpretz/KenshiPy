@@ -16,7 +16,7 @@ void RegisterKeyDownCallback(PyObject* callable)
 {
 	if (!callable || !PyCallable_Check(callable))
 	{
-		ErrorLog1("registerKeyDownCallback requires a callable");
+		Logger::ErrorLog("registerKeyDownCallback requires a callable");
 		return;
 	}
 	Py_INCREF(callable);
@@ -81,7 +81,7 @@ void RegisterFrameCallback(PyObject* callable)
 {
 	if (!callable || !PyCallable_Check(callable))
 	{
-		ErrorLog1("registerFrameCallback requires a callable");
+		Logger::ErrorLog("registerFrameCallback requires a callable");
 		return;
 	}
 

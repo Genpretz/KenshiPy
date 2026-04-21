@@ -233,7 +233,7 @@ void Console::Init()
     MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
     if (!gui)
     {
-        ErrorLog1("Console::Init - MyGUI not ready");
+        Logger::ErrorLog("Console::Init - MyGUI not ready");
         return;
     }
 
@@ -282,7 +282,7 @@ void Console::Init()
     g_inputBox->setEditWordWrap(false);
     g_inputBox->eventEditSelectAccept += MyGUI::newDelegate(OnInputAccept);
 
-    DebugLog1("Console::Init complete");
+    Logger::DebugLog("Console::Init complete");
 }
 
 void Console::Toggle()
@@ -306,7 +306,7 @@ static void ConsoleLog(const std::string& text)
     while (end > 0 && (text[end - 1] == '\n' || text[end - 1] == '\r'))
         --end;
     if (end > 0)
-        DebugLog1(text.substr(0, end));
+        Logger::DebugLog(text.substr(0, end));
 }
 
 static void ConsoleError(const std::string& text)
@@ -315,7 +315,7 @@ static void ConsoleError(const std::string& text)
     while (end > 0 && (text[end - 1] == '\n' || text[end - 1] == '\r'))
         --end;
     if (end > 0)
-        ErrorLog1(text.substr(0, end));
+        Logger::ErrorLog(text.substr(0, end));
 }
 
 void Console::AppendOutput(const std::string& text)

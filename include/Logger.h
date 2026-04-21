@@ -3,28 +3,22 @@
 #include <string>
 #include <OgreCommon.h>
 
+namespace Logger
+{
+	//----------------------------------------------------
+	// printf-style API (core logger)
+	//----------------------------------------------------
+	void DebugLog(const char* fmt, ...);
+	void ErrorLog(const char* fmt, ...);
+	//	void ConsoleLog(const char* fmt, ...);
 
-//----------------------------------------------------
-// printf-style API (core logger)
-//----------------------------------------------------
-void DebugLog1(const char* fmt, ...);
-void ErrorLog1(const char* fmt, ...);
-//void ConsoleLog(const char* fmt, ...);
-
-//----------------------------------------------------
-// std::string overloads
-//----------------------------------------------------
-
-void DebugLog1(const std::string& msg);
-void ErrorLog1(const std::string& msg);
-//	void ConsoleLog(const std::string& msg);
-//----------------------------------------------------
-// Ogre::String overloads
-//----------------------------------------------------
-//void DebugLog(const Ogre::String& msg);
-//void ErrorLog(const Ogre::String& msg);
-//void ConsoleLog(const Ogre::String& msg);
-
+	//----------------------------------------------------
+	// std::string overloads
+	//----------------------------------------------------
+	void DebugLog(const std::string& msg);
+	void ErrorLog(const std::string& msg);
+	//	void ConsoleLog(const std::string& msg);
+}
 //----------------------------------------------------
 // Accessor
 //----------------------------------------------------
