@@ -23,17 +23,16 @@ It's safe to assume that basically all functions that use standard types (ints, 
 
 ## Toolchain & Version Constraints
 
-This project intentionally targets the same legacy constraints as Kenshi/KenshiLib:
-
+KenshiLib intentionally targets the same legacy constraints as Kenshi,
+- **KenshiLib 0.2.4**
 - **MSVC 2010**
 - **x64**
 - **Limited C++11 support**
 - **Boost 1.60.0**
-- **SWIG 3.0.12**
-- **KenshiLib 0.1.6**
-- **Python 3.4**
 
-These constraints are deliberate to maintain ABI compatibility with Kenshi’s runtime and KenshiLib.
+and because of these contraints we are target the following:
+- **SWIG 3.0.12**
+- **Python 3.4**
 
 ## Installation
 
@@ -59,14 +58,14 @@ After installing KenshiPy, any active mods will automatically loads Python scrip
 ```
    .\Kenshi\mods\<modname>\example.py
 ```
-
+Example Python Script
 ```python
 import KenshiPy
 
 KenshiPy.DebugLog("Hello from Python")
 ```
 
-Pressing ``Alt + ` `` when in-game, opens a console that can also be used to run python. This expects a single line so use semicolons for multiline input, like so:
+Pressing ``Alt + ` `` when in-game, opens a console that can also be used to access a python interpreter console. This expects a single line so use semicolons for multiline input, like so:
 ```python
 import KenshiPy; KenshiPy,DebugLog("Hello from the in-game console");
 ```
