@@ -3,4 +3,4 @@
 	url = https://github.com/Tencent/rapidjson
 [submodule "extern/KenshiLib"]
 	path = extern/KenshiLib
-	url = https://github.com/BFrizzleFoShizzle/KenshiLib
+	url = https://github.com/Genpretz/KenshiLib/
