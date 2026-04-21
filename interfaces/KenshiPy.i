@@ -4,7 +4,6 @@
 #define SWIG_name    "KenshiPy"
 
 %{
-#include "CharMovement_guarded.h"
 
 #include "Debug.h"
 
@@ -14,6 +13,7 @@
 #include "kenshi/Character.h"
 #include "kenshi/CharacterAnimal.h"
 #include "kenshi/CharacterHuman.h"
+#include "kenshi/CharMovement.h"
 #include "kenshi/CharStats.h"
 #include "kenshi/CombatClass.h"
 #include "kenshi/CombatTechniqueData.h"

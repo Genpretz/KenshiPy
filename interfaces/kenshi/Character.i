@@ -1,6 +1,6 @@
 %{
-#include "CharMovement_guarded.h"
-#include "kenshi\Character.h"
+#include "kenshi/CharMovement.h"
+#include "kenshi/Character.h"
 %}
 
 %include "std_string.i"

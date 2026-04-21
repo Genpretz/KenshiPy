@@ -1,12 +1,12 @@
 %{
-#include "CharMovement_guarded.h"
-#include "kenshi\CombatClass.h"
+#include "kenshi/CharMovement.h"
+#include "kenshi/CombatClass.h"
 %}
 
 %include "std_string.i"
 %include "stdint.i"
 
-%import "kenshi\CharMovement.h"
+%import "kenshi/CharMovement.h"
 
 // ParticlePool uses internal Ogre particle types
 %ignore ParticlePool::particles;
@@ -18,4 +18,4 @@
 %ignore CombatClass::effectsToAdd;
 %ignore CombatClass::effectsPool;
 
-%include "kenshi\CombatClass.h"
+%include "kenshi/CombatClass.h"
