@@ -67,6 +67,7 @@
     <ClCompile Include="src\Callbacks.cpp" />
     <ClCompile Include="src\Console.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\GeneratedWrapper.cpp" />
     <ClCompile Include="src\Hooks.cpp" />
     <ClCompile Include="src\KenshiPy_Runtime.cpp" />
     <ClCompile Include="src\KenshiOgrePlugin.cpp" />
