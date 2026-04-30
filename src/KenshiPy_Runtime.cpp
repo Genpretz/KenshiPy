@@ -75,7 +75,7 @@ void RunScript(const std::string& scriptPath)
 		}
 
 		Logger::ErrorLog(errorMsg);
-		//OutputDebugStringA(errorMsg.c_str());
+
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -106,7 +106,6 @@ void RunScript(const std::string& scriptPath)
 		}
 
 		Logger::ErrorLog(errorMsg);
-		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -142,7 +141,6 @@ void RunString(const std::string& code)
 		}
 
 		Logger::ErrorLog(errorMsg);
-		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
@@ -173,7 +171,6 @@ void RunString(const std::string& code)
 		}
 
 		Logger::ErrorLog(errorMsg);
-		//OutputDebugStringA(errorMsg.c_str());
 
 		Py_XDECREF(ptype);
 		Py_XDECREF(pvalue);
