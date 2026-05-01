@@ -1,4 +1,5 @@
-#include "KenshiPy_Runtime.h"
+#include "PyRuntime.h"
+#include "Logger.h"
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
@@ -15,8 +16,6 @@
 #include <rapidjson/error/en.h>
 #include <rapidjson/istreamwrapper.h>
 
-#include <Logger.h>
-#include <core/Functions.h>
 #include <kenshi/GameWorld.h>
 #include <kenshi/Globals.h>
 #include <kenshi/ModInfo.h>
@@ -28,6 +27,17 @@ static std::string GetKenshiDir()
 {
 	CHAR path[MAX_PATH];
 	GetModuleFileNameA(NULL, path, MAX_PATH);
+	std::string full(path);
+	size_t pos = full.find_last_of("\\/");
+	if (pos != std::string::npos)
+		return full.substr(0, pos);
+	return ".";
+}
+
+static std::string GetModDir()
+{
+	CHAR path[MAX_PATH];
+	GetModuleFileNameA(GetModuleHandleA("KenshiPy.dll"), path, MAX_PATH);
 	std::string full(path);
 	size_t pos = full.find_last_of("\\/");
 	if (pos != std::string::npos)
@@ -226,7 +236,11 @@ void TryLoadMods()
 	if (g_loaded)
 		return;
 
-	// global variable GameWorld* ou is defined in Globals.h
+	if (!ou) {
+		Logger::DebugLog("GameWorld 'ou' is null. Skipping script loading until GameWorld exists.");
+		return;
+	}
+
 	if (ou->activeMods.size() == 0)
 	{
 		Logger::DebugLog("No active mods. Skipping script loading.");
@@ -240,24 +254,26 @@ void TryLoadMods()
 
 void InitPython()
 {
-	// Register KenshiPy module before Py_Initialize so it is importable
 	PyImport_AppendInittab("_KenshiPy", PyInit__KenshiPy);
 
 	Py_Initialize();
 	PyEval_InitThreads();
 
-	// Add both Kenshi root and KenshiPython\ to sys.path.
-	// KenshiPython\ is where KenshiPy.py lives so 'import KenshiPy' works.
-	// Kenshi root is kept so scripts can import local modules from the game dir.
+	// Get the directory where our DLL is located (the mod directory)
+	// With RE_Kenshi: .\Kenshi\mods\KenshiPython\//
+	std::string modDir = GetModDir();
+
+	// Also get Kenshi root directory for compatibility
 	std::string kenshiDir = GetKenshiDir();
-	std::string kenshiPyDir = kenshiDir + "\\KenshiPython";
 
 	PyObject* sysPath = PySys_GetObject("path");
 
-	PyObject* kenshiPyPath = PyUnicode_FromString(kenshiPyDir.c_str());
-	PyList_Insert(sysPath, 0, kenshiPyPath);
-	Py_DECREF(kenshiPyPath);
+	// Add mod directory first (where KenshiPy.py lives)
+	PyObject* modDirPath = PyUnicode_FromString(modDir.c_str());
+	PyList_Insert(sysPath, 0, modDirPath);
+	Py_DECREF(modDirPath);
 
+	// Add Kenshi root for compatibility with scripts that expect it
 	PyObject* kenshiPath = PyUnicode_FromString(kenshiDir.c_str());
 	PyList_Insert(sysPath, 0, kenshiPath);
 	Py_DECREF(kenshiPath);

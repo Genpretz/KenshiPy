@@ -1,8 +1,5 @@
 #include "Logger.h"
 
-
-#include "Ogre.h"  
-
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/locks.hpp>
 
@@ -16,9 +13,6 @@
 #define NOMINMAX
 #include <Windows.h>
 
-//----------------------------------------
-// Log Levels
-//----------------------------------------
 enum LogLevel
 {
     LOG_DEBUG,
@@ -26,18 +20,24 @@ enum LogLevel
     LOG_CONSOLE
 };
 
-//----------------------------------------
-// Globals
-//----------------------------------------
-static std::ofstream debugFile("KenshiPython\\KenshiPy_log.txt");
+static std::ofstream debugFile;
 static std::stringstream debugLog;
 static DWORD startTime = 0;
 static bool startTimeInitialized = false;
 static boost::mutex logMutex;
 
-//----------------------------------------
-// Internal Core Logger
-//----------------------------------------
+namespace Logger
+{
+    void InitLogger(const std::string& logFilePath)
+    {
+        boost::lock_guard<boost::mutex> lock(logMutex);
+        if (!debugFile.is_open())
+        {
+            debugFile.open(logFilePath.c_str());
+        }
+    }
+}
+
 static void LogImpl(LogLevel level, const char* fmt, va_list args)
 {
     boost::lock_guard<boost::mutex> lock(logMutex);
@@ -63,7 +63,7 @@ static void LogImpl(LogLevel level, const char* fmt, va_list args)
     {
     case LOG_DEBUG:   prefix = ""; break;
     case LOG_ERROR:   prefix = "Error "; break;
-    case LOG_CONSOLE: prefix = "Console "; break;
+        //case LOG_CONSOLE: prefix = "Console "; break;
     }
 
     char finalBuffer[2300];
@@ -81,15 +81,17 @@ static void LogImpl(LogLevel level, const char* fmt, va_list args)
 
 namespace Logger
 {
-    //----------------------------------------
-    // Core printf-style API
-    //----------------------------------------
     void DebugLog(const char* fmt, ...)
     {
         va_list args;
         va_start(args, fmt);
         LogImpl(LOG_DEBUG, fmt, args);
         va_end(args);
+    }
+
+    void DebugLog(const std::string& msg)
+    {
+        DebugLog("%s", msg.c_str());
     }
 
     void ErrorLog(const char* fmt, ...)
@@ -100,6 +102,11 @@ namespace Logger
         va_end(args);
     }
 
+    void ErrorLog(const std::string& msg)
+    {
+        ErrorLog("%s", msg.c_str());
+    }
+
     //void ConsoleLog(const char* fmt, ...)
     //{
     //    va_list args;
@@ -108,29 +115,12 @@ namespace Logger
     //    va_end(args);
     //}
 
-    //----------------------------------------
-    // NEW: std::string overloads
-    //----------------------------------------
-    void DebugLog(const std::string& msg)
-    {
-        DebugLog("%s", msg.c_str());
-    }
-
-    void ErrorLog(const std::string& msg)
-    {
-        ErrorLog("%s", msg.c_str());
-    }
-
     //void ConsoleLog(const std::string& msg)
     //{
     //    ConsoleLog("%s", msg.c_str());
     //}
-
 }
 
-//----------------------------------------
-// Accessors
-//----------------------------------------
 std::string GetLog()
 {
     boost::lock_guard<boost::mutex> lock(logMutex);

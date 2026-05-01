@@ -18,10 +18,7 @@
     <ClCompile Include="src\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\KenshiPy_Runtime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\KenshiOgrePlugin.cpp">
+    <ClCompile Include="src\PyRuntime.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Console.cpp">
@@ -47,10 +44,7 @@
     <ClInclude Include="include\CharMovement_guarded.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\KenshiPy_Runtime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\KenshiOgrePlugin.h">
+    <ClInclude Include="include\PyRuntime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Console.h">
@@ -60,9 +54,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Hooks.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="extern\KenshiLib\Include\Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Logger.h">

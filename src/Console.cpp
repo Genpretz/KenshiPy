@@ -1,5 +1,5 @@
 #include "Console.h"
-#include "KenshiPy_Runtime.h"
+#include "PyRuntime.h"
 #include "Logger.h"
 
 #define WIN32_LEAN_AND_MEAN

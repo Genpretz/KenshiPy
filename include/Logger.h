@@ -1,10 +1,14 @@
 #pragma once
 
 #include <string>
-#include <OgreCommon.h>
 
 namespace Logger
 {
+	//----------------------------------------------------
+	// Initialization
+	//----------------------------------------------------
+	void InitLogger(const std::string& logFilePath);
+
 	//----------------------------------------------------
 	// printf-style API (core logger)
 	//----------------------------------------------------
