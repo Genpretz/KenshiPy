@@ -78,7 +78,7 @@
 
 /* Example: cleaner Python naming if desired
 %rename(start_game) GameWorld::start;
-%rename(reset) GameWorld::resetGame;
+%rename(reset_game) GameWorld::resetGame;
 %rename(is_paused) GameWorld::isPaused;
 %rename(set_speed) GameWorld::setGameSpeed;
 %rename(log_debug) GameWorld::logDebug; */

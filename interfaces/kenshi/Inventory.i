@@ -4,6 +4,6 @@
 
 %include "std_string.i"
 
-%ignore InventorySection::SectionItem;
+//%ignore InventorySection::SectionItem;
 
 %include "kenshi/Inventory.h"

@@ -1,11 +1,14 @@
 %module KenshiPy
 
+%feature("autodoc", "3");
+
 #define SWIG_init    PyInit_KenshiPy
 #define SWIG_name    "KenshiPy"
 
-%{
 
+%{
 #include "Debug.h"
+//#include "core/Functions.h"
 
 #include "kenshi/Appearance.h"
 #include "kenshi/Bounty.h"
@@ -80,7 +83,8 @@
 %include "std_string.i"
 %include "stdint.i"
 
-%include "Debug.i"
+%include "core/Debug.i"
+%include "core/Functions.i"
 %include "kenshi/Appearance.i"
 %include "kenshi/AppearanceManager.i"
 %include "kenshi/Building/Building.i"
@@ -104,7 +108,6 @@
 %include "kenshi/FitnessSelector.i"
 %include "kenshi/GameData.i"
 %include "kenshi/GameDataManager.i"
-// %include "kenshi/GameLauncher.i" Suppressed because of MFC/ATL types which SWIG cannot wrap for Python
 %include "kenshi/GameSaveState.i"
 %include "kenshi/GameWorld.i"
 %include "kenshi/Gear.i"

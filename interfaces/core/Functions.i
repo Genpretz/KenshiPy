@@ -1,23 +1,40 @@
+// Functions.i - Simple wrapper for KenshiLib hooking functions
+
 %{
-#include "core\Functions.h"
+#include "core/Functions.h"
 %}
 
-#define KLIB_EXPORT
-#define __declspec(x)
+%include "stdint.i"
 
-%include "core\Functions.h"
+// Handle void pointers
+%typemap(in) void* {
+    $1 = PyLong_AsVoidPtr($input);
+}
 
-%inline %{
-    // AddHookByAddress accepts raw integer addresses so Python can pass values
-    // from GetRealAddress or ctypes without needing SWIG-wrapped pointer objects.
-    // Returns the trampoline (original function) address as a plain integer,
-    // or 0 on failure. Does not modify the original AddHook signature.
-    intptr_t AddHookByAddress(intptr_t target, intptr_t detour)
-    {
-        void* orig = NULL;
-        KenshiLib::HookStatus status = KenshiLib::AddHook((void*)target, (void*)detour, &orig);
-        if (status == KenshiLib::FAIL)
-            return 0;
-        return (intptr_t)orig;
-    }
-%}
+%typemap(out) void* {
+    $result = PyLong_FromVoidPtr($1);
+}
+
+%typemap(out) intptr_t {
+    $result = PyLong_FromVoidPtr((void*)$1);
+}
+
+// Handle the output parameter for original function pointer
+%typemap(in, numinputs=0) void** original (void* temp) {
+    $1 = &temp;
+}
+
+%typemap(argout) void** original {
+    PyObject* ptr = PyLong_FromVoidPtr(*$1);
+    $result = SWIG_Python_AppendOutput($result, ptr);
+}
+
+namespace KenshiLib {
+    enum HookStatus {
+        SUCCESS = 0,
+        FAIL = 1
+    };
+    
+    intptr_t GetRealAddress(void* fun);
+    HookStatus AddHook(void* target, void* detour, void** original);
+}
