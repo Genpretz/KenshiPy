@@ -1,7 +1,6 @@
 #include "Hooks.h"
-
 #include "Callbacks.h"
-#include "Console.h"
+#include "ScriptEditor.h"
 #include "Logger.h"
 
 #include <core/Functions.h>
@@ -9,89 +8,121 @@
 #include <kenshi/InputHandler.h>
 
 #include "mygui/MyGUI_Gui.h"
-#include "mygui/MyGUI_Widget.h"
 
-void (*InputHandler_keyDownEvent_orig)(InputHandler*, OIS::KeyCode) = NULL;
-void InputHandler_keyDownEvent_hook(InputHandler* thisptr, OIS::KeyCode keyCode)
+// ---------------------------------------------------------------------------
+// Hook: InputHandler::keyDownEvent
+//
+// Called by the game for every key press.  We intercept it to:
+//   1. Run the original handler first (always).
+//   2. Toggle the script editor on Ctrl+`.
+//   3. Dispatch to any Python key-down callbacks.
+// ---------------------------------------------------------------------------
+
+static void (*InputHandler_keyDownEvent_orig)(InputHandler*, OIS::KeyCode) = nullptr;
+
+static void InputHandler_keyDownEvent_hook(InputHandler* self, OIS::KeyCode key)
 {
-    if (InputHandler_keyDownEvent_orig)
-        InputHandler_keyDownEvent_orig(thisptr, keyCode);
-    if (keyCode == OIS::KC_GRAVE && thisptr->alt)
-        Console::Toggle();
-    CallKeyDownCallbacks((int)keyCode);
+    // Always run the original handler so the game still receives input.
+    InputHandler_keyDownEvent_orig(self, key);
+
+    // Ctrl+` — toggle the script editor.
+    if (key == OIS::KC_GRAVE && self->ctrl)
+        ScriptEditor::Toggle();
+
+    // Dispatch to any Python-registered key-down callbacks.
+    CallKeyDownCallbacks(static_cast<int>(key));
 }
 
-TitleScreen* (*TitleScreen_orig)(TitleScreen*) = NULL;
-TitleScreen* TitleScreen_hook(TitleScreen* thisptr)
-{
-    TitleScreen* result = TitleScreen_orig(thisptr);
+// ---------------------------------------------------------------------------
+// Hook: TitleScreen constructor
+//
+// The TitleScreen is the first thing that creates the MyGUI environment in a
+// usable state.  We piggyback on its constructor to schedule our own GUI
+// initialisation via MyGUI's per-frame event (which fires after the first
+// full layout pass).
+// ---------------------------------------------------------------------------
 
-    if (!Console::IsInitialized())
-    {
-        MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
-        if (gui)
-            gui->eventFrameStart += MyGUI::newDelegate(Console::InitFrameHandler);
-    }
+static TitleScreen* (*TitleScreen_orig)(TitleScreen*) = nullptr;
+
+static TitleScreen* TitleScreen_hook(TitleScreen* self)
+{
+    TitleScreen* result = TitleScreen_orig(self);
+
+    MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
+    if (gui && !ScriptEditor::IsInitialized())
+        gui->eventFrameStart += MyGUI::newDelegate(ScriptEditor::InitFrameHandler);
 
     return result;
 }
 
-bool installInputHandlerHooks()
+// ---------------------------------------------------------------------------
+// Hook installation helpers
+// ---------------------------------------------------------------------------
+
+static bool HookInputHandler()
 {
-    //if (InputHandler_keyDownEvent_orig != NULL)
-    //{
-    //    Logger::DebugLog("InputHandler hook already installed.");
-    //    return true;
-    //}
+    if (InputHandler_keyDownEvent_orig)
+        return true;   // already installed
 
-    intptr_t targetAddr = KenshiLib::GetRealAddress(&InputHandler::keyDownEvent);
-    Logger::DebugLog("InputHandler::keyDownEvent target address: 0x%p", (void*)targetAddr);
-
-    //if (targetAddr == 0)
-    //{
-    //    Logger::ErrorLog("Failed to resolve InputHandler::keyDownEvent address (got 0)");
-    //    return false;
-    //}
-
-    KenshiLib::HookStatus status = KenshiLib::AddHook(KenshiLib::GetRealAddress(&InputHandler::keyDownEvent),
-        &InputHandler_keyDownEvent_hook, &InputHandler_keyDownEvent_orig);
-
-    if (status != KenshiLib::SUCCESS)
+    intptr_t addr = KenshiLib::GetRealAddress(&InputHandler::keyDownEvent);
+    if (!addr)
     {
-        Logger::ErrorLog("Failed to hook InputHandler::keyDownEvent. MinHook error: %d", (int)status);
+        Logger::Error("Could not resolve InputHandler::keyDownEvent address.");
         return false;
     }
 
-    Logger::DebugLog("InputHandler::keyDownEvent hooked successfully.");
+    KenshiLib::HookStatus status = KenshiLib::AddHook(
+        addr,
+        &InputHandler_keyDownEvent_hook,
+&InputHandler_keyDownEvent_orig);
+
+    if (status != KenshiLib::SUCCESS)
+    {
+        Logger::Error("AddHook failed for InputHandler::keyDownEvent (status %d).", (int)status);
+        return false;
+    }
+
+    Logger::Debug("Hook installed: InputHandler::keyDownEvent");
     return true;
 }
 
-bool installTitlescreenHooks()
+static bool HookTitleScreen()
 {
-    //if (TitleScreen_orig != NULL)
-    //{
-    //    Logger::DebugLog("TitleScreen hook already installed.");
-    //    return true;
-    //}
+    if (TitleScreen_orig)
+        return true;
 
-    intptr_t targetAddr = KenshiLib::GetRealAddress(&TitleScreen::_CONSTRUCTOR);
-    Logger::DebugLog("TitleScreen::_CONSTRUCTOR target address: 0x%p", (void*)targetAddr);
-
-    //if (targetAddr == 0)
-    //{
-    //    Logger::ErrorLog("Failed to resolve TitleScreen::_CONSTRUCTOR address (got 0)");
-    //    return false;
-    //}
-
-    KenshiLib::HookStatus status = KenshiLib::AddHook(KenshiLib::GetRealAddress(&TitleScreen::_CONSTRUCTOR),
-        &TitleScreen_hook,&TitleScreen_orig);
-
-    if (status != KenshiLib::SUCCESS)
+    intptr_t addr = KenshiLib::GetRealAddress(&TitleScreen::_CONSTRUCTOR);
+    if (!addr)
     {
-        Logger::ErrorLog("Failed to hook Titlescreen::_CONSTRUCTOR. MinHook error: %d", (int)status);
+        Logger::Error("Could not resolve TitleScreen::_CONSTRUCTOR address.");
         return false;
     }
 
-    Logger::DebugLog("TitleScreen::_CONSTRUCTOR hooked successfully.");
+    KenshiLib::HookStatus status = KenshiLib::AddHook(
+        addr, &TitleScreen_hook,
+    &TitleScreen_orig);
+
+    if (status != KenshiLib::SUCCESS)
+    {
+        Logger::Error("AddHook failed for TitleScreen::_CONSTRUCTOR (status %d).", (int)status);
+        return false;
+    }
+
+    Logger::Debug("Hook installed: TitleScreen::_CONSTRUCTOR");
     return true;
+}
+
+// ---------------------------------------------------------------------------
+// Public entry point
+// ---------------------------------------------------------------------------
+
+bool InstallHooks()
+{
+    Logger::Debug("Installing hooks...");
+    bool ok = HookTitleScreen() && HookInputHandler();
+    if (ok)
+        Logger::Debug("All hooks installed successfully.");
+    else
+        Logger::Error("One or more hooks failed — see errors above.");
+    return ok;
 }

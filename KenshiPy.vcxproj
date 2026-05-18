@@ -31,11 +31,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(Configuration)\KenshiPython\</OutDir>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\KenshiPython\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)include;$(ProjectDir)extern\KenshiLib\include;$(ProjectDir)extern\KenshiLib\include\ogre;$(MINHOOK_PATH)\include;$(IncludePath)</IncludePath>
     <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
-    <LibraryPath>$(ProjectDir)extern\KenshiLib\Binaries\Release;$(ProjectDir)extern\KenshiLib\Libraries\mygui;$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProjectDir)extern\KenshiLib\Libraries\kenshilib;$(ProjectDir)extern\KenshiLib\Libraries\mygui;$(SolutionDir)$(Platform)\$(Configuration)\;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -44,7 +44,7 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;KENSHILIB_INTERNAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(BOOST_INCLUDE_PATH);$(MINHOOK_PATH)\include;$(PYTHON34_INSTALL_DIR)include;$(ProjectDir)extern\rapidjson\include;$(ProjectDir)extern\KenshiLib\Include;$(ProjectDir)exterm\KenshiLib\Include\ogre;$(ProjectDir)extern\KenshiLib\Include\ois;$(ProjectDir)extern\KenshiLib\Include\ogre\Compositor;$(ProjectDir)extern\KenshiLib\Include\ogre\Animation;$(ProjectDir)extern\KenshiLib\Include\ogre\Hash;$(ProjectDir)extern\KenshiLib\Include\ogre\Math;$(ProjectDir)extern\KenshiLib\Include\ogre\MeshLodGenerator;$(ProjectDir)extern\KenshiLib\Include\ogre\Overlay;$(ProjectDir)extern\KenshiLib\Include\ogre\Plugins;$(ProjectDir)extern\KenshiLib\Include\ogre\RenderSystems;$(ProjectDir)extern\KenshiLib\Include\ogre\Threading;$(ProjectDir)extern\KenshiLib\Include\ogre\WIN32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
@@ -53,7 +53,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>python34.lib;OgreMain_x64.lib;MyGUIEngine_x64.lib;libboost_system-vc100-mt-s-1_60.lib;KenshiLib.lib;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>python34.lib;OgreMain_x64.lib;MyGUIEngine_x64.lib;libboost_system-vc100-mt-s-1_60.lib;KenshiLib-py.lib;Shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(BOOST_INCLUDE_PATH)\stage\lib;$(PYTHON34_INSTALL_DIR)libs;$(ProjectDir)extern\KenshiLib\Binaries\$(Configuration);$(ProjectDir)extern\KenshiLib\Libraries\ogre;$(ProjectDir)extern\KenshiLib\Libraries\mygui;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -61,26 +61,26 @@
       <Command>$(SWIG_INSTALL_DIR)\swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)interfaces\kenshi" -I"$(SolutionDir)interfaces\mygui" -I"$(SolutionDir)interfaces\ogre" -I"$(SolutionDir)extern\KenshiLib\Include" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi" -I"$(SolutionDir)extern\KenshiLib\Include\core" -I"$(SolutionDir)extern\KenshiLib\Include\kenshi\util" -outdir "$(SolutionDir)bin\$(Configuration)\KenshiPython" -o "$(SolutionDir)src\GeneratedWrapper.cpp" "$(SolutionDir)interfaces\KenshiPy.i"</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y "$(PYTHON34_INSTALL_DIR)python34.dll" "$(SolutionDir)bin\$(Configuration)\KenshiPython\" &amp;&amp; xcopy "$(SolutionDir)bin\$(Configuration)\KenshiPython\" "D:\Kenshi\runtime\1.6.8f\Kenshi\mods\KenshiPython\" /E /I /Y</Command>
+      <Command>copy /Y "$(PYTHON34_INSTALL_DIR)python34.dll" "$(SolutionDir)bin\$(Configuration)\KenshiPython\" &amp;&amp; xcopy "$(SolutionDir)bin\$(Configuration)\KenshiPython\" "$(KENSHI_INSTALL_DIR)mods\KenshiPython\" /E /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Callbacks.cpp" />
-    <ClCompile Include="src\Console.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\GeneratedWrapper.cpp" />
     <ClCompile Include="src\Hooks.cpp" />
-    <ClCompile Include="src\PyRuntime.cpp" />
     <ClCompile Include="src\Logger.cpp" />
+    <ClCompile Include="src\PyRuntime.cpp" />
+    <ClCompile Include="src\ScriptEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ArtifactItemData_stub.h" />
     <ClInclude Include="include\Callbacks.h" />
     <ClInclude Include="include\CharMovement_guarded.h" />
-    <ClInclude Include="include\Console.h" />
     <ClInclude Include="include\Hooks.h" />
-    <ClInclude Include="include\PyRuntime.h" />
     <ClInclude Include="include\Logger.h" />
+    <ClInclude Include="include\PyRuntime.h" />
+    <ClInclude Include="include\ScriptEditor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="interfaces\kenshi\Appearance.i" />
@@ -101,7 +101,7 @@
     <None Include="interfaces\kenshi\CombatClass.i" />
     <None Include="interfaces\kenshi\CombatTechniqueData.i" />
     <None Include="interfaces\kenshi\Damages.i" />
-    <None Include="interfaces\Debug.i" />
+    <None Include="interfaces\core\Debug.i" />
     <None Include="interfaces\kenshi\Dialogue.i" />
     <None Include="interfaces\kenshi\Enums.i" />
     <None Include="interfaces\kenshi\Faction.i" />

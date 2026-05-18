@@ -18,22 +18,22 @@
     <ClCompile Include="src\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\PyRuntime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Console.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Hooks.cpp">
+    <ClCompile Include="src\GeneratedWrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Callbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\GeneratedWrapper.cpp">
+    <ClCompile Include="src\PyRuntime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScriptEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,12 +44,6 @@
     <ClInclude Include="include\CharMovement_guarded.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\PyRuntime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Console.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Callbacks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -57,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PyRuntime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ScriptEditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -72,7 +72,7 @@
     <None Include="interfaces\kenshi\CombatClass.i" />
     <None Include="interfaces\kenshi\CombatTechniqueData.i" />
     <None Include="interfaces\kenshi\Damages.i" />
-    <None Include="interfaces\Debug.i" />
+    <None Include="interfaces\core\Debug.i" />
     <None Include="interfaces\kenshi\Dialogue.i" />
     <None Include="interfaces\kenshi\Enums.i" />
     <None Include="interfaces\kenshi\Faction.i" />

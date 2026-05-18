@@ -1,51 +1,22 @@
 #include "Hooks.h"
 #include "PyRuntime.h"
 #include "Logger.h"
+#include "ScriptEditor.h"
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <Windows.h>
 
-#include <boost/filesystem.hpp>
 #include <core/Functions.h>
 #include "mygui/MyGUI_Gui.h"
 
-// ----------------------------------------------------------------------------
-// Hook installation with delayed retry
-// ----------------------------------------------------------------------------
-static bool g_hooksInstalled = false;
-static int g_frameCount = 0;
-static const int HOOK_RETRY_FRAME = 5;  // Try again after 5 frames
+#include "mygui/MyGUI_FontManager.h"
+#include "kenshi/Kenshi.h"
 
-void HookRetryFrameHandler(float /*timeDelta*/)
+// Forward declaration for debugging FontManager
+namespace MyGUI
 {
-    g_frameCount++;
-
-    if (g_frameCount < HOOK_RETRY_FRAME)
-        return;
-
-    Logger::DebugLog("Retrying hook installation (frame %d)...", g_frameCount);
-
-    bool titlescreenOk = installTitlescreenHooks();
-    bool inputOk = installInputHandlerHooks();
-
-    if (titlescreenOk && inputOk)
-    {
-        g_hooksInstalled = true;
-        Logger::DebugLog("All hooks installed successfully on retry.");
-
-        MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
-        if (gui)
-            gui->eventFrameStart -= MyGUI::newDelegate(HookRetryFrameHandler);
-    }
-    else if (g_frameCount > 60)  // Stop trying after ~60 frames
-    {
-        Logger::ErrorLog("Hook installation failed after multiple retries. Giving up.");
-
-        MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
-        if (gui)
-            gui->eventFrameStart -= MyGUI::newDelegate(HookRetryFrameHandler);
-    }
+    class FontManager;
 }
 
 // ----------------------------------------------------------------------------
@@ -54,38 +25,67 @@ void HookRetryFrameHandler(float /*timeDelta*/)
 
 __declspec(dllexport) void startPlugin()
 {
-    Logger::InitLogger("mods\\KenshiPython\\KenshiPy.log");
-    Logger::DebugLog("KenshiPy startPlugin called.");
-    HMODULE kenshiLib = GetModuleHandleA("KenshiLib.dll");
-    Logger::DebugLog("KenshiLib.dll handle: 0x%p", kenshiLib);
-    MyGUI::Gui* gui = nullptr;
+    InitLogger("mods\\KenshiPython\\KenshiPy.log");
 
-    while (gui == nullptr)
+    Logger::Debug("KenshiPy startPlugin called.");
+
+    HMODULE kenshiLib = GetModuleHandleA("KenshiLib-py.dll");
+    Logger::Debug("KenshiLib-py.dll handle: 0x%p", kenshiLib);
+    if (kenshiLib == nullptr)
     {
-        Logger::DebugLog("Waiting for MyGUI::Gui instance...");
-        gui = MyGUI::Gui::getInstancePtr();
+        Logger::Error("KenshiLib-py.dll not found. Plugin cannot function.");
+        return;
     }
 
-    Logger::DebugLog("MyGUI::Gui instance found.");
-    Logger::DebugLog("Attempting to install hooks...");
-
-    bool titlescreenOk = installTitlescreenHooks();
-    bool inputOk = installInputHandlerHooks();
-
-    if (titlescreenOk && inputOk)
+    if (KenshiLib::Init())
     {
-        g_hooksInstalled = true;
-        Logger::DebugLog("Hooks installed successfully.");
+        Logger::Debug("KenshiLib-py initialized successfully.");
+        if (!InstallHooks())
+        {
+            Logger::Error("Failed to install hooks.");
+            return;
+        }
     }
     else
     {
-        Logger::DebugLog("Initial hook installation failed. Will retry after a few frames...");
-        gui->eventFrameStart += MyGUI::newDelegate(HookRetryFrameHandler);
+        Logger::Error("Failed to initialize KenshiLib-py. Plugin cannot function.");
+        return;
     }
 
-    // Initialize Python runtime
+    // Debugging MyGUI FontManager state
+    try
+    {
+        Logger::Debug("Attempting to log MyGUI::FontManager state...");
+        auto fontManager = MyGUI::FontManager::getInstancePtr();
+        if (fontManager)
+        {
+            Logger::Debug("MyGUI::FontManager instance found.");
+            // Add more detailed logging about FontManager state if possible
+        }
+        else
+        {
+            Logger::Error("MyGUI::FontManager instance is null.");
+        }
+    }
+    catch (const std::exception& e)
+    {
+        Logger::Error("Exception while accessing MyGUI::FontManager: %s", e.what());
+    }
+    catch (...)
+    {
+        Logger::Error("Unknown exception while accessing MyGUI::FontManager.");
+    }
+
+    // Adding logs for options menu close button behavior
+    Logger::Debug("Adding hooks or listeners for options menu close button...");
+    // Example: Hook into the close button event if possible
+    // This part depends on how MyGUI handles button events
+    // If you have access to the options menu or close button, log its state here
+
+    std::string test = Logger::GetLog();
+
     InitPython();
-    Logger::DebugLog("KenshiPy initialization complete.");
+    Logger::Debug("KenshiPy initialization complete.");
     TryLoadMods();
 }
 
@@ -93,9 +93,7 @@ __declspec(dllexport) void startPlugin()
 // DLL Entry Point
 // ----------------------------------------------------------------------------
 
-namespace fs = boost::filesystem;
-
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD  fdwReason, LPVOID lpvReserved)
-{
-    return TRUE;
-}
+//BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpvReserved)
+//{
+//    return TRUE;
+//}
