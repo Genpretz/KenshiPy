@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Resource">
+    <Resource type="ResourceLayout" name="ScriptEditor" version="3.2.0">
+        <Widget type="Window" skin="WindowCXS2_Dark" position="120 70 790 610">
+            <Property key="Movable" value="true"/>
+            <Property key="TextAlign" value="HCenter Top"/>
+            <Property key="Caption" value="KenshiPy Script Editor"/>
+            <Property key="Snap" value="true"/>
+            <Widget type="Button" skin="Button_Dark" position="585 550 170 25">
+                <Property key="Caption" value="RUN SCRIPT"/>
+            </Widget>
+            <Widget type="Button" skin="Button_Dark" position="25 10 90 25">
+                <Property key="Caption" value="OPEN"/>
+            </Widget>
+            <Widget type="Button" skin="Button_Dark" position="120 10 90 25">
+                <Property key="Caption" value="SAVE"/>
+            </Widget>
+            <Widget type="Button" skin="Button_Dark" position="660 10 95 25">
+                <Property key="Caption" value="CLEAR"/>
+            </Widget>
+            <Widget type="EditBox" skin="EditBoxStretch_Dark" position="10 45 760 290" name="g_inputBox">
+                <Property key="ReadOnly" value="false"/>
+                <Property key="MultiLine" value="true"/>
+            </Widget>
+            <Widget type="EditBox" skin="EditBoxStretch_Dark" position="10 345 760 200">
+                <Property key="ReadOnly" value="true"/>
+                <Property key="MultiLine" value="true"/>
+            </Widget>
+        </Widget>
+        <CodeGeneratorSettings>
+            <Property key="IncludeDirectory" value=""/>
+            <Property key="PanelName" value=""/>
+            <Property key="PanelNamespace" value=""/>
+            <Property key="SourceDirectory" value=""/>
+        </CodeGeneratorSettings>
+    </Resource>
+    <Resource type="ResourceLayout" name="Console" version="3.2.0">
+        <Widget type="Window" skin="WindowCX2_Dark" position="505 245 605 250" name="Console">
+            <Property key="Caption" value="KenshiPy Console"/>
+            <Property key="Movable" value="true"/>
+            <Widget type="EditBox" skin="EditBox_Dark" position="10 185 575 28" align="HStretch Bottom" name="console_inputBox">
+                <Property key="MultiLine" value="false"/>
+            </Widget>
+            <Widget type="EditBox" skin="EditBoxStretch_Dark" position="10 10 575 170" align="Stretch" name="console_outputBox">
+                <Property key="MultiLine" value="true"/>
+                <Property key="ReadOnly" value="true"/>
+            </Widget>
+        </Widget>
+        <CodeGeneratorSettings/>
+    </Resource>
+</MyGUI>
