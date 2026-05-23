@@ -226,7 +226,7 @@ void InitPython()
     // Release the GIL so other threads can use Python.
     PyEval_SaveThread();
 
-    Logger::Debug("Python interpreter initialised.");
+    Logger::Debug("Python 3.4 interpreter initialised.");
 }
 
 void ShutdownPython()
@@ -354,12 +354,6 @@ void TryLoadMods()
 {
     if (g_modsLoaded)
         return;
-
-    if (!ou)
-    {
-        Logger::Debug("GameWorld not ready yet — deferring mod script loading.");
-        return;
-    }
 
     if (ou->activeMods.size() == 0)
     {
