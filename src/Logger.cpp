@@ -71,10 +71,7 @@ static void WriteLog(Level level, const char* message)
 
     if (g_logFile.is_open())
     {
-        g_logFile << line << '\n';
-        // File streams are fully buffered; flush so logs appear on disk (and
-        // survive crashes) instead of sitting in the stream buffer indefinitely.
-        g_logFile.flush();
+        g_logFile << line << std::endl;
     }
 
     g_logBuffer << line << '\n';
