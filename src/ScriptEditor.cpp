@@ -221,8 +221,8 @@ void ScriptEditor::Init()
     // -----------------------------------------------------------------------
     MyGUI::Gui* gui = MyGUI::Gui::getInstancePtr();
 
-    const int W       = 1000;
-    const int H       = 700;
+    const int W       = 800;
+    const int H       = 600;
     const int PAD     = 4;
     const int BTN_H   = 30;
     const int BTN_W   = 80;
@@ -283,7 +283,7 @@ void ScriptEditor::Init()
         MyGUI::Align::Stretch, "KenshiPyCode");
 
     g_codePane->setEditMultiLine(true);
-    g_codePane->setEditWordWrap(false);
+    g_codePane->setEditWordWrap(true);
     g_codePane->setVisibleVScroll(true);
     g_codePane->setVisibleHScroll(true);
 
@@ -308,6 +308,7 @@ void ScriptEditor::Init()
 
     g_outputBox->setEditReadOnly(true);
     g_outputBox->setEditMultiLine(true);
+	g_outputBox->setEditWordWrap(true);
 
     Logger::Debug("ScriptEditor initialised.");
 }
@@ -326,15 +327,12 @@ void ScriptEditor::Toggle()
 
 void ScriptEditor::AppendOutput(const std::string& text)
 {
-    // Always mirror to the log file so nothing is lost even when the window
-    // is closed.
     ForwardToLogger(text);
 
     if (!g_outputBox || !g_outputScroll)
         return;
 
-    std::string wrapped = text;
-    g_outputBox->setCaption(g_outputBox->getCaption() + MyGUI::UString(wrapped));
+    g_outputBox->setCaption(g_outputBox->getCaption() + MyGUI::UString(text));
     ScrollToBottom();
 }
 
