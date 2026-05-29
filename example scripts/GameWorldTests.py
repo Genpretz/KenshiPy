@@ -1,6 +1,6 @@
 import KenshiPy as kp
 
-ou = KenshiPy.ou()
+ou = kp.getGameWorld()
 
 if ou:
     print("GameWorld object found.")

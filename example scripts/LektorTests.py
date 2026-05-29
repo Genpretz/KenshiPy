@@ -1,0 +1,25 @@
+import KenshiPy
+
+world = KenshiPy.getGameWorld()
+all_mods = world.getAllModsList()
+active_mods = world.getActiveModsList()
+
+print("All Mods:")
+print(all_mods)
+print("Number of All Mods:", len(all_mods))
+print(len(all_mods))
+print("All Mods[7]:")
+print(all_mods[7])
+print("Directory of All Mods:")
+print(dir(all_mods))
+help(all_mods)
+
+print("Active Mods:")
+print(active_mods)
+print("Number of Active Mods:", len(active_mods))
+print(len(active_mods))
+print("Active Mods[7]:")
+print(active_mods[7])
+print("Directory of Active Mods:")
+print(dir(active_mods))
+help(active_mods)
