@@ -1,14 +1,11 @@
 #include "Hooks.h"
 #include "PyRuntime.h"
 #include "Logger.h"
-#include "ScriptEditor.h"
 
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <Windows.h>
 
-#include <core/Functions.h>
-#include "mygui/MyGUI_Gui.h"
 #include "kenshi/Kenshi.h"
 
 // ----------------------------------------------------------------------------
@@ -48,12 +45,3 @@ __declspec(dllexport) void startPlugin()
     Logger::Debug("KenshiPy initialization complete.");
     TryLoadMods();
 }
-
-// ----------------------------------------------------------------------------
-// DLL Entry Point
-// ----------------------------------------------------------------------------
-
-//BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpvReserved)
-//{
-//    return TRUE;
-//}
