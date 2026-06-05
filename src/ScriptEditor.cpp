@@ -261,7 +261,7 @@ void ScriptEditor::Init()
     ButtonFactory::Create(client, btnX, btnY, BTN_W, BTN_H, PAD, "Run", "RunButton", MyGUI::newDelegate(OnRunClicked));
     ButtonFactory::Create(client, btnX, btnY, BTN_W, BTN_H, PAD, "Open", "OpenButton", MyGUI::newDelegate(OnOpenClicked));
     ButtonFactory::Create(client, btnX, btnY, BTN_W, BTN_H, PAD, "Save", "SaveButton", MyGUI::newDelegate(OnSaveClicked));
-    ButtonFactory::Create(client, btnX, btnY, BTN_W, BTN_H, PAD, "Save As", "SaveAsButton", MyGUI::newDelegate(OnSaveAsClicked));
+    ButtonFactory::Create(client, btnX, btnY, BTN_W + 30, BTN_H, PAD, "Save As", "SaveAsButton", MyGUI::newDelegate(OnSaveAsClicked));
     ButtonFactory::Create(client, btnX, btnY, BTN_W, BTN_H, PAD, "Clear", "ClearButton", MyGUI::newDelegate(OnClearClicked));
 
     // -----------------------------------------------------------------------
