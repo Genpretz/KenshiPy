@@ -2,13 +2,13 @@
 
 KenshiPy is a DLL extension for [Kenshi](https://store.steampowered.com/app/233860/Kenshi/) that embeds a Python runtime and exposes selected portions of KenshiLib to Python via SWIG-generated bindings.
 
-The goal is to provide a Python scripting workflow to mod Kenshi and, hopefully, lowering the barrier to entry for utilizing KenshiLib through rapid iteration and scripting.
+The goal is to provide a Python scripting workflow to mod Kenshi and lowers the barrier to entry for utilizing KenshiLib through rapid iteration and scripting.
 
 ---
 
 ## Overview
 
-KenshiLib allows developers to write C++ DLLs that integrate directly with Kenshi’s runtime. KenshiPy follows the same architectural pattern:
+[RE_Kenshi](https://www.nexusmods.com/kenshi/mods/847) ([GitHub](https://github.com/BFrizzleFoShizzle/RE_Kenshi)) is a Kenshi mod that adds improvements that can't be achieved through traditional mod tools, including a C++ plugin system for modifying the game's code. KenshiLib builds on this to allow developers to write C++ DLLs that integrate directly with Kenshi's runtime. KenshiPy follows the same architectural pattern:
 
 - Compiled DLL is loaded into Kenshi at runtime
 - Embeds a **Python interpreter**
@@ -17,45 +17,153 @@ KenshiLib allows developers to write C++ DLLs that integrate directly with Kensh
 ## How much of KenshiLib can be used from Python?
 
 It's safe to assume that basically all functions that use standard types (ints, floats, bools, etc) should be usable.
-- For example, calling functions like GameWorld::userPause(bool p) that return void and use standard data types should work.
+- For example, calling functions like `GameWorld::userPause(bool p)` that return void and use standard data types should work.
 - The same should apply to any member variables of standard data types.
+
+The parts of KenshiLib that explicitly do not work:
 - Ogre, MyGui, and Boost libraries have not been wrapped and so any parts of KenshiLib requiring the use of them should be assumed non-functional.
-
-## Toolchain & Version Constraints
-
-KenshiPy intentionally targets the same legacy constraints as Kenshi. We target the following because they are the latest releases supporting MSVC 2010:
-- **SWIG 3.0.12**
-- **Python 3.4**
-
+- KenshiLib's use of MinHook for hooking functionality. Hooks need to be defined beforehand as part of a callback system in order for Python to use them. See [Callbacks](#callbacks) below for what is currently available.
 
 ## Installation
 
-1. Ensure RE_Kenshi v0.3.3 or Later is installed.
+1. Ensure [RE_Kenshi](https://www.nexusmods.com/kenshi/mods/847) v0.3.3 or later is installed.
 2. Download the latest release and extract the archive, placing the contents in Kenshi's `mods` directory.
-3. Activate the mod using the games launcher like you would any other mod.
+3. Activate the mod using the game's launcher like you would any other mod.
 
-## Example Usage
+---
 
-After installing KenshiPy, any active mods will automatically loads Python scripts declared in:
+## Usage
+
+### Script Editor GUI
+
+Pressing `Ctrl` + `` ` `` in-game will open KenshiPy's Script Editor GUI. From here you can load, edit, save, and run scripts using the buttons on the Script Editor's toolbar.
+
+### Loading Python Scripts
+
+When the game starts, KenshiPy will check whether any active mods contain a file, `KenshiPy.json`, and if found will load the Python scripts declared within.
+
+#### Example
+
+Place **KenshiPy.json** within a given mod's directory
 ```
    .\Kenshi\mods\<modname>\KenshiPy.json
 ```
+**KenshiPy.json** should be formatted like so
 ```json
 {
     "Scripts": ["example.py"]
 }
 ```
-
+Assuming the file **example.py** exists at this location.
 ```
    .\Kenshi\mods\<modname>\example.py
 ```
-Example Python Script
+
+### Example Python Script
+
+**Example.py**
 ```python
 import KenshiPy
 
 KenshiPy.DebugLog("Hello from Python")
 ```
 
-Pressing ``Ctrl + ` `` when in-game, open KenshiPy's Script Editor GUI. From here you can open, edit, save, and run scripts using the buttons on the Script Editor's toolbar.
+---
 
-Python's print function will print in the in-game editor's output box as well as be copied to the `KenshiPy.log` and any scripts using KenshiLib's DebugLog or ErrorLog functions can find their logs in `KenshiLib-py.log`. Both files can be found in `.\Kenshi\mods\KenshiPython`.
+## Compiling from Source
+ 
+**Quick Guide**
+1. Use SWIG 3.0.12 to generate the Python binding wrapper from KenshiLib's headers and KenshiPy's interface files
+2. Compile the generated wrapper alongside the rest of KenshiPy's source into `KenshiPy.dll`
+3. Place the finished binary along with `python34.dll` and `ScriptEditor_EditBox.xml` into a mod folder named `KenshiPython`
+### Prerequisites
+ 
+- **Visual Studio 2010 Professional/Ultimate**
+- **Visual Studio 2022 Community**
+- **SWIG 3.0.12**
+- **Python 3.4**
+- **Kenshi**
+
+The project's include paths, library paths, and build events use environment variables to account for varying installation locations, avoiding the need to hardcode paths in the project file. You will need to set the variables listed below before building.
+ 
+1. **SWIG 3.0.12** — set environment variable `SWIG_INSTALL_DIR` to SWIG's root directory (e.g. `C:\swigwin-3.0.12\`)
+2. **Python 3.4** — set environment variable `PYTHON34_INSTALL_DIR` to Python 3.4's root directory (e.g. `C:\Python34\`)
+3. **Kenshi** — set environment variable `KENSHI_INSTALL_DIR` to Kenshi's root directory
+   - Steam: `C:\Program Files (x86)\Steam\steamapps\common\Kenshi\`
+   - GOG: `C:\Program Files (x86)\GOG Galaxy\Games\Kenshi\`
+### Building
+ 
+KenshiPy can be built using Visual Studio's standard build option. `KenshiPy.vcxproj` also includes two custom build events to help streamline the process, described below. If you prefer not to use them, manual alternatives are provided.
+ 
+**Pre-Build Event**
+SWIG parses KenshiLib's headers and KenshiPy's interface files to generate the Python bindings wrapper, writing the output to `.\src\GeneratedWrapper.cpp`.
+ 
+To disable this event, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository, or run SWIG manually:
+```
+$(SWIG_INSTALL_DIR)swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)extern\KenshiLib\Include" -outdir "$(SolutionDir)bin\$(Configuration)\KenshiPython" -o "$(SolutionDir)src\GeneratedWrapper.cpp" "$(SolutionDir)interfaces\KenshiPy.i"
+```
+ 
+**Post-Build Event**
+Copies `python34.dll` and `ScriptEditor_EditBox.xml` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
+ 
+To disable this event, manually copy the build output, `python34.dll`, and `ScriptEditor_EditBox.xml` into Kenshi's mods folder.
+ 
+---
+
+## Callbacks
+
+KenshiPy exposes a set of callbacks that allow Python scripts to respond to in-game events. Each callback type has a corresponding `Register` and `Unregister` function.
+
+### Key Down
+Fired every time a key is pressed. The callback receives the key code as an `int`.
+```python
+def on_key_down(key_code):
+    KenshiPy.DebugLog("Key pressed: " + str(key_code))
+
+KenshiPy.RegisterKeyDownCallback(on_key_down)
+```
+
+### Frame
+Fired once per rendered frame via Ogre's frame listener. The callback receives the time since the last frame as a `float` (in seconds).
+```python
+def on_frame(delta_time):
+    pass  # called every frame
+
+KenshiPy.RegisterFrameCallback(on_frame)
+```
+
+### Character Say
+Fired when a `Character` speaks a line of dialogue. The callback receives the `Character` and the message as a `str`.
+```python
+def on_character_say(character, message):
+    KenshiPy.DebugLog(message)
+
+KenshiPy.RegisterCharacterSayCallback(on_character_say)
+```
+
+### Character Select
+Fired when the player selects a `Character`. The callback receives the `Character`.
+```python
+def on_character_select(character):
+    pass
+
+KenshiPy.RegisterCharacterSelectCallback(on_character_select)
+```
+
+### Character Unselect
+Fired when the player deselects a `Character`. The callback receives the `Character`.
+```python
+def on_character_unselect(character):
+    pass
+
+KenshiPy.RegisterCharacterUnselectCallback(on_character_unselect)
+```
+
+### Character Declare Dead
+Fired when a `Character` is declared dead. The callback receives the `Character`.
+```python
+def on_character_declare_dead(character):
+    KenshiPy.DebugLog("A character has died.")
+
+KenshiPy.RegisterCharacterDeclareDeadCallback(on_character_declare_dead)
+```
