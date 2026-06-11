@@ -8,7 +8,9 @@
 #define KLIB_EXPORT
 #define __declspec(x)
 
-%feature("docstring") DebugLog "Logs a debug message to KenshiPy_log.txt in the KenshiPython directory.";
-%feature("docstring") ErrorLog "Logs an error message to KenshiPy_log.txt in the KenshiPython directory.";
+%feature("docstring") DebugLog "Logs a debug message to RE_Kenshi_log.txt in the Kenshi's root directory. Logs will be prefixed with the module name, KenshiPy.";
+%feature("docstring") ErrorLog "Logs an error message to RE_Kenshi_log.txt in the Kenshi's root directory. Logs will be prefixed with the module name, KenshiPy.";
+
+%ignore GetModuleName;
 
 %include "Debug.h"
