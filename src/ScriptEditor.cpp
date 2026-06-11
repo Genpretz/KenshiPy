@@ -270,8 +270,8 @@ void ScriptEditor::Init()
 
     // Load the skin XML that defines "Kenshi_ScriptEditor_InputEditBox".
     MyGUI::ResourceManager* res = MyGUI::ResourceManager::getInstancePtr();
-    if (!res->load("ScriptEditor_EditBox.xml"))
-        Logger::Error("ScriptEditor_EditBox.xml not found.");
+    if (!res->load("Kenshi_ScriptEditor_EditBox.xml"))
+        Logger::Error("Kenshi_ScriptEditor_EditBox.xml not found.");
 
     const int editorY = BTN_H + PAD * 2;
     const int editorH = clientH - editorY - OUT_H - PAD * 3;
