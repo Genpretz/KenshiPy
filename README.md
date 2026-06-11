@@ -17,12 +17,36 @@ The goal is to provide a Python scripting workflow to mod Kenshi and lowers the 
 ## How much of KenshiLib can be used from Python?
 
 It's safe to assume that basically all functions that use standard types (ints, floats, bools, etc) should be usable.
-- For example, calling functions like `GameWorld::userPause(bool p)` that return void and use standard data types should work.
+- For example, C++ functions that return void and use standard data types should be available to call from Python.
+
+```c++
+class GameWorld
+{
+    void userPause(bool p);
+}
+```
+
+should be useable like so
+
+```python
+# Get pointer to GameWorld object
+world = getGameWorld()
+
+world.userPause(True)
+# Game should now be paused
+```
+
 - The same should apply to any member variables of standard data types.
 
 The parts of KenshiLib that explicitly do not work:
 - Ogre, MyGui, and Boost libraries have not been wrapped and so any parts of KenshiLib requiring the use of them should be assumed non-functional.
-- KenshiLib's use of MinHook for hooking functionality. Hooks need to be defined beforehand as part of a callback system in order for Python to use them. See [Callbacks](#callbacks) below for what is currently available.
+- KenshiLib's use of MinHook for hooking functionality. Hooks need to be defined within the KenshiPy as part of a callback system in order for Python to use them. See [Callbacks](#callbacks) below for what is currently available.
+
+### Things I'd like to Add
+- Support for lektor<T>, ogre_unordered_set, and ogre_unordered_map types
+- Bindings allowing MyGUI widgets to be created from Python
+- More callbacks
+
 
 ## Installation
 
@@ -73,9 +97,9 @@ KenshiPy.DebugLog("Hello from Python")
 ## Compiling from Source
  
 **Quick Guide**
-1. Use SWIG 3.0.12 to generate the Python binding wrapper from KenshiLib's headers and KenshiPy's interface files
+1. Use SWIG 3.0.12 to generate the Python binding wrapper, `GeneratedWrappper.cpp`, and KenshiPy Python module, `KenshiPy.py`, from KenshiLib's headers and KenshiPy's interface files
 2. Compile the generated wrapper alongside the rest of KenshiPy's source into `KenshiPy.dll`
-3. Place the finished binary along with `python34.dll` and `ScriptEditor_EditBox.xml` into a mod folder named `KenshiPython`
+3. Place the `KenshiPy.dll` and `KenshiPy.py` along with `python34.dll`, `ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into a mod folder named `KenshiPython`
 ### Prerequisites
  
 - **Visual Studio 2010 Professional/Ultimate**
@@ -93,20 +117,24 @@ The project's include paths, library paths, and build events use environment var
    - GOG: `C:\Program Files (x86)\GOG Galaxy\Games\Kenshi\`
 ### Building
  
-KenshiPy can be built using Visual Studio's standard build option. `KenshiPy.vcxproj` also includes two custom build events to help streamline the process, described below. If you prefer not to use them, manual alternatives are provided.
+`KenshiPy.vcxproj` can be built using Visual Studio's standard build option and includes two custom build events to help streamline the process. These events are disabled by default. If you choose to enable them, you can find them described below. If you prefer not to use them, manual alternatives are provided.
  
 **Pre-Build Event**
-SWIG parses KenshiLib's headers and KenshiPy's interface files to generate the Python bindings wrapper, writing the output to `.\src\GeneratedWrapper.cpp`.
- 
-To disable this event, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository, or run SWIG manually:
+When this event is enabled, SWIG parses KenshiLib's headers and KenshiPy's interface files in order to generate the Python bindings, writing the output to `.\src\GeneratedWrapper.cpp` and `$(SolutionDir)bin\$(Configuration)\KenshiPython\KenshiPy.py`
+
+When this event is disabled, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository and move on, or run SWIG manually to generate the required files:
 ```
-$(SWIG_INSTALL_DIR)swig.exe -Wall -v -c++ -python -threads -I"$(SolutionDir)include" -I"$(SolutionDir)interfaces" -I"$(SolutionDir)extern\KenshiLib\Include" -outdir "$(SolutionDir)bin\$(Configuration)\KenshiPython" -o "$(SolutionDir)src\GeneratedWrapper.cpp" "$(SolutionDir)interfaces\KenshiPy.i"
+set SWIG_INSTALL_DIR=C:\swigwin-3.0.12\
+set PYTHON_INSTALL_DIR=C:\Python34\
+set OUTPUT_DIR=%SolutionDir%bin\%Configuration%\KenshiPython
+
+"%SWIG_INSTALL_DIR%swig.exe" -Wall -v -c++ -python -threads -I"%SolutionDir%include" -I"%SolutionDir%interfaces" -I"%SolutionDir%extern\KenshiLib\Include" -outdir "%OUTPUT_DIR%" -o "%SolutionDir%src\GeneratedWrapper.cpp" "%SolutionDir%interfaces\KenshiPy.i"
 ```
  
 **Post-Build Event**
-Copies `python34.dll` and `ScriptEditor_EditBox.xml` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
+This event copies `python34.dll`, `ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
  
-To disable this event, manually copy the build output, `python34.dll`, and `ScriptEditor_EditBox.xml` into Kenshi's mods folder.
+ Requiring one to manually copy the build output, `python34.dll`, `ScriptEditor_EditBox.xml`, and `RE_Kensh.json` into Kenshi's mods folder.
  
 ---
 
