@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MyGUI type="Resource">
 	<Resource type="ResourceLayout" name="Kenshi_ScriptEditor_EditBox" version="3.2.0">
-		<Widget type="Widget" skin="Kenshi_GenericTextBoxSkin" position="0 0 300 200" name="Root">
+		<Widget type="Widget" skin="Kenshi_GenericInputBoxSkin" position="0 0 300 200" name="Root">
 			<Property key="MultiLine" value="true"/>
 			<UserString key="LE_TargetWidgetType" value="EditBox"/>
 
-			<Widget type="TextBox" skin="Kenshi_EditBoxStandardText" position="10 10 265 165" align="Stretch" name="Client">
+			<Widget type="TextBox" skin="Kenshi_TextboxStandardText" position="10 10 265 165" align="Stretch" name="Client">
 				<Property key="TextAlign" value="Default"/>
 				<Property key="Pointer" value="beam"/>
 			</Widget>
