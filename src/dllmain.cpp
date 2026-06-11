@@ -17,29 +17,11 @@ __declspec(dllexport) void startPlugin()
     InitLogger("mods\\KenshiPython\\KenshiPy.log");
 
     Logger::Debug("KenshiPy startPlugin called.");
-
-    HMODULE kenshiLib = GetModuleHandleA("KenshiLib-py.dll");
-    Logger::Debug("KenshiLib-py.dll handle: 0x%p", kenshiLib);
-    if (kenshiLib == nullptr)
+    
+    if (!InstallHooks())
     {
-        Logger::Error("KenshiLib-py.dll not found. Plugin cannot function.");
-        return;
+        Logger::Error("Failure to install hooks.");
     }
-
-    if (KenshiLib::Init())
-    {
-        Logger::Debug("KenshiLib-py initialized successfully.");
-        if (!InstallHooks())
-        {
-            return;
-        }
-    }
-    else
-    {
-        Logger::Error("Failed to initialize KenshiLib-py. Plugin cannot function.");
-        return;
-    }
-    std::string test = Logger::GetLog();
 
     InitPython();
     Logger::Debug("KenshiPy initialization complete.");
