@@ -3126,7 +3126,7 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_MedicalSystem swig_types[119]
 #define SWIGTYPE_p_MedicalSystem__HealthPartStatus swig_types[120]
 #define SWIGTYPE_p_MedicalSystem__HealthPartStatus__PartType swig_types[121]
-#define SWIGTYPE_p_MeshDataLookup__Dir swig_types[122]
+#define SWIGTYPE_p_MeshDataLookup swig_types[122]
 #define SWIGTYPE_p_MessageForB swig_types[123]
 #define SWIGTYPE_p_MessageRoller swig_types[124]
 #define SWIGTYPE_p_ModInfo swig_types[125]
@@ -3268,84 +3268,84 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t swig_types[261]
 #define SWIGTYPE_p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t swig_types[262]
 #define SWIGTYPE_p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t swig_types[263]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t swig_types[264]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t swig_types[265]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[266]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_AttachmentData_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachmentData_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[267]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_InventorySection_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_InventorySection_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[268]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_Ogre__InstanceManager_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_Ogre__InstanceManager_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[269]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_Ogre__Quaternion_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_Ogre__Quaternion_t_Ogre__GeneralAllocPolicy_t_t swig_types[270]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_Ogre__Vector3_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_Ogre__Vector3_t_Ogre__GeneralAllocPolicy_t_t swig_types[271]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_bool_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_bool_t_Ogre__GeneralAllocPolicy_t_t swig_types[272]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_float_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_float_t_Ogre__GeneralAllocPolicy_t_t swig_types[273]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_int_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_int_t_Ogre__GeneralAllocPolicy_t_t swig_types[274]
-#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_std__string_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_std__string_t_Ogre__GeneralAllocPolicy_t_t swig_types[275]
-#define SWIGTYPE_p_char swig_types[276]
-#define SWIGTYPE_p_float swig_types[277]
-#define SWIGTYPE_p_function swig_types[278]
-#define SWIGTYPE_p_hand swig_types[279]
-#define SWIGTYPE_p_iVector2 swig_types[280]
-#define SWIGTYPE_p_int swig_types[281]
-#define SWIGTYPE_p_lektorT_Armour_p_t swig_types[282]
-#define SWIGTYPE_p_lektorT_Building_p_t swig_types[283]
-#define SWIGTYPE_p_lektorT_CampaignData_p_t swig_types[284]
-#define SWIGTYPE_p_lektorT_Character_p_t swig_types[285]
-#define SWIGTYPE_p_lektorT_FactionWarMgr__CampaignRequest_p_t swig_types[286]
-#define SWIGTYPE_p_lektorT_Faction__BuildingSwaps_t swig_types[287]
-#define SWIGTYPE_p_lektorT_Faction_p_t swig_types[288]
-#define SWIGTYPE_p_lektorT_GameData__ObjectInstance_p_t swig_types[289]
-#define SWIGTYPE_p_lektorT_GameData_p_t swig_types[290]
-#define SWIGTYPE_p_lektorT_InventorySection_p_t swig_types[291]
-#define SWIGTYPE_p_lektorT_Item_p_t swig_types[292]
-#define SWIGTYPE_p_lektorT_MedicalSystem__HealthPartStatus_p_t swig_types[293]
-#define SWIGTYPE_p_lektorT_ModInfo_p_t swig_types[294]
-#define SWIGTYPE_p_lektorT_ModInfo_t swig_types[295]
-#define SWIGTYPE_p_lektorT_Ogre__Light_p_t swig_types[296]
-#define SWIGTYPE_p_lektorT_PhysHitItem_t swig_types[297]
-#define SWIGTYPE_p_lektorT_PhysicsCollection__LightEnt_p_t swig_types[298]
-#define SWIGTYPE_p_lektorT_PhysicsCollection__StaticEnt_p_t swig_types[299]
-#define SWIGTYPE_p_lektorT_Platoon_p_t swig_types[300]
-#define SWIGTYPE_p_lektorT_RootObject_p_t swig_types[301]
-#define SWIGTYPE_p_lektorT_SaveFileSystem__FileMessage_t swig_types[302]
-#define SWIGTYPE_p_lektorT_SimplePhysXEntity_p_t swig_types[303]
-#define SWIGTYPE_p_lektorT_StringPair_t swig_types[304]
-#define SWIGTYPE_p_lektorT_TownBase__ResidentData_t swig_types[305]
-#define SWIGTYPE_p_lektorT_TownBase_p_t swig_types[306]
-#define SWIGTYPE_p_lektorT_Town__NestSpot_t swig_types[307]
-#define SWIGTYPE_p_lektorT_hand_t swig_types[308]
-#define SWIGTYPE_p_lektorT_std__string_t swig_types[309]
-#define SWIGTYPE_p_long_long swig_types[310]
-#define SWIGTYPE_p_ogre_unordered_mapT_Building_p_TownBuildingsManager__BuildingInfo_t__type swig_types[311]
-#define SWIGTYPE_p_ogre_unordered_mapT_Character__DisguiseGUIFeedback_float_t__type swig_types[312]
-#define SWIGTYPE_p_ogre_unordered_mapT_Faction_p_FactionRelations__RelationData_t__type swig_types[313]
-#define SWIGTYPE_p_ogre_unordered_mapT_Faction_p_float_t__type swig_types[314]
-#define SWIGTYPE_p_ogre_unordered_mapT_GameData_p_MedicalSystem__HealthPartStatus_t__type swig_types[315]
-#define SWIGTYPE_p_ogre_unordered_mapT_GameData_p_RaceLimiter__Limiter_t__type swig_types[316]
-#define SWIGTYPE_p_ogre_unordered_mapT_GameData_p_float_t__type swig_types[317]
-#define SWIGTYPE_p_ogre_unordered_mapT_RootObject_p_float_t__type swig_types[318]
-#define SWIGTYPE_p_ogre_unordered_mapT_ZoneMap_p_bool_t__type swig_types[319]
-#define SWIGTYPE_p_ogre_unordered_mapT_ZoneMap_p_unsigned_char_t__type swig_types[320]
-#define SWIGTYPE_p_ogre_unordered_mapT_hand_Character_p_t__type swig_types[321]
-#define SWIGTYPE_p_ogre_unordered_mapT_hand_SeenSomeone_p_t__type swig_types[322]
-#define SWIGTYPE_p_ogre_unordered_mapT_hand_float_t__type swig_types[323]
-#define SWIGTYPE_p_ogre_unordered_mapT_swordStateEnum_CombatState_p_t__type swig_types[324]
-#define SWIGTYPE_p_ogre_unordered_mapT_unsigned___int64_ResourceLoader__ResourceLoadRequestMesh_p_t__type swig_types[325]
-#define SWIGTYPE_p_ogre_unordered_setT_AttachedEntity_p_t__type swig_types[326]
-#define SWIGTYPE_p_ogre_unordered_setT_Character_p_t__type swig_types[327]
-#define SWIGTYPE_p_ogre_unordered_setT_GameData_p_t__type swig_types[328]
-#define SWIGTYPE_p_ogre_unordered_setT_Ogre__MovableObject_p_t__type swig_types[329]
-#define SWIGTYPE_p_ogre_unordered_setT_Ogre__TextureUnitState_p_t__type swig_types[330]
-#define SWIGTYPE_p_ogre_unordered_setT_ResourceLoader__TextureLoadData_p_t__type swig_types[331]
-#define SWIGTYPE_p_ogre_unordered_setT_RootObject_p_t__type swig_types[332]
-#define SWIGTYPE_p_ogre_unordered_setT_TownBase_p_t__type swig_types[333]
-#define SWIGTYPE_p_ogre_unordered_setT_TownBuildingsManager_p_t__type swig_types[334]
-#define SWIGTYPE_p_ogre_unordered_setT_ZoneMap_p_t__type swig_types[335]
-#define SWIGTYPE_p_ogre_unordered_setT_hand_t__type swig_types[336]
-#define SWIGTYPE_p_p_Character swig_types[337]
-#define SWIGTYPE_p_p_CharacterAnimal swig_types[338]
-#define SWIGTYPE_p_p_CharacterHuman swig_types[339]
-#define SWIGTYPE_p_p_Ogre__MovableObject swig_types[340]
-#define SWIGTYPE_p_p_void swig_types[341]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t swig_types[264]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t swig_types[265]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t swig_types[266]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[267]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_AttachmentData_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachmentData_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[268]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_InventorySection_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_InventorySection_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[269]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_Ogre__InstanceManager_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_Ogre__InstanceManager_p_t_Ogre__GeneralAllocPolicy_t_t swig_types[270]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_Ogre__Quaternion_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_Ogre__Quaternion_t_Ogre__GeneralAllocPolicy_t_t swig_types[271]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_Ogre__Vector3_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_Ogre__Vector3_t_Ogre__GeneralAllocPolicy_t_t swig_types[272]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_bool_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_bool_t_Ogre__GeneralAllocPolicy_t_t swig_types[273]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_float_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_float_t_Ogre__GeneralAllocPolicy_t_t swig_types[274]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_int_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_int_t_Ogre__GeneralAllocPolicy_t_t swig_types[275]
+#define SWIGTYPE_p_boost__unordered__unordered_mapT_std__string_std__string_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_std__string_t_Ogre__GeneralAllocPolicy_t_t swig_types[276]
+#define SWIGTYPE_p_char swig_types[277]
+#define SWIGTYPE_p_float swig_types[278]
+#define SWIGTYPE_p_function swig_types[279]
+#define SWIGTYPE_p_hand swig_types[280]
+#define SWIGTYPE_p_iVector2 swig_types[281]
+#define SWIGTYPE_p_int swig_types[282]
+#define SWIGTYPE_p_lektorT_Armour_p_t swig_types[283]
+#define SWIGTYPE_p_lektorT_Building_p_t swig_types[284]
+#define SWIGTYPE_p_lektorT_CampaignData_p_t swig_types[285]
+#define SWIGTYPE_p_lektorT_Character_p_t swig_types[286]
+#define SWIGTYPE_p_lektorT_FactionWarMgr__CampaignRequest_p_t swig_types[287]
+#define SWIGTYPE_p_lektorT_Faction__BuildingSwaps_t swig_types[288]
+#define SWIGTYPE_p_lektorT_Faction_p_t swig_types[289]
+#define SWIGTYPE_p_lektorT_GameData__ObjectInstance_p_t swig_types[290]
+#define SWIGTYPE_p_lektorT_GameData_p_t swig_types[291]
+#define SWIGTYPE_p_lektorT_InventorySection_p_t swig_types[292]
+#define SWIGTYPE_p_lektorT_Item_p_t swig_types[293]
+#define SWIGTYPE_p_lektorT_MedicalSystem__HealthPartStatus_p_t swig_types[294]
+#define SWIGTYPE_p_lektorT_ModInfo_p_t swig_types[295]
+#define SWIGTYPE_p_lektorT_ModInfo_t swig_types[296]
+#define SWIGTYPE_p_lektorT_Ogre__Light_p_t swig_types[297]
+#define SWIGTYPE_p_lektorT_PhysHitItem_t swig_types[298]
+#define SWIGTYPE_p_lektorT_PhysicsCollection__LightEnt_p_t swig_types[299]
+#define SWIGTYPE_p_lektorT_PhysicsCollection__StaticEnt_p_t swig_types[300]
+#define SWIGTYPE_p_lektorT_Platoon_p_t swig_types[301]
+#define SWIGTYPE_p_lektorT_RootObject_p_t swig_types[302]
+#define SWIGTYPE_p_lektorT_SaveFileSystem__FileMessage_t swig_types[303]
+#define SWIGTYPE_p_lektorT_SimplePhysXEntity_p_t swig_types[304]
+#define SWIGTYPE_p_lektorT_StringPair_t swig_types[305]
+#define SWIGTYPE_p_lektorT_TownBase__ResidentData_t swig_types[306]
+#define SWIGTYPE_p_lektorT_TownBase_p_t swig_types[307]
+#define SWIGTYPE_p_lektorT_Town__NestSpot_t swig_types[308]
+#define SWIGTYPE_p_lektorT_hand_t swig_types[309]
+#define SWIGTYPE_p_lektorT_std__string_t swig_types[310]
+#define SWIGTYPE_p_long_long swig_types[311]
+#define SWIGTYPE_p_ogre_unordered_mapT_Building_p_TownBuildingsManager__BuildingInfo_t__type swig_types[312]
+#define SWIGTYPE_p_ogre_unordered_mapT_Character__DisguiseGUIFeedback_float_t__type swig_types[313]
+#define SWIGTYPE_p_ogre_unordered_mapT_Faction_p_FactionRelations__RelationData_t__type swig_types[314]
+#define SWIGTYPE_p_ogre_unordered_mapT_Faction_p_float_t__type swig_types[315]
+#define SWIGTYPE_p_ogre_unordered_mapT_GameData_p_MedicalSystem__HealthPartStatus_t__type swig_types[316]
+#define SWIGTYPE_p_ogre_unordered_mapT_GameData_p_RaceLimiter__Limiter_t__type swig_types[317]
+#define SWIGTYPE_p_ogre_unordered_mapT_GameData_p_float_t__type swig_types[318]
+#define SWIGTYPE_p_ogre_unordered_mapT_RootObject_p_float_t__type swig_types[319]
+#define SWIGTYPE_p_ogre_unordered_mapT_ZoneMap_p_bool_t__type swig_types[320]
+#define SWIGTYPE_p_ogre_unordered_mapT_ZoneMap_p_unsigned_char_t__type swig_types[321]
+#define SWIGTYPE_p_ogre_unordered_mapT_hand_Character_p_t__type swig_types[322]
+#define SWIGTYPE_p_ogre_unordered_mapT_hand_SeenSomeone_p_t__type swig_types[323]
+#define SWIGTYPE_p_ogre_unordered_mapT_hand_float_t__type swig_types[324]
+#define SWIGTYPE_p_ogre_unordered_mapT_swordStateEnum_CombatState_p_t__type swig_types[325]
+#define SWIGTYPE_p_ogre_unordered_mapT_unsigned___int64_ResourceLoader__ResourceLoadRequestMesh_p_t__type swig_types[326]
+#define SWIGTYPE_p_ogre_unordered_setT_AttachedEntity_p_t__type swig_types[327]
+#define SWIGTYPE_p_ogre_unordered_setT_Character_p_t__type swig_types[328]
+#define SWIGTYPE_p_ogre_unordered_setT_GameData_p_t__type swig_types[329]
+#define SWIGTYPE_p_ogre_unordered_setT_Ogre__MovableObject_p_t__type swig_types[330]
+#define SWIGTYPE_p_ogre_unordered_setT_Ogre__TextureUnitState_p_t__type swig_types[331]
+#define SWIGTYPE_p_ogre_unordered_setT_ResourceLoader__TextureLoadData_p_t__type swig_types[332]
+#define SWIGTYPE_p_ogre_unordered_setT_RootObject_p_t__type swig_types[333]
+#define SWIGTYPE_p_ogre_unordered_setT_TownBase_p_t__type swig_types[334]
+#define SWIGTYPE_p_ogre_unordered_setT_TownBuildingsManager_p_t__type swig_types[335]
+#define SWIGTYPE_p_ogre_unordered_setT_ZoneMap_p_t__type swig_types[336]
+#define SWIGTYPE_p_ogre_unordered_setT_hand_t__type swig_types[337]
+#define SWIGTYPE_p_p_Character swig_types[338]
+#define SWIGTYPE_p_p_CharacterAnimal swig_types[339]
+#define SWIGTYPE_p_p_CharacterHuman swig_types[340]
+#define SWIGTYPE_p_p_Ogre__MovableObject swig_types[341]
 #define SWIGTYPE_p_physHit swig_types[342]
 #define SWIGTYPE_p_rendHit swig_types[343]
 #define SWIGTYPE_p_short swig_types[344]
@@ -3371,8 +3371,9 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_unsigned_int swig_types[364]
 #define SWIGTYPE_p_unsigned_long_long swig_types[365]
 #define SWIGTYPE_p_unsigned_short swig_types[366]
-static swig_type_info *swig_types[368];
-static swig_module_info swig_module = {swig_types, 367, 0, 0, 0, 0};
+#define SWIGTYPE_p_void swig_types[367]
+static swig_type_info *swig_types[369];
+static swig_module_info swig_module = {swig_types, 368, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3527,7 +3528,7 @@ SWIG_FromCharPtr(const char *cptr)
 
 
 #include "Debug.h"
-//#include "core/Functions.h"
+//#include "Functions.h // Unable to properly wrap hooking functionality. Needs work
 
 #include "kenshi/Appearance.h"
 #include "kenshi/Bounty.h"
@@ -3761,7 +3762,7 @@ SWIG_From_std_string  (const std::string& s)
 }
 
 
-#include "core/Functions.h"
+#include "kenshi\Appearance.h"
 
 
 SWIGINTERNINLINE PyObject*
@@ -3769,9 +3770,6 @@ SWIGINTERNINLINE PyObject*
 {
   return PyInt_FromLong((long) value);
 }
-
-
-#include "kenshi\Appearance.h"
 
 
 SWIGINTERN int
@@ -4441,440 +4439,6 @@ SWIGINTERN RootObject *lektor_Sl_RootObject_Sm__Sg____getitem__(lektor< RootObje
 #include "kenshi/util/UtilityT.h"
 
 
-#include "mygui/MyGUI.h"
-#include "mygui/MyGUI_ActionController.h"
-#include "mygui/MyGUI_Align.h"
-#include "mygui/MyGUI_Allocator.h"
-#include "mygui/MyGUI_Any.h"
-#include "mygui/MyGUI_BackwardCompatibility.h"
-#include "mygui/MyGUI_BiIndexBase.h"
-#include "mygui/MyGUI_Bitwise.h"
-#include "mygui/MyGUI_Button.h"
-#include "mygui/MyGUI_Canvas.h"
-#include "mygui/MyGUI_ChildSkinInfo.h"
-#include "mygui/MyGUI_ClipboardManager.h"
-#include "mygui/MyGUI_Colour.h"
-#include "mygui/MyGUI_ComboBox.h"
-#include "mygui/MyGUI_Common.h"
-#include "mygui/MyGUI_CommonStateInfo.h"
-#include "mygui/MyGUI_ConsoleLogListener.h"
-#include "mygui/MyGUI_Constants.h"
-#include "mygui/MyGUI_ControllerEdgeHide.h"
-#include "mygui/MyGUI_ControllerFadeAlpha.h"
-#include "mygui/MyGUI_ControllerItem.h"
-#include "mygui/MyGUI_ControllerManager.h"
-#include "mygui/MyGUI_ControllerPosition.h"
-#include "mygui/MyGUI_ControllerRepeatClick.h"
-#include "mygui/MyGUI_CoordConverter.h"
-#include "mygui/MyGUI_DataFileStream.h"
-#include "mygui/MyGUI_DataManager.h"
-#include "mygui/MyGUI_DataMemoryStream.h"
-#include "mygui/MyGUI_DataStream.h"
-#include "mygui/MyGUI_DataStreamHolder.h"
-#include "mygui/MyGUI_DDContainer.h"
-#include "mygui/MyGUI_DDItemInfo.h"
-#include "mygui/MyGUI_Delegate.h"
-#include "mygui/MyGUI_DeprecatedTypes.h"
-#include "mygui/MyGUI_DeprecatedWidgets.h"
-#include "mygui/MyGUI_Diagnostic.h"
-#include "mygui/MyGUI_DummyDataManager.h"
-#include "mygui/MyGUI_DummyDiagnostic.h"
-#include "mygui/MyGUI_DummyPlatform.h"
-#include "mygui/MyGUI_DummyRenderManager.h"
-#include "mygui/MyGUI_DynLib.h"
-#include "mygui/MyGUI_DynLibManager.h"
-#include "mygui/MyGUI_EditBox.h"
-#include "mygui/MyGUI_EditText.h"
-#include "mygui/MyGUI_Enumerator.h"
-#include "mygui/MyGUI_EventPair.h"
-#include "mygui/MyGUI_Exception.h"
-#include "mygui/MyGUI_FactoryManager.h"
-#include "mygui/MyGUI_FileLogListener.h"
-#include "mygui/MyGUI_FlowDirection.h"
-#include "mygui/MyGUI_FontData.h"
-#include "mygui/MyGUI_FontManager.h"
-#include "mygui/MyGUI_GenericFactory.h"
-#include "mygui/MyGUI_GeometryUtility.h"
-#include "mygui/MyGUI_Gui.h"
-#include "mygui/MyGUI_IBItemInfo.h"
-#include "mygui/MyGUI_ICroppedRectangle.h"
-#include "mygui/MyGUI_IDataStream.h"
-#include "mygui/MyGUI_IFont.h"
-#include "mygui/MyGUI_IItem.h"
-#include "mygui/MyGUI_IItemContainer.h"
-#include "mygui/MyGUI_ILayer.h"
-#include "mygui/MyGUI_ILayerItem.h"
-#include "mygui/MyGUI_ILayerNode.h"
-#include "mygui/MyGUI_ILogFilter.h"
-#include "mygui/MyGUI_ILogListener.h"
-#include "mygui/MyGUI_ImageBox.h"
-#include "mygui/MyGUI_ImageInfo.h"
-#include "mygui/MyGUI_InputManager.h"
-#include "mygui/MyGUI_IObject.h"
-#include "mygui/MyGUI_IPointer.h"
-#include "mygui/MyGUI_IRenderTarget.h"
-#include "mygui/MyGUI_IResource.h"
-#include "mygui/MyGUI_ISerializable.h"
-#include "mygui/MyGUI_IStateInfo.h"
-#include "mygui/MyGUI_ISubWidget.h"
-#include "mygui/MyGUI_ISubWidgetRect.h"
-#include "mygui/MyGUI_ISubWidgetText.h"
-#include "mygui/MyGUI_ItemBox.h"
-#include "mygui/MyGUI_ITexture.h"
-#include "mygui/MyGUI_IUnlinkWidget.h"
-#include "mygui/MyGUI_IVertexBuffer.h"
-#include "mygui/MyGUI_KeyCode.h"
-#include "mygui/MyGUI_LanguageManager.h"
-#include "mygui/MyGUI_LayerItem.h"
-#include "mygui/MyGUI_LayerManager.h"
-#include "mygui/MyGUI_LayerNode.h"
-#include "mygui/MyGUI_LayoutData.h"
-#include "mygui/MyGUI_LayoutManager.h"
-#include "mygui/MyGUI_LevelLogFilter.h"
-#include "mygui/MyGUI_ListBox.h"
-#include "mygui/MyGUI_LogLevel.h"
-#include "mygui/MyGUI_LogManager.h"
-#include "mygui/MyGUI_LogSource.h"
-#include "mygui/MyGUI_LogStream.h"
-#include "mygui/MyGUI_Macros.h"
-#include "mygui/MyGUI_MainSkin.h"
-#include "mygui/MyGUI_MaskPickInfo.h"
-#include "mygui/MyGUI_MenuBar.h"
-#include "mygui/MyGUI_MenuControl.h"
-#include "mygui/MyGUI_MenuItem.h"
-#include "mygui/MyGUI_MenuItemType.h"
-#include "mygui/MyGUI_MouseButton.h"
-#include "mygui/MyGUI_MultiListBox.h"
-#include "mygui/MyGUI_MultiListItem.h"
-#include "mygui/MyGUI_OverlappedLayer.h"
-#include "mygui/MyGUI_Platform.h"
-#include "mygui/MyGUI_Plugin.h"
-#include "mygui/MyGUI_PluginManager.h"
-#include "mygui/MyGUI_PointerManager.h"
-#include "mygui/MyGUI_PolygonalSkin.h"
-#include "mygui/MyGUI_PopupMenu.h"
-#include "mygui/MyGUI_Precompiled.h"
-#include "mygui/MyGUI_Prerequest.h"
-#include "mygui/MyGUI_ProgressBar.h"
-#include "mygui/MyGUI_RenderFormat.h"
-#include "mygui/MyGUI_RenderItem.h"
-#include "mygui/MyGUI_RenderManager.h"
-#include "mygui/MyGUI_RenderTargetInfo.h"
-#include "mygui/MyGUI_ResizingPolicy.h"
-#include "mygui/MyGUI_ResourceImageSet.h"
-#include "mygui/MyGUI_ResourceImageSetData.h"
-#include "mygui/MyGUI_ResourceImageSetPointer.h"
-#include "mygui/MyGUI_ResourceLayout.h"
-#include "mygui/MyGUI_ResourceManager.h"
-#include "mygui/MyGUI_ResourceManualFont.h"
-#include "mygui/MyGUI_ResourceManualPointer.h"
-#include "mygui/MyGUI_ResourceSkin.h"
-#include "mygui/MyGUI_ResourceTrueTypeFont.h"
-#include "mygui/MyGUI_RotatingSkin.h"
-#include "mygui/MyGUI_RTTI.h"
-#include "mygui/MyGUI_ScrollBar.h"
-#include "mygui/MyGUI_ScrollView.h"
-#include "mygui/MyGUI_ScrollViewBase.h"
-#include "mygui/MyGUI_SharedLayer.h"
-#include "mygui/MyGUI_SharedLayerNode.h"
-#include "mygui/MyGUI_SimpleText.h"
-#include "mygui/MyGUI_Singleton.h"
-#include "mygui/MyGUI_SkinItem.h"
-#include "mygui/MyGUI_SkinManager.h"
-#include "mygui/MyGUI_StringUtility.h"
-#include "mygui/MyGUI_SubSkin.h"
-#include "mygui/MyGUI_SubWidgetBinding.h"
-#include "mygui/MyGUI_SubWidgetInfo.h"
-#include "mygui/MyGUI_SubWidgetManager.h"
-#include "mygui/MyGUI_TabControl.h"
-#include "mygui/MyGUI_TabItem.h"
-#include "mygui/MyGUI_TCoord.h"
-#include "mygui/MyGUI_TextBox.h"
-#include "mygui/MyGUI_TextChangeHistory.h"
-#include "mygui/MyGUI_TextIterator.h"
-#include "mygui/MyGUI_TextureUtility.h"
-#include "mygui/MyGUI_TextView.h"
-#include "mygui/MyGUI_TextViewData.h"
-#include "mygui/MyGUI_TileRect.h"
-#include "mygui/MyGUI_Timer.h"
-#include "mygui/MyGUI_ToolTipManager.h"
-#include "mygui/MyGUI_TPoint.h"
-#include "mygui/MyGUI_TRect.h"
-#include "mygui/MyGUI_TSize.h"
-#include "mygui/MyGUI_Types.h"
-#include "mygui/MyGUI_UString.h"
-#include "mygui/MyGUI_Version.h"
-#include "mygui/MyGUI_VertexData.h"
-#include "mygui/MyGUI_Widget.h"
-#include "mygui/MyGUI_WidgetDefines.h"
-#include "mygui/MyGUI_WidgetInput.h"
-#include "mygui/MyGUI_WidgetManager.h"
-#include "mygui/MyGUI_WidgetStyle.h"
-#include "mygui/MyGUI_WidgetToolTip.h"
-#include "mygui/MyGUI_WidgetTranslate.h"
-#include "mygui/MyGUI_WidgetUserData.h"
-#include "mygui/MyGUI_Window.h"
-#include "mygui/MyGUI_WindowsClipboardHandler.h"
-#include "mygui/MyGUI_XmlDocument.h"
-#include "mygui/Plugin.h"
-#include "mygui/StrangeButton.h"
-
-
-#include "asm_math.h"
-#include "InputContext.h"
-#include "Ogre.h"
-#include "OgreAlignedAllocator.h"
-#include "OgreAnimable.h"
-#include "OgreAnimation.h"
-#include "OgreAnimationState.h"
-#include "OgreAnimationTrack.h"
-#include "OgreAny.h"
-#include "OgreArchive.h"
-#include "OgreArchiveFactory.h"
-#include "OgreArchiveManager.h"
-#include "OgreAtomicObject.h"
-#include "OgreAtomicScalar.h"
-#include "OgreAutoParamDataSource.h"
-#include "OgreAxisAlignedBox.h"
-#include "OgreBillboard.h"
-#include "OgreBillboardChain.h"
-#include "OgreBillboardParticleRenderer.h"
-#include "OgreBillboardSet.h"
-#include "OgreBitwise.h"
-#include "OgreBlendMode.h"
-#include "OgreBuildSettings.h"
-#include "OgreCamera.h"
-#include "OgreCodec.h"
-#include "OgreColourValue.h"
-#include "OgreCommon.h"
-#include "OgreConfig.h"
-#include "OgreConfigDialog.h"
-#include "OgreConfigFile.h"
-#include "OgreConfigOptionMap.h"
-#include "OgreController.h"
-#include "OgreControllerManager.h"
-#include "OgreConvexBody.h"
-//#include "OgreCustomCompositionPass.h"
-#include "OgreDataStream.h"
-#include "OgreDDSCodec.h"
-#include "OgreDefaultHardwareBufferManager.h"
-#include "OgreDeflate.h"
-#include "OgreDepthBuffer.h"
-#include "OgreDistanceLodStrategy.h"
-#include "OgreDualQuaternion.h"
-#include "OgreDynLib.h"
-#include "OgreDynLibManager.h"
-#include "OgreEdgeListBuilder.h"
-#include "OgreEntity.h"
-#include "OgreErrorDialog.h"
-#include "OgreETCCodec.h"
-#include "OgreException.h"
-#include "OgreExternalTextureSource.h"
-#include "OgreExternalTextureSourceManager.h"
-#include "OgreFactoryObj.h"
-#include "OgreFastArray.h"
-#include "OgreFileSystem.h"
-#include "OgreFileSystemLayer.h"
-#include "OgreFrameListener.h"
-#include "OgreFrameStats.h"
-#include "OgreFreeImageCodec.h"
-#include "OgreFrustum.h"
-#include "OgreGpuProgram.h"
-#include "OgreGpuProgramManager.h"
-#include "OgreGpuProgramParams.h"
-#include "OgreGpuProgramUsage.h"
-#include "OgreHardwareBuffer.h"
-#include "OgreHardwareBufferManager.h"
-#include "OgreHardwareCounterBuffer.h"
-#include "OgreHardwareIndexBuffer.h"
-#include "OgreHardwareOcclusionQuery.h"
-#include "OgreHardwarePixelBuffer.h"
-#include "OgreHardwareUniformBuffer.h"
-#include "OgreHardwareVertexBuffer.h"
-#include "OgreHeaderPrefix.h"
-#include "OgreHeaderSuffix.h"
-#include "OgreHighLevelGpuProgram.h"
-#include "OgreHighLevelGpuProgramManager.h"
-#include "OgreHlms.h"
-#include "OgreHlmsCommon.h"
-#include "OgreHlmsManager.h"
-#include "OgreId.h"
-#include "OgreIdString.h"
-#include "OgreImage.h"
-#include "OgreImageCodec.h"
-#include "OgreImageResampler.h"
-#include "OgreInstanceBatch.h"
-#include "OgreInstanceBatchHW.h"
-#include "OgreInstanceBatchHW_VTF.h"
-#include "OgreInstanceBatchShader.h"
-#include "OgreInstanceBatchVTF.h"
-#include "OgreInstancedEntity.h"
-#include "OgreInstanceManager.h"
-#include "OgreIteratorRange.h"
-#include "OgreIteratorWrapper.h"
-#include "OgreIteratorWrappers.h"
-#include "OgreKeyFrame.h"
-#include "OgreLight.h"
-#include "OgreLodListener.h"
-#include "OgreLodStrategy.h"
-#include "OgreLodStrategyManager.h"
-#include "OgreLog.h"
-#include "OgreLogManager.h"
-#include "OgreManualObject.h"
-#include "OgreMaterial.h"
-#include "OgreMaterialManager.h"
-#include "OgreMaterialSerializer.h"
-#include "OgreMath.h"
-#include "OgreMatrix3.h"
-#include "OgreMatrix4.h"
-#include "OgreMemoryAllocatedObject.h"
-#include "OgreMemoryAllocatorConfig.h"
-#include "OgreMemoryNedAlloc.h"
-#include "OgreMemoryNedPooling.h"
-#include "OgreMemoryStdAlloc.h"
-#include "OgreMemorySTLAllocator.h"
-#include "OgreMemoryTrackAlloc.h"
-#include "OgreMemoryTracker.h"
-#include "OgreMesh.h"
-#include "OgreMeshFileFormat.h"
-#include "OgreMeshManager.h"
-#include "OgreMeshSerializer.h"
-#include "OgreMeshSerializerImpl.h"
-#include "OgreMovableObject.h"
-#include "OgreMovablePlane.h"
-#include "OgreNameGenerator.h"
-#include "OgreNode.h"
-#include "OgreNumerics.h"
-#include "OgreOldBone.h"
-#include "OgreOldNode.h"
-#include "OgreOldSkeletonInstance.h"
-#include "OgreOldSkeletonManager.h"
-#include "OgreOptimisedUtil.h"
-#include "OgreParticle.h"
-#include "OgreParticleAffector.h"
-#include "OgreParticleAffectorFactory.h"
-#include "OgreParticleEmitter.h"
-#include "OgreParticleEmitterCommands.h"
-#include "OgreParticleEmitterFactory.h"
-#include "OgreParticleIterator.h"
-#include "OgreParticleSystem.h"
-#include "OgreParticleSystemManager.h"
-#include "OgreParticleSystemRenderer.h"
-#include "OgrePass.h"
-#include "OgrePatchMesh.h"
-#include "OgrePatchSurface.h"
-#include "OgrePixelBox.h"
-#include "OgrePixelConversions.h"
-#include "OgrePixelCountLodStrategy.h"
-#include "OgrePixelFormat.h"
-#include "OgrePixelFormatDescriptions.h"
-#include "OgrePlane.h"
-#include "OgrePlaneBoundedVolume.h"
-#include "OgrePlatform.h"
-#include "OgrePlatformInformation.h"
-#include "OgrePlugin.h"
-#include "OgrePolygon.h"
-#include "OgrePose.h"
-#include "OgrePredefinedControllers.h"
-#include "OgrePrefabFactory.h"
-#include "OgrePrerequisites.h"
-#include "OgreProfiler.h"
-#include "OgreQuaternion.h"
-#include "OgreRadixSort.h"
-#include "OgreRawPtr.h"
-#include "OgreRay.h"
-#include "OgreRectangle2D.h"
-#include "OgreRenderable.h"
-#include "OgreRenderObjectListener.h"
-#include "OgreRenderOperation.h"
-#include "OgreRenderQueue.h"
-#include "OgreRenderQueueInvocation.h"
-#include "OgreRenderQueueListener.h"
-#include "OgreRenderQueueSortingGrouping.h"
-#include "OgreRenderSystem.h"
-#include "OgreRenderSystemCapabilities.h"
-#include "OgreRenderSystemCapabilitiesManager.h"
-#include "OgreRenderSystemCapabilitiesSerializer.h"
-#include "OgreRenderTarget.h"
-#include "OgreRenderTargetListener.h"
-#include "OgreRenderTexture.h"
-#include "OgreRenderToVertexBuffer.h"
-#include "OgreRenderWindow.h"
-#include "OgreResource.h"
-#include "OgreResourceBackgroundQueue.h"
-#include "OgreResourceGroupManager.h"
-#include "OgreResourceManager.h"
-#include "OgreRibbonTrail.h"
-#include "OgreRoot.h"
-#include "OgreRotationalSpline.h"
-#include "OgreSceneManager.h"
-#include "OgreSceneManagerEnumerator.h"
-#include "OgreSceneNode.h"
-#include "OgreSceneQuery.h"
-#include "OgreScriptCompiler.h"
-#include "OgreScriptLexer.h"
-#include "OgreScriptLoader.h"
-#include "OgreScriptParser.h"
-#include "OgreScriptTranslator.h"
-#include "OgreSearchOps.h"
-#include "OgreSerializer.h"
-#include "OgreShadowCameraSetup.h"
-#include "OgreShadowCameraSetupFocused.h"
-#include "OgreShadowCameraSetupPlaneOptimal.h"
-#include "OgreShadowCameraSetupPSSM.h"
-#include "OgreShadowTextureManager.h"
-#include "OgreShadowVolumeExtrudeProgram.h"
-#include "OgreSharedPtr.h"
-#include "OgreSIMDHelper.h"
-#include "OgreSimpleRenderable.h"
-#include "OgreSimpleSpline.h"
-#include "OgreSingleton.h"
-#include "OgreSkeleton.h"
-#include "OgreSkeletonFileFormat.h"
-#include "OgreSkeletonSerializer.h"
-#include "OgreSmallVector.h"
-#include "OgreSphere.h"
-#include "OgreStableHeaders.h"
-#include "OgreStaticFaceGroup.h"
-#include "OgreStaticGeometry.h"
-#include "OgreStaticPluginLoader.h"
-#include "OgreStdHeaders.h"
-#include "OgreStreamSerialiser.h"
-#include "OgreString.h"
-#include "OgreStringConverter.h"
-#include "OgreStringInterface.h"
-#include "OgreStringVector.h"
-#include "OgreSubEntity.h"
-#include "OgreSubMesh.h"
-#include "OgreTagPoint.h"
-#include "OgreTangentSpaceCalc.h"
-#include "OgreTechnique.h"
-#include "OgreTexture.h"
-#include "OgreTextureManager.h"
-#include "OgreTextureUnitState.h"
-#include "OgreTimer.h"
-#include "OgreUnifiedHighLevelGpuProgram.h"
-#include "OgreUserObjectBindings.h"
-#include "OgreUTFString.h"
-#include "OgreVector2.h"
-#include "OgreVector3.h"
-#include "OgreVector4.h"
-#include "OgreVertexBoneAssignment.h"
-#include "OgreVertexIndexData.h"
-#include "OgreViewport.h"
-#include "OgreVisibilityFlags.h"
-#include "OgreWindowEventUtilities.h"
-#include "OgreWireBoundingBox.h"
-#include "OgreWorkQueue.h"
-#include "OgreZip.h"
-#include "Sample.h"
-#include "SampleContext.h"
-#include "SamplePlugin.h"
-#include "SdkCameraMan.h"
-#include "SdkSample.h"
-#include "SdkTrays.h"
-
-
 #include "Callbacks.h"
 
 #ifdef __cplusplus
@@ -5184,89 +4748,413 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_GetModuleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_MeshDataLookup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  int res1 ;
+  Ogre::Entity *arg1 = (Ogre::Entity *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  std::string result;
+  MeshDataLookup *result = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:GetModuleName",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0,SWIG_as_voidptrptr(&arg1), 0, 0);
+  if (!PyArg_ParseTuple(args,(char *)"O:new_MeshDataLookup",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Ogre__Entity, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GetModuleName" "', argument " "1"" of type '" "void *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_MeshDataLookup" "', argument " "1"" of type '" "Ogre::Entity const *""'"); 
   }
+  arg1 = reinterpret_cast< Ogre::Entity * >(argp1);
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    result = GetModuleName(arg1);
+    result = (MeshDataLookup *)new MeshDataLookup((Ogre::Entity const *)arg1);
     SWIG_PYTHON_THREAD_END_ALLOW;
   }
-  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MeshDataLookup, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_GetRealAddress(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_MeshDataLookup__CONSTRUCTOR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  PyObject * obj0 = 0 ;
-  intptr_t result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:GetRealAddress",&obj0)) SWIG_fail;
-  {
-    arg1 = PyLong_AsVoidPtr(obj0);
-  }
-  {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    result = (intptr_t)KenshiLib::GetRealAddress(arg1);
-    SWIG_PYTHON_THREAD_END_ALLOW;
-  }
-  {
-    resultobj = PyLong_FromVoidPtr((void*)result);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_AddHook(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  void *arg1 = (void *) 0 ;
-  void *arg2 = (void *) 0 ;
-  void **arg3 = (void **) 0 ;
-  void *temp3 ;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  Ogre::Entity *arg2 = (Ogre::Entity *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  KenshiLib::HookStatus result;
+  MeshDataLookup *result = 0 ;
   
-  {
-    arg3 = &temp3;
+  if (!PyArg_ParseTuple(args,(char *)"OO:MeshDataLookup__CONSTRUCTOR",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup__CONSTRUCTOR" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
   }
-  if (!PyArg_ParseTuple(args,(char *)"OO:AddHook",&obj0,&obj1)) SWIG_fail;
-  {
-    arg1 = PyLong_AsVoidPtr(obj0);
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_Ogre__Entity, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MeshDataLookup__CONSTRUCTOR" "', argument " "2"" of type '" "Ogre::Entity const *""'"); 
   }
-  {
-    arg2 = PyLong_AsVoidPtr(obj1);
-  }
+  arg2 = reinterpret_cast< Ogre::Entity * >(argp2);
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    result = (KenshiLib::HookStatus)KenshiLib::AddHook(arg1,arg2,arg3);
+    result = (MeshDataLookup *)(arg1)->_CONSTRUCTOR((Ogre::Entity const *)arg2);
     SWIG_PYTHON_THREAD_END_ALLOW;
   }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  {
-    PyObject* ptr = PyLong_FromVoidPtr(*arg3);
-    resultobj = SWIG_Python_AppendOutput(resultobj, ptr);
-  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_MeshDataLookup, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
 }
 
+
+SWIGINTERN PyObject *_wrap_delete_MeshDataLookup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_MeshDataLookup",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MeshDataLookup" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    delete arg1;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup__DESTRUCTOR(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MeshDataLookup__DESTRUCTOR",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup__DESTRUCTOR" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    (arg1)->_DESTRUCTOR();
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_boneAssignments_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > > arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MeshDataLookup_boneAssignments_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_boneAssignments_set" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MeshDataLookup_boneAssignments_set" "', argument " "2"" of type '" "boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > >""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MeshDataLookup_boneAssignments_set" "', argument " "2"" of type '" "boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > >""'");
+    } else {
+      boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > > * temp = reinterpret_cast< boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > > * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->boneAssignments = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_boneAssignments_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MeshDataLookup_boneAssignments_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_boneAssignments_get" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result =  ((arg1)->boneAssignments);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_NewPointerObj((new boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > >(static_cast< const boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > >& >(result))), SWIGTYPE_p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_vertCount_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  unsigned __int64 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MeshDataLookup_vertCount_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_vertCount_set" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_unsigned___int64,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MeshDataLookup_vertCount_set" "', argument " "2"" of type '" "unsigned __int64""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MeshDataLookup_vertCount_set" "', argument " "2"" of type '" "unsigned __int64""'");
+    } else {
+      unsigned __int64 * temp = reinterpret_cast< unsigned __int64 * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->vertCount = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_vertCount_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  unsigned __int64 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MeshDataLookup_vertCount_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_vertCount_get" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result =  ((arg1)->vertCount);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_NewPointerObj((new unsigned __int64(static_cast< const unsigned __int64& >(result))), SWIGTYPE_p_unsigned___int64, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_verts_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  Ogre::Vector3 *arg2 = (Ogre::Vector3 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MeshDataLookup_verts_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_verts_set" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_Ogre__Vector3, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MeshDataLookup_verts_set" "', argument " "2"" of type '" "Ogre::Vector3 *""'"); 
+  }
+  arg2 = reinterpret_cast< Ogre::Vector3 * >(argp2);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->verts = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_verts_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  Ogre::Vector3 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MeshDataLookup_verts_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_verts_get" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result = (Ogre::Vector3 *) ((arg1)->verts);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Ogre__Vector3, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_uvs_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  Ogre::Vector2 *arg2 = (Ogre::Vector2 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MeshDataLookup_uvs_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_uvs_set" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_Ogre__Vector2, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MeshDataLookup_uvs_set" "', argument " "2"" of type '" "Ogre::Vector2 *""'"); 
+  }
+  arg2 = reinterpret_cast< Ogre::Vector2 * >(argp2);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    if (arg1) (arg1)->uvs = arg2;
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_uvs_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  Ogre::Vector2 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:MeshDataLookup_uvs_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_uvs_get" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    result = (Ogre::Vector2 *) ((arg1)->uvs);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Ogre__Vector2, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MeshDataLookup_init(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  MeshDataLookup *arg1 = (MeshDataLookup *) 0 ;
+  Ogre::Entity *arg2 = (Ogre::Entity *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:MeshDataLookup_init",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_MeshDataLookup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MeshDataLookup_init" "', argument " "1"" of type '" "MeshDataLookup *""'"); 
+  }
+  arg1 = reinterpret_cast< MeshDataLookup * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_Ogre__Entity, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MeshDataLookup_init" "', argument " "2"" of type '" "Ogre::Entity const *""'"); 
+  }
+  arg2 = reinterpret_cast< Ogre::Entity * >(argp2);
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    (arg1)->init((Ogre::Entity const *)arg2);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *MeshDataLookup_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_MeshDataLookup, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
 
 SWIGINTERN PyObject *_wrap_AppearanceBase_slots_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
@@ -7552,8 +7440,8 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_getRandomVertex(PyObject *SWIGUNUSEDPA
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  void *argp3 ;
-  int res3 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -7576,19 +7464,11 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_getRandomVertex(PyObject *SWIGUNUSEDPA
     }
     arg2 = ptr;
   }
-  {
-    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_MeshDataLookup__Dir,  0  | 0);
-    if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "AppearanceBase_getRandomVertex" "', argument " "3"" of type '" "MeshDataLookup::Dir""'"); 
-    }  
-    if (!argp3) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AppearanceBase_getRandomVertex" "', argument " "3"" of type '" "MeshDataLookup::Dir""'");
-    } else {
-      MeshDataLookup::Dir * temp = reinterpret_cast< MeshDataLookup::Dir * >(argp3);
-      arg3 = *temp;
-      if (SWIG_IsNewObj(res3)) delete temp;
-    }
-  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "AppearanceBase_getRandomVertex" "', argument " "3"" of type '" "MeshDataLookup::Dir""'");
+  } 
+  arg3 = static_cast< MeshDataLookup::Dir >(val3);
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
     result = (int)((AppearanceBase const *)arg1)->getRandomVertex((std::string const &)*arg2,arg3);
@@ -7611,8 +7491,8 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_getRandomVertexPosition(PyObject *SWIG
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
-  void *argp3 ;
-  int res3 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -7635,19 +7515,11 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_getRandomVertexPosition(PyObject *SWIG
     }
     arg2 = ptr;
   }
-  {
-    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_MeshDataLookup__Dir,  0  | 0);
-    if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "AppearanceBase_getRandomVertexPosition" "', argument " "3"" of type '" "MeshDataLookup::Dir""'"); 
-    }  
-    if (!argp3) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AppearanceBase_getRandomVertexPosition" "', argument " "3"" of type '" "MeshDataLookup::Dir""'");
-    } else {
-      MeshDataLookup::Dir * temp = reinterpret_cast< MeshDataLookup::Dir * >(argp3);
-      arg3 = *temp;
-      if (SWIG_IsNewObj(res3)) delete temp;
-    }
-  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "AppearanceBase_getRandomVertexPosition" "', argument " "3"" of type '" "MeshDataLookup::Dir""'");
+  } 
+  arg3 = static_cast< MeshDataLookup::Dir >(val3);
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
     result = (Ogre::Vector3 *) &((AppearanceBase const *)arg1)->getRandomVertexPosition((std::string const &)*arg2,arg3);
@@ -8414,6 +8286,7 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_buildBody(PyObject *SWIGUNUSEDPARM(sel
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  int res3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -8437,8 +8310,9 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_buildBody(PyObject *SWIGUNUSEDPARM(sel
       if (SWIG_IsNewObj(res2)) delete temp;
     }
   }
-  {
-    arg3 = PyLong_AsVoidPtr(obj2);
+  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "AppearanceBase_buildBody" "', argument " "3"" of type '" "void *""'"); 
   }
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
@@ -8554,6 +8428,7 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_createEntityCallback(PyObject *SWIGUNU
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  int res3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -8577,8 +8452,9 @@ SWIGINTERN PyObject *_wrap_AppearanceBase_createEntityCallback(PyObject *SWIGUNU
       if (SWIG_IsNewObj(res2)) delete temp;
     }
   }
-  {
-    arg3 = PyLong_AsVoidPtr(obj2);
+  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "AppearanceBase_createEntityCallback" "', argument " "3"" of type '" "void *""'"); 
   }
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
@@ -123128,6 +123004,7 @@ SWIGINTERN PyObject *_wrap_Item_createItemEntityCallback(PyObject *SWIGUNUSEDPAR
   int res1 = 0 ;
   void *argp2 ;
   int res2 = 0 ;
+  int res3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -123151,8 +123028,9 @@ SWIGINTERN PyObject *_wrap_Item_createItemEntityCallback(PyObject *SWIGUNUSEDPAR
       if (SWIG_IsNewObj(res2)) delete temp;
     }
   }
-  {
-    arg3 = PyLong_AsVoidPtr(obj2);
+  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Item_createItemEntityCallback" "', argument " "3"" of type '" "void *""'"); 
   }
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
@@ -179151,6 +179029,7 @@ SWIGINTERN PyObject *_wrap_ThreadClass_threadHandle_set(PyObject *SWIGUNUSEDPARM
   void *arg2 = (void *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  int res2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -179160,8 +179039,9 @@ SWIGINTERN PyObject *_wrap_ThreadClass_threadHandle_set(PyObject *SWIGUNUSEDPARM
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ThreadClass_threadHandle_set" "', argument " "1"" of type '" "ThreadClass *""'"); 
   }
   arg1 = reinterpret_cast< ThreadClass * >(argp1);
-  {
-    arg2 = PyLong_AsVoidPtr(obj1);
+  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, SWIG_POINTER_DISOWN);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ThreadClass_threadHandle_set" "', argument " "2"" of type '" "void *""'"); 
   }
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
@@ -179194,9 +179074,7 @@ SWIGINTERN PyObject *_wrap_ThreadClass_threadHandle_get(PyObject *SWIGUNUSEDPARM
     result = (void *) ((arg1)->threadHandle);
     SWIG_PYTHON_THREAD_END_ALLOW;
   }
-  {
-    resultobj = PyLong_FromVoidPtr(result);
-  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -202624,6 +202502,7 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeMarker__SWIG_0(PyObject *SWIGUNUSEDPARM
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  int res3 ;
   int val4 ;
   int ecode4 = 0 ;
   PyObject * obj0 = 0 ;
@@ -202645,8 +202524,9 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeMarker__SWIG_0(PyObject *SWIGUNUSEDPARM
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UtilityT_placeMarker" "', argument " "2"" of type '" "Ogre::Vector3 const &""'"); 
   }
   arg2 = reinterpret_cast< Ogre::Vector3 * >(argp2);
-  {
-    arg3 = PyLong_AsVoidPtr(obj2);
+  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "UtilityT_placeMarker" "', argument " "3"" of type '" "void const *""'"); 
   }
   ecode4 = SWIG_AsVal_int(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
@@ -202876,6 +202756,7 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeArrow(PyObject *SWIGUNUSEDPARM(self), P
   int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
+  int res4 ;
   float val5 ;
   int ecode5 = 0 ;
   float val6 ;
@@ -202912,8 +202793,9 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeArrow(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UtilityT_placeArrow" "', argument " "3"" of type '" "Ogre::Vector3 const &""'"); 
   }
   arg3 = reinterpret_cast< Ogre::Vector3 * >(argp3);
-  {
-    arg4 = PyLong_AsVoidPtr(obj3);
+  res4 = SWIG_ConvertPtr(obj3,SWIG_as_voidptrptr(&arg4), 0, 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "UtilityT_placeArrow" "', argument " "4"" of type '" "void const *""'"); 
   }
   ecode5 = SWIG_AsVal_float(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
@@ -202956,6 +202838,7 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeArrowTo(PyObject *SWIGUNUSEDPARM(self),
   int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
+  int res4 ;
   float val5 ;
   int ecode5 = 0 ;
   int val6 ;
@@ -202989,8 +202872,9 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeArrowTo(PyObject *SWIGUNUSEDPARM(self),
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UtilityT_placeArrowTo" "', argument " "3"" of type '" "Ogre::Vector3 const &""'"); 
   }
   arg3 = reinterpret_cast< Ogre::Vector3 * >(argp3);
-  {
-    arg4 = PyLong_AsVoidPtr(obj3);
+  res4 = SWIG_ConvertPtr(obj3,SWIG_as_voidptrptr(&arg4), 0, 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "UtilityT_placeArrowTo" "', argument " "4"" of type '" "void const *""'"); 
   }
   ecode5 = SWIG_AsVal_float(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
@@ -203029,6 +202913,7 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeArrowBT(PyObject *SWIGUNUSEDPARM(self),
   int res2 = 0 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
+  int res4 ;
   float val5 ;
   int ecode5 = 0 ;
   float val6 ;
@@ -203065,8 +202950,9 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeArrowBT(PyObject *SWIGUNUSEDPARM(self),
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UtilityT_placeArrowBT" "', argument " "3"" of type '" "Ogre::Vector3 const &""'"); 
   }
   arg3 = reinterpret_cast< Ogre::Vector3 * >(argp3);
-  {
-    arg4 = PyLong_AsVoidPtr(obj3);
+  res4 = SWIG_ConvertPtr(obj3,SWIG_as_voidptrptr(&arg4), 0, 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "UtilityT_placeArrowBT" "', argument " "4"" of type '" "void const *""'"); 
   }
   ecode5 = SWIG_AsVal_float(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
@@ -203101,6 +202987,7 @@ SWIGINTERN PyObject *_wrap_UtilityT_removeArrow(PyObject *SWIGUNUSEDPARM(self), 
   void *arg2 = (void *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  int res2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -203110,8 +202997,9 @@ SWIGINTERN PyObject *_wrap_UtilityT_removeArrow(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UtilityT_removeArrow" "', argument " "1"" of type '" "UtilityT *""'"); 
   }
   arg1 = reinterpret_cast< UtilityT * >(argp1);
-  {
-    arg2 = PyLong_AsVoidPtr(obj1);
+  res2 = SWIG_ConvertPtr(obj1,SWIG_as_voidptrptr(&arg2), 0, 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "UtilityT_removeArrow" "', argument " "2"" of type '" "void const *""'"); 
   }
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
@@ -203136,6 +203024,7 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeSphere(PyObject *SWIGUNUSEDPARM(self), 
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  int res3 ;
   float val4 ;
   int ecode4 = 0 ;
   int val5 ;
@@ -203160,8 +203049,9 @@ SWIGINTERN PyObject *_wrap_UtilityT_placeSphere(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "UtilityT_placeSphere" "', argument " "2"" of type '" "Ogre::Vector3 const &""'"); 
   }
   arg2 = reinterpret_cast< Ogre::Vector3 * >(argp2);
-  {
-    arg3 = PyLong_AsVoidPtr(obj2);
+  res3 = SWIG_ConvertPtr(obj2,SWIG_as_voidptrptr(&arg3), 0, 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "UtilityT_placeSphere" "', argument " "3"" of type '" "void const *""'"); 
   }
   ecode4 = SWIG_AsVal_float(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
@@ -205036,7 +204926,7 @@ static PyMethodDef SwigMethods[] = {
 		"message: char const *\n"
 		"\n"
 		"\n"
-		"Logs a debug message to KenshiPy_log.txt in the KenshiPython directory.\n"
+		"Logs a debug message to RE_Kenshi_log.txt in the Kenshi's root directory. Logs will be prefixed with the module name, KenshiPy.\n"
 		""},
 	 { (char *)"ErrorLog", _wrap_ErrorLog, METH_VARARGS, (char *)"\n"
 		"ErrorLog(std::wstring const & message)\n"
@@ -205058,35 +204948,121 @@ static PyMethodDef SwigMethods[] = {
 		"message: char const *\n"
 		"\n"
 		"\n"
-		"Logs an error message to KenshiPy_log.txt in the KenshiPython directory.\n"
+		"Logs an error message to RE_Kenshi_log.txt in the Kenshi's root directory. Logs will be prefixed with the module name, KenshiPy.\n"
 		""},
 	 { (char *)"GetDebugLog", _wrap_GetDebugLog, METH_VARARGS, (char *)"GetDebugLog() -> std::string"},
 	 { (char *)"GetLastErrorStdStr", _wrap_GetLastErrorStdStr, METH_VARARGS, (char *)"GetLastErrorStdStr() -> std::string"},
-	 { (char *)"GetModuleName", _wrap_GetModuleName, METH_VARARGS, (char *)"\n"
-		"GetModuleName(void * address) -> std::string\n"
+	 { (char *)"new_MeshDataLookup", _wrap_new_MeshDataLookup, METH_VARARGS, (char *)"\n"
+		"new_MeshDataLookup(Ogre::Entity const * model) -> MeshDataLookup\n"
 		"\n"
 		"Parameters\n"
 		"----------\n"
-		"address: void *\n"
+		"model: Ogre::Entity const *\n"
 		"\n"
 		""},
-	 { (char *)"GetRealAddress", _wrap_GetRealAddress, METH_VARARGS, (char *)"\n"
-		"GetRealAddress(void * fun) -> intptr_t\n"
+	 { (char *)"MeshDataLookup__CONSTRUCTOR", _wrap_MeshDataLookup__CONSTRUCTOR, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup__CONSTRUCTOR(MeshDataLookup self, Ogre::Entity const * model) -> MeshDataLookup\n"
 		"\n"
 		"Parameters\n"
 		"----------\n"
-		"fun: void *\n"
+		"self: MeshDataLookup *\n"
+		"model: Ogre::Entity const *\n"
 		"\n"
 		""},
-	 { (char *)"AddHook", _wrap_AddHook, METH_VARARGS, (char *)"\n"
-		"AddHook(void * target, void * detour) -> KenshiLib::HookStatus\n"
+	 { (char *)"delete_MeshDataLookup", _wrap_delete_MeshDataLookup, METH_VARARGS, (char *)"\n"
+		"delete_MeshDataLookup(MeshDataLookup self)\n"
 		"\n"
 		"Parameters\n"
 		"----------\n"
-		"target: void *\n"
-		"detour: void *\n"
+		"self: MeshDataLookup *\n"
 		"\n"
 		""},
+	 { (char *)"MeshDataLookup__DESTRUCTOR", _wrap_MeshDataLookup__DESTRUCTOR, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup__DESTRUCTOR(MeshDataLookup self)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_boneAssignments_set", _wrap_MeshDataLookup_boneAssignments_set, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_boneAssignments_set(MeshDataLookup self, boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > > boneAssignments)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"boneAssignments: boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > >\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_boneAssignments_get", _wrap_MeshDataLookup_boneAssignments_get, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_boneAssignments_get(MeshDataLookup self) -> boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > >\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_vertCount_set", _wrap_MeshDataLookup_vertCount_set, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_vertCount_set(MeshDataLookup self, unsigned __int64 vertCount)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"vertCount: unsigned __int64\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_vertCount_get", _wrap_MeshDataLookup_vertCount_get, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_vertCount_get(MeshDataLookup self) -> unsigned __int64\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_verts_set", _wrap_MeshDataLookup_verts_set, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_verts_set(MeshDataLookup self, Ogre::Vector3 * verts)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"verts: Ogre::Vector3 *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_verts_get", _wrap_MeshDataLookup_verts_get, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_verts_get(MeshDataLookup self) -> Ogre::Vector3 *\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_uvs_set", _wrap_MeshDataLookup_uvs_set, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_uvs_set(MeshDataLookup self, Ogre::Vector2 * uvs)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"uvs: Ogre::Vector2 *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_uvs_get", _wrap_MeshDataLookup_uvs_get, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_uvs_get(MeshDataLookup self) -> Ogre::Vector2 *\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_init", _wrap_MeshDataLookup_init, METH_VARARGS, (char *)"\n"
+		"MeshDataLookup_init(MeshDataLookup self, Ogre::Entity const * model)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"self: MeshDataLookup *\n"
+		"model: Ogre::Entity const *\n"
+		"\n"
+		""},
+	 { (char *)"MeshDataLookup_swigregister", MeshDataLookup_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AppearanceBase_slots_set", _wrap_AppearanceBase_slots_set, METH_VARARGS, (char *)"\n"
 		"AppearanceBase_slots_set(AppearanceBase self, boost::unordered::unordered_map< std::string,AttachmentData *,boost::hash< std::string >,std::equal_to< std::string >,Ogre::STLAllocator< std::pair< std::string const,AttachmentData * >,Ogre::GeneralAllocPolicy > > const * slots)\n"
 		"\n"
@@ -205638,7 +205614,7 @@ static PyMethodDef SwigMethods[] = {
 		"----------\n"
 		"self: AppearanceBase const *\n"
 		"boneName: std::string const &\n"
-		"direction: MeshDataLookup::Dir\n"
+		"direction: enum MeshDataLookup::Dir\n"
 		"\n"
 		""},
 	 { (char *)"AppearanceBase_getRandomVertexPosition", _wrap_AppearanceBase_getRandomVertexPosition, METH_VARARGS, (char *)"\n"
@@ -205648,7 +205624,7 @@ static PyMethodDef SwigMethods[] = {
 		"----------\n"
 		"self: AppearanceBase const *\n"
 		"boneName: std::string const &\n"
-		"direction: MeshDataLookup::Dir\n"
+		"direction: enum MeshDataLookup::Dir\n"
 		"\n"
 		""},
 	 { (char *)"AppearanceBase_notifyDirty", _wrap_AppearanceBase_notifyDirty, METH_VARARGS, (char *)"\n"
@@ -255952,7 +255928,7 @@ static swig_type_info _swigt__p_Logger = {"_p_Logger", "Logger *", 0, 0, (void*)
 static swig_type_info _swigt__p_MedicalSystem = {"_p_MedicalSystem", "MedicalSystem *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MedicalSystem__HealthPartStatus = {"_p_MedicalSystem__HealthPartStatus", "MedicalSystem::HealthPartStatus *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MedicalSystem__HealthPartStatus__PartType = {"_p_MedicalSystem__HealthPartStatus__PartType", "MedicalSystem::HealthPartStatus::PartType *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_MeshDataLookup__Dir = {"_p_MeshDataLookup__Dir", "MeshDataLookup::Dir *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_MeshDataLookup = {"_p_MeshDataLookup", "MeshDataLookup *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MessageForB = {"_p_MessageForB", "MessageForB *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_MessageRoller = {"_p_MessageRoller", "MessageRoller *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ModInfo = {"_p_ModInfo", "ModInfo *", 0, 0, (void*)0, 0};
@@ -256094,6 +256070,7 @@ static swig_type_info _swigt__p_boost__filesystem__path = {"_p_boost__filesystem
 static swig_type_info _swigt__p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t = {"_p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t", "boost::function< void (Ogre::SharedPtr< Ogre::Resource >,void *) > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t = {"_p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t", "boost::unordered::iterator_detail::c_iterator< boost::unordered::detail::ptr_node< std::pair< hand const,SeenSomeone * > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t = {"_p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t", "boost::unordered::unordered_map< GameData *,ogre_unordered_map< AppearanceManager::Gender::Enum,AppearanceManager::AppearanceData >::type,boost::hash< GameData * >,std::equal_to< GameData * >,Ogre::STLAllocator< std::pair< GameData *const,ogre_unordered_map< AppearanceManager::Gender::Enum,AppearanceManager::AppearanceData >::type >,Ogre::GeneralAllocPolicy > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t = {"_p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t", "boost::unordered::unordered_map< Ogre::IdString,lektor< lektor< int > >,boost::hash< Ogre::IdString >,std::equal_to< Ogre::IdString >,Ogre::STLAllocator< std::pair< Ogre::IdString const,lektor< lektor< int > > >,Ogre::GeneralAllocPolicy > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t = {"_p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t", "boost::unordered::unordered_map< Ogre::SharedPtr< Ogre::Texture >,float,boost::hash< Ogre::SharedPtr< Ogre::Texture > >,std::equal_to< Ogre::SharedPtr< Ogre::Texture > >,Ogre::STLAllocator< std::pair< Ogre::SharedPtr< Ogre::Texture > const,float >,Ogre::GeneralAllocPolicy > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t = {"_p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t", "boost::unordered::unordered_map< ResourceLoader::TextureLoadData *,Ogre::FastArray< ResourceLoader::ResourceLoadRequestTexture * >,boost::hash< ResourceLoader::TextureLoadData * >,std::equal_to< ResourceLoader::TextureLoadData * >,Ogre::STLAllocator< std::pair< ResourceLoader::TextureLoadData *const,Ogre::FastArray< ResourceLoader::ResourceLoadRequestTexture * > >,Ogre::GeneralAllocPolicy > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t = {"_p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t", "boost::unordered::unordered_map< std::string,AttachedEntity *,boost::hash< std::string >,std::equal_to< std::string >,Ogre::STLAllocator< std::pair< std::string const,AttachedEntity * >,Ogre::GeneralAllocPolicy > > *", 0, 0, (void*)0, 0};
@@ -256171,7 +256148,6 @@ static swig_type_info _swigt__p_p_Character = {"_p_p_Character", "Character **",
 static swig_type_info _swigt__p_p_CharacterAnimal = {"_p_p_CharacterAnimal", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_CharacterHuman = {"_p_p_CharacterHuman", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_p_Ogre__MovableObject = {"_p_p_Ogre__MovableObject", "Ogre::MovableObject **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_p_void = {"_p_p_void", "void **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_physHit = {"_p_physHit", "physHit *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_rendHit = {"_p_rendHit", "rendHit *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_short = {"_p_short", "short *|int_least16_t *|int16_t *", 0, 0, (void*)0, 0};
@@ -256197,6 +256173,7 @@ static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned c
 static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uintptr_t *|uint_least32_t *|uint_fast32_t *|uint32_t *|unsigned int *|uint_fast16_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "uint_least64_t *|uint_fast64_t *|uint64_t *|unsigned long long *|uintmax_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "unsigned short *|uint_least16_t *|uint16_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_AI,
@@ -256321,7 +256298,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_MedicalSystem,
   &_swigt__p_MedicalSystem__HealthPartStatus,
   &_swigt__p_MedicalSystem__HealthPartStatus__PartType,
-  &_swigt__p_MeshDataLookup__Dir,
+  &_swigt__p_MeshDataLookup,
   &_swigt__p_MessageForB,
   &_swigt__p_MessageRoller,
   &_swigt__p_ModInfo,
@@ -256463,6 +256440,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t,
   &_swigt__p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t,
   &_swigt__p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t,
+  &_swigt__p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t,
   &_swigt__p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t,
   &_swigt__p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t,
   &_swigt__p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t,
@@ -256540,7 +256518,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_p_CharacterAnimal,
   &_swigt__p_p_CharacterHuman,
   &_swigt__p_p_Ogre__MovableObject,
-  &_swigt__p_p_void,
   &_swigt__p_physHit,
   &_swigt__p_rendHit,
   &_swigt__p_short,
@@ -256566,6 +256543,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_unsigned_int,
   &_swigt__p_unsigned_long_long,
   &_swigt__p_unsigned_short,
+  &_swigt__p_void,
 };
 
 static swig_cast_info _swigc__p_AI[] = {  {&_swigt__p_AI, 0, 0, 0},{0, 0, 0, 0}};
@@ -256690,7 +256668,7 @@ static swig_cast_info _swigc__p_Logger[] = {  {&_swigt__p_Logger, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_MedicalSystem[] = {  {&_swigt__p_MedicalSystem, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MedicalSystem__HealthPartStatus[] = {  {&_swigt__p_MedicalSystem__HealthPartStatus, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MedicalSystem__HealthPartStatus__PartType[] = {  {&_swigt__p_MedicalSystem__HealthPartStatus__PartType, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_MeshDataLookup__Dir[] = {  {&_swigt__p_MeshDataLookup__Dir, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_MeshDataLookup[] = {  {&_swigt__p_MeshDataLookup, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MessageForB[] = {  {&_swigt__p_MessageForB, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_MessageRoller[] = {  {&_swigt__p_MessageRoller, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ModInfo[] = {  {&_swigt__p_ModInfo, 0, 0, 0},{0, 0, 0, 0}};
@@ -256832,6 +256810,7 @@ static swig_cast_info _swigc__p_boost__filesystem__path[] = {  {&_swigt__p_boost
 static swig_cast_info _swigc__p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t[] = {  {&_swigt__p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t[] = {  {&_swigt__p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t[] = {  {&_swigt__p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t[] = {  {&_swigt__p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t[] = {  {&_swigt__p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t[] = {  {&_swigt__p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t[] = {  {&_swigt__p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -256909,7 +256888,6 @@ static swig_cast_info _swigc__p_p_CharacterAnimal[] = {{&_swigt__p_p_CharacterAn
 static swig_cast_info _swigc__p_p_CharacterHuman[] = {{&_swigt__p_p_CharacterHuman, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_Character[] = {  {&_swigt__p_p_CharacterAnimal, _p_p_CharacterAnimalTo_p_p_Character, 0, 0},  {&_swigt__p_p_CharacterHuman, _p_p_CharacterHumanTo_p_p_Character, 0, 0},  {&_swigt__p_p_Character, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_Ogre__MovableObject[] = {  {&_swigt__p_p_Ogre__MovableObject, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_p_void[] = {  {&_swigt__p_p_void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_physHit[] = {  {&_swigt__p_physHit, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_rendHit[] = {  {&_swigt__p_rendHit, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
@@ -256935,6 +256913,7 @@ static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 
 static swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_long_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_AI,
@@ -257059,7 +257038,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_MedicalSystem,
   _swigc__p_MedicalSystem__HealthPartStatus,
   _swigc__p_MedicalSystem__HealthPartStatus__PartType,
-  _swigc__p_MeshDataLookup__Dir,
+  _swigc__p_MeshDataLookup,
   _swigc__p_MessageForB,
   _swigc__p_MessageRoller,
   _swigc__p_ModInfo,
@@ -257201,6 +257180,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_boost__functionT_void_fOgre__SharedPtrT_Ogre__Resource_t_void_pF_t,
   _swigc__p_boost__unordered__iterator_detail__c_iteratorT_boost__unordered__detail__ptr_nodeT_std__pairT_hand_const_SeenSomeone_p_t_t_t,
   _swigc__p_boost__unordered__unordered_mapT_GameData_p_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_boost__hashT_GameData_p_t_std__equal_toT_GameData_p_t_Ogre__STLAllocatorT_std__pairT_GameData_pconst_ogre_unordered_mapT_AppearanceManager__Gender__Enum_AppearanceManager__AppearanceData_t__type_t_Ogre__GeneralAllocPolicy_t_t,
+  _swigc__p_boost__unordered__unordered_mapT_Ogre__IdString_lektorT_lektorT_int_t_t_boost__hashT_Ogre__IdString_t_std__equal_toT_Ogre__IdString_t_Ogre__STLAllocatorT_std__pairT_Ogre__IdString_const_lektorT_lektorT_int_t_t_t_Ogre__GeneralAllocPolicy_t_t,
   _swigc__p_boost__unordered__unordered_mapT_Ogre__SharedPtrT_Ogre__Texture_t_float_boost__hashT_Ogre__SharedPtrT_Ogre__Texture_t_t_std__equal_toT_Ogre__SharedPtrT_Ogre__Texture_t_t_Ogre__STLAllocatorT_std__pairT_Ogre__SharedPtrT_Ogre__Texture_t_const_float_t_Ogre__GeneralAllocPolicy_t_t,
   _swigc__p_boost__unordered__unordered_mapT_ResourceLoader__TextureLoadData_p_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_boost__hashT_ResourceLoader__TextureLoadData_p_t_std__equal_toT_ResourceLoader__TextureLoadData_p_t_Ogre__STLAllocatorT_std__pairT_ResourceLoader__TextureLoadData_pconst_Ogre__FastArrayT_ResourceLoader__ResourceLoadRequestTexture_p_t_t_Ogre__GeneralAllocPolicy_t_t,
   _swigc__p_boost__unordered__unordered_mapT_std__string_AttachedEntity_p_boost__hashT_std__string_t_std__equal_toT_std__string_t_Ogre__STLAllocatorT_std__pairT_std__string_const_AttachedEntity_p_t_Ogre__GeneralAllocPolicy_t_t,
@@ -257278,7 +257258,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_p_CharacterAnimal,
   _swigc__p_p_CharacterHuman,
   _swigc__p_p_Ogre__MovableObject,
-  _swigc__p_p_void,
   _swigc__p_physHit,
   _swigc__p_rendHit,
   _swigc__p_short,
@@ -257304,6 +257283,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_unsigned_int,
   _swigc__p_unsigned_long_long,
   _swigc__p_unsigned_short,
+  _swigc__p_void,
 };
 
 
@@ -257995,8 +257975,21 @@ SWIG_init(void) {
   SWIG_InstallConstants(d,swig_const_table);
   
   SWIG_Python_SetConstant(d, "SWIG_name",SWIG_FromCharPtr("KenshiPy"));
-  SWIG_Python_SetConstant(d, "SUCCESS",SWIG_From_int(static_cast< int >(KenshiLib::SUCCESS)));
-  SWIG_Python_SetConstant(d, "FAIL",SWIG_From_int(static_cast< int >(KenshiLib::FAIL)));
+  SWIG_Python_SetConstant(d, "MeshDataLookup_FRONT",SWIG_From_int(static_cast< int >(MeshDataLookup::FRONT)));
+  SWIG_Python_SetConstant(d, "MeshDataLookup_BACK",SWIG_From_int(static_cast< int >(MeshDataLookup::BACK)));
+  SWIG_Python_SetConstant(d, "MeshDataLookup_NUM_DIRS",SWIG_From_int(static_cast< int >(MeshDataLookup::NUM_DIRS)));
+  SWIG_Python_SetConstant(d, "BD_NONE",SWIG_From_int(static_cast< int >(BD_NONE)));
+  SWIG_Python_SetConstant(d, "BD_SHOP",SWIG_From_int(static_cast< int >(BD_SHOP)));
+  SWIG_Python_SetConstant(d, "BD_BARRACKS",SWIG_From_int(static_cast< int >(BD_BARRACKS)));
+  SWIG_Python_SetConstant(d, "BD_BAR",SWIG_From_int(static_cast< int >(BD_BAR)));
+  SWIG_Python_SetConstant(d, "BD_HOSPITAL",SWIG_From_int(static_cast< int >(BD_HOSPITAL)));
+  SWIG_Python_SetConstant(d, "BD_ARMOURY",SWIG_From_int(static_cast< int >(BD_ARMOURY)));
+  SWIG_Python_SetConstant(d, "BD_TREASURE",SWIG_From_int(static_cast< int >(BD_TREASURE)));
+  SWIG_Python_SetConstant(d, "BD_PRISON",SWIG_From_int(static_cast< int >(BD_PRISON)));
+  SWIG_Python_SetConstant(d, "BD_HQ",SWIG_From_int(static_cast< int >(BD_HQ)));
+  SWIG_Python_SetConstant(d, "BD_RESIDENTIAL",SWIG_From_int(static_cast< int >(BD_RESIDENTIAL)));
+  SWIG_Python_SetConstant(d, "BD_SLAVE_STORAGE",SWIG_From_int(static_cast< int >(BD_SLAVE_STORAGE)));
+  SWIG_Python_SetConstant(d, "BD_RESIDENTIAL_SMALL",SWIG_From_int(static_cast< int >(BD_RESIDENTIAL_SMALL)));
   SWIG_Python_SetConstant(d, "BCTYPE_FLUFF",SWIG_From_int(static_cast< int >(BCTYPE_FLUFF)));
   SWIG_Python_SetConstant(d, "BCTYPE_DOOR",SWIG_From_int(static_cast< int >(BCTYPE_DOOR)));
   SWIG_Python_SetConstant(d, "BCTYPE_USABLE",SWIG_From_int(static_cast< int >(BCTYPE_USABLE)));
@@ -258269,18 +258262,6 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ANIMATION_FILE",SWIG_From_int(static_cast< int >(ANIMATION_FILE)));
   SWIG_Python_SetConstant(d, "____XXX___",SWIG_From_int(static_cast< int >(____XXX___)));
   SWIG_Python_SetConstant(d, "OBJECT_TYPE_MAX",SWIG_From_int(static_cast< int >(OBJECT_TYPE_MAX)));
-  SWIG_Python_SetConstant(d, "BD_NONE",SWIG_From_int(static_cast< int >(BD_NONE)));
-  SWIG_Python_SetConstant(d, "BD_SHOP",SWIG_From_int(static_cast< int >(BD_SHOP)));
-  SWIG_Python_SetConstant(d, "BD_BARRACKS",SWIG_From_int(static_cast< int >(BD_BARRACKS)));
-  SWIG_Python_SetConstant(d, "BD_BAR",SWIG_From_int(static_cast< int >(BD_BAR)));
-  SWIG_Python_SetConstant(d, "BD_HOSPITAL",SWIG_From_int(static_cast< int >(BD_HOSPITAL)));
-  SWIG_Python_SetConstant(d, "BD_ARMOURY",SWIG_From_int(static_cast< int >(BD_ARMOURY)));
-  SWIG_Python_SetConstant(d, "BD_TREASURE",SWIG_From_int(static_cast< int >(BD_TREASURE)));
-  SWIG_Python_SetConstant(d, "BD_PRISON",SWIG_From_int(static_cast< int >(BD_PRISON)));
-  SWIG_Python_SetConstant(d, "BD_HQ",SWIG_From_int(static_cast< int >(BD_HQ)));
-  SWIG_Python_SetConstant(d, "BD_RESIDENTIAL",SWIG_From_int(static_cast< int >(BD_RESIDENTIAL)));
-  SWIG_Python_SetConstant(d, "BD_SLAVE_STORAGE",SWIG_From_int(static_cast< int >(BD_SLAVE_STORAGE)));
-  SWIG_Python_SetConstant(d, "BD_RESIDENTIAL_SMALL",SWIG_From_int(static_cast< int >(BD_RESIDENTIAL_SMALL)));
   SWIG_Python_SetConstant(d, "BF_ANY",SWIG_From_int(static_cast< int >(BF_ANY)));
   SWIG_Python_SetConstant(d, "BF_MINE",SWIG_From_int(static_cast< int >(BF_MINE)));
   SWIG_Python_SetConstant(d, "BF_RESOURCE_STORAGE",SWIG_From_int(static_cast< int >(BF_RESOURCE_STORAGE)));
