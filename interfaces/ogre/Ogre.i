@@ -36,7 +36,7 @@
 #include "OgreController.h"
 #include "OgreControllerManager.h"
 #include "OgreConvexBody.h"
-//#include "OgreCustomCompositionPass.h"
+//#include "OgreCustomCompositionPass.h" // Error from unresolved include so commentted out
 #include "OgreDataStream.h"
 #include "OgreDDSCodec.h"
 #include "OgreDefaultHardwareBufferManager.h"
@@ -249,10 +249,6 @@
 #include "OgreWireBoundingBox.h"
 #include "OgreWorkQueue.h"
 #include "OgreZip.h"
-#include "Sample.h"
-#include "SampleContext.h"
-#include "SamplePlugin.h"
 #include "SdkCameraMan.h"
-#include "SdkSample.h"
 #include "SdkTrays.h"
 %}

@@ -8,7 +8,7 @@
 
 %{
 #include "Debug.h"
-//#include "core/Functions.h"
+//#include "Functions.h // Unable to properly wrap hooking functionality. Needs work
 
 #include "kenshi/Appearance.h"
 #include "kenshi/Bounty.h"
@@ -84,7 +84,8 @@
 %include "stdint.i"
 
 %include "core/Debug.i"
-%include "core/Functions.i"
+//%include "core/Functions.i" //check note above
+
 %include "kenshi/Appearance.i"
 %include "kenshi/AppearanceManager.i"
 %include "kenshi/Building/Building.i"
@@ -155,10 +156,10 @@
 %include "kenshi/util/UtilityT.i"
 
 //MyGUI
-%include "mygui/MyGUI.i"
+//%include "mygui/MyGUI.i"
 
 //Ogre
-%include "ogre/Ogre.i"
+//%include "ogre/Ogre.i"
 
 // Python callbacks
 %{
