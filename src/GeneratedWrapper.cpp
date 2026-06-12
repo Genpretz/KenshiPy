@@ -204847,25 +204847,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RegisterFrameCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PyObject *arg1 = (PyObject *) 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:RegisterFrameCallback",&obj0)) SWIG_fail;
-  arg1 = obj0;
-  {
-    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
-    RegisterFrameCallback(arg1);
-    SWIG_PYTHON_THREAD_END_ALLOW;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_UnregisterKeyDownCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   PyObject *arg1 = (PyObject *) 0 ;
@@ -204885,6 +204866,25 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_RegisterFrameCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:RegisterFrameCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    RegisterFrameCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_UnregisterFrameCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   PyObject *arg1 = (PyObject *) 0 ;
@@ -204895,6 +204895,158 @@ SWIGINTERN PyObject *_wrap_UnregisterFrameCallback(PyObject *SWIGUNUSEDPARM(self
   {
     SWIG_PYTHON_THREAD_BEGIN_ALLOW;
     UnregisterFrameCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RegisterCharacterSayCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:RegisterCharacterSayCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    RegisterCharacterSayCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UnregisterCharacterSayCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:UnregisterCharacterSayCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    UnregisterCharacterSayCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RegisterCharacterSelectCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:RegisterCharacterSelectCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    RegisterCharacterSelectCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UnregisterCharacterSelectCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:UnregisterCharacterSelectCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    UnregisterCharacterSelectCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RegisterCharacterUnselectCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:RegisterCharacterUnselectCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    RegisterCharacterUnselectCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UnregisterCharacterUnselectCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:UnregisterCharacterUnselectCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    UnregisterCharacterUnselectCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RegisterCharacterDeclareDeadCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:RegisterCharacterDeclareDeadCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    RegisterCharacterDeclareDeadCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UnregisterCharacterDeclareDeadCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:UnregisterCharacterDeclareDeadCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    UnregisterCharacterDeclareDeadCallback(arg1);
     SWIG_PYTHON_THREAD_END_ALLOW;
   }
   resultobj = SWIG_Py_Void();
@@ -255677,14 +255829,6 @@ static PyMethodDef SwigMethods[] = {
 		"callable: PyObject *\n"
 		"\n"
 		""},
-	 { (char *)"RegisterFrameCallback", _wrap_RegisterFrameCallback, METH_VARARGS, (char *)"\n"
-		"RegisterFrameCallback(PyObject * callable)\n"
-		"\n"
-		"Parameters\n"
-		"----------\n"
-		"callable: PyObject *\n"
-		"\n"
-		""},
 	 { (char *)"UnregisterKeyDownCallback", _wrap_UnregisterKeyDownCallback, METH_VARARGS, (char *)"\n"
 		"UnregisterKeyDownCallback(PyObject * callable)\n"
 		"\n"
@@ -255693,8 +255837,80 @@ static PyMethodDef SwigMethods[] = {
 		"callable: PyObject *\n"
 		"\n"
 		""},
+	 { (char *)"RegisterFrameCallback", _wrap_RegisterFrameCallback, METH_VARARGS, (char *)"\n"
+		"RegisterFrameCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
 	 { (char *)"UnregisterFrameCallback", _wrap_UnregisterFrameCallback, METH_VARARGS, (char *)"\n"
 		"UnregisterFrameCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"RegisterCharacterSayCallback", _wrap_RegisterCharacterSayCallback, METH_VARARGS, (char *)"\n"
+		"RegisterCharacterSayCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"UnregisterCharacterSayCallback", _wrap_UnregisterCharacterSayCallback, METH_VARARGS, (char *)"\n"
+		"UnregisterCharacterSayCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"RegisterCharacterSelectCallback", _wrap_RegisterCharacterSelectCallback, METH_VARARGS, (char *)"\n"
+		"RegisterCharacterSelectCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"UnregisterCharacterSelectCallback", _wrap_UnregisterCharacterSelectCallback, METH_VARARGS, (char *)"\n"
+		"UnregisterCharacterSelectCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"RegisterCharacterUnselectCallback", _wrap_RegisterCharacterUnselectCallback, METH_VARARGS, (char *)"\n"
+		"RegisterCharacterUnselectCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"UnregisterCharacterUnselectCallback", _wrap_UnregisterCharacterUnselectCallback, METH_VARARGS, (char *)"\n"
+		"UnregisterCharacterUnselectCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"RegisterCharacterDeclareDeadCallback", _wrap_RegisterCharacterDeclareDeadCallback, METH_VARARGS, (char *)"\n"
+		"RegisterCharacterDeclareDeadCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"UnregisterCharacterDeclareDeadCallback", _wrap_UnregisterCharacterDeclareDeadCallback, METH_VARARGS, (char *)"\n"
+		"UnregisterCharacterDeclareDeadCallback(PyObject * callable)\n"
 		"\n"
 		"Parameters\n"
 		"----------\n"
