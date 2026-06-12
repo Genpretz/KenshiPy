@@ -36,17 +36,8 @@
     <ClCompile Include="src\GeneratedWrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RE_Kenshi\MiscHooks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\ArtifactItemData_stub.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CharMovement_guarded.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Callbacks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -137,7 +128,6 @@
     <None Include="interfaces\mygui\MyGUI.i" />
     <None Include="interfaces\ogre\Ogre.i" />
     <None Include="interfaces\kenshi\AppearanceManager.i" />
-    <None Include="src\KenshiPyHook.py" />
     <None Include="interfaces\kenshi\BuildingDesignation_enum.i" />
   </ItemGroup>
 </Project>

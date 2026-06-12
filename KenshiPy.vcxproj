@@ -48,9 +48,10 @@
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;KENSHILIB_INTERNAL;SWIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(BOOST_INCLUDE_PATH);$(PYTHON34_INSTALL_DIR)include;$(ProjectDir)extern\rapidjson\include;$(ProjectDir)extern\KenshiLib\Include;$(ProjectDir)exterm\KenshiLib\Include\ogre;$(ProjectDir)extern\KenshiLib\Include\ois;$(ProjectDir)extern\KenshiLib\Include\ogre\Compositor;$(ProjectDir)extern\KenshiLib\Include\ogre\Animation;$(ProjectDir)extern\KenshiLib\Include\ogre\Hash;$(ProjectDir)extern\KenshiLib\Include\ogre\Math;$(ProjectDir)extern\KenshiLib\Include\ogre\MeshLodGenerator;$(ProjectDir)extern\KenshiLib\Include\ogre\Overlay;$(ProjectDir)extern\KenshiLib\Include\ogre\Plugins;$(ProjectDir)extern\KenshiLib\Include\ogre\RenderSystems;$(ProjectDir)extern\KenshiLib\Include\ogre\Threading;$(ProjectDir)extern\KenshiLib\Include\ogre\WIN32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <MinimalRebuild>true</MinimalRebuild>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
