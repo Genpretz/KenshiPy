@@ -49,7 +49,7 @@ The parts of KenshiLib that explicitly do not work:
 - Bindings allowing MyGUI widgets to be created from Python
 - More callbacks
 
-### Toolchain Constraints
+#### Toolchain Constraints
 
 KenshiPy relies on SWIG 3.0.12 and Python 3.4 due to strict ABI and binary compatibility requirements with the target runtime environment.
 
