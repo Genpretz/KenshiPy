@@ -4,8 +4,6 @@ KenshiPy is a DLL extension for [Kenshi](https://store.steampowered.com/app/2338
 
 The goal is to provide a Python scripting workflow to mod Kenshi and lowers the barrier to entry for utilizing KenshiLib through rapid iteration and scripting.
 
----
-
 ## Overview
 
 [RE_Kenshi](https://www.nexusmods.com/kenshi/mods/847) ([GitHub](https://github.com/BFrizzleFoShizzle/RE_Kenshi)) is a Kenshi mod that adds improvements that can't be achieved through traditional mod tools, including a C++ plugin system for modifying the game's code. KenshiLib builds on this to allow developers to write C++ DLLs that integrate directly with Kenshi's runtime. KenshiPy follows the same architectural pattern:
@@ -51,10 +49,8 @@ The parts of KenshiLib that explicitly do not work:
 ## Installation
 
 1. Ensure [RE_Kenshi](https://www.nexusmods.com/kenshi/mods/847) v0.3.3 or later is installed.
-2. Download the latest release and extract the archive, placing the contents in Kenshi's `mods` directory.
+2. Download the latest release of KenshiPy and extract the archive, placing the contents in Kenshi's `mods` directory.
 3. Activate the mod using the game's launcher like you would any other mod.
-
----
 
 ## Usage
 
@@ -92,14 +88,12 @@ import KenshiPy
 KenshiPy.DebugLog("Hello from Python")
 ```
 
----
-
 ## Compiling from Source
  
 **Quick Guide**
 1. Use SWIG 3.0.12 to generate the Python binding wrapper, `GeneratedWrappper.cpp`, and KenshiPy Python module, `KenshiPy.py`, from KenshiLib's headers and KenshiPy's interface files
 2. Compile the generated wrapper alongside the rest of KenshiPy's source into `KenshiPy.dll`
-3. Place the `KenshiPy.dll` and `KenshiPy.py` along with `python34.dll`, `ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into a mod folder named `KenshiPython`
+3. Place the `KenshiPy.dll` and `KenshiPy.py` along with `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into a mod folder named `KenshiPython`
 ### Prerequisites
  
 - **Visual Studio 2010 Professional/Ultimate**
@@ -119,7 +113,7 @@ The project's include paths, library paths, and build events use environment var
  
 `KenshiPy.vcxproj` can be built using Visual Studio's standard build option and includes two custom build events to help streamline the process. These events are disabled by default. If you choose to enable them, you can find them described below. If you prefer not to use them, manual alternatives are provided.
  
-**Pre-Build Event**
+#### Pre-Build Event:
 When this event is enabled, SWIG parses KenshiLib's headers and KenshiPy's interface files in order to generate the Python bindings, writing the output to `.\src\GeneratedWrapper.cpp` and `$(SolutionDir)bin\$(Configuration)\KenshiPython\KenshiPy.py`
 
 When this event is disabled, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository and move on, or run SWIG manually to generate the required files:
@@ -130,13 +124,12 @@ set OUTPUT_DIR=%SolutionDir%bin\%Configuration%\KenshiPython
 
 "%SWIG_INSTALL_DIR%swig.exe" -Wall -v -c++ -python -threads -I"%SolutionDir%include" -I"%SolutionDir%interfaces" -I"%SolutionDir%extern\KenshiLib\Include" -outdir "%OUTPUT_DIR%" -o "%SolutionDir%src\GeneratedWrapper.cpp" "%SolutionDir%interfaces\KenshiPy.i"
 ```
+**NOTE:** The large size of `GeneratedWrapper.cpp` and therefore `GenerateWrapper.obj` leads to long build times. In my experience they can be upwards of of around **1 hour** when building with Optimizations enabled (which they are by default).
  
-**Post-Build Event**
-This event copies `python34.dll`, `ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
+#### Post-Build Event:
+This event copies `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
  
- Requiring one to manually copy the build output, `python34.dll`, `ScriptEditor_EditBox.xml`, and `RE_Kensh.json` into Kenshi's mods folder.
- 
----
+Choosing not to enable the Post_Build Event requires manually copying the build output, `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, and `RE_Kensh.json` into Kenshi's mods folder.
 
 ## Callbacks
 
