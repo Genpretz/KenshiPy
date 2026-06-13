@@ -6,11 +6,15 @@ The goal is to provide a Python scripting workflow to mod Kenshi and lowers the 
 
 ## Overview
 
-[RE_Kenshi](https://www.nexusmods.com/kenshi/mods/847) ([GitHub](https://github.com/BFrizzleFoShizzle/RE_Kenshi)) is a Kenshi mod that adds improvements that can't be achieved through traditional mod tools, including a C++ plugin system for modifying the game's code. KenshiLib builds on this to allow developers to write C++ DLLs that integrate directly with Kenshi's runtime. KenshiPy follows the same architectural pattern:
+Loaded at runtime through RE_Kenshi, KenshiPy exposes selected portions of KenshiLib through automatically generated Python bindings, enabling rapid development, experimentation, and mod creation without requiring direct interaction with the underlying C++ APIs.
 
-- Compiled DLL is loaded into Kenshi at runtime
-- Embeds a **Python interpreter**
-- Exposes KenshiLib APIs through **SWIG** generated bindings
+KenshiPy currently provides:
+
+- Runtime integration with Kenshi through RE_Kenshi
+- Access to KenshiLib functionality through generated bindings
+- A foundation for scripting and gameplay extensions
+- Faster iteration compared to traditional C++ mod development
+- Support for Python through generated bindings
 
 ## How much of KenshiLib can be used from Python?
 
