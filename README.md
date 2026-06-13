@@ -8,13 +8,21 @@ The goal is to provide a Python scripting workflow to mod Kenshi and lowers the 
 
 Loaded at runtime through RE_Kenshi, KenshiPy exposes selected portions of KenshiLib through automatically generated Python bindings, enabling rapid development, experimentation, and mod creation without requiring direct interaction with the underlying C++ APIs.
 
-KenshiPy currently provides:
+#### KenshiPy currently provides:
 
 - Runtime integration with Kenshi through RE_Kenshi
 - Access to KenshiLib functionality through generated bindings
 - A foundation for scripting and gameplay extensions
 - Faster iteration compared to traditional C++ mod development
 - Support for Python through generated bindings
+
+
+#### Toolchain Constraints:
+
+The game and KenshiLib are built against MSVC2010-era assumptions, including C++ ABI layout, runtime library behavior, and Python embedding conventions. KenshiPy must match these constraints to ensure stable integration.
+
+* **SWIG 3.0.12** is used because newer versions may generate bindings incompatible with MSVC2010-era C++ ABI expectations.
+* **Python 3.4** is required to maintain compatibility with the embedded interpreter ABI and avoid breakage introduced in later Python versions.
 
 ## How much of KenshiLib can be used from Python?
 
@@ -48,17 +56,6 @@ The parts of KenshiLib that explicitly do not work:
 - Support for lektor<T>, ogre_unordered_set, and ogre_unordered_map types
 - Bindings allowing MyGUI widgets to be created from Python
 - More callbacks
-
-#### Toolchain Constraints
-
-KenshiPy relies on SWIG 3.0.12 and Python 3.4 due to strict ABI and binary compatibility requirements with the target runtime environment.
-
-The game and KenshiLib are built against MSVC2010-era assumptions, including C++ ABI layout, runtime library behavior, and Python embedding conventions. KenshiPy must match these constraints to ensure stable integration.
-
-* **SWIG 3.0.12** is used because newer versions may generate bindings incompatible with MSVC2010-era C++ ABI expectations.
-* **Python 3.4** is required to maintain compatibility with the embedded interpreter ABI and avoid breakage introduced in later Python versions.
-
-Deviating from these versions risks undefined behavior, symbol mismatches, and runtime instability. While outdated, these dependencies are intentionally pinned to preserve binary compatibility with the existing engine.
 
 ## Installation
 
