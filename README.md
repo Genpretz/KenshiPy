@@ -16,14 +16,6 @@ Loaded at runtime through RE_Kenshi, KenshiPy exposes selected portions of Kensh
 - Faster iteration compared to traditional C++ mod development
 - Support for Python through generated bindings
 
-
-#### Toolchain Constraints:
-
-The game and KenshiLib are built against MSVC2010-era assumptions, including C++ ABI layout, runtime library behavior, and Python embedding conventions. KenshiPy must match these constraints to ensure stable integration.
-
-* **SWIG 3.0.12** is used because newer versions may generate bindings incompatible with MSVC2010-era C++ ABI expectations.
-* **Python 3.4** is required to maintain compatibility with the embedded interpreter ABI and avoid breakage introduced in later Python versions.
-
 ## How much of KenshiLib can be used from Python?
 
 It's safe to assume that basically all functions that use standard types (ints, floats, bools, etc) should be usable.
@@ -112,8 +104,6 @@ KenshiPy.DebugLog("Hello from Python")
 - **SWIG 3.0.12**
 - **Python 3.4**
 - **Kenshi**
-
-The project's include paths, library paths, and build events use environment variables to account for varying installation locations, avoiding the need to hardcode paths in the project file. You will need to set the variables listed below before building.
  
 1. **SWIG 3.0.12** — set environment variable `SWIG_INSTALL_DIR` to SWIG's root directory (e.g. `C:\swigwin-3.0.12\`)
 2. **Python 3.4** — set environment variable `PYTHON34_INSTALL_DIR` to Python 3.4's root directory (e.g. `C:\Python34\`)
@@ -141,6 +131,15 @@ set OUTPUT_DIR=%SolutionDir%bin\%Configuration%\KenshiPython
 This event copies `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
  
 Choosing not to enable the Post_Build Event requires manually copying the build output, `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, and `RE_Kensh.json` into Kenshi's mods folder.
+
+#### Notes on Toolchain Constraints:
+
+The game and KenshiLib are built against MSVC2010-era assumptions, including C++ ABI layout, runtime library behavior, and Python embedding conventions. KenshiPy must match these constraints to ensure stable integration.
+
+* **SWIG 3.0.12** is used because newer versions may generate bindings incompatible with MSVC2010-era C++ ABI expectations.
+* **Python 3.4** is required to maintain compatibility with the embedded interpreter ABI and avoid breakage introduced in later Python versions.
+
+The project's include paths, library paths, and build events use environment variables to account for varying installation locations, avoiding the need to hardcode paths in the project file. You will need to set the variables listed below before building.
 
 ## Callbacks
 
