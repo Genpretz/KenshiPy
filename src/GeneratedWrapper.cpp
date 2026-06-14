@@ -205056,6 +205056,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_RegisterTakeMoneyCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:RegisterTakeMoneyCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    RegisterTakeMoneyCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UnregisterTakeMoneyCallback(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyObject *arg1 = (PyObject *) 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:UnregisterTakeMoneyCallback",&obj0)) SWIG_fail;
+  arg1 = obj0;
+  {
+    SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+    UnregisterTakeMoneyCallback(arg1);
+    SWIG_PYTHON_THREAD_END_ALLOW;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"DebugLog", _wrap_DebugLog, METH_VARARGS, (char *)"\n"
@@ -255911,6 +255949,22 @@ static PyMethodDef SwigMethods[] = {
 		""},
 	 { (char *)"UnregisterCharacterDeclareDeadCallback", _wrap_UnregisterCharacterDeclareDeadCallback, METH_VARARGS, (char *)"\n"
 		"UnregisterCharacterDeclareDeadCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"RegisterTakeMoneyCallback", _wrap_RegisterTakeMoneyCallback, METH_VARARGS, (char *)"\n"
+		"RegisterTakeMoneyCallback(PyObject * callable)\n"
+		"\n"
+		"Parameters\n"
+		"----------\n"
+		"callable: PyObject *\n"
+		"\n"
+		""},
+	 { (char *)"UnregisterTakeMoneyCallback", _wrap_UnregisterTakeMoneyCallback, METH_VARARGS, (char *)"\n"
+		"UnregisterTakeMoneyCallback(PyObject * callable)\n"
 		"\n"
 		"Parameters\n"
 		"----------\n"
