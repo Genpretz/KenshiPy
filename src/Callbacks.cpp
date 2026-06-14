@@ -3,6 +3,7 @@
 #include "SwigPyRuntime.h"
 
 #include "kenshi\Character.h"
+#include "kenshi\Inventory.h"
 
 #include <Python.h>
 #include <Ogre.h>
@@ -10,397 +11,246 @@
 #include <vector>
 #include <string>
 
-// ---------------------------------------------------------------------------
-// SWIG runtime helpers
-// ---------------------------------------------------------------------------
-// The module's SWIG wrapper code provides these symbols. We use them to wrap
-// raw Kenshi pointers (e.g. Character*) into the corresponding Python objects
-// (e.g. KenshiPy.Character).
-struct swig_type_info;
-swig_type_info* SWIG_Python_TypeQuery(const char* type);
-PyObject* SWIG_Python_NewPointerObj(PyObject* self, void* ptr, swig_type_info* type, int flags);
-
-static swig_type_info* ResolveCharacterSwigType()
-{
-    static swig_type_info* g_type = nullptr;
-    static bool g_resolved = false;
-    if (!g_resolved)
-    {
-        // This must match the SWIG type name for Character* in the generated wrapper.
-        g_type = SWIG_Python_TypeQuery("Character *");
-        g_resolved = true;
-    }
-    return g_type;
-}
-
-static PyObject* WrapCharacterPointer(Character* c)
-{
-    if (!c)
-    {
-        Py_INCREF(Py_None);
-        return Py_None;
-    }
-
-    swig_type_info* type = ResolveCharacterSwigType();
-    if (!type)
-    {
-        // Fallback: return a raw address as an int (so callbacks can still run).
-        return PyLong_FromVoidPtr(static_cast<void*>(c));
-    }
-
-    // flags=0: non-owning reference to an existing in-game object.
-    return SWIG_Python_NewPointerObj(nullptr, static_cast<void*>(c), type, 0);
-}
-
-
-
 
 // ---------------------------------------------------------------------------
-// Key-down callbacks
-// ---------------------------------------------------------------------------
-
-static std::vector<PyObject*> g_keyDownCallbacks;
-
-void RegisterKeyDownCallback(PyObject* callable)
-{
-    if (!callable || !PyCallable_Check(callable))
-    {
-        Logger::Error("RegisterKeyDownCallback: argument is not callable");
-        return;
-    }
-    Py_INCREF(callable);
-    g_keyDownCallbacks.push_back(callable);
-}
-
-void UnregisterKeyDownCallback(PyObject* callable)
-{
-    for (auto it = g_keyDownCallbacks.begin(); it != g_keyDownCallbacks.end(); ++it)
-    {
-        if (*it == callable)
-        {
-            Py_DECREF(*it);
-            g_keyDownCallbacks.erase(it);
-            return;
-        }
-    }
-}
-
-void CallKeyDownCallbacks(int keyCode)
-{
-    if (g_keyDownCallbacks.empty())
-        return;
-
-    PyGILState_STATE gs = PyGILState_Ensure();
-
-    PyObject* pyKey = PyLong_FromLong(keyCode);
-
-    for (std::vector<PyObject*>::iterator it = g_keyDownCallbacks.begin();
-        it != g_keyDownCallbacks.end();
-        ++it)
-    {
-        PyObject* cb = *it;
-
-        PyObject* result = PyObject_CallFunctionObjArgs(cb, pyKey, nullptr);
-
-        if (!result)
-            PyErr_Clear();   // don't let one bad callback kill the rest
-        else
-            Py_DECREF(result);
-    }
-
-    Py_DECREF(pyKey);
-    PyGILState_Release(gs);
-}
-
-// ---------------------------------------------------------------------------
-// Character::say callbacks — callable receives (Character, str)
-// ---------------------------------------------------------------------------
-static std::vector<PyObject*> g_characterSayCallbacks;
-
-void RegisterCharacterSayCallback(PyObject* callable)
-{
-    if (!callable || !PyCallable_Check(callable))
-    {
-        Logger::Error("RegisterCharacterSayCallback: argument is not callable");
-        return;
-    }
-    Py_INCREF(callable);
-    g_characterSayCallbacks.push_back(callable);
-}
-
-void UnregisterCharacterSayCallback(PyObject* callable)
-{
-    for (auto it = g_characterSayCallbacks.begin(); it != g_characterSayCallbacks.end(); ++it)
-    {
-        if (*it == callable)
-        {
-            Py_DECREF(*it);
-            g_characterSayCallbacks.erase(it);
-            return;
-        }
-    }
-}
-
-void CallCharacterSayCallbacks(Character* c, const std::string& msg)
-{
-    if (g_characterSayCallbacks.empty())
-        return;
-
-    PyGILState_STATE gs = PyGILState_Ensure();
-
-    PyObject* pyChar = WrapCharacterPointer(c);
-    PyObject* pyMsg = PyUnicode_FromString(msg.c_str());
-
-    if (!pyChar || !pyMsg)
-    {
-        Py_XDECREF(pyChar);
-        Py_XDECREF(pyMsg);
-        PyErr_Clear();
-        PyGILState_Release(gs);
-        return;
-    }
-
-    for (auto it = g_characterSayCallbacks.begin(); it != g_characterSayCallbacks.end(); ++it)
-    {
-        PyObject* cb = *it;
-        PyObject* result = PyObject_CallFunctionObjArgs(cb, pyChar, pyMsg, nullptr);
-        if (!result)
-            PyErr_Clear();
-        else
-            Py_DECREF(result);
-    }
-
-    Py_DECREF(pyChar);
-    Py_DECREF(pyMsg);
-    PyGILState_Release(gs);
-}
-
-// ---------------------------------------------------------------------------
-// Character::_NV_select callbacks — callable receives (Character)
-// ---------------------------------------------------------------------------
-static std::vector<PyObject*> g_characterSelectCallbacks;
-
-void RegisterCharacterSelectCallback(PyObject* callable)
-{
-    if (!callable || !PyCallable_Check(callable))
-    {
-        Logger::Error("RegisterCharacterSelectCallback: argument is not callable");
-        return;
-    }
-    Py_INCREF(callable);
-    g_characterSelectCallbacks.push_back(callable);
-}
-
-void UnregisterCharacterSelectCallback(PyObject* callable)
-{
-    for (auto it = g_characterSelectCallbacks.begin(); it != g_characterSelectCallbacks.end(); ++it)
-    {
-        if (*it == callable)
-        {
-            Py_DECREF(*it);
-            g_characterSelectCallbacks.erase(it);
-            return;
-        }
-    }
-}
-
-void CallCharacterSelectCallbacks(Character* c)
-{
-    if (g_characterSelectCallbacks.empty())
-        return;
-
-    PyGILState_STATE gs = PyGILState_Ensure();
-    PyObject* pyChar = WrapCharacterPointer(c);
-    if (!pyChar)
-    {
-        PyErr_Clear();
-        PyGILState_Release(gs);
-        return;
-    }
-
-    for (auto it = g_characterSelectCallbacks.begin(); it != g_characterSelectCallbacks.end(); ++it)
-    {
-        PyObject* cb = *it;
-        PyObject* result = PyObject_CallFunctionObjArgs(cb, pyChar, nullptr);
-        if (!result)
-            PyErr_Clear();
-        else
-            Py_DECREF(result);
-    }
-
-    Py_DECREF(pyChar);
-    PyGILState_Release(gs);
-}
-
-// ---------------------------------------------------------------------------
-// Character::_NV_unselect callbacks — callable receives (Character)
-// ---------------------------------------------------------------------------
-static std::vector<PyObject*> g_characterUnselectCallbacks;
-
-void RegisterCharacterUnselectCallback(PyObject* callable)
-{
-    if (!callable || !PyCallable_Check(callable))
-    {
-        Logger::Error("RegisterCharacterUnselectCallback: argument is not callable");
-        return;
-    }
-    Py_INCREF(callable);
-    g_characterUnselectCallbacks.push_back(callable);
-}
-
-void UnregisterCharacterUnselectCallback(PyObject* callable)
-{
-    for (auto it = g_characterUnselectCallbacks.begin(); it != g_characterUnselectCallbacks.end(); ++it)
-    {
-        if (*it == callable)
-        {
-            Py_DECREF(*it);
-            g_characterUnselectCallbacks.erase(it);
-            return;
-        }
-    }
-}
-
-void CallCharacterUnselectCallbacks(Character* c)
-{
-    if (g_characterUnselectCallbacks.empty())
-        return;
-
-    PyGILState_STATE gs = PyGILState_Ensure();
-    PyObject* pyChar = WrapCharacterPointer(c);
-    if (!pyChar)
-    {
-        PyErr_Clear();
-        PyGILState_Release(gs);
-        return;
-    }
-
-    for (auto it = g_characterUnselectCallbacks.begin(); it != g_characterUnselectCallbacks.end(); ++it)
-    {
-        PyObject* cb = *it;
-        PyObject* result = PyObject_CallFunctionObjArgs(cb, pyChar, nullptr);
-        if (!result)
-            PyErr_Clear();
-        else
-            Py_DECREF(result);
-    }
-
-    Py_DECREF(pyChar);
-    PyGILState_Release(gs);
-}
-
-// ---------------------------------------------------------------------------
-// Character::declareDead callbacks — callable receives (Character)
-// ---------------------------------------------------------------------------
-static std::vector<PyObject*> g_characterDeclareDeadCallbacks;
-
-void RegisterCharacterDeclareDeadCallback(PyObject* callable)
-{
-    if (!callable || !PyCallable_Check(callable))
-    {
-        Logger::Error("RegisterCharacterDeclareDeadCallback: argument is not callable");
-        return;
-    }
-    Py_INCREF(callable);
-    g_characterDeclareDeadCallbacks.push_back(callable);
-}
-
-void UnregisterCharacterDeclareDeadCallback(PyObject* callable)
-{
-    for (auto it = g_characterDeclareDeadCallbacks.begin(); it != g_characterDeclareDeadCallbacks.end(); ++it)
-    {
-        if (*it == callable)
-        {
-            Py_DECREF(*it);
-            g_characterDeclareDeadCallbacks.erase(it);
-            return;
-        }
-    }
-}
-
-void CallCharacterDeclareDeadCallbacks(Character* c)
-{
-    if (g_characterDeclareDeadCallbacks.empty())
-        return;
-
-    PyGILState_STATE gs = PyGILState_Ensure();
-    PyObject* pyChar = WrapCharacterPointer(c);
-    if (!pyChar)
-    {
-        PyErr_Clear();
-        PyGILState_Release(gs);
-        return;
-    }
-
-    for (auto it = g_characterDeclareDeadCallbacks.begin(); it != g_characterDeclareDeadCallbacks.end(); ++it)
-    {
-        PyObject* cb = *it;
-        PyObject* result = PyObject_CallFunctionObjArgs(cb, pyChar, nullptr);
-        if (!result)
-            PyErr_Clear();
-        else
-            Py_DECREF(result);
-    }
-
-    Py_DECREF(pyChar);
-    PyGILState_Release(gs);
-}
-
-// ---------------------------------------------------------------------------
-// Frame callbacks
+// Callback registry macro toolkit
 //
-// We use an Ogre::FrameListener so we don't need to patch the game loop.
-// Ogre::Root is a singleton — we retrieve it lazily rather than storing a
-// pointer that could dangle or be unset at startup.
+// DEFINE_CALLBACK_LIST(Name) generates the storage vector plus
+// Register##Name##Callback / Unregister##Name##Callback — identical for
+// every callback type regardless of signature.
+//
+// DEFINE_CALL_* macros generate Call##Name##Callbacks for a specific
+// "shape" of signature. Combine list + call macros to get the full
+// register/unregister/call trio for common shapes (see the combined
+// macros below).
 // ---------------------------------------------------------------------------
 
-static std::vector<PyObject*> g_frameCallbacks;
-
-static void CallFrameCallbacks(float deltaTime)
-{
-    if (g_frameCallbacks.empty())
-        return;
-
-    PyGILState_STATE gs = PyGILState_Ensure();
-
-    PyObject* pyDt = PyFloat_FromDouble(static_cast<double>(deltaTime));
-    for (std::vector<PyObject*>::iterator it = g_frameCallbacks.begin();
-        it != g_frameCallbacks.end();
-        ++it)
-    {
-        PyObject* cb = *it;
-
-        PyObject* result = PyObject_CallFunctionObjArgs(cb, pyDt, nullptr);
-        if (!result)
-            PyErr_Clear();
-        else
-            Py_DECREF(result);
+#define DEFINE_CALLBACK_LIST(Name) \
+    static std::vector<PyObject*> g_##Name##Callbacks; \
+    \
+    void Register##Name##Callback(PyObject* callable) \
+    { \
+        if (!callable || !PyCallable_Check(callable)) \
+        { \
+            Logger::Error("Register" #Name "Callback: argument is not callable"); \
+            return; \
+        } \
+        Py_INCREF(callable); \
+        g_##Name##Callbacks.push_back(callable); \
+    } \
+    \
+    void Unregister##Name##Callback(PyObject* callable) \
+    { \
+        for (std::vector<PyObject*>::iterator it = g_##Name##Callbacks.begin(); \
+            it != g_##Name##Callbacks.end(); ++it) \
+        { \
+            if (*it == callable) \
+            { \
+                Py_DECREF(*it); \
+                g_##Name##Callbacks.erase(it); \
+                return; \
+            } \
+        } \
     }
-    Py_DECREF(pyDt);
 
-    PyGILState_Release(gs);
-}
+// --- Call-function shapes -------------------------------------------------
 
-// Internal FrameListener — created on demand, destroyed when unused.
-class PythonFrameListener : public Ogre::FrameListener
+// Single primitive value, e.g. CallKeyDownCallbacks(int), CallFrameCallbacks(float)
+#define DEFINE_CALL_1VALUE(Name, CType, ToPyObj) \
+    void Call##Name##Callbacks(CType val) \
+    { \
+        if (g_##Name##Callbacks.empty()) \
+            return; \
+        PyGILState_STATE gs = PyGILState_Ensure(); \
+        PyObject* pyVal = ToPyObj(val); \
+        if (!pyVal) \
+        { \
+            PyErr_Clear(); \
+            PyGILState_Release(gs); \
+            return; \
+        } \
+        for (std::vector<PyObject*>::iterator it = g_##Name##Callbacks.begin(); \
+            it != g_##Name##Callbacks.end(); ++it) \
+        { \
+            PyObject* result = PyObject_CallFunctionObjArgs(*it, pyVal, nullptr); \
+            if (!result) PyErr_Clear(); else Py_DECREF(result); \
+        } \
+        Py_DECREF(pyVal); \
+        PyGILState_Release(gs); \
+    }
+
+// Single wrapped pointer, e.g. CallCharacterSelectCallbacks(Character*)
+#define DEFINE_CALL_1PTR(Name, PtrType, WrapFn) \
+    void Call##Name##Callbacks(PtrType* obj) \
+    { \
+        if (g_##Name##Callbacks.empty()) \
+            return; \
+        PyGILState_STATE gs = PyGILState_Ensure(); \
+        PyObject* pyObj = WrapFn(obj); \
+        if (!pyObj) \
+        { \
+            PyErr_Clear(); \
+            PyGILState_Release(gs); \
+            return; \
+        } \
+        for (std::vector<PyObject*>::iterator it = g_##Name##Callbacks.begin(); \
+            it != g_##Name##Callbacks.end(); ++it) \
+        { \
+            PyObject* result = PyObject_CallFunctionObjArgs(*it, pyObj, nullptr); \
+            if (!result) PyErr_Clear(); else Py_DECREF(result); \
+        } \
+        Py_DECREF(pyObj); \
+        PyGILState_Release(gs); \
+    }
+
+// Wrapped pointer + primitive value, e.g. CallTakeMoneyCallbacks(Inventory*, int)
+#define DEFINE_CALL_PTR_VALUE(Name, PtrType, WrapFn, ValType, ToPyObj) \
+    void Call##Name##Callbacks(PtrType* obj, ValType val) \
+    { \
+        if (g_##Name##Callbacks.empty()) \
+            return; \
+        PyGILState_STATE gs = PyGILState_Ensure(); \
+        PyObject* pyObj = WrapFn(obj); \
+        PyObject* pyVal = ToPyObj(val); \
+        if (!pyObj || !pyVal) \
+        { \
+            Py_XDECREF(pyObj); Py_XDECREF(pyVal); \
+            PyErr_Clear(); \
+            PyGILState_Release(gs); \
+            return; \
+        } \
+        for (std::vector<PyObject*>::iterator it = g_##Name##Callbacks.begin(); \
+            it != g_##Name##Callbacks.end(); ++it) \
+        { \
+            PyObject* result = PyObject_CallFunctionObjArgs(*it, pyObj, pyVal, nullptr); \
+            if (!result) PyErr_Clear(); else Py_DECREF(result); \
+        } \
+        Py_DECREF(pyObj); Py_DECREF(pyVal); \
+        PyGILState_Release(gs); \
+    }
+
+// Wrapped pointer + std::string, e.g. CallCharacterSayCallbacks(Character*, std::string)
+#define DEFINE_CALL_PTR_STRING(Name, PtrType, WrapFn) \
+    void Call##Name##Callbacks(PtrType* obj, const std::string& msg) \
+    { \
+        if (g_##Name##Callbacks.empty()) \
+            return; \
+        PyGILState_STATE gs = PyGILState_Ensure(); \
+        PyObject* pyObj = WrapFn(obj); \
+        PyObject* pyMsg = PyUnicode_FromString(msg.c_str()); \
+        if (!pyObj || !pyMsg) \
+        { \
+            Py_XDECREF(pyObj); Py_XDECREF(pyMsg); \
+            PyErr_Clear(); \
+            PyGILState_Release(gs); \
+            return; \
+        } \
+        for (std::vector<PyObject*>::iterator it = g_##Name##Callbacks.begin(); \
+            it != g_##Name##Callbacks.end(); ++it) \
+        { \
+            PyObject* result = PyObject_CallFunctionObjArgs(*it, pyObj, pyMsg, nullptr); \
+            if (!result) PyErr_Clear(); else Py_DECREF(result); \
+        } \
+        Py_DECREF(pyObj); Py_DECREF(pyMsg); \
+        PyGILState_Release(gs); \
+    }
+
+// --- Combined macros: list + register + unregister + call, in one line ----
+
+#define DEFINE_CALLBACK_1VALUE(Name, CType, ToPyObj) \
+    DEFINE_CALLBACK_LIST(Name) \
+    DEFINE_CALL_1VALUE(Name, CType, ToPyObj)
+
+#define DEFINE_CALLBACK_1PTR(Name, PtrType, WrapFn) \
+    DEFINE_CALLBACK_LIST(Name) \
+    DEFINE_CALL_1PTR(Name, PtrType, WrapFn)
+
+#define DEFINE_CALLBACK_PTR_VALUE(Name, PtrType, WrapFn, ValType, ToPyObj) \
+    DEFINE_CALLBACK_LIST(Name) \
+    DEFINE_CALL_PTR_VALUE(Name, PtrType, WrapFn, ValType, ToPyObj)
+
+#define DEFINE_CALLBACK_PTR_STRING(Name, PtrType, WrapFn) \
+    DEFINE_CALLBACK_LIST(Name) \
+    DEFINE_CALL_PTR_STRING(Name, PtrType, WrapFn)
+
+
+// ---------------------------------------------------------------------------
+// SWIG pointer wrapper generator
+//
+// Generates WrapXPointer(Type* p) that converts a raw pointer to the
+// corresponding Python object via SWIG, with a raw-address fallback if the
+// SWIG type can't be resolved (so callbacks can still run).
+// ---------------------------------------------------------------------------
+
+#define DEFINE_SWIG_POINTER_WRAPPER(Name, CppType, SwigTypeName) \
+    static swig_type_info* Resolve##Name##SwigType() \
+    { \
+        static swig_type_info* g_type = nullptr; \
+        static bool g_resolved = false; \
+        if (!g_resolved) \
+        { \
+            g_type = SWIG_Python_TypeQuery(SwigTypeName); \
+            g_resolved = true; \
+        } \
+        return g_type; \
+    } \
+    \
+    static PyObject* Wrap##Name##Pointer(CppType* p) \
+    { \
+        if (!p) \
+        { \
+            Py_INCREF(Py_None); \
+            return Py_None; \
+        } \
+        swig_type_info* type = Resolve##Name##SwigType(); \
+        if (!type) \
+            return PyLong_FromVoidPtr(static_cast<void*>(p)); \
+        return SWIG_Python_NewPointerObj(nullptr, static_cast<void*>(p), type, 0); \
+    }
+
+DEFINE_SWIG_POINTER_WRAPPER(Character, Character, "Character *")
+DEFINE_SWIG_POINTER_WRAPPER(Inventory, Inventory, "Inventory *")
+
+// Single value callbacks
+DEFINE_CALLBACK_1VALUE(KeyDown, int, PyLong_FromLong)
+
+// Single-pointer Character callbacks
+DEFINE_CALLBACK_1PTR(CharacterSelect, Character, WrapCharacterPointer)
+DEFINE_CALLBACK_1PTR(CharacterUnselect, Character, WrapCharacterPointer)
+DEFINE_CALLBACK_1PTR(CharacterDeclareDead, Character, WrapCharacterPointer)
+
+// Pointer + string
+DEFINE_CALLBACK_PTR_STRING(CharacterSay, Character, WrapCharacterPointer)
+
+// Pointer + value
+DEFINE_CALLBACK_PTR_VALUE(TakeMoney, Inventory, WrapInventoryPointer, int, PyLong_FromLong)
+
+// ---------------------------------------------------------------------------
+// Frame callbacks — special case
+//
+// Unlike the other callback types, Frame needs to hook into Ogre's per-frame
+// event system rather than a MinHook detour. We only keep an
+// Ogre::FrameListener registered while at least one Python callback exists,
+// so idle scripts cost nothing.
+// ---------------------------------------------------------------------------
+
+static std::vector<PyObject*> g_FrameCallbacks;
+
+// Generates CallFrameCallbacks(float) — iterates g_FrameCallbacks above.
+DEFINE_CALL_1VALUE(Frame, float, PyFloat_FromDouble)
+
+class FrameCallbackListener : public Ogre::FrameListener
 {
 public:
-    bool frameStarted(const Ogre::FrameEvent& evt) override
+    bool frameStarted(const Ogre::FrameEvent& evt)
     {
         CallFrameCallbacks(evt.timeSinceLastFrame);
-        return true;   // return false would stop the render loop
-
+        return true;
     }
 };
 
-static PythonFrameListener* g_frameListener = nullptr;
-
-static Ogre::Root* GetOgreRoot()
-{
-    // Ogre::Root is a singleton — getSingletonPtr() returns nullptr if it
-    // hasn't been created yet, so this is safe to call at any time.
-    return Ogre::Root::getSingletonPtr();
-}
+static FrameCallbackListener g_frameListener;
+static bool g_frameListenerInstalled = false;
 
 void RegisterFrameCallback(PyObject* callable)
 {
@@ -410,46 +260,32 @@ void RegisterFrameCallback(PyObject* callable)
         return;
     }
 
-    Ogre::Root* root = GetOgreRoot();
-    if (!root)
-    {
-        Logger::Error("RegisterFrameCallback: Ogre::Root not available yet");
-        return;
-    }
-
     Py_INCREF(callable);
-    g_frameCallbacks.push_back(callable);
+    g_FrameCallbacks.push_back(callable);
 
-    if (!g_frameListener)
+    if (!g_frameListenerInstalled)
     {
-        g_frameListener = new PythonFrameListener();
-        root->addFrameListener(g_frameListener);
-        Logger::Debug("PythonFrameListener registered.");
+        Ogre::Root::getSingleton().addFrameListener(&g_frameListener);
+        g_frameListenerInstalled = true;
     }
 }
 
 void UnregisterFrameCallback(PyObject* callable)
 {
-    for (auto it = g_frameCallbacks.begin(); it != g_frameCallbacks.end(); ++it)
+    for (std::vector<PyObject*>::iterator it = g_FrameCallbacks.begin();
+        it != g_FrameCallbacks.end(); ++it)
     {
         if (*it == callable)
         {
             Py_DECREF(*it);
-            g_frameCallbacks.erase(it);
+            g_FrameCallbacks.erase(it);
             break;
         }
     }
 
-    // Remove the listener when no callbacks remain so we don't burn CPU.
-    if (g_frameCallbacks.empty() && g_frameListener)
+    if (g_FrameCallbacks.empty() && g_frameListenerInstalled)
     {
-        Ogre::Root* root = GetOgreRoot();
-        if (root)
-            root->removeFrameListener(g_frameListener);
-
-        delete g_frameListener;
-        g_frameListener = nullptr;
-        Logger::Debug("PythonFrameListener removed (no remaining callbacks).");
+        Ogre::Root::getSingleton().removeFrameListener(&g_frameListener);
+        g_frameListenerInstalled = false;
     }
 }
-

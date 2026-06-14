@@ -166,6 +166,22 @@
 #include "Callbacks.h"
 %}
 void RegisterKeyDownCallback(PyObject* callable);
-void RegisterFrameCallback(PyObject* callable);
 void UnregisterKeyDownCallback(PyObject* callable);
+
+void RegisterFrameCallback(PyObject* callable);
 void UnregisterFrameCallback(PyObject* callable);
+
+void RegisterCharacterSayCallback(PyObject* callable);
+void UnregisterCharacterSayCallback(PyObject* callable);
+
+void RegisterCharacterSelectCallback(PyObject* callable);
+void UnregisterCharacterSelectCallback(PyObject* callable);
+
+void RegisterCharacterUnselectCallback(PyObject* callable);
+void UnregisterCharacterUnselectCallback(PyObject* callable);
+
+void RegisterCharacterDeclareDeadCallback(PyObject* callable);
+void UnregisterCharacterDeclareDeadCallback(PyObject* callable);
+
+void RegisterTakeMoneyCallback(PyObject* callable);
+void UnregisterTakeMoneyCallback(PyObject* callable);
