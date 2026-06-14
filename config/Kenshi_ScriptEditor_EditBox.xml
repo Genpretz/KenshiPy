@@ -5,7 +5,7 @@
 			<Property key="MultiLine" value="true"/>
 			<UserString key="LE_TargetWidgetType" value="EditBox"/>
 
-			<Widget type="TextBox" skin="Kenshi_TextboxStandardText" position="10 10 265 165" align="Stretch" name="Client">
+			<Widget type="TextBox" skin="Kenshi_EditBoxStandardText" position="10 10 265 165" align="Stretch" name="Client">
 				<Property key="TextAlign" value="Default"/>
 				<Property key="Pointer" value="beam"/>
 			</Widget>
