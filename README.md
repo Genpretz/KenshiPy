@@ -104,6 +104,8 @@ KenshiPy.DebugLog("Hello from Python")
 - **SWIG 3.0.12**
 - **Python 3.4**
 - **Kenshi**
+
+The project's include paths, library paths, and build events use environment variables to account for varying installation locations, avoiding the need to hardcode paths in the project file. You will need to set the variables listed below before building.
  
 1. **SWIG 3.0.12** — set environment variable `SWIG_INSTALL_DIR` to SWIG's root directory (e.g. `C:\swigwin-3.0.12\`)
 2. **Python 3.4** — set environment variable `PYTHON34_INSTALL_DIR` to Python 3.4's root directory (e.g. `C:\Python34\`)
@@ -138,8 +140,6 @@ The game and KenshiLib are built against MSVC2010-era assumptions, including C++
 
 * **SWIG 3.0.12** is used because newer versions may generate bindings incompatible with MSVC2010-era C++ ABI expectations.
 * **Python 3.4** is required to maintain compatibility with the embedded interpreter ABI and avoid breakage introduced in later Python versions.
-
-The project's include paths, library paths, and build events use environment variables to account for varying installation locations, avoiding the need to hardcode paths in the project file. You will need to set the variables listed below before building.
 
 ## Callbacks
 
