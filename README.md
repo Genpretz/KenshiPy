@@ -31,14 +31,15 @@ class GameWorld
 should be useable like so
 
 ```python
-# Get pointer to GameWorld object
+# Remeber to import the KenshiPy Python module
+import KenshiPy
+
+# Get pointer to global GameWorld object
 world = getGameWorld()
 
 world.userPause(True)
 # Game should now be paused
 ```
-
-- The same should apply to any member variables of standard data types.
 
 The parts of KenshiLib that explicitly do not work:
 - Ogre, MyGui, and Boost libraries have not been wrapped and so any parts of KenshiLib requiring the use of them should be assumed non-functional.
@@ -117,13 +118,14 @@ The project's include paths, library paths, and build events use environment var
    - Steam: `C:\Program Files (x86)\Steam\steamapps\common\Kenshi\`
    - GOG: `C:\Program Files (x86)\GOG Galaxy\Games\Kenshi\`
 ### Building
- 
-`KenshiPy.vcxproj` can be built using Visual Studio's standard build option and includes two custom build events to help streamline the process. These events are disabled by default. If you choose to enable them, you can find them described below. If you prefer not to use them, manual alternatives are provided.
- 
-#### Pre-Build Event:
-When this event is enabled, SWIG parses KenshiLib's headers and KenshiPy's interface files in order to generate the Python bindings, writing the output to `.\src\GeneratedWrapper.cpp` and `$(SolutionDir)bin\$(Configuration)\KenshiPython\KenshiPy.py`
+- `KenshiPy.vcxproj` can be built using Visual Studio's standard build option and includes two custom build events to help streamline the process. These events are disabled by default. If you choose to enable them, you can find them described below. If you prefer not to use them, manual alternatives are provided.
 
-When this event is disabled, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository and move on, or run SWIG manually to generate the required files:
+---
+
+### Pre-Build Event:
+- When this event is enabled, SWIG parses KenshiLib's headers and KenshiPy's interface files in order to generate the Python bindings, writing the output to `.\src\GeneratedWrapper.cpp` and `$(SolutionDir)bin\$(Configuration)\KenshiPython\KenshiPy.py`
+
+- When this event is disabled, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository and move on, or run SWIG manually to generate the required files:
 ```
 set SWIG_INSTALL_DIR=C:\swigwin-3.0.12\
 set PYTHON_INSTALL_DIR=C:\Python34\
@@ -133,20 +135,18 @@ set OUTPUT_DIR=%SolutionDir%bin\%Configuration%\KenshiPython
 ```
 **NOTE:** The large size of `GeneratedWrapper.cpp` and therefore `GenerateWrapper.obj` leads to long build times. In my experience they can be upwards of of around **1 hour** when building with Optimizations enabled (which they are by default).
  
-#### Post-Build Event:
-This event copies `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
+### Post-Build Event:
+- This event copies `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, `RE_Kenshi.json` into the build output directory alongside `KenshiPy.dll`, then copies the entire output directory into Kenshi's mods folder (`<KENSHI_INSTALL_DIR>\mods\KenshiPython\`), making the mod immediately available to test in-game.
  
-Choosing not to enable the Post_Build Event requires manually copying the build output, `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, and `RE_Kensh.json` into Kenshi's mods folder.
+- Choosing not to enable the Post_Build Event requires manually copying the build output, `python34.dll`, `Kenshi_ScriptEditor_EditBox.xml`, and `RE_Kensh.json` into Kenshi's mods folder.
 
 #### Notes on Toolchain Constraints:
-
-The game and KenshiLib are built against MSVC2010-era assumptions, including C++ ABI layout, runtime library behavior, and Python embedding conventions. KenshiPy must match these constraints to ensure stable integration.
+- The game and KenshiLib are built against MSVC2010-era assumptions, including C++ ABI layout, runtime library behavior, and Python embedding conventions. KenshiPy must match these constraints to ensure stable integration.
 
 * **SWIG 3.0.12** is used because newer versions may generate bindings incompatible with MSVC2010-era C++ ABI expectations.
 * **Python 3.4** is required to maintain compatibility with the embedded interpreter ABI and avoid breakage introduced in later Python versions.
 
 ## Callbacks
-
 KenshiPy exposes a set of callbacks that allow Python scripts to respond to in-game events. Each callback type has a corresponding `Register` and `Unregister` function.
 
 ### Key Down
