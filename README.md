@@ -61,6 +61,8 @@ The parts of KenshiLib that explicitly do not work:
 
 Pressing `Ctrl` + `` ` `` in-game will open KenshiPy's Script Editor GUI. From here you can load, edit, save, and run scripts using the buttons on the Script Editor's toolbar.
 
+<img width="1920" height="1200" alt="KenshiPy_ScriptEditor" src="https://github.com/user-attachments/assets/3f30cf82-acc9-4c46-964a-fff4395ea346" />
+
 ### Loading Python Scripts
 
 When the game starts, KenshiPy will check whether any active mods contain a file, `KenshiPy.json`, and if found will load the Python scripts declared within.
@@ -83,7 +85,9 @@ Assuming the file **example.py** exists at this location.
 ```
 
 ### Example Python Script
-
+---
+#### NOTE: Remember to import KenshiPy in order to access the KenshiPy python module
+---
 **Example.py**
 ```python
 import KenshiPy
