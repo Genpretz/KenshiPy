@@ -125,7 +125,7 @@ The project's include paths, library paths, and build events use environment var
 ### Pre-Build Event:
 - When this event is enabled, SWIG parses KenshiLib's headers and KenshiPy's interface files in order to generate the Python bindings, writing the output to `.\src\GeneratedWrapper.cpp` and `$(SolutionDir)bin\$(Configuration)\KenshiPython\KenshiPy.py`
 
-- When this event is disabled, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository and move on, or run SWIG manually to generate the required files:
+- When this event is disabled, either use a pre-existing copy of `GeneratedWrapper.cpp` from the source repository and a copy of `KenshiPy.py` from the KenshiPy release, or run SWIG manually to generate the required files:
 ```
 set SWIG_INSTALL_DIR=C:\swigwin-3.0.12\
 set PYTHON_INSTALL_DIR=C:\Python34\
